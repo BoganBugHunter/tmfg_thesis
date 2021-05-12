@@ -239,27 +239,45 @@ The following chapters will analyse the capacity of two-dimensional and three-di
 % -a "true throat area" based on the M1 line being crossed at oblique angles by every streamline
 % -certain geometric parameters describing how its shape is different to the shape of its other family members
 
---a discussion of what "throat area" is:
+%"throat area" just means the smallest line or surface that can be drawn in a nozzle - not sympathetic to anything actually happening in the flow. It only really works in 1D.
 
- --how "throat area" just means the smallest line or surface that can be drawn in a nozzle - not sympathetic to anything actually happening in the flow. It only really works in 1D.
- 		--need to introduce the idea of area function along the length of a streamline, so each streamline can have its minimum area in a different place.
- 		--for a 1D supersonic nozzle, it is possible to solve for the flow conditions along the streamline provided area is specified as a function of position. The nozzle's mass flow 		rate capacity is a function of only the flow's minimum area, as in equation \ref{capacity_definition}.
- 		--If a 2D flow is modelled as a group of adjacent streamlines, separate streamlines can have dissimilar area functions. They can have their minimum areas at points that do not 		lie along a straight line across the geometric throat.
- 		--If the flow is isentropic, each streamline will experience sonic conditions at its point of minimum area, combining to form the sonic line.
- 		--The effective throat area of a 2D nozzle is the sum of its streamlines' throat areas. This is distinct from the sonic line length, and may be expressed as
- 		\begin{equation}
- 			\int_{1}^2 \vu*{v} \vdot \vu*{r} dL
- 		\end{equation}
- 		as illustrated in Figure~\ref{fig:illustration_of_equivalent_throat_area_integral}.
- 		\begin{figure}[H]
-      		\centering
-      		\includegraphics[width=.6\textwidth]{figs/illustration_of_equivalent_throat_area_integral_ver03.png}
-      		\caption{Integral for 2D nozzle equivalent throat area}
-      		\label{fig:illustration_of_equivalent_throat_area_integral}
-   		\end{figure}
+A 1-dimensional supersonic nozzle is equivalent to a single streamline of variable cross-sectional area. It is possible to solve for the flow conditions throughout the nozzle, provided area is specified as a function of position along the nozzle. The mass flow rate capacity is a function of only the flow's minimum area, as in equation \ref{capacity_definition}.
+
+A 2-dimensional nozzle may be modelled as a group of adjacent streamlines, each of which may have dissimilar area functions. The streamlines' minimum areas may not correspond to a straight line across the narrowest part of the nozzle. 
+
+This is illustrated in Figure~\ref{fig:illustration_of_minimum_area} by considering the division of a 2-dimensional flow into a finite number of streams of finite width. Each stream has an individual line of minimum width where sonic conditions exist. Collectively these lie on a line distinct from the overall passage line of minimum width. These two definitions of the effective throat line are marked.
+
+If this concept is extended to infinitesimal streamlines (and the flow is isentropic) each streamline will experience sonic conditions at its point of minimum area, combining to form the 2-dimensional sonic line. The effective throat area of a 2-dimensional nozzle is thus the sum of its streamlines' throat areas. This is distinct from the sonic line length, and may be expressed by the integral
+\begin{equation}
+	\int_{1}^2 \vu*{v} \vdot \vu*{r} dL
+\end{equation}
+where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit vector perpendicular to the local sonic line, and the integral is performed on the scalar infinitessimal $dL$ over the length of the sonic line, as illustrated in Figure~\ref{fig:illustration_of_equivalent_throat_area_integral}.
  		
- 
- --The flow must be thought of as a series of streamlines, where each streamline still has a minimum area somewhere along its length, just not where the ruler says it is. 
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.6\textwidth]{figs/illustration_of_equivalent_throat_area_integral_ver03.png}
+%	\caption{Integral for 2D nozzle equivalent throat area}
+%	\label{fig:illustration_of_equivalent_throat_area_integral}
+%\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/illustration_of_minimum_area_ver04.png}
+		\caption{Different minimum area points of dissimilar streams}
+		\label{fig:illustration_of_minimum_area}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/illustration_of_equivalent_throat_area_integral_ver03.png}
+		\caption{Integral for 2D nozzle equivalent throat area}
+		\label{fig:illustration_of_equivalent_throat_area_integral}
+	\end{subfigure}
+	\caption{}
+\end{figure}
+ 		
  
  --Review any definitions of minimum area from the literature. I haven't got any from the first group of papers from David.
 
