@@ -1,0 +1,419 @@
+%Hierarchy is Chapter > Section > Subsection
+%http://www.khirevich.com/latex/font/ - Tips on Writing a Thesis in LaTeX
+
+\documentclass[11pt, twoside]{report}
+
+\usepackage[T1]{fontenc} %allows for the encoding of unusual or accented characters
+\usepackage[bitstream-charter]{mathdesign} %font package similar to the Elsevier font, with included maths style
+\usepackage{physics} %provides a family of vector notation
+
+\usepackage{datetime}
+\usepackage{graphics} % for pdf, bitmapped graphics files
+\usepackage{epsfig} % for postscript graphics files
+\usepackage{epstopdf} %nathan tells me I need this one
+\usepackage{multirow} %for splitting rows inside tables
+\usepackage{float} %for positioning the nomenclature floating tables
+\usepackage{color}
+\usepackage{subcaption}
+\setlength{\parindent}{0em} %don't indent paragraphs
+\setlength{\parskip}{1em} %space between paragraphs
+
+%packages that may be useful for formatting
+%\usepackage{flushend} %for equalising final page column lengths. messes stuff up sometimes
+%\usepackage{setspace}
+%\usepackage{pdfpages}
+%\hoffset = 9pt
+%\voffset = 34pt
+
+\newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR}
+\title{Sensitivity of \\Nozzle Guide Vane Flow Capacity \\to Geometric Changes}
+\author{Tom Franklyn Gammage}
+\date{\mydate\today}
+
+
+
+
+\begin{document}
+
+
+
+
+\maketitle
+
+
+
+
+\chapter*{Thanks}
+
+\chapter*{Abstract}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\chapter*{Nomenclature}
+\subsection*{Romans}
+\subsection*{Greeks}
+\subsection*{Acronyms and Abbreviations}
+\subsection*{Subscripts}
+
+
+
+
+\chapter{Capacity - definition and derivation}
+%--Include some derivation of how capacity prediction errors can cause exponentially increasing errors in later stages
+%--In the relevant chapter, extend capacity to 2D to show how it becomes more nuanced
+
+
+\section{Reasons for considering capacity}
+
+The capacity of an internal combustion engine is an intuitive concept. It is simple to derive from the engine's geometry, it has tangible units of volume, and it provides an heuristic for the engine's size, performance, and air mass flow rate.
+
+The design of turbomachinery invites an analagous concept to that of IC engine capacity, but a definition is not so obvious. Mass flow rate through an engine's nozzle guide vane is a function of the NGV's geometry and of its boundary conditions. If the mass flow rate can be quantified in a way which mitigates the boundary conditions, then the effects of an NGV's geometry on its mass flow rate may be isolated. A particular NGV will thus have a mass flow rate capacity, just as a particular IC cyclinder has a volumetric capacity.
+
+Defining a geometric mass flow rate capacity allows for experimental testing of NGVs without recreating the extreme boundary conditions to which real NGVs are exposed. Setting the correct pressure ratio is sufficent, as the subsequent derivation will show. This expedites the testing of different NGV geometries' effects on capacity.
+
+The predictability of NGV capacity affects the design of every downstream turbine stage. If the NGV mass flow rate differs from its expected value due to a poor prediction, all subsequent turbine stages will be sized for an incorrect mass flow rate. The resulting errors in flow velocity and pressure will compound with each additional stage, leading to increasingly incorrect specification of turbine sizes and turning angles.
+
+A strong understanding of capacity predictability should allow engine-makers to pre-empt geometric changes that happen to NGVs during service, such as erosion and cooling hole blockage. It should also account for geometric uncertainties arising from the manufacturing process. While this study advocates for improved accuracy of capacity predictions, emphasis is placed on how these predictions are limited by the unpredictability of real-world manufacture and service.
+
+
+\section{Mass flow rate through an NGV}
+
+In one dimension, an engine nozzle may be modelled as a compressible flow from an upstream reservoir of total pressure $p_0$, accelerating to velocity $v$ and density $\rho$ through a nozzle of cross-sectional area $A$. Mass flow rate through the nozzle is thus
+\begin{equation}
+\dot{m} = \rho A v
+\end{equation}
+where density may be expressed as a function of \textit{pressure ratio}, the ratio of the nozzle pressure to the total pressure
+\begin{equation}
+\rho = \frac{p_0}{R T_0} \left(\frac{p}{p_0}\right)^\frac{1}{\gamma}
+\end{equation}
+and velocity is given by the compresssible form of Bernouilli's equation as
+\begin{equation}
+v = \>
+\sqrt[•]{ 
+	2 \left( \frac{\gamma}{\gamma - 1} \right) \left[ \frac{p_0}{\rho_0} - \frac{p}{\rho} \right] 
+}
+\end{equation}
+
+The above equations combine to express mass flow rate through the nozzle as
+\begin{equation}
+\dot{m} =
+A
+\frac{p_0}{R T_0}
+\left(\frac{p}{p_0}\right)^\frac{1}{\gamma}
+\sqrt[•]{ 
+2 \left( \frac{\gamma}{\gamma - 1} \right) 
+\left[ \frac{p_0}{ \left( \frac{p_0}{R T_0} \right) } - \frac{p}{ \left( \frac{p_0}{R T_0} \right) \left(\frac{p}{p_0}\right)^\frac{1}{\gamma} } \right] 
+}
+\end{equation}
+which simplifies to
+\begin{equation}
+\dot{m} =
+A
+\frac{p_0}{R T_0}
+\left(\frac{p}{p_0}\right)^\frac{1}{\gamma}
+\sqrt[•]{
+	2 \left( 
+		\frac{\gamma}{\gamma - 1} 
+	\right)
+	\left[ 
+		R T_0 - R T_0 \left( \frac{p}{p_0} \right)^\frac{\gamma-1}{\gamma} 
+	\right]
+}
+\end{equation}
+\begin{equation}
+\dot{m} =
+\frac{p_0}{\sqrt[•]{T_0}} \>
+A \;
+\sqrt[]{\frac{\gamma}{R}}
+\left(
+    \frac{p}{p_0}
+\right)^\frac{1}{\gamma}
+\sqrt[•]{
+	\left(
+		\frac{2}{\gamma - 1}  
+	\right)
+	\left[
+		1 - \left( \frac{p}{p_0} \right)^\frac{\gamma-1}{\gamma}
+	\right] 
+}
+\end{equation}
+
+
+\section{NGV capacity in 1 dimension}
+
+Capacity is defined as
+\begin{equation}\label{capacity_definition}
+\Gamma = \frac{\sqrt[•]{T_0}}{p_0}  \>
+\dot{m}
+\end{equation}
+This provides an expression of mass flow rate independent of upstream total pressure $p_0$ and upstream total temperature $T_0$. The expression is purely a function of throat area $A$ and pressure ratio $\frac{p}{p_0}$:
+\begin{equation}
+\Gamma =
+A \;
+\sqrt[]{\frac{\gamma}{R}}
+\left(
+    \frac{p}{p_0}
+\right)^\frac{1}{\gamma}
+\sqrt[•]{
+	\left(
+		\frac{2}{\gamma - 1}  
+	\right)
+	\left[
+		1 - \left( \frac{p}{p_0} \right)^\frac{\gamma-1}{\gamma}
+	\right] 
+}
+\end{equation}
+A scale constant $\sigma$ is defined as
+\begin{equation}
+\sigma = 
+\sqrt[]{\frac{2\gamma}{R\left(\gamma-1\right)}} \;
+\end{equation}
+for a compact expression of capacity as a function of throat area and pressure ratio $r$:
+\begin{equation}
+\Gamma \left( A, r \right) = 
+\sigma
+A \;
+\sqrt[]{
+	r^\frac{2}{\gamma}
+	\left(
+		1 - r ^\frac{\gamma-1}{\gamma}
+	\right) 
+}
+\end{equation}
+This expression has its maximum value at the critical pressure ratio
+\begin{equation}
+r_c =
+\left(
+	\frac{\gamma+1}{2}
+\right)
+^\frac{\gamma}{1-\gamma}
+\end{equation}
+At lower ratios, the nozzle is choked and mass flow rate cannot increase further. Choked capacity is given by
+\begin{equation}\label{choked_capacity_from_area}
+\Gamma_c \left( A \right) =
+\sigma
+A \;
+\sqrt[]{
+	\left(
+		\frac{\gamma + 1}{2}  
+	\right)
+	^\frac{2}{1-\gamma}
+	-
+	\left(
+		\frac{\gamma + 1}{2}  
+	\right)
+	^\frac{1+\gamma}{1-\gamma}
+}
+\end{equation}
+
+It is shown that the capacity of one-dimensional nozzle flow is a function of only the flow's minimum area, provided the flow is choked and the ratio of specific heats is assumed constant. 
+
+The following chapters will analyse the capacity of two-dimensional and three-dimensional nozzle flows, presenting and discussing analytical techniques for applying the 1D capacity equation to 2D and 3D data. In such cases, capacity will be quantified using equation \ref{capacity_definition}.
+
+%maybe another paragraph on why this matters for predictability, but maybe this is already appropriate in the chapter intro?
+
+
+
+
+\chapter{Geometric throat area}
+
+
+% NEEDED DATA:
+% -T900 smooth vanes, 6x 2D CFD solutions at various pressure ratios
+% -Not sure where the 3D data came from, can we check this? ie --GOM scan data
+
+%plan for chapter - answer the following questions:
+% 1) what does "throat area" MEAN beyond 1D? Is it the smallest area across the nozzle, or is it a line/surface drawn according to real flow features, most likely the M1 line?
+% 1) why does it work quite well in 2D, ie what is mostly NOT changing between the geometries (could almost say what is incidentally being controlled for)?
+% 2) what starts changing in 3D to the extent that no linear signal is recognisable in the noise?
+
+%the raw data consists of: 
+% -some 2D vanes with different geometries, and a bunch of 3D vanes with different geometries. Range of PRs. For each, there is a "throat area".
+%it is thus possible to plot: 
+% -changes in throat area versus changes in capacity for the 2D family, for any given PR
+% -changes in throat area versus changes in capacity for the 3D family, for any given PR
+% -capacity trends for the 2D and 3D vanes
+%for each solution, it is possible to define:
+% -a "true throat area" based on the M1 line being crossed at oblique angles by every streamline
+% -certain geometric parameters describing how its shape is different to the shape of its other family members
+
+--a discussion of what "throat area" is:
+
+ --how "throat area" just means the smallest line or surface that can be drawn in a nozzle - not sympathetic to anything actually happening in the flow. It only really works in 1D.
+ 		--need to introduce the idea of area function along the length of a streamline, so each streamline can have its minimum area in a different place.
+ 		--for a 1D supersonic nozzle, it is possible to solve for the flow conditions along the streamline provided area is specified as a function of position. The nozzle's mass flow 		rate capacity is a function of only the flow's minimum area, as in equation \ref{capacity_definition}.
+ 		--If a 2D flow is modelled as a group of adjacent streamlines, separate streamlines can have dissimilar area functions. They can have their minimum areas at points that do not 		lie along a straight line across the geometric throat.
+ 		--If the flow is isentropic, each streamline will experience sonic conditions at its point of minimum area, combining to form the sonic line.
+ 		--The effective throat area of a 2D nozzle is the sum of its streamlines' throat areas. This is distinct from the sonic line length, and may be expressed as
+ 		\begin{equation}
+ 			\int_{1}^2 \vu*{v} \vdot \vu*{r} dL
+ 		\end{equation}
+ 		as illustrated in Figure~\ref{fig:illustration_of_equivalent_throat_area_integral}.
+ 		\begin{figure}[H]
+      		\centering
+      		\includegraphics[width=.6\textwidth]{figs/illustration_of_equivalent_throat_area_integral_ver03.png}
+      		\caption{Integral for 2D nozzle equivalent throat area}
+      		\label{fig:illustration_of_equivalent_throat_area_integral}
+   		\end{figure}
+ 		
+ 
+ --The flow must be thought of as a series of streamlines, where each streamline still has a minimum area somewhere along its length, just not where the ruler says it is. 
+ 
+ --Review any definitions of minimum area from the literature. I haven't got any from the first group of papers from David.
+
+
+\section{1D vs 2D capacity uncertainty}
+
+-- A family of 2D NGVs were run at various PRs in CFD. The point is to see how their capacity varies when plotted against various definitions of throat area. The usefulness of each definition will be discussed.
+
+-- Present boundary conditions
+
+-- Present mesh
+
+-- When the "throat area" of the 2D family is plotted against their capacity at a choking PR, it shows a pretty good proportional relationship. This is despite some obvious differences in the shape of the M1 line.
+
+-- Why are there still small deviations? That is, can I present a better definition of throat area that fits even better? Possible topics:
+
+ -- Most likely it will follow the 1D rule if it is taken to be that streamline's M1 point. But not certain.
+ 
+ -- the relationship between the minA line and the M1 line
+ 
+ -- the total length of each M1 line
+ 
+ -- a plot of capacity vs M1 line length
+
+-- Why aren't there larger deviations? That is, can I derive a sensible geometric parameter and show that it isn't changing significantly?
+
+-- Is this all really at design PR? What if the M1 lines were obtained at more choked PRs but I forgot to say so? What does the correlation look like at other PRs?
+
+
+\section{2D vs 3D capacity uncertainty}
+
+-- 3D CFD data was shared by Rolls-Royce for comparison with the 2D data. The point is to see why 3D is still so different from 2D, ie what are we failing so badly to predict with 2D?
+
+-- Discuss the most important ways in which the 3D capacity trends are different from the 2D ones. From a superficial look it appears that the 3D trends never choke. What could this mean about their having a M1 line at all?
+
+-- What does the correlation look like at other PRs?
+
+-- Review 3D effects from the literature.
+
+
+
+
+\chapter{Trailing edge}
+%How the trailing edge can drive capacity changes (and loss changes incidentally). These changes are discussed as those happening in-life to the existing engine parts, and also those resulting from an alternative design.
+%Why am I including "loss" here, when this part is really about the robustness of capacity predictions on vanes that will change shape with wear?
+
+
+%NEEDED DATA:
+%-SS cutbacks, all solutions
+%-PS cutbacks, all solutions
+%-variable cooling rate CFD
+%-Larger pictures of the different meshes used
+%-Larger contour plots for the different levels of TE SS erosion
+%-MinA and M1 lines for the TE SS cutbacks  
+%-"Rolls-Royce vs this study" geometry illustration should be remade to be at the same angle as all the flow pictures
+
+%Plan for chapter - answer the following questions:
+%1) How does erosion to the SS flange alter 2D mid-span capacity, and which mechanism best explains the changes?
+%2) According to the literature, would a 3D investigation into this be justified?
+%3) How capacity-predicable would an altrernative design of TE be?
+%4) Would said alternative design reduce "loss"?
+
+
+\section{Uncertainties in the trailing edge shape (SS erosion) - how hard do they make it to predict capacity}
+
+-- Uncertanties occur in the suction-side traling edge because of various factors like erosion through cooling failure (for example in desert environments) and manufacturing variations. If variations and life-cycle changes happen to the trailing edge, what effect on capacity can we expect, and why?
+
+--Review the literature on what sort of erosion is expected, and show that it’s justified to look at a 2D midspan slice as I have done, because this the hottest bit of the part and more erosion would happen here anyway.
+
+--2D CFD was run for 1 NGV with varying amounts of erosion simulated on the TE SS flange.
+
+--Present boundary conditions
+
+--Present mesh with larger and better pictures, and show how the mesh is altered as erosion amount varies
+
+--Show capacity trend for all the data as an initial summary, then show capacity vs erosion amount for a couple of relevant PRs (perhaps design and fully choked)
+
+--2D CFD predicts a maximum ~2 percent change in capacity (when the flange is completely gone)
+
+--What is changing in the flow as a result of the erosion, and is it driving capacity change via the expected route of throat area changes (whatever we've decided is the best definition of throat area in the previous chapter)
+
+
+\section{Centred-ejection option (PS cutbacks) (and could it reduce "loss"?)}
+
+--2D CFD was done on an alternative design of TE featuring centred coolant ejection. This shape of TE was also incrementally cut back on the pressure side so as to more resemble the existing TE design.
+
+--Present boundary conditions
+
+--Present mesh with larger and better pictures, and show how the mesh is altered as the design is altered
+
+--Plot capacity trends for the centred-ejection designs vs the baseline
+
+--Is there better capacity predictability because the effects of erosion are less pronounced due to the thicker flanges?
+
+--Review the literature to decide what is "loss".
+ --Jie Gao TE paper uses total pressure coefficient Cpt = (p1t - p2t)/(p2t - p2)
+
+--Discuss whether this "loss" may be worse or better if a centred-ejection design is used, still perhaps plotting more than one definition of loss
+
+--When using this configuration, is there an optimal blowing rate that might re-energise the base region? Plot blowing rate vs loss, remembering that the graph I currently have is erroneously for the other type of TE, not for the centred-ejection kind
+
+--Compare my centred-ejection TE with a "naturally-formed by erosion" centred-ejection TE from the literature 
+
+
+
+
+\chapter{Leading edge}
+%How the LE matters too.
+
+
+%NEEDED DATA:
+%-XWB 84K SS cooling hole 2D CFD solutions - not sure if there are multiple PRs converged, can we check that?
+%-XWB 84K SS cooling hole quasi-3D solutions - again not sure about other PRs
+%-More detailed and extensive surface pressure plots of the XWB CFD
+%-Surveys of total and static pressure across the passage at or shortly before the throat, to see how it changes with the hole moving
+%-Plot of how coolant TP compares to mainstream TP at each different injection point - this could all be compared to Hambidge's analytical work on capacitty and coolant ejection
+%-More illustative contour plots showing any differences between the two turbulence models
+
+%Plan for chapter - answer the following questions:
+%1) How is capacity affected by where exactly additional film coolant is introduced?
+%2) What current models best explain the effects of film coolant row location on capacity?
+%3) What corrections are necessary to interpret these 2D slot results in the real context of 2 rows of holes?
+
+--It is sometimes necessary to add extra cooling holes on the suction-side at the LE.
+
+--Coolant introduced into this part of the flow has complex interactions with the mainstream, affecting NGV capacity
+ 
+--Review some relevant literature on the effects of film cooling on capacity
+
+
+\section{sensitivity of capacity to cooling holes on the leading suction side}
+
+--2D CFD was done on an XWB NGV with no coolant features apart from the addition of a single cooling row on the upstream suction side. The position of this featrure was varied, thus varying whereabouts in the flow the coolant was introduced.
+
+--Present boundary conditions
+
+--Present mesh, showing how the variable location coolant row is introduced
+
+--Review the literature for why correctly modelling turbulence is important for capturing the mainstream/coolant mixing, and thus why two turbulence models are compared.
+
+--Plot capacity changes versus hole position and discuss its causes, mentioning the literature reviewed in the chapter intro (plus the two definitions of capacity where coolant is concerned - which one is used in earlier chapters??) A maximum ~0.5 percent change in capacity resulted from an unrealistically drastic shifting of a 2D cooling slot along the vane’s suction side.
+
+    
+\section{Consideration of corrections necessary to interpret 2D result}
+
+--Different:
+
+--Mass flow rate between a 2D slot and a 3D row of holes
+
+--Mixing between coolant and mainstream
+
+--Angle of ejection
+
+
+
+
+\end{document}
