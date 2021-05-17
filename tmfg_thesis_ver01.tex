@@ -6,6 +6,8 @@
 \usepackage[T1]{fontenc} %allows for the encoding of unusual or accented characters
 \usepackage[bitstream-charter]{mathdesign} %font package similar to the Elsevier font, with included maths style
 \usepackage{physics} %provides a family of vector notation
+%\usepackage[nottoc]{tocbibind} %for referencing
+\usepackage{cite}
 
 \usepackage{datetime}
 \usepackage{graphics} % for pdf, bitmapped graphics files
@@ -212,6 +214,8 @@ It is shown that the capacity of one-dimensional nozzle flow is a function of on
 
 The following chapters will analyse the capacity of two-dimensional and three-dimensional nozzle flows, presenting and discussing analytical techniques for applying the 1D capacity equation to 2D and 3D data. In such cases, capacity will be quantified using equation \ref{capacity_definition}.
 
+--Mention measurement and cite ~\cite{burdett_capacity_measurement}.
+
 %maybe another paragraph on why this matters for predictability, but maybe this is already appropriate in the chapter intro?
 
 
@@ -401,11 +405,41 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 %2) What current models best explain the effects of film coolant row location on capacity?
 %3) What corrections are necessary to interpret these 2D slot results in the real context of 2 rows of holes?
 
---It is sometimes necessary to add extra cooling holes on the suction-side at the LE.
+--It is sometimes necessary to add extra cooling holes on the suction-side at the LE. Literature about this:
+
+	--Giovanna Barigozzi - Experimental investigation of the interaction between showerhead coolant jets and main flow
+		--Arguing: When film coolant is ejected upstream , observed high turbulence and velocity fluctuations suggest the mixing is a random process without coherent structures, and unsteady, and 3D
+		--Raw data: Their experimental study, including pressure-sensitive paint and particle-image velocimetry
+		--I discuss: Do we know less than we thought about how much film coolant is actually getting to the LE SS? Reason why you might want an extra row there? Also, clear support for my arguing that proper CFD investigations of SS LE film cooling should not be a 2D slot and should not be steady
+	
+	--Wei He - Film cooling and aerodynamic performances of a turbine nozzle guide vane with trenched cooling holes
+		--Arguing: A novel design for film cooling holes, using a zigzag-shaped trench, has some advantages but is only really suitable for the middle PS
+		--Raw data: Their 3D CFD on a single-vane linear cascade, where the trench moves around various positions
+		--I discuss: They mention BR etc, relevant to me. Their movable trench is a bit like my movable 2D slot, except it is mainly confined to the PS, whereas mine is on the SS. But my quasi-3D study could be easily adapted to repeat their study of the novel trench shape
+		--My raw data: My Q3D study
+		
+	--Jie Gao - Experimental and numerical investigations of hole injection
+on the suction side throat of transonic turbine vanes in a cascade with trailing edge injection
+		--Arguing: Like their above paper but with a SS cooling slot. It causes passage blockage, a thicker wake, and more loss. But when there are shock waves, the film coolant enhances the TE PS shock but reduces the TE SS shock, which could be used toreatly reduce the TE SS shock if the injection is upstream of the throat
+		--Raw data: Their experimental and CFD linear cascade, with strong emphasis placed on the loss definitions and techniques established by Denton and Xu, Mee et al, and Schobieri
+		--I discuss: Ways in which my SS injection might interact with the flow (including shockwaves) as they suggest. Will I see it without having TE injection too?
+		--I also cite: Denton and Xu, Mee et al, and Schobieri for established precident on loss quantification
+		--My raw data: My moving coolant row study
+		
+	--S. Ravelli - NUMERICAL ASSESSMENT OF DENSITY RATIO AND MAINSTREAM TURBULENCE EFFECTS ON LEADING EDGE FILM COOLING: HEAT AND MASS TRANSFER METHODS
+		--Arguing: In a CFD simulation of four film cooling hole rows, the usual parameters (DR, BR, MFR, TuI) aren't enough to ensure you have matched the engine conditions
+		--Raw data: A previous experimental study (PSP) to validate their CFD, and their CFD
+		--I discuss: Criticise my own signle cooling slot work - is it really reperesentative enough for its capacity effects to be predictable
+		--I also cite: Other CFD on film cooling
+		--My raw data: My single cooling row data, emphasis on the CFD parameters and setup
 
 --Coolant introduced into this part of the flow has complex interactions with the mainstream, affecting NGV capacity
  
 --Review some relevant literature on the effects of film cooling on capacity
+
+
+
+
 
 
 \section{sensitivity of capacity to cooling holes on the leading suction side}
@@ -430,6 +464,14 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 --Mixing between coolant and mainstream
 
 --Angle of ejection
+
+
+
+
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{ieeetr}
+\bibliography{tmfg_bibliography_ver01}
 
 
 
