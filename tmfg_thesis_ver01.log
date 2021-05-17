@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  17 MAY 2021 19:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  17 MAY 2021 20:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1700,36 +1700,36 @@ er03.png used on input line 278.
 uivalent_throat_area_integral_ver03.png>] [15]
 Chapter 3.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1939) has occurred while \output is active []
 
  [16
 
 ]
-[17]
+[17] [18]
 Chapter 4.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18
-
-]
-Overfull \hbox (4.82567pt too wide) in paragraph at lines 429--435
+Overfull \hbox (4.82567pt too wide) in paragraph at lines 430--436
 []\T1/mdbch/m/n/10.95 --S. Rav-elli - NU-MER-I-CAL AS-SESS-MENT OF DEN-SITY RA-
 TIO AND MAIN-STREAM
  []
 
 
-Underfull \vbox (badness 4254) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19]
-(./tmfg_thesis_ver01.bbl [20]) [21
+ [19
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+(./tmfg_thesis_ver01.bbl [21]) [22
 
 ] (./tmfg_thesis_ver01.aux) ) 
 Here is how much of TeX's memory you used:
- 11757 strings out of 493117
- 203080 string characters out of 6135433
+ 11761 strings out of 493117
+ 203156 string characters out of 6135433
  257611 words of memory out of 5000000
- 15002 multiletter control sequences out of 15000+600000
+ 15006 multiletter control sequences out of 15000+600000
  65565 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,9n,94p,10410b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1746,10 +1746,10 @@ ic/mathdesign/mdbch/md-chr7v.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
 1/public/mathdesign/mdbch/md-chr7y.pfb></usr/local/texlive/2014/texmf-dist/font
 s/type1/public/mathdesign/mdbch/md-chr8t.pfb></usr/local/texlive/2014/texmf-dis
 t/fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb>
-Output written on tmfg_thesis_ver01.pdf (21 pages, 128781 bytes).
+Output written on tmfg_thesis_ver01.pdf (22 pages, 130256 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+ 125 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

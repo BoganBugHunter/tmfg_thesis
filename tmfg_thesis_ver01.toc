@@ -8,7 +8,7 @@
 \contentsline {chapter}{\numberline {3}Trailing edge}{16}
 \contentsline {section}{\numberline {3.1}Uncertainties in the trailing edge shape (SS erosion) - how hard do they make it to predict capacity}{16}
 \contentsline {section}{\numberline {3.2}Centred-ejection option (PS cutbacks) (and could it reduce "loss"?)}{17}
-\contentsline {chapter}{\numberline {4}Leading edge}{18}
-\contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{19}
-\contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result}{20}
-\contentsline {chapter}{Bibliography}{20}
+\contentsline {chapter}{\numberline {4}Leading edge}{19}
+\contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{20}
+\contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result}{21}
+\contentsline {chapter}{Bibliography}{21}

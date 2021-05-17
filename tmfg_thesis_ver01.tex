@@ -345,6 +345,15 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 %4) Would said alternative design reduce "loss"?
 
 
+--Jie Gao - Experimental and numerical investigations of hole injection ~\cite{gao_te}
+on the suction side throat of transonic turbine vanes in a cascade with trailing edge injection
+		--Arguing: Like their above paper but with a SS cooling slot. It causes passage blockage, a thicker wake, and more loss. But when there are shock waves, the film coolant enhances the TE PS shock but reduces the TE SS shock, which could be used toreatly reduce the TE SS shock if the injection is upstream of the throat
+		--Raw data: Their experimental and CFD linear cascade, with strong emphasis placed on the loss definitions and techniques established by Denton and Xu, Mee et al, and Schobieri
+		--I discuss: Ways in which my SS injection might interact with the flow (including shockwaves) as they suggest. Will I see it without having TE injection too?
+		--I also cite: Denton and Xu, Mee et al, and Schobieri for established precident on loss quantification
+		--My raw data: My moving coolant row study
+
+
 \section{Uncertainties in the trailing edge shape (SS erosion) - how hard do they make it to predict capacity}
 
 -- Uncertanties occur in the suction-side traling edge because of various factors like erosion through cooling failure (for example in desert environments) and manufacturing variations. If variations and life-cycle changes happen to the trailing edge, what effect on capacity can we expect, and why?
@@ -407,26 +416,18 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 
 --It is sometimes necessary to add extra cooling holes on the suction-side at the LE. Literature about this:
 
-	--Giovanna Barigozzi - Experimental investigation of the interaction between showerhead coolant jets and main flow
+	--Giovanna Barigozzi - Experimental investigation of the interaction between showerhead coolant jets and main flow ~\cite{barigozzi_film_cooling}
 		--Arguing: When film coolant is ejected upstream , observed high turbulence and velocity fluctuations suggest the mixing is a random process without coherent structures, and unsteady, and 3D
 		--Raw data: Their experimental study, including pressure-sensitive paint and particle-image velocimetry
 		--I discuss: Do we know less than we thought about how much film coolant is actually getting to the LE SS? Reason why you might want an extra row there? Also, clear support for my arguing that proper CFD investigations of SS LE film cooling should not be a 2D slot and should not be steady
 	
-	--Wei He - Film cooling and aerodynamic performances of a turbine nozzle guide vane with trenched cooling holes
+	--Wei He - Film cooling and aerodynamic performances of a turbine nozzle guide vane with trenched cooling holes ~\cite{he_film_cooling}
 		--Arguing: A novel design for film cooling holes, using a zigzag-shaped trench, has some advantages but is only really suitable for the middle PS
 		--Raw data: Their 3D CFD on a single-vane linear cascade, where the trench moves around various positions
 		--I discuss: They mention BR etc, relevant to me. Their movable trench is a bit like my movable 2D slot, except it is mainly confined to the PS, whereas mine is on the SS. But my quasi-3D study could be easily adapted to repeat their study of the novel trench shape
 		--My raw data: My Q3D study
 		
-	--Jie Gao - Experimental and numerical investigations of hole injection
-on the suction side throat of transonic turbine vanes in a cascade with trailing edge injection
-		--Arguing: Like their above paper but with a SS cooling slot. It causes passage blockage, a thicker wake, and more loss. But when there are shock waves, the film coolant enhances the TE PS shock but reduces the TE SS shock, which could be used toreatly reduce the TE SS shock if the injection is upstream of the throat
-		--Raw data: Their experimental and CFD linear cascade, with strong emphasis placed on the loss definitions and techniques established by Denton and Xu, Mee et al, and Schobieri
-		--I discuss: Ways in which my SS injection might interact with the flow (including shockwaves) as they suggest. Will I see it without having TE injection too?
-		--I also cite: Denton and Xu, Mee et al, and Schobieri for established precident on loss quantification
-		--My raw data: My moving coolant row study
-		
-	--S. Ravelli - NUMERICAL ASSESSMENT OF DENSITY RATIO AND MAINSTREAM TURBULENCE EFFECTS ON LEADING EDGE FILM COOLING: HEAT AND MASS TRANSFER METHODS
+	--S. Ravelli - NUMERICAL ASSESSMENT OF DENSITY RATIO AND MAINSTREAM TURBULENCE EFFECTS ON LEADING EDGE FILM COOLING: HEAT AND MASS TRANSFER METHODS ~\cite{ravelli_engine_conditions}
 		--Arguing: In a CFD simulation of four film cooling hole rows, the usual parameters (DR, BR, MFR, TuI) aren't enough to ensure you have matched the engine conditions
 		--Raw data: A previous experimental study (PSP) to validate their CFD, and their CFD
 		--I discuss: Criticise my own signle cooling slot work - is it really reperesentative enough for its capacity effects to be predictable
