@@ -1,15 +1,50 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{guiffre_design_guidelines}
+A.~Guiffre' and M.~Pini, ``Design guidelines for axial turbines operating with
+  non-ideal compressible flows,'' {\em Proceedings of ASME Turbo Expo}, 2020.
 
 \bibitem{burdett_capacity_measurement}
 D.~Burdett, C.~Hambidge, and T.~Povey, ``Analysis of ultra-low uncertainty gas
   turbine flow capacity measurement techniques,'' {\em IMechE Journal of Power
   and Energy}, vol.~0, no.~0, pp.~1--27, 2020.
 
+\bibitem{giel_te_thickness}
+P.~W. Giel, V.~Shyam, P.~Juangphanich, and J.~P. Clark, ``Effects of trailing
+  edge thickness and blade loading distribution on the aerodynamic performance
+  of simulated cmc turbine blades,'' {\em Proceedings of ASME Turbo Expo},
+  2020.
+
+\bibitem{giel_nasa_reference}
+S.~M. Jones, W.~J. Haller, and M.~T. Tong, ``An n+3 technology level reference
+  propulsion system,'' {\em NASA technical memorandum}, 2017.
+
+\bibitem{trinidade_loss}
+D.~B. da~Trinidade, P.~Bugala, and D.~Simone, ``Review of loss models for high
+  pressure turbines,'' {\em Journal of KONES Powertrain and Transport},
+  vol.~25, no.~2, pp.~37--44, 2018.
+
 \bibitem{gao_te}
 J.~Gau, M.~Wei, W.~Fu, Q.~Zheng, and G.~Yue, ``Experimental and numerical
   investigations of trailing edge injection in a transonic turbine cascade,''
   {\em Elsevier Journal of Aerospace Science and Technology}, vol.~92,
   pp.~258--268, 2019.
+
+\bibitem{saha_loss}
+R.~Saha, J.~Fridh, and T.~H. Fransson, ``Shower head and trailing edge cooling
+  influence on transonic vane aero performance,'' {\em Proceedings of ASME
+  Turbo Expo}, 2014.
+
+\bibitem{gao_te_and_film_cooling}
+J.~Gau, M.~Wei, Y.~Liu, Q.~Zheng, and P.~Dong, ``Experimental and numerical
+  investigations of hole injection on the suction side throat of transonic
+  turbine vanes in a cascade with trailing edge injection,'' {\em IMechE
+  Journal of Aerospace Engineering}, vol.~232, no.~8, pp.~1454--1466, 2017.
+
+\bibitem{ravelli_engine_conditions}
+S.~Ravelli, H.~Abdeh, and G.~Barigozzi, ``Numerical assessment of density ratio
+  and mainstream turbulence effects on leading edge film cooling: Heat and mass
+  transfer methods,'' {\em Proceedings of ASME Turbo Expo}, 2020.
 
 \bibitem{barigozzi_film_cooling}
 G.~Barigozzi, L.~Casarsa, F.~Pagnacco, and S.~Rouina, ``Experimental
@@ -22,10 +57,5 @@ W.~He, Q.~Deng, W.~Zhou, T.~Gau, and Z.~Feng, ``Film cooling and aerodynamic
   performances of a turbine nozzle guide vane t with trenched cooling holes,''
   {\em Elsevier Journal of Applied Thermal Engineering}, vol.~150,
   pp.~150--163, 2019.
-
-\bibitem{ravelli_engine_conditions}
-S.~Ravelli, H.~Abdeh, and G.~Barigozzi, ``Numerical assessment of density ratio
-  and mainstream turbulence effects on leading edge film cooling: Heat and mass
-  transfer methods,'' {\em Proceedings of ASME Turbo Expo}, 2020.
 
 \end{thebibliography}
