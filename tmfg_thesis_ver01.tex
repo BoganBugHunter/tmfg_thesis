@@ -319,7 +319,7 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 
 \chapter{Trailing edge}
 %How the trailing edge can drive capacity changes (and loss changes incidentally). These changes are discussed as those happening in-life to the existing engine parts, and also those resulting from an alternative design.
-%Why am I including "loss" here, when this part is really about the robustness of capacity predictions on vanes that will change shape with wear?
+%Why am I including "loss" here, when this part is really about the robustness of capacity predictions on vanes that will change shape with wear? Because the proposed alternative design needs to be decent for loss to be a viable alternative.
 
 %NEEDED DATA:
 %-SS cutbacks, all solutions
@@ -335,6 +335,85 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 %2) According to the literature, would a 3D investigation into this be justified?
 %3) How capacity-predicable would an altrernative design of TE be?
 %4) Would said alternative design reduce "loss"?
+
+
+\section{Definitions of loss for trailing edge performance evaluation}
+%--How does it perform in terms of loss?
+%--First review the literature to decide what is "loss".
+
+Loss may refer to any process whereby the recoverable energy of a turbomachinery flow is reduced during transit through a turbine stage, other than by shaft work, with corresponding entropy creation. Minimisation of loss remains a primary obective of turbomachinery design, but there is not a universal consensus on how to quantify it.
+
+Daniel Back da Trinidade et al~\cite{trinidade_loss} characterised sources of loss as shock loss, profile losses, tip leakage, endwall losses, and cooling losses. Tip leakage results from flow through the clearance space between the vane tips and the casing. It will not be considered by the present study, since the present study is of fixed NGVs. Endwall losses result from 3-dimensional secondary flows, and will not be considered in the present study which is of 2-dimensional phenomena.
+
+Trinidade et al characterised shock loss as resulting from entropy creation across the shock wave during supersonic flow. The present study will consider this mechanism during discussion of CFD results at choking pressure ratios.
+
+Profile loss was characterised by entropy creation by viscosity in the boundary layer on the blade surface. Entropy generated near the blade's trailing edge was considered as profile loss due to the high entropy creation in the wake region following flow separation at the trailing edge. The authors extended this definition to include the entropy generated as the flow turns tightly around the trailing edge curvature and forms expansion waves.
+
+The authors also defined the category of cooling losses to refer to the aerodynamic penalties incurred by cooling in general, namely ``thicker blade profiles from coolant holes, interaction of coolant film with the blade boundary layer, mixing losses between coolant and main flow and endwall losses.'' The present study seeks to isolate the mechanisms whereby film cooling causes boundary layer changes and mixing effects, discussing film cooling in Chapter~\ref{chapter_leading_edge}.
+
+The present study seeks to define a coefficient of NGV total pressure loss whose arguments are flow measurements or numerically predicted parameters. Giel et al surveyed the total pressure wake profiles of a blade at mid-span, defining a \textit{total pressure coefficient} as
+\begin{equation}
+Cp_t = \frac{
+p_{01} - p_{02}
+}{
+p_{01} - p_2
+}
+\end{equation}
+where $p_{01}$ and $p_{02}$ are the inlet and wake total pressures, and $p_2$ is the wake static pressure. This definition is to be used for the total pressure wake profiles in this thesis. The authors also defined a \textit{kinetic energy loss coefficient} as
+\begin{equation}
+e_2 = \frac{ 
+\left( \frac{p_{01}}{p_{02}} \right)^\frac{\gamma-1}{ \gamma } - 1 
+}{
+\left( \frac{p_{01}}{p_{2}} \right)^\frac{\gamma-1}{ \gamma } - 1 
+}
+\end{equation}
+Giel et al's results will be compared to those of this study, considering wake profiles and loss as a function of trailing edge thickness.
+
+Jie Gao et al~\cite{gao_te} defined a slightly different \textit{total pressure loss coefficient} as
+\begin{equation}
+C_pt = \frac{
+p_{01} - p_{02}
+}{
+p_{02} - p_2
+}
+\end{equation}
+
+--Discuss these two slightly different definitions
+
+
+ 
+--Saha paper has its own loss definitions too - seems to be doing a definition that considers the coolant/mainstream mass flow ratio.
+\begin{equation}
+\zeta = 
+1 -
+\frac{ 
+	\left( 1 + Y \right) 
+	\left(
+		1 -
+		\left(
+			\frac{p_2}{p_{02}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+	\right)
+}{
+	\left(
+		1 -
+		\left(
+			\frac{p_2}{p_{01}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+	\right)
+	+Y
+	\left(
+		1 -
+		\left(
+			\frac{p_2}{p_{0c}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+	\right)
+}
+\end{equation}
+where $Y$ is the coolant-to-mainstream mass flux ratio.
 
 
 \section{Effects of trailing edge shape uncertainty on capacity predictability}
@@ -364,36 +443,27 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 		--I discuss: The TE is indeed particularly hard to predict. Having established an extremely accurate measurement technique for an annulus of NGVs, how could such ideas be adapted to focussing on small geometric changes at the TE?
 		--I also cite: The history of this technique at Oxford, showing it has embodied a continual evolution in measurement accuracy and sensitivity to boundary conditions, but has been relatively underused for the study of geometric effects
 		
+--Jie Gao - Experimental and numerical investigations of trailing edge injection in a transonic turbine cascade~\cite{gao_te}
+	--Arguing: TE coolant ejection is good for reducing the wake size and reducing shock effects on the exit angle
+	--Raw data: Their experimental and CFD linear cascade, five-hole probe data and surface pressure plots, downstream loss profile
+	--I discuss: Does it match my blowing rate study? Do my turning angles agree with theirs as Mach number changes? Do I see the same reduction of shocks? Do I broadly agree about the benefits of TE ejection? Remember badly-predicted turning angles are like bad capacity predictions
+	--I also cite: Whoever's loss definition they use - why didn't they compare it to others?
+	--My raw data: A lot of my own TE CFD
+	
+Gao et al experimentally and numerically investigated the external flow field near the trailing edge of a linear cascade with trailing edge injection. The authors' focus was on the effects of the trailing edge coolant flow on the vane's loss mechanisms and flow exit angle. Without trailing edge injection, increased exit isentropic Mach number caused the appearance of trailing edge suction side shock waves which altered the flow angle. With trailing edge injection, there was a slight reduction in this shock effect but a strong reduction in the shock wave near the trailing edge pressure side.
 		
-\section{Considerations for an alternative trailing edge design}
-
---Centred-ejection option (PS cutbacks) (and could it reduce loss)
-
---We must also consider broader TE manufacturing changes that are likely to happen on purpose - the switch to CMC manufacturing of turbine blades. How will this change the game, and what tolerances are expected?
+		
+\section{Performance of an alternative trailing edge design}
+%--Centred-ejection option (PS cutbacks) (and could it reduce loss) and what happens as its geometry is changed to gradually look more like an existing design
+%--We must also consider broader TE manufacturing changes that are likely to happen on purpose - the switch to CMC manufacturing of turbine blades. How will this change the game, and what tolerances are expected?
 
 Improved materials and manufacturing techniques may neccessitate alternative trailing edge geometries. Paul W. Giel et al~\cite{giel_te_thickness} noted that ``in the pursuit of higher turbine inlet temperatures for reduced fuel burn and emissions consistent with NASA's goals~\cite{giel_nasa_reference}, Ceramic Matrix Composite (CMC) materials are now being implemented in gas turbine engines...They enable higher turbine inlet temperatures, thus enabling higher overall pressure ratios (OPRs) for the engine and higher thermal efficiency.'' 
 
 The authors used a linear cascade to measure the aerodynamic performance of a set of blades representing the geometric constraints of the CMC manufacturing method. Of main concern was the constraint that ``the trailing edge thicknesses of CMC blades are anticipated to be significantly larger than those of current state-of-the-art metallic blades,'' which may be expected to cause increased loss. 
 
-Giel et al surveyed the total pressure wake profiles of a blade at mid-span, defining a \textit{total pressure coefficient} as
-\begin{equation}
-Cp_t = \frac{
-p_{01} - p_{02}
-}{
-p_{01} - p_2
-}
-\end{equation}
-where $p_{01}$ and $p_{02}$ are the inlet and wake total pressures, and $p_2$ is the wake static pressure. This definition is to be used for the total pressure wake profiles in this thesis. The authors also defined a \textit{kinetic energy loss coefficient} as
-\begin{equation}
-e_2 = \frac{ 
-\left( \frac{p_{01}}{p_{02}} \right)^\frac{\gamma-1}{ \gamma } - 1 
-}{
-\left( \frac{p_{01}}{p_{2}} \right)^\frac{\gamma-1}{ \gamma } - 1 
-}
-\end{equation}
-which will be one of several loss definitions reviewed in this thesis. Giel et al's results will be compared to those of this study, considering wake profiles and loss as a function of trailing edge thickness.
+--discuss other justifications for studying this design - is it more predictable because it suffers less erosion?
 
---2D CFD was done on an alternative design of TE featuring centred coolant ejection. This shape of TE was also incrementally cut back on the pressure side so as to more resemble the existing TE design.
+--Introduce my alternative design: 2D CFD was done on an alternative design of TE featuring centred coolant ejection. This shape of TE was also incrementally cut back on the pressure side so as to more resemble the existing TE design.
 
 --Present boundary conditions
 
@@ -403,22 +473,19 @@ which will be one of several loss definitions reviewed in this thesis. Giel et a
 
 --Is there better capacity predictability because the effects of erosion are less pronounced due to the thicker flanges?
 
---Review the literature to decide what is "loss".
+--Discuss whether this loss may be worse or better if a centred-ejection design is used, still perhaps plotting more than one definition of loss
 
---Daniel Back da Trindade - REVIEW OF LOSS MODELS FOR HIGH PRESSURE TURBINES~\cite{trinidade_loss}
-	--Arguing: Reviews various types of loss characterised by different physical mechanisms, reviews several perople's loss models. All overpredict loss
-	--Raw data: Loss models from Ainley and Mathieson, Dunham and Came, Kacker and Okapuu, Craig and Cox, Moustapha
-	--I discuss: Use the different loss models for my novel TE loss
+--When using this configuration, is there an optimal blowing rate that might re-energise the base region? Plot blowing rate vs loss, remembering that the graph I currently have is erroneously for the other type of TE, not for the centred-ejection kind. Should I try to re-run just this one thing?
 
- --Jie Gao TE paper uses total pressure coefficient Cpt = (p1t - p2t)/(p2t - p2):
- --Jie Gao - Experimental and numerical investigations of trailing edge injection in a transonic turbine cascade~\cite{gao_te}
-	--Arguing: TE coolant ejection is good for reducing the wake size and reducing shock effects on the exit angle
-	--Raw data: Their experimental and CFD linear cascade, five-hole probe data and surface pressure plots, downstream loss profile
-	--I discuss: Does it match my blowing rate study? Do my turning angles agree with theirs as Mach number changes? Do I see the same reduction of shocks? Do I broadly agree about the benefits of TE ejection? Remember badly-predicted turning angles are like bad capacity predictions
-	--I also cite: Whoever's loss definition they use - why didn't they compare it to others?
-	--My raw data: A lot of my own TE CFD
+--Compare my centred-ejection TE with a "naturally-formed by erosion" centred-ejection TE from the literature 
 
-Saha paper has its own loss definitions too:
+
+ 
+ 
+
+
+To be filed:
+
 --Ranjan Saha - SHOWER HEAD AND TRAILING EDGE COOLING INFLUENCE ON TRANSONIC VANE AERO PERFORMANCE~\cite{saha_loss}
 	--Arguing: Loss turns out very differently depending on which loss equation you use, and some formulations might be better than others
 	--Raw data: Their annular sector rig which tested NGVs with and without showerhead and TE coolant to quantify loss
@@ -426,15 +493,12 @@ Saha paper has its own loss definitions too:
 	--I also cite: All the other possible loss definitions, going back to Raffel and Kost and further if necessary
 	--My raw data: Any of my CFD data can yield loss according to any preferred definition, but this is most pertinent to my T900 TE cutbacks discussion
 
---Discuss whether this "loss" may be worse or better if a centred-ejection design is used, still perhaps plotting more than one definition of loss
 
---When using this configuration, is there an optimal blowing rate that might re-energise the base region? Plot blowing rate vs loss, remembering that the graph I currently have is erroneously for the other type of TE, not for the centred-ejection kind
-
---Compare my centred-ejection TE with a "naturally-formed by erosion" centred-ejection TE from the literature 
 
 
 
 \chapter{Leading edge}
+\label{chapter_leading_edge}
 %How the LE matters too.
 
 %NEEDED DATA:
@@ -473,7 +537,7 @@ Saha paper has its own loss definitions too:
 
 --Review the literature for why correctly modelling turbulence is important for capturing the mainstream/coolant mixing, and thus why two turbulence models are compared.
 
---Plot capacity changes versus hole position and discuss its causes, mentioning the literature reviewed in the chapter intro (plus the two definitions of capacity where coolant is concerned - which one is used in earlier chapters??) A maximum ~0.5 percent change in capacity resulted from an unrealistically drastic shifting of a 2D cooling slot along the vane’s suction side.
+--Plot capacity changes versus hole position and discuss its causes, mentioning the literature reviewed in the chapter intro (plus the two definitions of capacity where coolant is concerned - which one is used in earlier chapters??) A maximum ~0.5 percent change in capacity resulted from an unrealistically drastic shifting of a 2D cooling slot along the vane's suction side.
 
     
 \section{Consideration of corrections necessary to interpret 2D result}

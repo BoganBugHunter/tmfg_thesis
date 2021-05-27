@@ -4,6 +4,17 @@
 A.~Guiffre' and M.~Pini, ``Design guidelines for axial turbines operating with
   non-ideal compressible flows,'' {\em Proceedings of ASME Turbo Expo}, 2020.
 
+\bibitem{trinidade_loss}
+D.~B. da~Trinidade, P.~Bugala, and D.~Simone, ``Review of loss models for high
+  pressure turbines,'' {\em Journal of KONES Powertrain and Transport},
+  vol.~25, no.~2, pp.~37--44, 2018.
+
+\bibitem{gao_te}
+J.~Gau, M.~Wei, W.~Fu, Q.~Zheng, and G.~Yue, ``Experimental and numerical
+  investigations of trailing edge injection in a transonic turbine cascade,''
+  {\em Elsevier Journal of Aerospace Science and Technology}, vol.~92,
+  pp.~258--268, 2019.
+
 \bibitem{burdett_capacity_measurement}
 D.~Burdett, C.~Hambidge, and T.~Povey, ``Analysis of ultra-low uncertainty gas
   turbine flow capacity measurement techniques,'' {\em IMechE Journal of Power
@@ -18,17 +29,6 @@ P.~W. Giel, V.~Shyam, P.~Juangphanich, and J.~P. Clark, ``Effects of trailing
 \bibitem{giel_nasa_reference}
 S.~M. Jones, W.~J. Haller, and M.~T. Tong, ``An n+3 technology level reference
   propulsion system,'' {\em NASA technical memorandum}, 2017.
-
-\bibitem{trinidade_loss}
-D.~B. da~Trinidade, P.~Bugala, and D.~Simone, ``Review of loss models for high
-  pressure turbines,'' {\em Journal of KONES Powertrain and Transport},
-  vol.~25, no.~2, pp.~37--44, 2018.
-
-\bibitem{gao_te}
-J.~Gau, M.~Wei, W.~Fu, Q.~Zheng, and G.~Yue, ``Experimental and numerical
-  investigations of trailing edge injection in a transonic turbine cascade,''
-  {\em Elsevier Journal of Aerospace Science and Technology}, vol.~92,
-  pp.~258--268, 2019.
 
 \bibitem{saha_loss}
 R.~Saha, J.~Fridh, and T.~H. Fransson, ``Shower head and trailing edge cooling
