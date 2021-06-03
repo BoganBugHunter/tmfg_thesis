@@ -3,12 +3,12 @@
 \contentsline {section}{\numberline {1.2}NGV capacity in 1 dimension}{10}
 \contentsline {chapter}{\numberline {2}Geometric throat area}{11}
 \contentsline {section}{\numberline {2.1}1D vs 2D capacity uncertainty}{12}
-\contentsline {section}{\numberline {2.2}2D vs 3D capacity uncertainty}{13}
-\contentsline {chapter}{\numberline {3}Trailing edge}{14}
-\contentsline {section}{\numberline {3.1}Definitions of loss for trailing edge performance evaluation}{14}
-\contentsline {section}{\numberline {3.2}Effects of trailing edge shape uncertainty on capacity predictability}{16}
-\contentsline {section}{\numberline {3.3}Performance of an alternative trailing edge design}{17}
-\contentsline {chapter}{\numberline {4}Leading edge}{19}
-\contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{19}
-\contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result}{20}
-\contentsline {chapter}{Bibliography}{21}
+\contentsline {section}{\numberline {2.2}2D vs 3D capacity uncertainty}{14}
+\contentsline {chapter}{\numberline {3}Trailing edge}{15}
+\contentsline {section}{\numberline {3.1}Definitions of loss for trailing edge performance evaluation}{15}
+\contentsline {section}{\numberline {3.2}Effects of trailing edge shape uncertainty on capacity predictability}{17}
+\contentsline {section}{\numberline {3.3}Performance of an alternative trailing edge design}{18}
+\contentsline {chapter}{\numberline {4}Leading edge}{20}
+\contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{20}
+\contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result}{23}
+\contentsline {chapter}{Bibliography}{24}

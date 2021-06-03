@@ -62,6 +62,7 @@
 
 
 \chapter{Flow capacity - definition and derivation}
+\label{chapter_flow_capacity_definition_and_derivation}
 %--Include some derivation of how capacity prediction errors can cause exponentially increasing errors in later stages
 %--In the relevant chapter, extend capacity to 2D to show how it becomes more nuanced
 
@@ -217,7 +218,7 @@ The following chapters will analyse the capacity of two-dimensional and three-di
 
 
 \chapter{Geometric throat area}
-
+\label{chapter_geometric_throat_area}
 
 % NEEDED DATA:
 % -T900 smooth vanes, 6x 2D CFD solutions at various pressure ratios
@@ -274,19 +275,50 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 		\caption{Integral for 2D nozzle equivalent throat area}
 		\label{fig:illustration_of_equivalent_throat_area_integral}
 	\end{subfigure}
-	\caption{}
+	\caption{Considerations for defining minimum area}
 \end{figure}
  		
- --Review any definitions of minimum area from the literature. I haven't got any in the first group of papers from David.
+ --Review any definitions of minimum area from the literature.
+ 
+Deepak Thirumurthy et al~\cite{thirumurthy_throat_area} discussed the challenges and uncertainties associated with the accurate matching of an aeroderivative gas generation turbine. The authors' focus was on various means of predicting capacity to facilitate proper matching. 
+
+Geometric throat area was discussed as having, with the authors noting that ``the throat area of any blade or vane row has a strong influence on the overall capacity of the turbine. The vane or blade throat plane...is defined as the plane formed by the smallest passage area normal to the flow path. The effects are of first order when the throat area is changed for the first stage of the turbine.''
 
 
 \section{1D vs 2D capacity uncertainty}
+%do I have the T900 family at various PRs, or just at the choking PR? Do I actually need other PRs anyway, given that the throat area stuff looks at the vanes when they are choked?
 
--- A family of 2D NGVs were run at various PRs in CFD. The point is to see how their capacity varies when plotted against various definitions of throat area. The usefulness of each definition will be discussed.
+-- A family of 2D NGVs were run in CFD. The point is to see how their capacity varies when plotted against various definitions of throat area. The usefulness of each definition will be discussed.
 
--- Present boundary conditions
+-- Present boundary conditions:
+\begin{table}[H]
+\caption{Simulation parameters for Trent 900 smooth-vane capacity study}
+\label{T900_parameters}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value\\
+\hline
+NGV turning (degrees) & 76.891\\
+Design pressure ratio & 1.79\\
+Inlet total pressure (Pa) & $4.3256 \times 10^6$\\
+Inlet total temperature (K) & 300\\
+Outlet static pressure (design) (Pa) & $2.4156 \times 10^6$\\
+Outlet static temperature (Pa) & 300\\
+Solver type & Density-based\\
+Cell count & 35,000\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 -- Present mesh
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.45\textwidth]{figs/T900_smooth_vane_mesh_placeholder.png}
+      \caption{Mesh for Trent 900 smooth-vane capacity study}
+      \label{fig:T900_mesh_1}
+\end{figure}
 
 -- When the "throat area" of the 2D family is plotted against their capacity at a choking PR, it shows a pretty good proportional relationship. This is despite some obvious differences in the shape of the M1 line.
 
@@ -318,6 +350,7 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 
 
 \chapter{Trailing edge}
+\label{chapter_trailing_edge}
 %How the trailing edge can drive capacity changes (and loss changes incidentally). These changes are discussed as those happening in-life to the existing engine parts, and also those resulting from an alternative design.
 %Why am I including "loss" here, when this part is really about the robustness of capacity predictions on vanes that will change shape with wear? Because the proposed alternative design needs to be decent for loss to be a viable alternative.
 
@@ -415,6 +448,24 @@ p_{02} - p_2
 \end{equation}
 where $Y$ is the coolant-to-mainstream mass flux ratio.
 
+In the case of no coolant flow this becomes
+\begin{equation}
+\zeta = 
+1 -
+\frac{ 
+		1 -
+		\left(
+			\frac{p_2}{p_{02}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+}{
+		1 -
+		\left(
+			\frac{p_2}{p_{01}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+}
+\end{equation}
 
 \section{Effects of trailing edge shape uncertainty on capacity predictability}
 
@@ -532,12 +583,64 @@ To be filed:
 --2D CFD was done on an XWB NGV with no coolant features apart from the addition of a single cooling row on the upstream suction side. The position of this featrure was varied, thus varying whereabouts in the flow the coolant was introduced.
 
 --Present boundary conditions
+\begin{table}[H]
+\caption{Simulation Parameters}
+\label{SCH_parameters}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value\\
+\hline
+NGV turning (degrees) & $73.969$\\
+NGV throat width (m) & $1.253 \times 10^-2$\\
+Design pressure ratio & $1.648$\\
+Inlet total pressure (Pa) & $4.326 \times 10^6$\\
+Inlet total temperature (K) & $300$\\
+Outlet static pressure (Pa) & $2.625 \times 10^6$\\
+Outlet static temperature (Pa) & $300$\\
+Coolant/mainstream mass flow ratio & $0.003$\\
+Solver type & Density-based\\
+Cell count & $40,000$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 --Present mesh, showing how the variable location coolant row is introduced
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.9\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/SCH_mesh_domain_placeholder.png}
+    \caption{XWB mesh for NGV and upstream domain}
+    \label{fig:SCH_mesh_1}
+  \end{subfigure}
+  \vspace{0.05\textwidth}
+  \begin{subfigure}{.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/SCH_mesh_leading_edge_placeholder.png}
+    \caption{XWB mesh for leading edge}
+    \label{fig:SCH_mesh_2}
+  \end{subfigure}
+  \hspace{0.05\textwidth}
+  \begin{subfigure}{.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figs/SCH_mesh_hole_placeholder.png}
+    \caption{XWB mesh for cooling hole and plenum}
+    \label{fig:SCH_mesh_3}
+  \end{subfigure}
+  \caption{Details of mesh for XWB single cooling hole study}
+\end{figure}
 
 --Review the literature for why correctly modelling turbulence is important for capturing the mainstream/coolant mixing, and thus why two turbulence models are compared.
 
 --Plot capacity changes versus hole position and discuss its causes, mentioning the literature reviewed in the chapter intro (plus the two definitions of capacity where coolant is concerned - which one is used in earlier chapters??) A maximum ~0.5 percent change in capacity resulted from an unrealistically drastic shifting of a 2D cooling slot along the vane's suction side.
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.45\textwidth]{figs/SCH_capacity_vs_hole_position.png}
+      \caption{Total capacity percentage delta as a function of single cooling hole position}
+      \label{fig:SCH_capacity_vs_hole_position}
+\end{figure}
 
     
 \section{Consideration of corrections necessary to interpret 2D result}
