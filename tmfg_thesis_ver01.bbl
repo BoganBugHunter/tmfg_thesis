@@ -10,6 +10,17 @@ D.~Thirumurthy, J.~C.~C. Coca, and K.~Suraweera, ``Capacity matching of
   uncertainties, and opportunities,'' {\em Proceedings of ASME Turbo Expo},
   2019.
 
+\bibitem{hall_area}
+T.~Hall, ``Trent 900 {CFD} investigation of {HPNGV} capacity sensitivity to
+  trailing edge geometry,'' Tech. Rep. DNS 170140, Rolls-Royce plc, Gipsy Patch
+  Lane, Filton, Bristol, March 2011.
+
+\bibitem{zamboni_area}
+G.~Zamboni, ``{HYDRA} {CFD} of the trent 900 {EP1} turbine high pressure nozzle
+  guide vane: analysis of the trailing edge slot geometry influence on capacity
+  predictions using gom scanned data,'' Tech. Rep. DNS 181981, Rolls-Royce plc,
+  Gipsy Patch Lane, Filton, Bristol, July 2012.
+
 \bibitem{trinidade_loss}
 D.~B. da~Trinidade, P.~Bugala, and D.~Simone, ``Review of loss models for high
   pressure turbines,'' {\em Journal of KONES Powertrain and Transport},

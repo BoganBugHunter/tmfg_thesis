@@ -1,8 +1,15 @@
 %Hierarchy is Chapter > Section > Subsection
 %http://www.khirevich.com/latex/ - Tips on Writing a Thesis in LaTeX
+%This is what to put in the box for bibtex: "/usr/local/texlive/2014/bin/x86_64-darwin/bibtex" %.aux
+%Sometimes I might need to run bibtex on its own before doing the full quick build sequence  
+
+
 
 \documentclass[a4paper, 11pt, twoside]{report}
 
+
+
+%%%% microtype package, for improved typesetting
 \usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 % activate={true,nocompatibility} - activate protrusion and expansion
 % final - enable microtype; use "draft" to disable
@@ -10,27 +17,39 @@
 % factor=1100 - add 10% to the protrusion amount (default is 1000)
 % stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
 
-\usepackage[T1]{fontenc} %allows for the encoding of unusual or accented characters
-\usepackage[bitstream-charter]{mathdesign} %font package similar to the Elsevier font, with included maths style
-\usepackage{physics} %provides a family of vector notation
+%%% other formatting improvement or adjustment packages
+\setlength{\parindent}{0em} % don't indent paragraphs
+\setlength{\parskip}{1em} % space between paragraphs
 
-\usepackage{datetime}
-\usepackage{graphics} % for pdf, bitmapped graphics files
-\usepackage{epsfig} % for postscript graphics files
-\usepackage{epstopdf} %nathan tells me I need this one
-\usepackage{multirow} %for splitting rows inside tables
-\usepackage{float} %for positioning the nomenclature floating tables
-\usepackage{color}
-\usepackage{subcaption}
-\setlength{\parindent}{0em} %don't indent paragraphs
-\setlength{\parskip}{1em} %space between paragraphs
-
-%packages that may be useful for formatting
-%\usepackage{flushend} %for equalising final page column lengths. messes stuff up sometimes
+%%% packages that MAY be useful for formatting but are unused unless deemed neccessary
+%\usepackage{flushend} % for equalising final page column lengths. messes stuff up sometimes
 %\usepackage{setspace}
 %\usepackage{pdfpages}
 %\hoffset = 9pt
 %\voffset = 34pt
+
+%%% font and character packages
+\usepackage[T1]{fontenc} % allows for the encoding of unusual or accented characters
+\usepackage[bitstream-charter]{mathdesign} % font package similar to the Elsevier font, with included maths style
+\usepackage{physics} % provides a family of vector notation
+
+%%% citation packages
+\usepackage[nottoc]{tocbibind} % puts the references section into the table of contents
+\usepackage{cite} % an alternative to biblatex, it still calls bibtex but unlike bibtex the citation style is defined in the line at the end of the document
+
+%%% packages that provide or position specific elements
+\usepackage{datetime} % allows a customised was of writing the date
+\usepackage{multirow} % for splitting rows inside tables
+\usepackage{float} % for positioning the nomenclature floating tables
+\usepackage{subcaption} % allows for captions for sub-figures
+
+%%% packages for handling various graphics files - it seems like three of these may be doing the same thing, and should be consolidated at the end if possible
+\usepackage{color} % lets text be different colours
+\usepackage{graphics} % for pdf, bitmapped graphics files
+\usepackage{epsfig} % for  encapsulated postscript graphics files, a type of vector image
+\usepackage{epstopdf} % allows LaTeX to include EPS files by converting each one to a PDF of the same dimensions
+
+
 
 \newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR}
 \title{Sensitivity of\\Nozzle Guide Vane Flow Capacity\\to Geometric Changes}
@@ -253,13 +272,6 @@ If this concept is extended to infinitesimal streamlines (and the flow is isentr
 \end{equation}
 where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit vector perpendicular to the local sonic line, and the integral is performed on the scalar infinitessimal $dL$ over the length of the sonic line, as illustrated in Figure~\ref{fig:illustration_of_equivalent_throat_area_integral}.
  		
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=.6\textwidth]{figs/illustration_of_equivalent_throat_area_integral_ver03.png}
-%	\caption{Integral for 2D nozzle equivalent throat area}
-%	\label{fig:illustration_of_equivalent_throat_area_integral}
-%\end{figure}
-
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{.45\textwidth}
@@ -282,28 +294,69 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
  
 Deepak Thirumurthy et al~\cite{thirumurthy_throat_area} discussed the challenges and uncertainties associated with the accurate matching of an aeroderivative gas generation turbine. The authors' focus was on various means of predicting capacity to facilitate proper matching. 
 
-Geometric throat area was discussed as having, with the authors noting that ``the throat area of any blade or vane row has a strong influence on the overall capacity of the turbine. The vane or blade throat plane...is defined as the plane formed by the smallest passage area normal to the flow path. The effects are of first order when the throat area is changed for the first stage of the turbine.''
+The authors noted that ``the throat area of any blade or vane row has a strong influence on the overall capacity of the turbine. The vane or blade throat plane...is defined as the plane formed by the smallest passage area normal to the flow path. The effects are of first order when the throat area is changed for the first stage of the turbine.''
 
 
 \section{1D vs 2D capacity uncertainty}
+\label{section_1d_vs_2d_capacity_uncertainty}
 %do I have the T900 family at various PRs, or just at the choking PR? Do I actually need other PRs anyway, given that the throat area stuff looks at the vanes when they are choked?
+%I have the case files for just the choked conditions, apparently. But this is ok because I have the gamma curves and plots etc, so I can still enhance the thesis by adding some CFD visualisations at choked conditions, showing the M1 line.
+
+--Introduce section by talking about how 2D CFD is neccessary because, unlike 1D where throat = min area, the throat surface in 2D and 3D is not known until the flow is already solved.
 
 -- A family of 2D NGVs were run in CFD. The point is to see how their capacity varies when plotted against various definitions of throat area. The usefulness of each definition will be discussed.
 
+Geometric variation among Rolls-Royce Trent 900 NGVs has been subject to extensive measurement by Rolls-Royce. In one such set of studies, Terry Hall~\cite{hall_area} and Giulio Zamboni~\cite{zamboni_area} provided geometric definitions of 6 NGVs. These studies considered 2 slightly different production standards within the Trent 900 NGV family, which are referred to by Rolls-Royce as the M-skew standard and the EP1 standard.
+
+Rolls-Royce randomly selected three production NGVs from each standard and measured their surface geometries using the \textit{white light}/\textit{GOM} scanning method. This resulted in the geometric definition files which were provided to the present study by Hall and Zamboni. These files do not include film cooling holes or the trailing edge slot. The trailing edges are smoothly rounded.
+
+--Need to talk about how the family of vanes show variations out of the factory, even though they have no cooling features. But I must check exactly what RR's definition of the minnimum area was. Was it in fact affected by the TE slot?
+
 -- Present boundary conditions:
+
+The 3D NGV surface shape was provided by Rolls-Royce as a set of co-ordinates which define 21 closed loops on the vane surface. Each loop consists of a pair of streamlines which diverge from a stagnation point on the vane's leading edge and converge at the trailing edge. The 11th loop was thus considered to be the closest approximation to a mid-span slice of the NGV.
+
+MATLAB was used to process the 3D curve of the 11th loop, producing a 2D section via the following process. 
+\begin{enumerate}
+  \item Project the loop's coordinates onto a cylindrical surface whose radius is equal to the NGV annular radius at mid-span.
+  \item Periodically repeat the resulting shape in the circumferential direction to create an annulus of 2D vanes wrapped around the cylinder.
+  \item Transform the annulus into an infinite 2D linear cascade by taking the circumferential coordinate to be a vertical coordinate.
+\end{enumerate}
+This process is illustrated in Figure~\ref{fig:2d_geometry_creation}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{figs/2d_geometry_creation.png}
+	\caption{Creation of 2D mid-span approximation of NGV geometry}
+	\label{fig:2d_geometry_creation}
+\end{figure}
+
+The resulting coordinates were connected to form a closed body. This body was placed in a computational domain consisting of a straight inlet section, a curved turning section, and a straight outlet section inclined at the NGV turning angle. The domain was modelled in Ansys Fluent, where the inlet boundary was specified to have total pressure $p_{01}$ and the outlet was specified to have static pressure $p_2$. The remaining domain boundaries were made periodic with one another to preserve the 2D linear cascade. The NGV surface boundary was specified as a solid wall with a no-slip boundary condition and no heat conduction. The resulting computational domain is illustrated in Figure~\ref{fig:computational_domain_and_boundaries}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{figs/domain_boundary_conditions.png}
+	\caption{Computational domain and boundaries}
+	\label{fig:computational_domain_and_boundaries}
+\end{figure}
+
+This configuration has been the basis for all other 2D CFD analyses in the present study, where additional boundaries are added to account for cooling features as required. Values for the simulation were set according to Table~\ref{T900_parameters}.
+
+% this table's PR checks out. The crazy high pressure ratio on Fluent is just where it finished after going through all the ratios.
 \begin{table}[H]
-\caption{Simulation parameters for Trent 900 smooth-vane capacity study}
+\caption{Boundary conditions at design pressure ratio for multi-vane capacity study}
 \label{T900_parameters}
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
 Parameter & Value\\
 \hline
-NGV turning (degrees) & 76.891\\
+NGV series & Rolls-Royce Trent 900\\
+NGV turning (degrees) & 76.89\\
 Design pressure ratio & 1.79\\
-Inlet total pressure (Pa) & $4.3256 \times 10^6$\\
+Inlet total pressure (Pa) & $4.33 \times 10^6$\\
 Inlet total temperature (K) & 300\\
-Outlet static pressure (design) (Pa) & $2.4156 \times 10^6$\\
+Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
 Outlet static temperature (Pa) & 300\\
 Solver type & Density-based\\
 Cell count & 35,000\\
@@ -469,17 +522,52 @@ In the case of no coolant flow this becomes
 
 \section{Effects of trailing edge shape uncertainty on capacity predictability}
 
---Uncertainties in the trailing edge shape (SS erosion and manufacturing variations) - how hard do they make it to predict capacity
+If nozzle guide vane flow capacity is known to be a function of effective throat area, we must survey the practical reasons for which effective throat area might vary. In a real engine, NGV effective throat area might depart from its design value if the NGVs depart from their design shape, either because of the finite precision of manufacturing, or because of erosion while in service. 
 
--- Uncertanties occur in the suction-side traling edge because of various factors like erosion through cooling failure (for example in desert environments) and manufacturing variations. If variations and life-cycle changes happen to the trailing edge, what effect on capacity can we expect, and why?
+A goal of the present study is to help ascertain how much these off-design conditions might limit the predictability of NGV flow capacity, and to comment on ways to mitigate this limitation. The NGV trailing edge is an area of focus because it is particularly succeptible to both finite-precision and in-service departures from its design shape. 
 
---Review the literature on what sort of erosion is expected, and show that it’s justified to look at a 2D midspan slice as I have done, because this the hottest bit of the part and more erosion would happen here anyway.
+The trailing edge is succeptible to finite-precision departures from its design shape because of how it is manufactured. Vane pairs are cast to a finite precision as discussed in Section~\ref{section_1d_vs_2d_capacity_uncertainty}, where significant geometric variation appears in vanes even without cooling features. The vanes are then subject to machining to finish off the trailing edge shape. The finishing creates the most aerodynamic trailing edge possible, with a thin suction-side flange that cleanly meets the endwalls, and a flange chord length that is consistent across the span of the trailing edge. The creation of a repeatable minimum geometric area cannot be said to be a primary objective.
 
---2D CFD was run for 1 NGV with varying amounts of erosion simulated on the TE SS flange.
+The trailing edge is succeptible to in-service departures from its design shape because it is the most fragile part of the vane. The NGV remains largely intact over a lifetime of extremely hot supersonic flow, but the trailing edge flange may be subject to significant erosion. If there is a blockage in any of the plena which feed the trailing edge slot, part of its span will receive reduced coolant flow, accelerating the degradation of the trailing edge flange near that area. Such cooling failures are not uncommon in sandy environments.
+
+This study will consider the potential worst case for in-service erosion of the suction-side flange, namely its complete deletion. This worst-case erosion is assumed to take place at the NGV mid-span because this area is exposed to the greatest flow speeds and temperatures. This justifies 2-dimensional simulation of the mid-span flow. The goal is to parameterise changes to the flange and comment on how these changes alter the effective minimum area and the NGV flow capacity.
+
+2D CFD has been used to model the effects of incremental removal of material from the trailing-edge suction-side flange of an NGV. 
 
 --Present boundary conditions
 
+--Geometry made by Fig~\ref{fig:2d_geometry_creation}
+
+--Domain is Fig~\ref{fig:computational_domain_and_boundaries}
+
+--BCs are:
+
+\begin{table}[H]
+\caption{Boundary conditions for trailing edge suction-side flange shape uncertainty study}
+\label{ss_cutbacks_parameters}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value\\
+\hline
+NGV series & Rolls-Royce Trent 900\\
+NGV turning (degrees) & 76.89\\
+Design pressure ratio & 1.79\\
+Inlet total pressure (Pa) & $4.33 \times 10^6$\\
+Inlet total temperature (K) & 300\\
+Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
+Outlet static temperature (Pa) & 300\\
+Solver type & Density-based\\
+Cell count & 35,000\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 --Present mesh with larger and better pictures, and show how the mesh is altered as erosion amount varies
+	--Plan of action - figure out how to save a specific viewpoint in Fluent, and how to take good pictures. Make sure this viewpoint is suitable for both the SS and PS pictures.
+
+
 
 --Show capacity trend for all the data as an initial summary, then show capacity vs erosion amount for a couple of relevant PRs (perhaps design and fully choked)
 
@@ -517,6 +605,28 @@ The authors used a linear cascade to measure the aerodynamic performance of a se
 --Introduce my alternative design: 2D CFD was done on an alternative design of TE featuring centred coolant ejection. This shape of TE was also incrementally cut back on the pressure side so as to more resemble the existing TE design.
 
 --Present boundary conditions
+
+\begin{table}[H]
+\caption{Boundary conditions for trailing edge centred-ejection design study}
+\label{ps_cutbacks_parameters}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value\\
+\hline
+NGV series & Rolls-Royce Trent 900\\
+NGV turning (degrees) & 76.89\\
+Design pressure ratio & 1.79\\
+Inlet total pressure (Pa) & $4.33 \times 10^6$\\
+Inlet total temperature (K) & 300\\
+Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
+Outlet static temperature (Pa) & 300\\
+Solver type & Density-based\\
+Cell count & 35,000\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 --Present mesh with larger and better pictures, and show how the mesh is altered as the design is altered
 
@@ -584,19 +694,20 @@ To be filed:
 
 --Present boundary conditions
 \begin{table}[H]
-\caption{Simulation Parameters}
+\caption{Boundary conditions for suction-side cooling hole position study}
 \label{SCH_parameters}
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
 Parameter & Value\\
 \hline
-NGV turning (degrees) & $73.969$\\
-NGV throat width (m) & $1.253 \times 10^-2$\\
-Design pressure ratio & $1.648$\\
-Inlet total pressure (Pa) & $4.326 \times 10^6$\\
+NGV series & Rolls-Royce Trent XWB 84K\\
+NGV turning (degrees) & $73.97$\\
+NGV throat width (m) & $1.25 \times 10^-2$\\
+Design pressure ratio & $1.65$\\
+Inlet total pressure (Pa) & $4.33 \times 10^6$\\
 Inlet total temperature (K) & $300$\\
-Outlet static pressure (Pa) & $2.625 \times 10^6$\\
+Outlet static pressure (Pa) & $2.63 \times 10^6$\\
 Outlet static temperature (Pa) & $300$\\
 Coolant/mainstream mass flow ratio & $0.003$\\
 Solver type & Density-based\\
