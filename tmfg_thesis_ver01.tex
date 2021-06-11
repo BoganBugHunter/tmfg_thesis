@@ -232,7 +232,7 @@ It is shown that the capacity of one-dimensional nozzle flow is a function of on
 
 The following chapters will analyse the capacity of two-dimensional and three-dimensional nozzle flows, presenting and discussing analytical techniques for applying the 1D capacity equation to 2D and 3D data. In such cases, capacity will be quantified using equation~\ref{capacity_definition}.
 
-%maybe another paragraph on why this matters for predictability, but maybe this is already appropriate in the chapter intro?
+\textcolor{red}{Maybe another paragraph on why this matters for predictability, but maybe this is already appropriately covered by the chapter intro?}
 
 
 
@@ -264,10 +264,11 @@ A 1-dimensional supersonic nozzle is equivalent to a single streamline of variab
 
 A 2-dimensional nozzle may be modelled as a group of adjacent streamlines, each of which may have dissimilar area functions. The streamlines' minimum areas may not correspond to a straight line across the narrowest part of the nozzle. 
 
-This is illustrated in Figure~\ref{fig:illustration_of_minimum_area} by considering the division of a 2-dimensional flow into a finite number of streams of finite width. Each stream has an individual line of minimum width where sonic conditions exist. Collectively these lie on a line distinct from the overall passage line of minimum width. These two definitions of the effective throat line are marked.
+This is illustrated in Figure~\ref{fig:illustration_of_minimum_area} by supposing the division of a 2-dimensional flow into a finite number of streams of finite width. Each stream has an individual point of minimum width where sonic conditions exist, shown as the transition between subsonic flow in blue and supersonic flow in yellow. These sonic points are distributed on a line distinct from the overall passage line of minimum width. The resulting minimum area line is shown in red along with the geometric minimum area line, to illustrate their disparity.
 
-If this concept is extended to infinitesimal streamlines (and the flow is isentropic) each streamline will experience sonic conditions at its point of minimum area, combining to form the 2-dimensional sonic line. The effective throat area of a 2-dimensional nozzle is thus the sum of its streamlines' throat areas. This is distinct from the sonic line length, and may be expressed by the integral
-\begin{equation}
+If this concept is extended to infinitesimal streamlines (and the flow is isentropic) each streamline will experience sonic conditions at its point of minimum area, coalescing to form the 2-dimensional sonic line. The effective throat area of a 2-dimensional nozzle is thus the sum of its streamlines' throat areas. This is distinct from the sonic line length, and may be expressed by the integral
+\begin{equation}\label{effective_throat_area_integral}
+	A_{eff} = 
 	\int_{1}^2 \vu*{v} \vdot \vu*{r} dL
 \end{equation}
 where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit vector perpendicular to the local sonic line, and the integral is performed on the scalar infinitessimal $dL$ over the length of the sonic line, as illustrated in Figure~\ref{fig:illustration_of_equivalent_throat_area_integral}.
@@ -289,10 +290,10 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 	\end{subfigure}
 	\caption{Considerations for defining minimum area}
 \end{figure}
- 		
- --Review any definitions of minimum area from the literature.
- 
-Deepak Thirumurthy et al~\cite{thirumurthy_throat_area} discussed the challenges and uncertainties associated with the accurate matching of an aeroderivative gas generation turbine. The authors' focus was on various means of predicting capacity to facilitate proper matching. 
+
+In the case of 1-dimensional nozzle flow, Equation~\ref{effective_throat_area_integral} collapses to the value of the throat area. In the case of 2D flow through an arbitrarily shaped nozzle such as a gas turbine nozzle guide vane, the integral describes the infinitesimal sum of the areas encountered by each streamline at the point of sonic conditions. It is proposed as a physically sensible 2D extension of the 1D concept of throat area, as opposed to placing a ruler across the narrowest point of passage to obtain a geometric throat area. 
+
+The present study will nonetheless discuss the reasons for which geometric throat area remains a useful predictor of NGV flow capacity in many cases, as has been noted in the literature. Deepak Thirumurthy et al~\cite{thirumurthy_throat_area} discussed the challenges and uncertainties associated with the accurate matching of an aeroderivative gas generation turbine. The authors' focus was on various means of predicting capacity to facilitate proper matching. 
 
 The authors noted that ``the throat area of any blade or vane row has a strong influence on the overall capacity of the turbine. The vane or blade throat plane...is defined as the plane formed by the smallest passage area normal to the flow path. The effects are of first order when the throat area is changed for the first stage of the turbine.''
 
@@ -301,18 +302,17 @@ The authors noted that ``the throat area of any blade or vane row has a strong i
 \label{section_1d_vs_2d_capacity_uncertainty}
 %do I have the T900 family at various PRs, or just at the choking PR? Do I actually need other PRs anyway, given that the throat area stuff looks at the vanes when they are choked?
 %I have the case files for just the choked conditions, apparently. But this is ok because I have the gamma curves and plots etc, so I can still enhance the thesis by adding some CFD visualisations at choked conditions, showing the M1 line.
+%The point is to see how the different NGVs' capacity varies when plotted against various definitions of throat area. The usefulness of each definition will be discussed.
 
---Introduce section by talking about how 2D CFD is neccessary because, unlike 1D where throat = min area, the throat surface in 2D and 3D is not known until the flow is already solved.
+The immediate challenge in quantifying 2D nozzle flow capacity is that analytical approaches are incomplete. If any nozzle's $A_{eff}$ could be inferred from its geometry, it would be possible to investigate the effects of the geometry on the flow capacity to a high degree of accuracy, but the only way to find $A_{eff}$ is to solve the flow computationally to obtain the $M=1$ line. Once a CFD solution has been obtained, the flow capacity is predicted anyway.
 
--- A family of 2D NGVs were run in CFD. The point is to see how their capacity varies when plotted against various definitions of throat area. The usefulness of each definition will be discussed.
+Those concerned with mapping NGV geometry onto flow capacity are thus presented with 2 options: either perform CFD on every conceivable shape of NGV and create a lookup table of arbitrary fidelity, or analyse a relatively small set of CFD solutions to create heuristics about what types of geometric changes cause what types of changes to the shape of the $M=1$ line and local flow vectors.
 
-Geometric variation among Rolls-Royce Trent 900 NGVs has been subject to extensive measurement by Rolls-Royce. In one such set of studies, Terry Hall~\cite{hall_area} and Giulio Zamboni~\cite{zamboni_area} provided geometric definitions of 6 NGVs. These studies considered 2 slightly different production standards within the Trent 900 NGV family, which are referred to by Rolls-Royce as the M-skew standard and the EP1 standard.
+Rolls-Royce plc have provided the present study with a family of NGV geometries suitable for such an approach, all from the Trent 900 engine. Geometric variation among Trent 900 NGVs has been subject to extensive measurement by Rolls-Royce. In one such set of studies, Terry Hall~\cite{hall_area} and Giulio Zamboni~\cite{zamboni_area} provided geometric definitions of 6 NGVs. These studies considered 2 slightly different production standards within the Trent 900 NGV family, which are referred to by the company as the M-skew standard and the EP1 standard.
 
 Rolls-Royce randomly selected three production NGVs from each standard and measured their surface geometries using the \textit{white light}/\textit{GOM} scanning method. This resulted in the geometric definition files which were provided to the present study by Hall and Zamboni. These files do not include film cooling holes or the trailing edge slot. The trailing edges are smoothly rounded.
 
---Need to talk about how the family of vanes show variations out of the factory, even though they have no cooling features. But I must check exactly what RR's definition of the minnimum area was. Was it in fact affected by the TE slot?
-
--- Present boundary conditions:
+Significant variations exist among the geometry of the 6 NGVs, even when cooling features are not accounted for. Zamboni described the process for quantifying these variations in 3D, which will be discussed in Section~\ref{2d_vs_3d_capacity_uncertainty}. The present study defined an approach for deriving 2D geometries from the 3D files and quantifying the variations among them.
 
 The 3D NGV surface shape was provided by Rolls-Royce as a set of co-ordinates which define 21 closed loops on the vane surface. Each loop consists of a pair of streamlines which diverge from a stagnation point on the vane's leading edge and converge at the trailing edge. The 11th loop was thus considered to be the closest approximation to a mid-span slice of the NGV.
 
@@ -365,7 +365,7 @@ Cell count & 35,000\\
 \end{center}
 \end{table}
 
--- Present mesh
+\textcolor{red}{Present mesh}
 \begin{figure}[H]
       \centering
       \includegraphics[width=.45\textwidth]{figs/T900_smooth_vane_mesh_placeholder.png}
@@ -373,32 +373,35 @@ Cell count & 35,000\\
       \label{fig:T900_mesh_1}
 \end{figure}
 
--- When the "throat area" of the 2D family is plotted against their capacity at a choking PR, it shows a pretty good proportional relationship. This is despite some obvious differences in the shape of the M1 line.
+\textcolor{red}{When the "throat area" of the 2D family is plotted against their capacity at a choking PR, it shows a pretty good proportional relationship. This is despite some obvious differences in the shape of the M1 line.}
 
--- Why are there still small deviations? That is, can I present a better definition of throat area that fits even better? Possible topics:
+\textcolor{red}{Why are there still small deviations? That is, can I present a better definition of throat area that fits even better? Possible topics:}
 
- -- Most likely it will follow the 1D rule if it is taken to be that streamline's M1 point. But not certain.
+\textcolor{red}{Most likely it will follow the 1D rule if it is taken to be that streamline's M1 point. But not certain.}
  
- -- the relationship between the minA line and the M1 line
+\textcolor{red}{the relationship between the minA line and the M1 line}
  
- -- the total length of each M1 line
+\textcolor{red}{the total length of each M1 line}
  
- -- a plot of capacity vs M1 line length
+\textcolor{red}{a plot of capacity vs M1 line length}
 
--- Why aren't there larger deviations? That is, can I derive a sensible geometric parameter and show that it isn't changing significantly?
+\textcolor{red}{Why aren't there larger deviations? That is, can I derive a sensible geometric parameter and show that it isn't changing significantly?}
 
--- Is this all really at design PR? What if the M1 lines were obtained at more choked PRs but I forgot to say so? What does the correlation look like at other PRs?
+\textcolor{red}{Is this all really at design PR? What if the M1 lines were obtained at more choked PRs but I forgot to say so? What does the correlation look like at other PRs?}
 
 
 \section{2D vs 3D capacity uncertainty}
+\label{2d_vs_3d_capacity_uncertainty}
 
--- 3D CFD data was shared by Rolls-Royce for comparison with the 2D data. The point is to see why 3D is still so different from 2D, ie what are we failing so badly to predict with 2D?
+Zamboni defined the Rolls-Royce process for calculating 3D throat area as follows: ``Along each vane span section, the throat line is defined as that line which connects the TE of one vane with the point of minimum distance on the suction surface of the nearby vane in the tangential direction. For a vane with TE slot, the TE point is defined as the start of the cut back... The throat surface interpolates all the throat lines spanwise.''
 
--- Discuss the most important ways in which the 3D capacity trends are different from the 2D ones. From a superficial look it appears that the 3D trends never choke. What could this mean about their having a M1 line at all?
+\textcolor{red}{3D CFD data was shared by Rolls-Royce for comparison with the 2D data. The point is to see why 3D is still so different from 2D, ie what are we failing so badly to predict with 2D?}
 
--- What does the correlation look like at other PRs?
+\textcolor{red}{Discuss the most important ways in which the 3D capacity trends are different from the 2D ones. From a superficial look it appears that the 3D trends never choke. What could this mean about their having a M1 line at all?}
 
--- Review 3D effects from the literature.
+\textcolor{red}{What does the correlation look like at other PRs?}
+
+\textcolor{red}{Review 3D effects from the literature.}
 
 
 
@@ -464,11 +467,11 @@ p_{02} - p_2
 }
 \end{equation}
 
---Discuss these two slightly different definitions
+\textcolor{red}{Discuss these two slightly different definitions.}
 
 
  
---Saha paper has its own loss definitions too - seems to be doing a definition that considers the coolant/mainstream mass flow ratio.
+\textcolor{red}{Saha paper has its own loss definitions too - seems to be doing a definition that considers the coolant/mainstream mass flow ratio.}
 \begin{equation}
 \zeta = 
 1 -
@@ -534,13 +537,13 @@ This study will consider the potential worst case for in-service erosion of the 
 
 2D CFD has been used to model the effects of incremental removal of material from the trailing-edge suction-side flange of an NGV. 
 
---Present boundary conditions
+\textcolor{red}{Present boundary conditions.}
 
---Geometry made by Fig~\ref{fig:2d_geometry_creation}
+\textcolor{red}{Geometry made by Fig~\ref{fig:2d_geometry_creation}}
 
---Domain is Fig~\ref{fig:computational_domain_and_boundaries}
+\textcolor{red}{Domain is Fig~\ref{fig:computational_domain_and_boundaries}}
 
---BCs are:
+\textcolor{red}{BCs are:}
 
 \begin{table}[H]
 \caption{Boundary conditions for trailing edge suction-side flange shape uncertainty study}
@@ -564,30 +567,28 @@ Cell count & 35,000\\
 \end{center}
 \end{table}
 
---Present mesh with larger and better pictures, and show how the mesh is altered as erosion amount varies
-	--Plan of action - figure out how to save a specific viewpoint in Fluent, and how to take good pictures. Make sure this viewpoint is suitable for both the SS and PS pictures.
+\textcolor{red}{Present mesh with larger and better pictures, and show how the mesh is altered as erosion amount varies.}
+	\textcolor{red}{Plan of action - figure out how to save a specific viewpoint in Fluent, and how to take good pictures. Make sure this viewpoint is suitable for both the SS and PS pictures.}
 
+\textcolor{red}{Show capacity trend for all the data as an initial summary, then show capacity vs erosion amount for a couple of relevant PRs (perhaps design and fully choked)}
 
+\textcolor{red}{2D CFD predicts a maximum ~2 percent change in capacity (when the flange is completely gone)}
 
---Show capacity trend for all the data as an initial summary, then show capacity vs erosion amount for a couple of relevant PRs (perhaps design and fully choked)
+\textcolor{red}{What is changing in the flow as a result of the erosion, and is it driving capacity change via the expected route of throat area changes (whatever we've decided is the best definition of throat area in the previous chapter)}
 
---2D CFD predicts a maximum ~2 percent change in capacity (when the flange is completely gone)
-
---What is changing in the flow as a result of the erosion, and is it driving capacity change via the expected route of throat area changes (whatever we've decided is the best definition of throat area in the previous chapter)
-
---Cite the state of the art for measuring the capacity of a ring of real parts - Burdett:
-	--Daniel Burdett - Analysis of ultra-low uncertainty gas turbine flow capacity measurement techniques~\cite{burdett_capacity_measurement}
-		--Arguing: Experimental capacity measurement of a ring of NGVs is now excellent and getting better. CFD still has trouble with small geometric changes because they are so tiny compared with even small deviations in the mesh. The TE is especially difficult to model with CFD because it involves so many different flows meeting and mixing, with unpredictable geometry
-		--Raw data: Experimental data showing continued improvements to the accuracy of the unsteady capacity measurement technique
-		--I discuss: The TE is indeed particularly hard to predict. Having established an extremely accurate measurement technique for an annulus of NGVs, how could such ideas be adapted to focussing on small geometric changes at the TE?
-		--I also cite: The history of this technique at Oxford, showing it has embodied a continual evolution in measurement accuracy and sensitivity to boundary conditions, but has been relatively underused for the study of geometric effects
+\textcolor{red}{Cite the state of the art for measuring the capacity of a ring of real parts - Burdett:}
+	\textcolor{red}{Daniel Burdett - Analysis of ultra-low uncertainty gas turbine flow capacity measurement techniques~\cite{burdett_capacity_measurement}}
+		\textcolor{red}{Arguing: Experimental capacity measurement of a ring of NGVs is now excellent and getting better. CFD still has trouble with small geometric changes because they are so tiny compared with even small deviations in the mesh. The TE is especially difficult to model with CFD because it involves so many different flows meeting and mixing, with unpredictable geometry}
+		\textcolor{red}{Raw data: Experimental data showing continued improvements to the accuracy of the unsteady capacity measurement technique}
+		\textcolor{red}{I discuss: The TE is indeed particularly hard to predict. Having established an extremely accurate measurement technique for an annulus of NGVs, how could such ideas be adapted to focussing on small geometric changes at the TE?}
+		\textcolor{red}{I also cite: The history of this technique at Oxford, showing it has embodied a continual evolution in measurement accuracy and sensitivity to boundary conditions, but has been relatively underused for the study of geometric effects}
 		
---Jie Gao - Experimental and numerical investigations of trailing edge injection in a transonic turbine cascade~\cite{gao_te}
-	--Arguing: TE coolant ejection is good for reducing the wake size and reducing shock effects on the exit angle
-	--Raw data: Their experimental and CFD linear cascade, five-hole probe data and surface pressure plots, downstream loss profile
-	--I discuss: Does it match my blowing rate study? Do my turning angles agree with theirs as Mach number changes? Do I see the same reduction of shocks? Do I broadly agree about the benefits of TE ejection? Remember badly-predicted turning angles are like bad capacity predictions
-	--I also cite: Whoever's loss definition they use - why didn't they compare it to others?
-	--My raw data: A lot of my own TE CFD
+\textcolor{red}{Jie Gao - Experimental and numerical investigations of trailing edge injection in a transonic turbine cascade~\cite{gao_te}}
+	\textcolor{red}{Arguing: TE coolant ejection is good for reducing the wake size and reducing shock effects on the exit angle}
+	\textcolor{red}{Raw data: Their experimental and CFD linear cascade, five-hole probe data and surface pressure plots, downstream loss profile}
+	\textcolor{red}{I discuss: Does it match my blowing rate study? Do my turning angles agree with theirs as Mach number changes? Do I see the same reduction of shocks? Do I broadly agree about the benefits of TE ejection? Remember badly-predicted turning angles are like bad capacity predictions}
+	\textcolor{red}{I also cite: Whoever's loss definition they use - why didn't they compare it to others?}
+	\textcolor{red}{My raw data: A lot of my own TE CFD}
 	
 Gao et al experimentally and numerically investigated the external flow field near the trailing edge of a linear cascade with trailing edge injection. The authors' focus was on the effects of the trailing edge coolant flow on the vane's loss mechanisms and flow exit angle. Without trailing edge injection, increased exit isentropic Mach number caused the appearance of trailing edge suction side shock waves which altered the flow angle. With trailing edge injection, there was a slight reduction in this shock effect but a strong reduction in the shock wave near the trailing edge pressure side.
 		
@@ -600,11 +601,11 @@ Improved materials and manufacturing techniques may neccessitate alternative tra
 
 The authors used a linear cascade to measure the aerodynamic performance of a set of blades representing the geometric constraints of the CMC manufacturing method. Of main concern was the constraint that ``the trailing edge thicknesses of CMC blades are anticipated to be significantly larger than those of current state-of-the-art metallic blades,'' which may be expected to cause increased loss. 
 
---discuss other justifications for studying this design - is it more predictable because it suffers less erosion?
+\textcolor{red}{Discuss other justifications for studying this design - is it more predictable because it suffers less erosion?}
 
---Introduce my alternative design: 2D CFD was done on an alternative design of TE featuring centred coolant ejection. This shape of TE was also incrementally cut back on the pressure side so as to more resemble the existing TE design.
+\textcolor{red}{Introduce my alternative design: 2D CFD was done on an alternative design of TE featuring centred coolant ejection. This shape of TE was also incrementally cut back on the pressure side so as to more resemble the existing TE design.}
 
---Present boundary conditions
+\textcolor{red}{Present boundary conditions.}
 
 \begin{table}[H]
 \caption{Boundary conditions for trailing edge centred-ejection design study}
@@ -628,33 +629,26 @@ Cell count & 35,000\\
 \end{center}
 \end{table}
 
---Present mesh with larger and better pictures, and show how the mesh is altered as the design is altered
+\textcolor{red}{Present mesh with larger and better pictures, and show how the mesh is altered as the design is altered.}
 
---Plot capacity trends for the centred-ejection designs vs the baseline
+\textcolor{red}{Plot capacity trends for the centred-ejection designs vs the baseline.}
 
---Is there better capacity predictability because the effects of erosion are less pronounced due to the thicker flanges?
+\textcolor{red}{Is there better capacity predictability because the effects of erosion are less pronounced due to the thicker flanges?}
 
---Discuss whether this loss may be worse or better if a centred-ejection design is used, still perhaps plotting more than one definition of loss
+\textcolor{red}{Discuss whether this loss may be worse or better if a centred-ejection design is used, still perhaps plotting more than one definition of loss.}
 
---When using this configuration, is there an optimal blowing rate that might re-energise the base region? Plot blowing rate vs loss, remembering that the graph I currently have is erroneously for the other type of TE, not for the centred-ejection kind. Should I try to re-run just this one thing?
+\textcolor{red}{When using this configuration, is there an optimal blowing rate that might re-energise the base region? Plot blowing rate vs loss, remembering that the graph I currently have is erroneously for the other type of TE, not for the centred-ejection kind. Should I try to re-run just this one thing?}
 
---Compare my centred-ejection TE with a "naturally-formed by erosion" centred-ejection TE from the literature 
+\textcolor{red}{Compare my centred-ejection TE with a "naturally-formed by erosion" centred-ejection TE from the literature.} 
 
+\textcolor{red}{To be filed:}
 
- 
- 
-
-
-To be filed:
-
---Ranjan Saha - SHOWER HEAD AND TRAILING EDGE COOLING INFLUENCE ON TRANSONIC VANE AERO PERFORMANCE~\cite{saha_loss}
-	--Arguing: Loss turns out very differently depending on which loss equation you use, and some formulations might be better than others
-	--Raw data: Their annular sector rig which tested NGVs with and without showerhead and TE coolant to quantify loss
-	--I discuss: How do their definitions of loss compare to mine and others', and is there an answer to which one is best in general?
-	--I also cite: All the other possible loss definitions, going back to Raffel and Kost and further if necessary
-	--My raw data: Any of my CFD data can yield loss according to any preferred definition, but this is most pertinent to my T900 TE cutbacks discussion
-
-
+\textcolor{red}{Ranjan Saha - SHOWER HEAD AND TRAILING EDGE COOLING INFLUENCE ON TRANSONIC VANE AERO PERFORMANCE~\cite{saha_loss}}
+	\textcolor{red}{Arguing: Loss turns out very differently depending on which loss equation you use, and some formulations might be better than others.}
+	\textcolor{red}{Raw data: Their annular sector rig which tested NGVs with and without showerhead and TE coolant to quantify loss.}
+	\textcolor{red}{I discuss: How do their definitions of loss compare to mine and others', and is there an answer to which one is best in general?}
+	\textcolor{red}{I also cite: All the other possible loss definitions, going back to Raffel and Kost and further if necessary.}
+	\textcolor{red}{My raw data: Any of my CFD data can yield loss according to any preferred definition, but this is most pertinent to my T900 TE cutbacks discussion.}
 
 
 
@@ -675,24 +669,24 @@ To be filed:
 %2) What current models best explain the effects of film coolant row location on capacity?
 %3) What corrections are necessary to interpret these 2D slot results in the real context of 2 rows of holes?
 
---It is sometimes necessary to add extra cooling holes on the suction-side at the LE
+\textcolor{red}{It is sometimes necessary to add extra cooling holes on the suction-side at the LE.}
 
---Coolant introduced into this part of the flow has complex interactions with the mainstream, affecting NGV capacity
+\textcolor{red}{Coolant introduced into this part of the flow has complex interactions with the mainstream, affecting NGV capacity.}
  
  
 \section{sensitivity of capacity to cooling holes on the leading suction side}
 
---Adding cooling holes causes complex effects - here discussed as loss, so I need citations for capacity too:
---Jie Gao - Experimental and numerical investigations of hole injection on the suction side throat of transonic turbine vanes in a cascade with trailing edge injection~\cite{gao_te_and_film_cooling}
-		--Arguing: Like their above paper but with a SS cooling slot. It causes passage blockage, a thicker wake, and more loss. But when there are shock waves, the film coolant enhances the TE PS shock but reduces the TE SS shock, which could be used toreatly reduce the TE SS shock if the injection is upstream of the throat
-		--Raw data: Their experimental and CFD linear cascade, with strong emphasis placed on the loss definitions and techniques established by Denton and Xu, Mee et al, and Schobieri
-		--I discuss: Ways in which my SS injection might interact with the flow (including shockwaves) as they suggest. Will I see it without having TE injection too?
-		--I also cite: Denton and Xu, Mee et al, and Schobieri for established precident on loss quantification
-		--My raw data: My moving coolant row study
+\textcolor{red}{Adding cooling holes causes complex effects - here discussed as loss, so I need citations for capacity too:}
+\textcolor{red}{Jie Gao - Experimental and numerical investigations of hole injection on the suction side throat of transonic turbine vanes in a cascade with trailing edge injection~\cite{gao_te_and_film_cooling}}
+		\textcolor{red}{Arguing: Like their above paper but with a SS cooling slot. It causes passage blockage, a thicker wake, and more loss. But when there are shock waves, the film coolant enhances the TE PS shock but reduces the TE SS shock, which could be used toreatly reduce the TE SS shock if the injection is upstream of the throat}
+		\textcolor{red}{Raw data: Their experimental and CFD linear cascade, with strong emphasis placed on the loss definitions and techniques established by Denton and Xu, Mee et al, and Schobieri}
+		\textcolor{red}{I discuss: Ways in which my SS injection might interact with the flow (including shockwaves) as they suggest. Will I see it without having TE injection too?}
+		\textcolor{red}{I also cite: Denton and Xu, Mee et al, and Schobieri for established precident on loss quantification}
+		\textcolor{red}{My raw data: My moving coolant row study}
 
---2D CFD was done on an XWB NGV with no coolant features apart from the addition of a single cooling row on the upstream suction side. The position of this featrure was varied, thus varying whereabouts in the flow the coolant was introduced.
+\textcolor{red}{2D CFD was done on an XWB NGV with no coolant features apart from the addition of a single cooling row on the upstream suction side. The position of this featrure was varied, thus varying whereabouts in the flow the coolant was introduced.}
 
---Present boundary conditions
+\textcolor{red}{Present boundary conditions.}
 \begin{table}[H]
 \caption{Boundary conditions for suction-side cooling hole position study}
 \label{SCH_parameters}
@@ -717,7 +711,7 @@ Cell count & $40,000$\\
 \end{center}
 \end{table}
 
---Present mesh, showing how the variable location coolant row is introduced
+\textcolor{red}{Present mesh, showing how the variable location coolant row is introduced.}
 \begin{figure}[H]
   \centering
   \begin{subfigure}{.9\textwidth}
@@ -743,9 +737,9 @@ Cell count & $40,000$\\
   \caption{Details of mesh for XWB single cooling hole study}
 \end{figure}
 
---Review the literature for why correctly modelling turbulence is important for capturing the mainstream/coolant mixing, and thus why two turbulence models are compared.
+\textcolor{red}{Review the literature for why correctly modelling turbulence is important for capturing the mainstream/coolant mixing, and thus why two turbulence models are compared.}
 
---Plot capacity changes versus hole position and discuss its causes, mentioning the literature reviewed in the chapter intro (plus the two definitions of capacity where coolant is concerned - which one is used in earlier chapters??) A maximum ~0.5 percent change in capacity resulted from an unrealistically drastic shifting of a 2D cooling slot along the vane's suction side.
+\textcolor{red}{Plot capacity changes versus hole position and discuss its causes, mentioning the literature reviewed in the chapter intro (plus the two definitions of capacity where coolant is concerned - which one is used in earlier chapters??) A maximum ~0.5 percent change in capacity resulted from an unrealistically drastic shifting of a 2D cooling slot along the vane's suction side.}
 \begin{figure}[H]
       \centering
       \includegraphics[width=.45\textwidth]{figs/SCH_capacity_vs_hole_position.png}
@@ -753,36 +747,39 @@ Cell count & $40,000$\\
       \label{fig:SCH_capacity_vs_hole_position}
 \end{figure}
 
+\textcolor{red}{Things that might be driving the change in capacity, and that can be examined from the existing data:}
+	\textcolor{red}{Changing boundary layer thickness causing a change in effective throat area}
+
     
 \section{Consideration of corrections necessary to interpret 2D result}
 
---Different:
+\textcolor{red}{Different:}
 
---Mass flow rate between a 2D slot and a 3D row of holes
+\textcolor{red}{Mass flow rate between a 2D slot and a 3D row of holes}
 
---Mixing between coolant and mainstream
+\textcolor{red}{Mixing between coolant and mainstream}
 
---Angle of ejection
+\textcolor{red}{Angle of ejection}
 
---Papers about matching the conditions when simulating a cooling row:
+\textcolor{red}{Papers about matching the conditions when simulating a cooling row:}
 
---S. Ravelli - NUMERICAL ASSESSMENT OF DENSITY RATIO AND MAINSTREAM TURBULENCE EFFECTS ON LEADING EDGE FILM COOLING: HEAT AND MASS TRANSFER METHODS~\cite{ravelli_engine_conditions}
-		--Arguing: In a CFD simulation of four film cooling hole rows, the usual parameters (DR, BR, MFR, TuI) aren't enough to ensure you have matched the engine conditions
-		--Raw data: A previous experimental study (PSP) to validate their CFD, and their CFD
-		--I discuss: Criticise my own signle cooling slot work - is it really representative enough for its capacity effects to be predictable
-		--I also cite: Other CFD on film cooling
-		--My raw data: My single cooling row data, emphasis on the CFD parameters and setup
+\textcolor{red}{S. Ravelli - NUMERICAL ASSESSMENT OF DENSITY RATIO AND MAINSTREAM TURBULENCE EFFECTS ON LEADING EDGE FILM COOLING: HEAT AND MASS TRANSFER METHODS~\cite{ravelli_engine_conditions}}
+		\textcolor{red}{Arguing: In a CFD simulation of four film cooling hole rows, the usual parameters (DR, BR, MFR, TuI) aren't enough to ensure you have matched the engine conditions}
+		\textcolor{red}{Raw data: A previous experimental study (PSP) to validate their CFD, and their CFD}
+		\textcolor{red}{I discuss: Criticise my own signle cooling slot work - is it really representative enough for its capacity effects to be predictable}
+		\textcolor{red}{I also cite: Other CFD on film cooling}
+		\textcolor{red}{My raw data: My single cooling row data, emphasis on the CFD parameters and setup}
 		
---Giovanna Barigozzi - Experimental investigation of the interaction between showerhead coolant jets and main flow~\cite{barigozzi_film_cooling}
-		--Arguing: When film coolant is ejected upstream , observed high turbulence and velocity fluctuations suggest the mixing is a random process without coherent structures, and unsteady, and 3D
-		--Raw data: Their experimental study, including pressure-sensitive paint and particle-image velocimetry
-		--I discuss: Do we know less than we thought about how much film coolant is actually getting to the LE SS? Reason why you might want an extra row there? Also, clear support for my arguing that proper CFD investigations of SS LE film cooling should not be a 2D slot and should not be steady
+\textcolor{red}{Giovanna Barigozzi - Experimental investigation of the interaction between showerhead coolant jets and main flow~\cite{barigozzi_film_cooling}}
+		\textcolor{red}{Arguing: When film coolant is ejected upstream , observed high turbulence and velocity fluctuations suggest the mixing is a random process without coherent structures, and unsteady, and 3D}
+		\textcolor{red}{Raw data: Their experimental study, including pressure-sensitive paint and particle-image velocimetry}
+		\textcolor{red}{I discuss: Do we know less than we thought about how much film coolant is actually getting to the LE SS? Reason why you might want an extra row there? Also, clear support for my arguing that proper CFD investigations of SS LE film cooling should not be a 2D slot and should not be steady}
 		
---Wei He - Film cooling and aerodynamic performances of a turbine nozzle guide vane with trenched cooling holes~\cite{he_film_cooling}
-		--Arguing: A novel design for film cooling holes, using a zigzag-shaped trench, has some advantages but is only really suitable for the middle PS
-		--Raw data: Their 3D CFD on a single-vane linear cascade, where the trench moves around various positions
-		--I discuss: They mention BR etc, relevant to me. Their movable trench is a bit like my movable 2D slot, except it is mainly confined to the PS, whereas mine is on the SS. But my quasi-3D study could be easily adapted to repeat their study of the novel trench shape
-		--My raw data: My Q3D study
+\textcolor{red}{Wei He - Film cooling and aerodynamic performances of a turbine nozzle guide vane with trenched cooling holes~\cite{he_film_cooling}}
+		\textcolor{red}{Arguing: A novel design for film cooling holes, using a zigzag-shaped trench, has some advantages but is only really suitable for the middle PS}
+		\textcolor{red}{Raw data: Their 3D CFD on a single-vane linear cascade, where the trench moves around various positions}
+		\textcolor{red}{I discuss: They mention BR etc, relevant to me. Their movable trench is a bit like my movable 2D slot, except it is mainly confined to the PS, whereas mine is on the SS. But my quasi-3D study could be easily adapted to repeat their study of the novel trench shape}
+		\textcolor{red}{My raw data: My Q3D study}
 
 
 
