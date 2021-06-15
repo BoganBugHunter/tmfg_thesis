@@ -90,7 +90,13 @@
 
 \section{Motivation}
 
-\textcolor{red}{Power from a jet engine is m-dot x delta v}
+\textcolor{red}{Thrust from a jet engine is m-dot x delta v}
+The power available from the core flow of a turbofan engine is given by
+\begin{equation}
+P = 
+\dot{m} \Delta v
+\end{equation}
+where $\dot{m}$ is the mass flow rate through the core a
 
 \textcolor{red}{Talk about the Brayton cycle (and show it). Static pressure at inlet is matched to static pressure at compressor outlet. Total pressure increases across the combustor because dynamic pressure increases (or to put it another way, enthalpy increases across the combustor because internal energy and specific volume increase). So in what way exactly is the inlet total pressure constrained? Is this a deciding factor in how we talk about capacity, or is it really just the obvious thing that our definition gets rid of the inlet total conditions?}
 
@@ -111,7 +117,7 @@ Andrea Guiffre' and Matteo Pini~\cite{guiffre_design_guidelines} performed numer
 
 A strong understanding of capacity predictability should allow engine-makers to pre-empt geometric changes that happen to NGVs during service, such as erosion and cooling hole blockage. It should also account for geometric uncertainties arising from the manufacturing process. While this study advocates for improved accuracy of capacity predictions, emphasis is placed on how these predictions are limited by the unpredictability of real-world manufacture and service.
 
-\section{Flow capacity: background, definition and derivation}
+\section{Flow capacity: background, definition, and derivation}
 \label{flow_capacity_background_definition_and_derivation}
 
 In one dimension, an engine nozzle may be modelled as a compressible flow from an upstream reservoir of total pressure $p_0$, accelerating to velocity $v$ and density $\rho$ through a nozzle of cross-sectional area $A$. Mass flow rate through the nozzle is thus
@@ -196,6 +202,7 @@ A \;
 	\right] 
 }
 \end{equation}
+
 A scale constant $\sigma$ is defined as
 \begin{equation}
 \sigma = 
@@ -224,31 +231,92 @@ r_c =
 At lower ratios, the nozzle is choked and mass flow rate cannot increase further. Choked capacity is given by
 \begin{equation}\label{choked_capacity_from_area}
 \Gamma_c \left( A \right) =
-\sigma
+\sqrt[]{\frac{2\gamma}{R\left(\gamma-1\right)}}
 A \;
 \sqrt[]{
 	\left(
-		\frac{\gamma + 1}{2}  
+		\frac{\gamma+1}{2}  
 	\right)
 	^\frac{2}{1-\gamma}
-	-
-	\left(
-		\frac{\gamma + 1}{2}  
-	\right)
-	^\frac{1+\gamma}{1-\gamma}
+	\left[
+		1 - 
+		\left(
+			\frac{\gamma+1}{2}
+		\right)
+		^{-1}
+	\right]
 }
+\end{equation}
+which simplifies to
+\begin{equation}\label{choked_capacity_from_area}
+\Gamma_c \left( A \right) =
+\sqrt[]{\frac{2\gamma}{R\left(\gamma-1\right)}}
+A \;
+\sqrt[]{
+	\left(
+		\frac{\gamma+1}{2}  
+	\right)
+	^\frac{2}{1-\gamma}
+	\left[
+		\frac{\gamma+1}{\gamma+1}
+		-
+		\left(
+			\frac{2}{\gamma+1}
+		\right)
+	\right]
+}
+\end{equation}
+\begin{equation}\label{choked_capacity_from_area}
+\Gamma_c \left( A \right) =
+A \;
+\sqrt[]{
+	\frac{2\gamma}{R}
+	\left(
+		\gamma+1
+	\right)
+	^\frac{2}{1-\gamma}
+	\frac{1}{\gamma+1}
+	\left(
+		\frac{1}{2}
+	\right)
+	^\frac{2}{1-\gamma}
+}
+\end{equation}
+\begin{equation}\label{choked_capacity_from_area}
+\Gamma_c \left( A \right) =
+A \;
+\sqrt[]{
+	\frac{\gamma}{R}
+}
+\left(
+	\frac{\gamma+1}{2}
+\right)
+^\frac{1+\gamma}{2\left(1-\gamma\right)}
 \end{equation}
 
 It is shown that the capacity of one-dimensional nozzle flow is a function of only the flow's minimum area, provided the flow is choked and the ratio of specific heats is assumed constant. 
 
-Section~\ref{research_structure} will introduce the structure of the following chapters, which will analyse the capacity of two-dimensional and three-dimensional nozzle flows, presenting and discussing analytical techniques for applying the 1D capacity equation to 2D and 3D data. In such cases, capacity will be quantified using equation~\ref{capacity_definition}.
-
-\textcolor{red}{Maybe another paragraph on why this matters for predictability, but maybe this is already appropriately covered by the chapter intro?}
+Section~\ref{research_structure} will introduce the structure of the following chapters, which will analyse the capacity of 2-dimensional and 3-dimensional nozzle flows, presenting and discussing analytical techniques for applying the 1D capacity equation to 2D and 3D data. In such cases, capacity will be quantified using equation~\ref{capacity_definition}.
 
 \section{Research structure}
 \label{research_structure}
 
-\textcolor{red}{A real engine is not 1D compressible flow so we introduce the driving factors.}
+The present study seeks to categorise and examine the ways in which nozzle guide vane flow departs from 1-dimensional compressible flow. These departures are numerous and diverse. The study's scope is to include 2 categories of phenomena: difficulties in predicting the mass flow rate through real nozzle guide vanes, and difficulties in quantifying and modelling the loss incurred by various practical solutions to the need for NGV coolant flow.
+
+Although NGV flow capacity is arguably to be maximised in pursuit of greater power, and loss is certainly to be minimised in pursuit of greater efficiency, it is practical to divide efforts according to the areas of NGV engineering where limitations are present. The present study has identified 3 such areas.
+\begin{itemize}
+	\item NGV casting processes causing variations in overall shape and throat area, limiting the predictability of flow capacity.
+	\item Trailing edge machining processes causing variations in trailing edge shape, resulting in complex variations in the flow field near the trailing edge flange, with corresponding variations in flow capacity.
+	\item Sensitivity of flow capacity to the addition of extra film cooling holes on the NGV lead-edge suction side, including sensitivity to their exact location.
+\end{itemize}
+
+NGVs are cast to high precision. Chapter~\ref{chapter_geometric_throat_area} will present the variations that nonetheless exist among sets of vanes that are intended to be identical. These variations are shown to affect the NGVs' geometric throat area. The chapter discusses the challenges inherent in finding a definition of throat area that usefuly predicts the flow capacity of an NGV. The effects of 2-dimensional flow phenomena and geometric variations are presented as confounding factors when considering 2D nozzle flow as opposed to 1D. Further complexity is shown to arise when extending analyses to 3D, where 3D CFD data gathered by Rolls-Royce plc are compared to 2D CFD data from the present study.
+
+Chapter~\ref{chapter_trailing_edge} will discuss the other way in which NGV manufacturing introduces geometric variations that reduce capacity predictability, namely the machining of the trailing edge shape. The machining is designed to optimise the trailing edge's aerodynamics, and not necessarily to minimise variations in its shape. The chapter presents 2D CFD analyses of the effects of variable traling edge flange size on the 2D flow field and resulting flow capacity of the NGV. To address the variability of contemporary trailing edge designs and to examine the possibility of thicker trailing edges in the event of novel manufacturing methods, the chapter presents 2D CFD analyses of a flange-less design. This design's loss performance is analysed, informed by a review of various definitions of loss from the literature, where a lack of concensus on a loss definition is demonstrated.
+
+Chapter~\ref{chapter_leading_edge} will analyse the effects of film coolant injection location on both flow capacity and loss. The chapter discusses the possible requirement for an additional suction-side film cooling hole row to be added to NGVs. Given the variability inherent in the process of drilling film cooling holes, justification is given for a 2D CFD study of the effects of hole location on flow capacity and loss, analagous to the variable trailing edge study of Chapter~\ref{chapter_trailing_edge}. A correlation between hole location and flow capacity is analysed, as is the hole location's effect on loss. The chapter also presents a quasi-3D CFD study to demonstrate that 2D CFD (which amounts to a cooling slot) does not accurately model the discharge and mixing phenomena of a row of circular holes.
+
+Literature review will not be the subject of its own chapter. Literature will be reviewed throughout the thesis whenever relevant to the topic under discussion.
 
 \section{Summary of findings}
 
@@ -614,6 +682,7 @@ Gao et al experimentally and numerically investigated the external flow field ne
 		
 		
 \section{Performance of an alternative trailing edge design}
+\label{performance_of_an_alternative_trailing_edge_design}
 %--Centred-ejection option (PS cutbacks) (and could it reduce loss) and what happens as its geometry is changed to gradually look more like an existing design
 %--We must also consider broader TE manufacturing changes that are likely to happen on purpose - the switch to CMC manufacturing of turbine blades. How will this change the game, and what tolerances are expected?
 
