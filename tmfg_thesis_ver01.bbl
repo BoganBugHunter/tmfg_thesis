@@ -21,6 +21,20 @@ G.~Zamboni, ``{HYDRA} {CFD} of the trent 900 {EP1} turbine high pressure nozzle
   predictions using gom scanned data,'' Tech. Rep. DNS 181981, Rolls-Royce plc,
   Gipsy Patch Lane, Filton, Bristol, July 2012.
 
+\bibitem{nikuradse_boundary_layers}
+J.~Nikuradse, ``Laws of flow in rough pipes,'' {\em VDI Verlag research
+  booklet; ``supplement to Research in the field of engineering''}, vol.~361,
+  no.~B4, 1933.
+
+\bibitem{schlichting_boundary_layer_theory}
+H.~Schlichting, {\em Boundary Layer Theory}.
+\newblock New York, NY, USA: McGraw-Hill, 1979.
+
+\bibitem{salim_y_plus}
+S.~M. Salim and S.-C. Cheah, ``Wall y+ strategy for dealing with wall-bounded
+  turbulent flows,'' {\em Proceedings of the International MultiConference of
+  Engineers and Computer Scientists}, vol.~II, 2009.
+
 \bibitem{trinidade_loss}
 D.~B. da~Trinidade, P.~Bugala, and D.~Simone, ``Review of loss models for high
   pressure turbines,'' {\em Journal of KONES Powertrain and Transport},

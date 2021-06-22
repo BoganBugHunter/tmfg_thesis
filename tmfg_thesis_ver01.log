@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  17 JUN 2021 15:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  22 JUN 2021 01:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1462,7 +1462,12 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
-(./tmfg_thesis_ver01.aux)
+(./tmfg_thesis_ver01.aux
+
+LaTeX Warning: Label `fig:T900_2d_capacities_vs_throat_widths' multiply defined
+.
+
+)
 \openout1 = `tmfg_thesis_ver01.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
@@ -1479,8 +1484,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
 LaTeX Font Info:    ... okay on input line 63.
 LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 63.
 LaTeX Font Info:    Try loading font information for MDA+cmr on input line 63.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/mathdesign/mdacmr.fd
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
 LaTeX Font Info:    ... okay on input line 63.
@@ -1832,85 +1836,159 @@ File: figs/domain_boundary_conditions.png Graphic file (type png)
 Package pdftex.def Info: figs/domain_boundary_conditions.png used on input line
  504.
 (pdftex.def)             Requested size: 271.7835pt x 358.82484pt.
- [16 <./figs/2d_geometry_creation.png>]
-<figs/T900_smooth_vane_mesh_placeholder.png, id=76, 478.78876pt x 728.7225pt>
+ [16 <./figs/2d_geometry_creation.png>] [17 <./figs/domain_boundary_conditions.
+png>] [18] [19]
+<figs/T900_smooth_vane_mesh_placeholder.png, id=86, 478.78876pt x 728.7225pt>
 File: figs/T900_smooth_vane_mesh_placeholder.png Graphic file (type png)
 
 <use figs/T900_smooth_vane_mesh_placeholder.png>
 Package pdftex.def Info: figs/T900_smooth_vane_mesh_placeholder.png used on inp
-ut line 537.
+ut line 772.
 (pdftex.def)             Requested size: 203.83417pt x 310.24225pt.
- [17 <./figs/domain_boundary_conditions.png>] [18 <./figs/T900_smooth_vane_mesh
-_placeholder.png>] [19]
+ [20 <./figs/T900_smooth_vane_mesh_placeholder.png>]
+<figs/t900_2d_capacity_trends.png, id=90, 289.08pt x 289.08pt>
+File: figs/t900_2d_capacity_trends.png Graphic file (type png)
+
+<use figs/t900_2d_capacity_trends.png>
+Package pdftex.def Info: figs/t900_2d_capacity_trends.png used on input line 78
+3.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+
+<figs/t900_2d_capacity_trends_legend.png, id=91, 301.125pt x 1204.5pt>
+File: figs/t900_2d_capacity_trends_legend.png Graphic file (type png)
+
+<use figs/t900_2d_capacity_trends_legend.png>
+Package pdftex.def Info: figs/t900_2d_capacity_trends_legend.png used on input 
+line 788.
+(pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
+
+<figs/T900_2d_capacities_vs_throat_widths.png, id=92, 289.08pt x 289.08pt>
+File: figs/T900_2d_capacities_vs_throat_widths.png Graphic file (type png)
+
+<use figs/T900_2d_capacities_vs_throat_widths.png>
+Package pdftex.def Info: figs/T900_2d_capacities_vs_throat_widths.png used on i
+nput line 797.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+
+<figs/t900_throat_widths_legend.png, id=93, 301.125pt x 1204.5pt>
+File: figs/t900_throat_widths_legend.png Graphic file (type png)
+
+<use figs/t900_throat_widths_legend.png>
+Package pdftex.def Info: figs/t900_throat_widths_legend.png used on input line 
+802.
+(pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
+
+<figs/T900_mach1_lines.png, id=94, 1219.55624pt x 1065.9825pt>
+File: figs/T900_mach1_lines.png Graphic file (type png)
+
+<use figs/T900_mach1_lines.png>
+Package pdftex.def Info: figs/T900_mach1_lines.png used on input line 816.
+(pdftex.def)             Requested size: 317.07614pt x 277.14891pt.
+ [21 <./figs/t900_2d_capacity_trends.png (PNG copy)> <./figs/t900_2d_capacity_t
+rends_legend.png> <./figs/T900_2d_capacities_vs_throat_widths.png (PNG copy)> <
+./figs/t900_throat_widths_legend.png>]
+<figs/t900_3d_capacity_trends.png, id=100, 289.08pt x 289.08pt>
+File: figs/t900_3d_capacity_trends.png Graphic file (type png)
+
+<use figs/t900_3d_capacity_trends.png>
+Package pdftex.def Info: figs/t900_3d_capacity_trends.png used on input line 84
+3.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+File: figs/t900_2d_capacity_trends_legend.png Graphic file (type png)
+
+<use figs/t900_2d_capacity_trends_legend.png>
+Package pdftex.def Info: figs/t900_2d_capacity_trends_legend.png used on input 
+line 848.
+(pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
+ [22 <./figs/T900_mach1_lines.png>] <figs/T900_3d_capacities_vs_throat_areas.pn
+g, id=104, 289.08pt x 289.08pt>
+File: figs/T900_3d_capacities_vs_throat_areas.png Graphic file (type png)
+
+<use figs/T900_3d_capacities_vs_throat_areas.png>
+Package pdftex.def Info: figs/T900_3d_capacities_vs_throat_areas.png used on in
+put line 857.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+File: figs/t900_throat_widths_legend.png Graphic file (type png)
+
+<use figs/t900_throat_widths_legend.png>
+Package pdftex.def Info: figs/t900_throat_widths_legend.png used on input line 
+862.
+(pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
+ [23 <./figs/t900_3d_capacity_trends.png (PNG copy)> <./figs/T900_3d_capacities
+_vs_throat_areas.png (PNG copy)>]
 Chapter 3.
-[20
+[24
 
-] [21] [22] [23] [24]
+] [25] [26] [27] [28]
 Chapter 4.
-[25
+[29
 
-] <figs/SCH_mesh_domain_placeholder.png, id=106, 980.16188pt x 572.89032pt>
+] <figs/SCH_mesh_domain_placeholder.png, id=127, 980.16188pt x 572.89032pt>
 File: figs/SCH_mesh_domain_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_domain_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_domain_placeholder.png used on input lin
-e 886.
+e 1186.
 (pdftex.def)             Requested size: 407.66833pt x 238.26955pt.
 
-<figs/SCH_mesh_leading_edge_placeholder.png, id=107, 535.2497pt x 479.54156pt>
+<figs/SCH_mesh_leading_edge_placeholder.png, id=128, 535.2497pt x 479.54156pt>
 File: figs/SCH_mesh_leading_edge_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_leading_edge_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_leading_edge_placeholder.png used on inp
-ut line 893.
+ut line 1193.
 (pdftex.def)             Requested size: 203.83417pt x 182.62282pt.
 
-<figs/SCH_mesh_hole_placeholder.png, id=108, 855.195pt x 545.78906pt>
+<figs/SCH_mesh_hole_placeholder.png, id=129, 855.195pt x 545.78906pt>
 File: figs/SCH_mesh_hole_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_hole_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_hole_placeholder.png used on input line 
-900.
+1200.
 (pdftex.def)             Requested size: 203.83417pt x 130.08429pt.
- [26]
-<figs/SCH_capacity_vs_hole_position.png, id=112, 256.7994pt x 257.5221pt>
+ [30]
+<figs/SCH_capacity_vs_hole_position.png, id=134, 256.7994pt x 257.5221pt>
 File: figs/SCH_capacity_vs_hole_position.png Graphic file (type png)
 
 <use figs/SCH_capacity_vs_hole_position.png>
 Package pdftex.def Info: figs/SCH_capacity_vs_hole_position.png used on input l
-ine 912.
+ine 1212.
 (pdftex.def)             Requested size: 203.83417pt x 204.40688pt.
- [27 <./figs/SCH_mesh_domain_placeholder.png> <./figs/SCH_mesh_leading_edge_pla
-ceholder.png> <./figs/SCH_mesh_hole_placeholder.png>] [28 <./figs/SCH_capacity_
+ [31 <./figs/SCH_mesh_domain_placeholder.png> <./figs/SCH_mesh_leading_edge_pla
+ceholder.png> <./figs/SCH_mesh_hole_placeholder.png>] [32 <./figs/SCH_capacity_
 vs_hole_position.png (PNG copy)>]
-(./tmfg_thesis_ver01.bbl [29] [30
+(./tmfg_thesis_ver01.bbl [33] [34
 
-]) [31] (./tmfg_thesis_ver01.aux) ) 
+]) [35] (./tmfg_thesis_ver01.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 14085 strings out of 493117
- 245617 string characters out of 6135433
- 324254 words of memory out of 5000000
- 17149 multiletter control sequences out of 15000+600000
- 73369 words of font info for 213 fonts, out of 8000000 for 9000
+ 14136 strings out of 493117
+ 247305 string characters out of 6135433
+ 324406 words of memory out of 5000000
+ 17189 multiletter control sequences out of 15000+600000
+ 73687 words of font info for 216 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,10n,94p,10393b,586s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/en
-c/dvips/ly1/texnansi.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/bitstr
-ea/charter/bchb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/
-charter/bchbi8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/ch
-arter/bchr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/chart
-er/bchri8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesig
-n/mdbch/md-chb7y.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mat
-hdesign/mdbch/md-chr7m.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
-ic/mathdesign/mdbch/md-chr7t.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
-1/public/mathdesign/mdbch/md-chr7v.pfb></usr/local/texlive/2014/texmf-dist/font
-s/type1/public/mathdesign/mdbch/md-chr7y.pfb></usr/local/texlive/2014/texmf-dis
-t/fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb>
-Output written on tmfg_thesis_ver01.pdf (32 pages, 531247 bytes).
+ 59i,11n,94p,10393b,586s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/bitstrea/charter/bchbi8a.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7m.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7t.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7
+v.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/m
+d-chr7y.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/m
+dbch/md-chr8t.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathde
+sign/mdbch/md-chri7m.pfb>
+Output written on tmfg_thesis_ver01.pdf (36 pages, 985728 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 191 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 37944 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 37979 words of extra memory for PDF output out of 42996 (max. 10000000)
 

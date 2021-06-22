@@ -7,13 +7,13 @@
 \contentsline {section}{\numberline {1.4}Summary of findings}{12}
 \contentsline {chapter}{\numberline {2}Geometric throat area}{13}
 \contentsline {section}{\numberline {2.1}1D vs 2D capacity uncertainty}{14}
-\contentsline {section}{\numberline {2.2}2D vs 3D capacity uncertainty}{19}
-\contentsline {chapter}{\numberline {3}Trailing edge}{20}
-\contentsline {section}{\numberline {3.1}Definitions of loss for trailing edge performance evaluation}{20}
-\contentsline {section}{\numberline {3.2}Effects of trailing edge shape uncertainty on capacity predictability}{21}
-\contentsline {section}{\numberline {3.3}Performance of an alternative trailing edge design}{23}
-\contentsline {chapter}{\numberline {4}Leading edge}{25}
-\contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{25}
-\contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result}{28}
-\contentsline {chapter}{Bibliography}{29}
-\contentsline {chapter}{Bibliography}{30}
+\contentsline {section}{\numberline {2.2}2D vs 3D capacity uncertainty}{22}
+\contentsline {chapter}{\numberline {3}Trailing edge}{24}
+\contentsline {section}{\numberline {3.1}Definitions of loss for trailing edge performance evaluation}{24}
+\contentsline {section}{\numberline {3.2}Effects of trailing edge shape uncertainty on capacity predictability}{25}
+\contentsline {section}{\numberline {3.3}Performance of an alternative trailing edge design}{27}
+\contentsline {chapter}{\numberline {4}Leading edge}{29}
+\contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{29}
+\contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result}{32}
+\contentsline {chapter}{Bibliography}{33}
+\contentsline {chapter}{Bibliography}{34}

@@ -531,7 +531,242 @@ Cell count & 35,000\\
 \end{center}
 \end{table}
 
-\textcolor{red}{Present mesh}
+For turbomachinery flows of this type, the boundary layer thickness will be shown to be large enough to significantly affect the NGV throat area. The mesh must resolve the whole boundary layer within a region of high resolution which is sufficiently large to cover the maximum boundary layer thickness. The maximum thickness of a turbulent boundary layer is approximated by the formula
+\begin{equation}\label{boundary_layer_thickness}
+\delta \approx
+0.37
+\frac{L}{Re^\frac{1}{5}}
+\end{equation}
+where $L$ is the characteristic length in the direction of the flow (the approximate NGV chord length) and $Re$ is the Reynolds number. The Reynolds number is defined as
+\begin{equation}
+Re = 
+\frac{uL\rho}{\mu}
+\end{equation}
+where $u$ is a representative value for flow velocity and $\mu$ is the dynamic viscosity of the fluid within the temperature range of the flow. For compressible flow, the velocity and denisity are substituted to give
+\begin{equation}
+Re = 
+\frac{
+	M\sqrt{\gamma RT}L\frac{p}{RT}
+}{
+	\mu
+}
+\end{equation}
+which simplifies to
+\begin{equation}
+Re =
+\frac{L}{\mu}
+\sqrt{\frac{\gamma}{R}}
+\frac{p}{\sqrt{T}}
+M
+\end{equation}
+\begin{equation}
+Re =
+\frac{L}{\mu}
+\sqrt{\frac{\gamma}{R}}
+\frac{p_0}{\sqrt{T_0}}
+M
+\frac{
+	\left(
+		1 + \frac{\gamma-1}{2}
+		M^2
+	\right)
+	^{-\frac{\gamma}{\gamma-1}}
+}{
+	\sqrt{
+		\left(
+			1 + \frac{\gamma-1}{2}
+			M^2
+		\right)
+		^{-1}
+	}
+}
+\end{equation}
+\begin{equation}\label{reynolds_number_compressible}
+Re = 
+\frac{L}{\mu}
+\sqrt{\frac{\gamma}{R}}
+\frac{p_0}{\sqrt{T_0}}
+M
+\left(
+	1 +
+	\frac{\gamma-1}{2}
+	M^2
+\right)
+^{\frac{\gamma+1}{2(1-\gamma)}}
+\end{equation}
+
+Equation~\ref{reynolds_number_compressible} was used to compute a Reynolds number for the case of choked or near-choked NGV flow with the following values, based on the values specified in Table~\ref{T900_parameters}.
+\begin{table}[H]
+\caption{Values for calculating NGV Reynolds number}
+\label{reynolds_number_parameters}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value\\
+\hline
+$L$ & 0.1 m\\
+$\mu$ & $18.45 \times 10^{-6}$ Pas\\
+$p_0$ & $4.33 \times 10^6$ Pa\\
+$T_0$ & 300 K\\
+$\gamma$ & 1.4\\
+$R$ & 287 Jkg$^{-1}$K$^{-1}$\\
+$M$ & 1\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+This resulted in a value of $Re = 5.5 \times 10^7$. Maximum boundary layer thickness was thus estimated using equation~\ref{boundary_layer_thickness} to be 1 mm. This is of the order of 5\% of the NGV throat width, so full resolution of the boundary layer is required for any CFD study of the effects of NGV geometric changes.
+
+The NGV surface was enclosed in a structured quadrilateral mesh which extended out by 3 mm. Compared to the estimated maximum boundary layer thickness, the factor of 3 ensured that the whole boundary layer was captured, reduced the gradient of cell size change within the boundary layer mesh, and provided additional resolution within the base region downstream of the trailing edge, where boundary layer separation and entropy generation occur amid high surface curvature.
+
+Full resolution of the boundary layer required placement of mesh elements within the laminar sub-layer. Regions within the boundary layer were assumed to be divided according to the \textit{universal law of the wall}. This boundary layer model is derived from experimental measurements and dimensional analysis performed by Johann Nikuradse~\cite{nikuradse_boundary_layers}. The author's motivation was the need to predict the velocity profile and thickness of turbulent boundary layers, given the free-stream conditions. The work is of renewed importance in the context of contemporary CFD such as the present study, where knowledge of appropriate boundary layer mesh resolution is mandatory. 
+
+Nikuradse showed that turbulent boundary layers in general exhibit a high degree of dimensional similarity if distance from the wall $y$ is appropriately non-dimensionalised. The assumption was that qualitatively distinct regions of the boundary layer may be characterised by a dimensionless number that takes the place of $y$. Regions closer to the wall are expected to be dominated by viscous forces, and regions closer to the free-stream are expected to be dominated by inertial forces. The dimensionless wall distance parameter is thus expected to take similar form to the Reynolds number. It is defined as
+\begin{equation}\label{y_plus}
+y_+ =
+\frac{u_f y \rho}{\mu} 
+\end{equation}
+where $u_f$ is the friction velocity, defined as
+\begin{equation}\label{friction_velocity}
+u_f = 
+\sqrt{
+	\frac{\tau_w}{\rho}
+}
+\end{equation}
+where $\tau_w$ is the shear stress at the wall boundary. Equation~\ref{friction_velocity} thus characterises the wall shear stress as a velocity which is used in the Reynolds-type formulation of Equation~\ref{y_plus}. $\tau_w$ is defined as
+\begin{equation}\label{wall_shear_stress_definition}
+\tau_w =
+\frac{1}{2}
+C_f
+\rho
+u^2
+\end{equation}
+where $C_f$ is a coefficient of skin friction and $u$ is the free-stream velocity. $C_f$ may be computed from the free-stream Reynolds number according to the correlation proposed by Hermann Schlichting~\cite{schlichting_boundary_layer_theory}
+\begin{equation}
+C_f =
+\left(
+	2
+	\log_{10}
+	Re
+	-
+	0.65
+\right)^{-2.3}
+\end{equation}
+
+For compressible flows, equation~\ref{wall_shear_stress_definition} may be expressed as
+\begin{equation}
+\tau_w =
+\frac{1}{2}
+C_f
+\frac{p}{RT}
+M^2
+\gamma
+RT
+\end{equation}
+\begin{equation}
+\tau_w =
+\frac{1}{2}
+C_f
+\gamma
+p_0
+M^2
+\left(
+	1 +
+	\frac{\gamma-1}{2}
+	M^2
+\right)
+^{-\frac{\gamma}{\gamma-1}}
+\end{equation}
+allowing a compressible expression of $u_f$ as
+\begin{equation}
+u_f = 
+\sqrt{
+	\frac{
+		\frac{1}{2}
+		C_f
+		\gamma
+		p_0
+		M^2
+		\left(
+			1 +
+			\frac{\gamma-1}{2}
+			M^2
+		\right)
+		^{-\frac{\gamma}{\gamma-1}}
+	}{
+		\rho_0
+		\left(
+			1 +
+			\frac{\gamma-1}{2}
+			M^2
+		\right)
+		^{-\frac{1}{\gamma-1}}
+	}
+}
+\end{equation}
+\begin{equation}
+u_f = 
+\sqrt{
+	\frac{
+		C_f
+		\gamma
+		R
+		T_0
+		M^2
+	}{
+		2 +
+		\left(\gamma-1\right)
+		M^2
+	}
+}
+\end{equation}
+and allowing a compressible expression of $y_+$ as
+\begin{equation}
+y_+ = 
+\sqrt{
+	\frac{
+		C_f
+		\gamma
+		R
+		T_0
+		M^2
+	}{
+		2 +
+		\left(\gamma-1\right)
+		M^2
+	}
+}
+\frac{y}{\mu}
+\frac{p_0}{R T_0}
+\left(
+	1 +
+	\frac{\gamma-1}{2}
+	M^2
+\right)
+^{-\frac{\gamma}{\gamma-1}}
+\end{equation}
+\begin{equation}\label{y_plus_compressible}
+y_+ =
+\frac{y}{\mu}
+\sqrt{\frac{\gamma}{R}}
+\frac{p_0}{\sqrt{T_0}}
+\sqrt{\frac{C_f}{2}}
+M
+\left(
+	1 +
+	\frac{\gamma-1}{2}
+	M^2
+\right)
+^{\frac{\gamma+1}{2(1-\gamma)}}
+\end{equation}
+This expression is of similar form to the expression for Reynolds number in equation~\ref{reynolds_number_compressible}. Both are shown to be a function of Mach number and of the upstream conditions $\frac{p_0}{\sqrt{T_0}}$. If these expressions are normalised against the upstream conditions in a similar way to flow capacity, it is shown that both the dimensionless speed $Re$ and the dimensionless boundary layer thickness $y_+$ are purely functions of Mach number and of a geometric parameter - $L$ and $y$ respectively. This is subject to the assumptions that $\mu$ is approximately constant within the range of temperatures and $\sqrt{\frac{C_f}{2}}$ is approximately constant for sufficiently high Reynolds numbers.
+
+Equation~\ref{y_plus_compressible} may be rearranged to compute a real distance $y$ from the wall given a value of $y_+$. In the general case of turbulent boundary layers, the laminar sublayer occupies the region of $y_+ < 5$. The present study placed the first layer of mesh nodes at a wall distance corresponding to a $y_+$ value of $2.5$. This is in accordance with a study of laminar sublayer resolution by Salim M. Salim and Siew-Cheong Cheah~\cite{salim_y_plus}.
+
+Within the structured boundary mesh, element size was grown so that the outermost elements had an aspect ratio of approximately $\frac{1}{2}$. Beyond this, the domain was populated with an unstructured quadrilateral-dominant mesh. Node distributions along the two periodic boundaries were made identical, and nodes adjacent to the structured boundary layer mesh were made to match its outermost node distributions. Within the general domain, unstructured mesh generation was automated using Ansys Fluent's built-in meshing feature.
+
+\textcolor{red}{Put more mesh pictures here.}
+
 \begin{figure}[H]
       \centering
       \includegraphics[width=.45\textwidth]{figs/T900_smooth_vane_mesh_placeholder.png}
@@ -541,11 +776,47 @@ Cell count & 35,000\\
 
 \textcolor{red}{When the "throat area" of the 2D family is plotted against their capacity at a choking PR, it shows a pretty good proportional relationship. This is despite some obvious differences in the shape of the M1 line.}
 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends.png}
+	\end{subfigure}
+	%\hspace{0.05\textwidth}
+	\begin{subfigure}{.1125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends_legend.png}
+	\end{subfigure}
+	\caption{2D capacity trends for 6 Trent 900 NGVs}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/T900_2d_capacities_vs_throat_widths.png}
+	\end{subfigure}
+	%\hspace{0.05\textwidth}
+	\begin{subfigure}{.1125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_throat_widths_legend.png}
+	\end{subfigure}
+	\caption{2D NGV capacity percentage delta as a function of 2D throat width for 6 vanes}
+      \label{fig:T900_2d_capacities_vs_throat_widths}
+\end{figure}
+
 \textcolor{red}{Why are there still small deviations? That is, can I present a better definition of throat area that fits even better? Possible topics:}
 
 \textcolor{red}{Most likely it will follow the 1D rule if it is taken to be that streamline's M1 point. But not certain.}
  
 \textcolor{red}{the relationship between the minA line and the M1 line}
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.7\textwidth]{figs/T900_mach1_lines.png}
+      \caption{Sonic lines for 6 Trent 900 NGVs}
+      \label{fig:T900_mach1_lines}
+\end{figure}
  
 \textcolor{red}{the total length of each M1 line}
  
@@ -564,6 +835,35 @@ Zamboni defined the Rolls-Royce process for calculating 3D throat area as follow
 \textcolor{red}{3D CFD data was shared by Rolls-Royce for comparison with the 2D data. The point is to see why 3D is still so different from 2D, ie what are we failing so badly to predict with 2D?}
 
 \textcolor{red}{Discuss the most important ways in which the 3D capacity trends are different from the 2D ones. From a superficial look it appears that the 3D trends never choke. What could this mean about their having a M1 line at all?}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_3d_capacity_trends.png}
+	\end{subfigure}
+	%\hspace{0.05\textwidth}
+	\begin{subfigure}{.1125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends_legend.png}
+	\end{subfigure}
+	\caption{3D capacity trends for 6 Trent 900 NGVs}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/T900_3d_capacities_vs_throat_areas.png}
+	\end{subfigure}
+	%\hspace{0.05\textwidth}
+	\begin{subfigure}{.1125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_throat_widths_legend.png}
+	\end{subfigure}
+	\caption{3D NGV capacity percentage delta as a function of 3D throat area for 6 vanes}
+      \label{fig:T900_2d_capacities_vs_throat_widths}
+\end{figure}
 
 \textcolor{red}{What does the correlation look like at other PRs?}
 
