@@ -38,6 +38,7 @@
 %%% citation packages
 \usepackage[nottoc]{tocbibind} % puts the references section into the table of contents
 \usepackage{cite} % an alternative to biblatex, it still calls bibtex but unlike bibtex the citation style is defined in the line at the end of the document
+\usepackage{url}
 
 %%% packages that provide or position specific elements
 \usepackage{datetime} % allows a customised was of writing the date
@@ -531,6 +532,28 @@ Cell count & 35,000\\
 \end{center}
 \end{table}
 
+Matlab was used to calulate the minimum throat width of each 2D NGV. The resulting values are given in Table~\ref{T900_throat_widths}.
+
+\begin{table}[H]
+\caption{Throat widths of 6 Trent 900 NGVs}
+\label{T900_throat_widths}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Production standard & Serial number & Throat width (mm)\\
+\hline
+\multirow{3}{*}{M-skewed} & KSZ03 & 12.4\\
+ & KTA01 & 12.5\\
+ & KVD04 & 12.2\\
+ \hline
+ \multirow{3}{*}{M EP1} & PNN06 & 12.7\\
+ & PNS03 & 12.7\\
+ & PNS04 & 12.7\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 For turbomachinery flows of this type, the boundary layer thickness will be shown to be large enough to significantly affect the NGV throat area. The mesh must resolve the whole boundary layer within a region of high resolution which is sufficiently large to cover the maximum boundary layer thickness. The maximum thickness of a turbulent boundary layer is approximated by the formula
 \begin{equation}\label{boundary_layer_thickness}
 \delta \approx
@@ -604,8 +627,8 @@ Equation~\ref{reynolds_number_compressible} was used to compute a Reynolds numbe
 \hline
 Parameter & Value\\
 \hline
-$L$ & 0.1 m\\
-$\mu$ & $18.45 \times 10^{-6}$ Pas\\
+$L$ & 0.08 m\\
+$\mu$ & $19 \times 10^{-6}$ Pas\\
 $p_0$ & $4.33 \times 10^6$ Pa\\
 $T_0$ & 300 K\\
 $\gamma$ & 1.4\\
@@ -615,9 +638,9 @@ $M$ & 1\\
 \end{tabular}
 \end{center}
 \end{table}
-This resulted in a value of $Re = 5.5 \times 10^7$. Maximum boundary layer thickness was thus estimated using equation~\ref{boundary_layer_thickness} to be 1 mm. This is of the order of 5\% of the NGV throat width, so full resolution of the boundary layer is required for any CFD study of the effects of NGV geometric changes.
+This resulted in a value of $Re = 4.2 \times 10^7$. Maximum boundary layer thickness was thus estimated using equation~\ref{boundary_layer_thickness} to be 1 mm. This is of the order of 10\% of the NGV throat width, so full resolution of the boundary layer is required for any CFD study of the effects of NGV geometric changes.
 
-The NGV surface was enclosed in a structured quadrilateral mesh which extended out by 3 mm. Compared to the estimated maximum boundary layer thickness, the factor of 3 ensured that the whole boundary layer was captured, reduced the gradient of cell size change within the boundary layer mesh, and provided additional resolution within the base region downstream of the trailing edge, where boundary layer separation and entropy generation occur amid high surface curvature.
+The NGV surface was enclosed in a structured quadrilateral mesh which extended out by 2 mm. Compared to the estimated maximum boundary layer thickness, the factor of 2 ensured that the whole boundary layer was captured, reduced the gradient of cell size change within the boundary layer mesh, and provided additional resolution within the base region downstream of the trailing edge, where boundary layer separation and entropy generation occur amid high surface curvature.
 
 Full resolution of the boundary layer required placement of mesh elements within the laminar sub-layer. Regions within the boundary layer were assumed to be divided according to the \textit{universal law of the wall}. This boundary layer model is derived from experimental measurements and dimensional analysis performed by Johann Nikuradse~\cite{nikuradse_boundary_layers}. The author's motivation was the need to predict the velocity profile and thickness of turbulent boundary layers, given the free-stream conditions. The work is of renewed importance in the context of contemporary CFD such as the present study, where knowledge of appropriate boundary layer mesh resolution is mandatory. 
 
@@ -759,22 +782,59 @@ M
 \right)
 ^{\frac{\gamma+1}{2(1-\gamma)}}
 \end{equation}
-This expression is of similar form to the expression for Reynolds number in equation~\ref{reynolds_number_compressible}. Both are shown to be a function of Mach number and of the upstream conditions $\frac{p_0}{\sqrt{T_0}}$. If these expressions are normalised against the upstream conditions in a similar way to flow capacity, it is shown that both the dimensionless speed $Re$ and the dimensionless boundary layer thickness $y_+$ are purely functions of Mach number and of a geometric parameter - $L$ and $y$ respectively. This is subject to the assumptions that $\mu$ is approximately constant within the range of temperatures and $\sqrt{\frac{C_f}{2}}$ is approximately constant for sufficiently high Reynolds numbers.
+This expression is of similar form to the expression for Reynolds number in equation~\ref{reynolds_number_compressible}. Both are shown to be a function of Mach number and of the upstream conditions $\frac{p_0}{\sqrt{T_0}}$. If these expressions are normalised against the upstream conditions in a similar way to flow capacity, it is shown that both the dimensionless speed $Re$ and the dimensionless boundary layer thickness $y_+$ are purely functions of Mach number and of a geometric parameter -- $L$ and $y$ respectively. This is subject to the assumptions that $\mu$ is approximately constant within the range of temperatures and $\sqrt{\frac{C_f}{2}}$ is approximately constant for sufficiently high Reynolds numbers.
 
-Equation~\ref{y_plus_compressible} may be rearranged to compute a real distance $y$ from the wall given a value of $y_+$. In the general case of turbulent boundary layers, the laminar sublayer occupies the region of $y_+ < 5$. The present study placed the first layer of mesh nodes at a wall distance corresponding to a $y_+$ value of $2.5$. This is in accordance with a study of laminar sublayer resolution by Salim M. Salim and Siew-Cheong Cheah~\cite{salim_y_plus}.
+Equation~\ref{y_plus_compressible} may be rearranged to compute a real distance $y$ from the wall given a value of $y_+$. In the general case of turbulent boundary layers, the laminar sublayer occupies the region of $y_+ < 5$. The present study placed the first layer of mesh nodes at a wall distance of 0.3 $\mu$m corresponding to a $y_+$ value of $5$. This is in accordance with a study of laminar sublayer resolution by Salim M. Salim and Siew-Cheong Cheah~\cite{salim_y_plus}.
 
-Within the structured boundary mesh, element size was grown so that the outermost elements had an aspect ratio of approximately $\frac{1}{2}$. Beyond this, the domain was populated with an unstructured quadrilateral-dominant mesh. Node distributions along the two periodic boundaries were made identical, and nodes adjacent to the structured boundary layer mesh were made to match its outermost node distributions. Within the general domain, unstructured mesh generation was automated using Ansys Fluent's built-in meshing feature.
-
-\textcolor{red}{Put more mesh pictures here.}
+Within the structured boundary mesh, element size was grown so that the outermost elements had an aspect ratio of approximately $\frac{1}{2}$. Beyond this, the domain was populated with an unstructured quadrilateral-dominant mesh. Node distributions along the two periodic boundaries were made identical, and nodes adjacent to the structured boundary layer mesh were made to match its outermost node distributions. Within the general domain, unstructured mesh generation was automated using Ansys Fluent's built-in meshing feature. The resulting mesh formed the basis for all other 2-dimensional NGV meshes in the study. The mesh and periodic pattern are depicted in Figure~\ref{fig:t900_mesh_whole} and details of the mesh, showing the structured boundary layer treatment, are depicted in Figure~\ref{fig:t900_mesh_details}.
 
 \begin{figure}[H]
       \centering
-      \includegraphics[width=.45\textwidth]{figs/T900_smooth_vane_mesh_placeholder.png}
-      \caption{Mesh for Trent 900 smooth-vane capacity study}
-      \label{fig:T900_mesh_1}
+      \includegraphics[width=.90\textwidth]{figs/t900_mesh_whole.png}
+      \caption{Mesh for T900 throat width variation study}
+      \label{fig:t900_mesh_whole}
 \end{figure}
 
-\textcolor{red}{When the "throat area" of the 2D family is plotted against their capacity at a choking PR, it shows a pretty good proportional relationship. This is despite some obvious differences in the shape of the M1 line.}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_mesh_leading_edge.png}
+		\caption{Leading edge}
+		\label{fig:t900_mesh_leading_edge}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_mesh_trailing_edge.png}
+		\caption{Trailing edge}
+		\label{fig:t900_mesh_trailing_edge}
+	\end{subfigure}
+	\caption{Details of mesh for T900 throat width variation study}
+	\label{fig:t900_mesh_details}
+\end{figure}
+
+The described mesh and boundary condition specifications were used to perform a series of CFD simulations of each of the 6 2D NGVs in Ansys Fluent. Solutions were initialised using the solver's built-in FMG initialisation. This procedure automatically constructs a coarser version of the supplied mesh, on which an initial solution is converged before refinement to the final resolution. More detailed expanation of the scheme is provided by Ansys~\cite{ansys_fmg_initialisation}. A script in the Fluent Journal language was used to produce solutions at incrementally decreasing pressure ratios of between 0.99 and a fully choked pressure ratio of 0.3. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and $M=1$ line at choked conditions. There were 32 increments and typical overall solution times were approximately 10 hours. The SST-k$\omega$ turbulence model was used. 
+
+Figure~\ref{fig:t900_mach_whole} shows contours of Mach number for one of the 6 solutions at a fully choked pressure ratio. Figure~\ref{fig:t900_mach_throat} shown contours of Mach number for the same solution in the throat region.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.90\textwidth]{figs/t900_mach_whole.png}
+      \caption{Contours of Mach number for  whole solution on vane KSZ03, $\frac{p_{01}}{p_2} = 3.33$}
+      \label{fig:t900_mach_whole}
+\end{figure}
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.45\textwidth]{figs/t900_mach_throat.png}
+      \caption{Contours of Mach number for solution near throat on vane KSZ03, $\frac{p_{01}}{p_2} = 3.33$}
+      \label{fig:t900_mach_throat}
+\end{figure}
+
+Figures~\ref{fig:t900_mach_whole} and ~\ref{fig:t900_mach_throat} illustrate the presence of developed supersonic flow phenomena downstream of the throat. These include expansion fans as the flow traverses the convex region around the NGV trailing edge (which is not shaped this way in reality) and shockwaves induced as the flow traverses the concave region produced by the trailing edge wake. The pressure side shockwave reflects off the suction side of the adjacent NGV in a similar fashion to supersonic nozzle shock diamonds. These phenomena are in agreement with commonly seen flow features of NGVs in the supersonic regime. Figure~\ref{fig:t900_mach_throat} also illustrates the growth of a boundary layer on the suction side of the NGV. This boundary layer's interaction with the sonic line will be subsequently discussed in the context of its effect on flow capacity.
+
+Figure~\ref{fig:t900_2d_capacity_trends} plots percentage changes in the flow capacity of the 6 NGVs (defined by equation~\ref{capacity_definition} and quantified by the upstream boundary conditions in Table~\ref{T900_parameters}) against inverse pressure ratio $\frac{p_{01}}{p2}$.
 
 \begin{figure}[H]
 	\centering
@@ -788,7 +848,23 @@ Within the structured boundary mesh, element size was grown so that the outermos
 		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends_legend.png}
 	\end{subfigure}
 	\caption{2D capacity trends for 6 Trent 900 NGVs}
+	\label{fig:t900_2d_capacity_trends}
 \end{figure}
+
+Differences are seen to exist between the capacity trends of the 6 NGVs. Across the range of pressure ratios, all 6 NGVs exhibited a range of approximately 4\% capacity difference. Although the NGVs were all fully choked at the greatest inverse pressure ratio, separate NGVs became choked at significantly different pressure ratios, suggesting that the formation of transonic flow features occured in different locations between the 6 NGVs. The capacity trends are seen to be broadly divided between the M-skew family (K-- serial numbers) and the EP1 family (P-- serial numbers). The 3 M-skew NGVs had comparitively lower flow capacities than the EP1 NGVs at all pressure ratios. The capacities of the EP1 NGVs had comparitively small variation from one another across pressure ratios, but their homogeneity was broken by vane PNS04, which had the lowest flow capacity of the family at low inverse pressure ratio, but switched to have the highest flow capacity at high inverse pressure ratio.
+
+The differing capacity trends may be further discussed by inspecting the shape of the $M=1$ lines formed in the throat regions of the 6 NGVs at a fully choked pressure ratio. These $M=1$ lines are depicted in Figure~\ref{fig:T900_mach1_lines} along with the lines of minimum length between the adjacent NGVs of each standard. 
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.7\textwidth]{figs/T900_mach1_lines.png}
+      \caption{Sonic lines for 6 Trent 900 NGVs}
+      \label{fig:T900_mach1_lines}
+\end{figure}
+
+In Figure~\ref{fig:T900_mach1_lines}, a trend is visible of the M-skew sonic lines exhibiting smaller deviation from the line of minimum width, compared to the sonic lines of the EP1 NGVs. This suggests that a design choice resulted in a difference in the aerodynamics of the two families of NGV, such that upstream regions of the EP1 flow field reached sonic conditions significantly further upstream of the geometric throat compared to the M-skew flow field. Vane PNS04 presented a significantly different sonic line shape which is taken to correspond to its significantly different capacity trend comapred to the other 2 vanes in its family. It is suggested that its relatively flow-orthogonal sonic line is caused by aerodynamic features that also cause its relatively sudden increase in capacity prior to choking. This cannot be confirmed in the absence of a statistically significant number of NGV geometries to compare.
+
+Discussion is warranted of the relationship between flow capacity and throat area. Consideration is to be made of both throat area in its pure geometric form $A$, and its effective from $A_{eff}$ as defined in equation~\ref{effective_throat_area_integral}. Figure~\ref{fig:T900_2d_capacities_vs_throat_widths} plots the 6 NGVs' variations in capacity at design pressure ratio against their variations in geometric throat width. Both axes are normalised against the largest values in the set. The averages of the M-skew and EP1 families are plotted and lines of gradient 1 are plotted intersecting the average values, such that any deviations from 1-dimensional compressible flow correspond to deviations from the lines of gradient 1.
 
 \begin{figure}[H]
 	\centering
@@ -805,36 +881,63 @@ Within the structured boundary mesh, element size was grown so that the outermos
       \label{fig:T900_2d_capacities_vs_throat_widths}
 \end{figure}
 
-\textcolor{red}{Why are there still small deviations? That is, can I present a better definition of throat area that fits even better? Possible topics:}
+The 6 NGVs are seen to approximately conform to a directly proportional relationship between geometric throat width and flow capacity, suggesting that geometric throat width is a good estimator of flow capacity among NGVs without significant differences in aerodynamic design. The M-skew vanes exhibited notable conformity to this trend. This is in agreement with the observed homogeneity between the M-skew sonic line shapes. It it is suggested that, among the 3 vanes, the 2-dimensional sonic line shapes were scaling linearly with the shape of the geometric throat line, resulting in the observed linear relationship between geometric throat width and flow capacity despite the presence of a 2D flow field. 2D flow features appear to scale proportionately provided the sonic line scales proportionately. In contrast, no correlation was observed between throat area and flow capacity among the EP1 NGVs. Speculation may be limited to the observation that the qualitatively distinct PNS04 vane exhibited significantly lower flow capacity than the other 2 despite having almost identical geometric throat areas.
 
-\textcolor{red}{Most likely it will follow the 1D rule if it is taken to be that streamline's M1 point. But not certain.}
- 
-\textcolor{red}{the relationship between the minA line and the M1 line}
+Although NGV throat width is a good predictor of NGV flow capacity if aerodynamics do not vary significantly, it is not useful if the sonic line is subject to unpredictable changes in shape and location. The resulting heuristic fails to account for the fact that the majority of streamlines within the flow reach sonic conditions at a point other than their point of minimum width. This discrepancy may be investigated by quantifying the effective throat width of each case, instead of the geometric throat area. Matlab was used to implement the integral
+\begin{equation}\tag{\ref{effective_throat_area_integral}}
+	A_{eff} = 
+	\int_{1}^2 \vu*{v} \vdot \vu*{r} dL
+\end{equation}
+To achieve this, results for $M$ and $x$ and $y$ velocity components were exported from each Fluent solution. These data were imported into Matlab and interpolated onto a structured quaderilateral grid which covered the region around the throat between 2 adjacent NGVs. Within this domain, data points corresponding to the $M=1$ line were identified using an algorithm to detect the cross-over from $M<1$ to $M>1$. A subsequent algorithm was used to order and connect these points into a sonic line. It was then possible to compute the local velocity unit vector $\vu*{v}$ and local unit vector orthogonal to the sonic line $\vu*{r}$ at each point, and to perform the integral. This resulted in Figure~\ref{fig:T900_2d_capacities_vs_effective_throat_widths}, which plots the 6 NGVs' variations in capacity at design pressure ratio against their variations in effective throat width. Both axes are normalised against the largest values in the set. Because the concept of $A_{eff}$ is designed to account for generised variations between NGVs, Figure~\ref{fig:T900_2d_capacities_vs_effective_throat_widths} does not group the NGVs into 2 separate families.
 
 \begin{figure}[H]
-      \centering
-      \includegraphics[width=.7\textwidth]{figs/T900_mach1_lines.png}
-      \caption{Sonic lines for 6 Trent 900 NGVs}
-      \label{fig:T900_mach1_lines}
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_2d_capacities_vs_effective_throat_widths.png}
+	\end{subfigure}
+	%\hspace{0.05\textwidth}
+	\begin{subfigure}{.1125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends_legend.png}
+	\end{subfigure}
+	\caption{2D NGV capacity percentage delta as a function of 2D $A_{eff}$ for 6 vanes}
+      \label{fig:T900_2d_capacities_vs_effective_throat_widths}
 \end{figure}
- 
-\textcolor{red}{the total length of each M1 line}
- 
-\textcolor{red}{a plot of capacity vs M1 line length}
 
-\textcolor{red}{Why aren't there larger deviations? That is, can I derive a sensible geometric parameter and show that it isn't changing significantly?}
+Figure~\ref{fig:T900_2d_capacities_vs_effective_throat_widths} demonstrates the viability of the $A_{eff}$ approach. All six vanes approximately show a directly proportional relationship between flow capacity and effective throat width. This is in agreement with the assumption that the integral definition of $A_{eff}$ amounts to the summation of the 1-dimensional throat widths of every streamline in the flow. However, 3 of the NGVs exhibit significant deviation from direct proportionality, suggesting that the use of the sonic line fails to account for regions of the flow which remain subsonic even at pressure ratios which cause the majority of the flow to choke. The boundary layers are offered as examples of such regions. A possible refinement to the $A_{eff}$ approach may be to combine it with a prediction of the boundary layer thicknesses at the points where the sonic line meets the suction side and pressure side of the NGVs. Heuristics may be devoloped to relate the touch-down points with the predicted boundary layer thicknesses and thus the degree of $A_{eff}$ over-estimation caused by the inclusion of subsonic flow.
 
-\textcolor{red}{Is this all really at design PR? What if the M1 lines were obtained at more choked PRs but I forgot to say so? What does the correlation look like at other PRs?}
+$A_{eff}$ remains computable only in the event that a CFD solution has been obtained, by which point flow capacity is already predicted. The next goal is to find an aspect of NGV geometry which can be shown to have a reliable effect on the shape of the $M=1$ line. In this way, the geometric change will have been shown to account for a known change in $A_{eff}$, which has itself been shown to account for known changes in flow capacity in 2 dimensions. Since the M-skew and EP1 families exhibit clear differences in the degree of pre-throat sonic conditions which are present, future studies may examine whether NGVs can be reliably designed to have sonic lines whose shape is predictable. If the sonic line is known by design to be approximately orthogonal to the flow and non-succeptible to fluctuation, it is safe to rely on just 2D geometric throat width to predict variations in NGV flow capacity in 2 dimensions.
 
 
 \section{2D vs 3D capacity uncertainty}
 \label{2d_vs_3d_capacity_uncertainty}
 
-Zamboni defined the Rolls-Royce process for calculating 3D throat area as follows: ``Along each vane span section, the throat line is defined as that line which connects the TE of one vane with the point of minimum distance on the suction surface of the nearby vane in the tangential direction. For a vane with TE slot, the TE point is defined as the start of the cut back... The throat surface interpolates all the throat lines spanwise.''
+Zamboni defined the Rolls-Royce process for calculating 3D throat area as follows: ``Along each vane span section, the throat line is defined as that line which connects the TE of one vane with the point of minimum distance on the suction surface of the nearby vane in the tangential direction. For a vane with TE slot, the TE point is defined as the start of the cut back... The throat surface interpolates all the throat lines spanwise.'' Their study produced values for throat area of the 6 NGVs in question. These values are listed in Table~\ref{T900_throat_areas}.
 
-\textcolor{red}{3D CFD data was shared by Rolls-Royce for comparison with the 2D data. The point is to see why 3D is still so different from 2D, ie what are we failing so badly to predict with 2D?}
+\begin{table}[H]
+\caption{Throat areas of 6 Trent 900 NGVs}
+\label{T900_throat_areas}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Production standard & Serial number & Throat area (mm$^2$)\\
+\hline
+\multirow{3}{*}{M-skewed} & KSZ03 & 1578.4\\
+ & KTA01 & 1584.6\\
+ & KVD04 & 1571.4\\
+ \hline
+ \multirow{3}{*}{M EP1} & PNN06 & 1592.0\\
+ & PNS03 & 1587.2\\
+ & PNS04 & 1598.8\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
-\textcolor{red}{Discuss the most important ways in which the 3D capacity trends are different from the 2D ones. From a superficial look it appears that the 3D trends never choke. What could this mean about their having a M1 line at all?}
+The present study compared the 2D data presented in Section~\ref{section_1d_vs_2d_capacity_uncertainty} with Rolls-Royce's 3D CFD predictions of the flow capacities of the same 6 NGVs. The motivation was to analyse the differences between the 2D throat length vs capacity relationship and the 3D throat area vs capacity relationship. The analytical techniqes of Section~\ref{section_1d_vs_2d_capacity_uncertainty} were translated to this 3D relationship where possible.
+
+Figure~\ref{fig:t900_3d_capacity_trends} plots percentage changes in the flow capacity of the 6 NGVs (defined by equation~\ref{capacity_definition} and quantified by the upstream boundary conditions in Table~\ref{T900_parameters}) against inverse pressure ratio $\frac{p_{01}}{p2}$.
 
 \begin{figure}[H]
 	\centering
@@ -848,7 +951,12 @@ Zamboni defined the Rolls-Royce process for calculating 3D throat area as follow
 		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends_legend.png}
 	\end{subfigure}
 	\caption{3D capacity trends for 6 Trent 900 NGVs}
+	\label{fig:t900_3d_capacity_trends}
 \end{figure}
+
+The predominant feature of Figure~\ref{fig:t900_3d_capacity_trends} is that none of the NGVs reaches a choked condition at pressure ratios that resulted in a fully choked condition in the 2D simulations. This suggests that there are significant incursions into the flow from subsonic secondary flows. This alone is sufficient to preclude the present $A_{eff}$ approach in these 3D cases, since it has been shown to be limited even by the presence of thin boundary layers in the 2D cases. In this case, an $M=1$ surface may not exist in a useful sense.
+
+The viability of the geometric throat area approach to 3D data is ilustrated in Figure~\ref{fig:T900_2d_capacities_vs_throat_areas}, which plots the 6 NGVs' variations in capacity at design pressure ratio against their variations in geometric throat area. Both axes are normalised against the largest values in the set. The averages of the M-skew and EP1 families are plotted and lines of gradient 1 are plotted intersecting the average values, such that any deviations from 1-dimensional compressible flow correspond to deviations from the lines of gradient 1.
 
 \begin{figure}[H]
 	\centering
@@ -862,12 +970,10 @@ Zamboni defined the Rolls-Royce process for calculating 3D throat area as follow
 		\includegraphics[width=\linewidth]{figs/t900_throat_widths_legend.png}
 	\end{subfigure}
 	\caption{3D NGV capacity percentage delta as a function of 3D throat area for 6 vanes}
-      \label{fig:T900_2d_capacities_vs_throat_widths}
+      \label{fig:T900_2d_capacities_vs_throat_areas}
 \end{figure}
 
-\textcolor{red}{What does the correlation look like at other PRs?}
-
-\textcolor{red}{Review 3D effects from the literature.}
+Figure~\ref{fig:T900_2d_capacities_vs_throat_areas} shows that no correlation exists between geometric throat area and flow capacity for the 6 NGVs simulated by Rolls-Royce. This is in agreement with the hypothesis that highly 3-dimensional flow phenomena are present to a degree that predominates over any area-capacity relationship. Future study might divide focus between developing a 3D version of the $A_{eff}$ technique and accessorising it with a model for the subsonic secondary flows that are hypothesised to be present. An overarching goal may be to confirm that secondary flows are indeed the confounding factor that is not captured by 2-dimensional CFD. In any case, motivation is presented to resolve the failure of present analytical techniques in understanding the sensitivity of nozzle guide vane flow capacity to geometric changes.
 
 
 

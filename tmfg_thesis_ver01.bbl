@@ -35,6 +35,12 @@ S.~M. Salim and S.-C. Cheah, ``Wall y+ strategy for dealing with wall-bounded
   turbulent flows,'' {\em Proceedings of the International MultiConference of
   Engineers and Computer Scientists}, vol.~II, 2009.
 
+\bibitem{ansys_fmg_initialisation}
+{ANSYS Inc.}, ``Overview of {FMG} initialization.''
+  \url{https://www.afs.enea.it/project/neptunius/docs/fluent/html/th/node388.htm},
+  2009.
+\newblock Accessed: 2021/06/23.
+
 \bibitem{trinidade_loss}
 D.~B. da~Trinidade, P.~Bugala, and D.~Simone, ``Review of loss models for high
   pressure turbines,'' {\em Journal of KONES Powertrain and Transport},
