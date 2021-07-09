@@ -52,6 +52,9 @@
 \usepackage{epsfig} % for  encapsulated postscript graphics files, a type of vector image
 \usepackage{epstopdf} % allows LaTeX to include EPS files by converting each one to a PDF of the same dimensions
 
+%for when David wants a double-spaced version
+%\linespread{2.5}
+
 
 
 \newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR}
@@ -1012,36 +1015,67 @@ Profile loss was characterised by entropy creation by viscosity in the boundary 
 
 The authors also defined the category of cooling losses to refer to the aerodynamic penalties incurred by cooling in general, namely ``thicker blade profiles from coolant holes, interaction of coolant film with the blade boundary layer, mixing losses between coolant and main flow and endwall losses.'' The present study seeks to isolate the mechanisms whereby film cooling causes boundary layer changes and mixing effects, discussing film cooling in Chapter~\ref{chapter_leading_edge}.
 
-The present study seeks to define a coefficient of NGV total pressure loss whose arguments are flow measurements or numerically predicted parameters. Giel et al surveyed the total pressure wake profiles of a blade at mid-span, defining a \textit{total pressure coefficient} as
+The present study seeks to define a coefficient of NGV total pressure loss whose arguments are flow measurements or numerically predicted parameters. Paul W. Giel et al~\cite{giel_te_thickness}, whose findings will be discussed in Section~\ref{performance_of_an_alternative_trailing_edge_design}, surveyed the total pressure wake profiles of a blade at mid-span. They defined a total pressure loss coefficient as
 \begin{equation}
-Cp_t = \frac{
+C_{pt} = \frac{
 p_{01} - p_{02}
 }{
 p_{01} - p_2
 }
 \end{equation}
-where $p_{01}$ and $p_{02}$ are the inlet and wake total pressures, and $p_2$ is the wake static pressure. This definition is to be used for the total pressure wake profiles in this thesis. The authors also defined a \textit{kinetic energy loss coefficient} as
-\begin{equation}
-e_2 = \frac{ 
-\left( \frac{p_{01}}{p_{02}} \right)^\frac{\gamma-1}{ \gamma } - 1 
-}{
-\left( \frac{p_{01}}{p_{2}} \right)^\frac{\gamma-1}{ \gamma } - 1 
-}
-\end{equation}
-Giel et al's results will be compared to those of this study, considering wake profiles and loss as a function of trailing edge thickness.
+where $p_{01}$ and $p_{02}$ are the inlet and wake total pressures, and $p_2$ is the wake static pressure. 
 
-Jie Gao et al~\cite{gao_te} defined a slightly different \textit{total pressure loss coefficient} as
+Jie Gao et al~\cite{gao_te}, whose findings will be discussed in section~\ref{effects_of_trailing_edge_uncertainty_on_capacity_predictability}, defined a total pressure loss coefficient as
 \begin{equation}
-C_pt = \frac{
+C_{pt} = \frac{
 p_{01} - p_{02}
 }{
 p_{02} - p_2
 }
 \end{equation}
 
-\textcolor{red}{Discuss these two slightly different definitions.}
+This definition is equivalent to normalising the total pressure loss against the downstream dynamic pressure. In the case of simulations where the boundary conditions $p_{01}$ and $p_2$ are set, NGV geometry is the independent variable and $p_{02}$ is the dependent variable. It is thus less convenient for the present study to use Gao et al's loss coefficient formulation, since it does not scale linearly across a range of $p_{02}$. Giel et al's definition in equation~\ref{giel_loss_definition} will be used for this reason.
 
+Where subsequent sections are to compare the findings of Giel et al, Gao et al, and other studies of loss, it is required to formulate the total pressure loss coeffient consistently. Gao's definition of $C_{pt}$ may be expanded by Taylor series on the constant $p_{01}$ and as a function of $p_{02}$ as
+\begin{equation}
+f\left(p_{02}\right) = \\
+f\left(p_{01}\right) +
+f'\left(p_{01}\right) \left(p_{02} - p_{01}\right) +
+\frac{1}{2!} f''\left(p_{01}\right) \left(p_{02} - p_{01}\right)^2 +
+...
+\end{equation}
+where $f^n\left(p_{01}\right)$ may be shown by differentiation to be
+\begin{equation}
+f^n\left(p_{01}\right) =
+\frac{
+	\left(-1\right)^n n !
+}{
+	(p_{01} - p_2)^2
+}
+\end{equation}
+This results in the following mappings between the two definitions of total pressure loss coefficient.
+\begin{equation}
+{}_{Gao}C_{pt} = 
+\sum_{n=1}^{\infty}
+{}_{Giel}C_{pt}^n
+\end{equation}
+\begin{equation}
+{}_{Giel}C_{pt} = 
+\sum_{n=1}^{\infty}
+\left(-1\right)^{n-1}
+{}_{Gao}C_{pt}^n
+\end{equation}
 
+\textcolor{red}{now move onto KE loss coefficients}
+
+Giel et al defined a kinetic energy loss coefficient as
+\begin{equation}\label{giel_loss_definition}
+e_2 = \frac{ 
+\left( \frac{p_{01}}{p_{02}} \right)^\frac{\gamma-1}{ \gamma } - 1 
+}{
+\left( \frac{p_{01}}{p_{2}} \right)^\frac{\gamma-1}{ \gamma } - 1 
+}
+\end{equation}
  
 \textcolor{red}{Saha paper has its own loss definitions too - seems to be doing a definition that considers the coolant/mainstream mass flow ratio.}
 \begin{equation}
@@ -1096,6 +1130,7 @@ In the case of no coolant flow this becomes
 \end{equation}
 
 \section{Effects of trailing edge shape uncertainty on capacity predictability}
+\label{effects_of_trailing_edge_uncertainty_on_capacity_predictability}
 
 If nozzle guide vane flow capacity is known to be a function of effective throat area, we must survey the practical reasons for which effective throat area might vary. In a real engine, NGV effective throat area might depart from its design value if the NGVs depart from their design shape, either because of the finite precision of manufacturing, or because of erosion while in service. 
 
@@ -1107,15 +1142,7 @@ The trailing edge is succeptible to in-service departures from its design shape 
 
 This study will consider the potential worst case for in-service erosion of the suction-side flange, namely its complete deletion. This worst-case erosion is assumed to take place at the NGV mid-span because this area is exposed to the greatest flow speeds and temperatures. This justifies 2-dimensional simulation of the mid-span flow. The goal is to parameterise changes to the flange and comment on how these changes alter the effective minimum area and the NGV flow capacity.
 
-2D CFD has been used to model the effects of incremental removal of material from the trailing-edge suction-side flange of an NGV. 
-
-\textcolor{red}{Present boundary conditions.}
-
-\textcolor{red}{Geometry made by Fig~\ref{fig:2d_geometry_creation}}
-
-\textcolor{red}{Domain is Fig~\ref{fig:computational_domain_and_boundaries}}
-
-\textcolor{red}{BCs are:}
+2D CFD has been used to model the effects of incremental removal of material from the trailing-edge suction-side flange of an NGV. The baseline geometry is vane KSZ03 from the 6 vanes provided by Rolls-Royce for the work discussed in Chapter~\ref{chapter_geometric_throat_area}. The 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. Unlike the section of vane KSZ03 studied in Chapter~\ref{chapter_geometric_throat_area}, the NGV trailing edge was not rounded but realistically shaped, and the domain was modified to include a flow inlet within the NGV's trailing edge slot, where inlet mass flow rate was specified. Values for the simulation were set according to Table~\ref{ss_cutbacks_parameters}.
 
 \begin{table}[H]
 \caption{Boundary conditions for trailing edge suction-side flange shape uncertainty study}
@@ -1132,6 +1159,7 @@ Inlet total pressure (Pa) & $4.33 \times 10^6$\\
 Inlet total temperature (K) & 300\\
 Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
 Outlet static temperature (Pa) & 300\\
+Coolant mass flow rate & 3\% of mainstream \\
 Solver type & Density-based\\
 Cell count & 35,000\\
 \hline
@@ -1139,10 +1167,31 @@ Cell count & 35,000\\
 \end{center}
 \end{table}
 
-\textcolor{red}{Present mesh with larger and better pictures, and show how the mesh is altered as erosion amount varies.}
-	\textcolor{red}{Plan of action - figure out how to save a specific viewpoint in Fluent, and how to take good pictures. Make sure this viewpoint is suitable for both the SS and PS pictures.}
+The strategy for geometry alteration and meshing involved dividing the geometry into quadrilateral regions of solid vane that could be sequentially replaced with regions of mesh. Each replacement would incrementally cut back the NGV trailing edge's suction-side flange. This required minor alteration of the trailing edge geometry provided by Rolls-Royce. The curved surface on the inside of the pressure-side lip was changed to a straight line with an angular corner, and the curved tip of the suction-side lip was changed to a square end. Comparison of the shape of manufactured NGVs with the shape of design-intent NGVs demonstrates that the present study's trailing edge treatment is more reflective of the manufactured NGVs, which have corners rather than smooth curves in the places in question. The process of geometry refinement and incremental mesh block creation is illustrated in Figure~\ref{fig:T900_ss_cutbacks_geometry}.
 
-\textcolor{red}{Show capacity trend for all the data as an initial summary, then show capacity vs erosion amount for a couple of relevant PRs (perhaps design and fully choked)}
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{figs/T900_ss_cutbacks_geometry.png}
+      \caption{Geometry processing scheme for cutbacks to the suction-side flange of a Trent 900 NGV}
+      \label{fig:T900_ss_cutbacks_geometry}
+\end{figure}
+
+The resulting quadrilateral geometry allowed for the creation of a structured mesh that could be matched with a structured boundary layer mesh of the same design as that depicted in Figure~\ref{fig:t900_mesh_trailing_edge}. Beyond this, an unstructured mesh was created to the same design as that depicted in Figure~\ref{fig:t900_mesh_whole}. Detail of the trailing edge mesh is shown in Figure~\ref{fig:T900_ss_cutbacks_mesh} in a case where the suction-side flange is approximately halfway removed and replaced with structured mesh blocks.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{figs/T900_ss_cutbacks_mesh.png}
+      \caption{Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV}
+      \label{fig:T900_ss_cutbacks_mesh}
+\end{figure}
+
+\textcolor{red}{Show capacity trends for all the data as an initial summary, then show capacity vs erosion amount for a couple of relevant PRs (perhaps design and fully choked)}
+
+The above strategy produced
+
+The described mesh, geometry alteration strategy, and boundary conditions were used to perform 11 CFD simulations which incrementally spanned the range of cutbacks between an unaltered trailing edge and a fully removed flange. 
+
+Solutions were initialised using the solver’s built-in FMG initialisation. This procedure automatically constructs a coarser version of the supplied mesh, on which an initial solution is converged before refinement to the final resolution. More detailed expanation of the scheme is provided by Ansys [8]. A script in the Fluent Journal language was used to produce solutions at incrementally decreasing pressure ratios of between 0.99 and a fully choked pressure ratio of 0.3. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and M = 1 line at choked conditions. There were 32 increments and typical overall solution times were approximately 10 hours. The SST-kω turbulence model was used.
 
 \textcolor{red}{2D CFD predicts a maximum ~2 percent change in capacity (when the flange is completely gone)}
 
