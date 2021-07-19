@@ -845,7 +845,6 @@ Figure~\ref{fig:t900_2d_capacity_trends} plots percentage changes in the flow ca
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends.png}
 	\end{subfigure}
-	%\hspace{0.05\textwidth}
 	\begin{subfigure}{.1125\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends_legend.png}
@@ -875,7 +874,6 @@ Discussion is warranted of the relationship between flow capacity and throat are
 		\centering
 		\includegraphics[width=\linewidth]{figs/T900_2d_capacities_vs_throat_widths.png}
 	\end{subfigure}
-	%\hspace{0.05\textwidth}
 	\begin{subfigure}{.1125\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_throat_widths_legend.png}
@@ -899,7 +897,6 @@ To achieve this, results for $M$ and $x$ and $y$ velocity components were export
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_2d_capacities_vs_effective_throat_widths.png}
 	\end{subfigure}
-	%\hspace{0.05\textwidth}
 	\begin{subfigure}{.1125\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends_legend.png}
@@ -948,7 +945,6 @@ Figure~\ref{fig:t900_3d_capacity_trends} plots percentage changes in the flow ca
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_3d_capacity_trends.png}
 	\end{subfigure}
-	%\hspace{0.05\textwidth}
 	\begin{subfigure}{.1125\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends_legend.png}
@@ -967,7 +963,6 @@ The viability of the geometric throat area approach to 3D data is ilustrated in 
 		\centering
 		\includegraphics[width=\linewidth]{figs/T900_3d_capacities_vs_throat_areas.png}
 	\end{subfigure}
-	%\hspace{0.05\textwidth}
 	\begin{subfigure}{.1125\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_throat_widths_legend.png}
@@ -1187,11 +1182,108 @@ The resulting quadrilateral geometry allowed for the creation of a structured me
 
 \textcolor{red}{Show capacity trends for all the data as an initial summary, then show capacity vs erosion amount for a couple of relevant PRs (perhaps design and fully choked)}
 
-The above strategy produced
+The described mesh, geometry alteration strategy, and boundary conditions were used to perform 11 CFD simulations which incrementally spanned the range of cutbacks between an unaltered trailing edge and a fully removed flange. Solutions were initialised using the solver’s built-in FMG initialisation and Journal scripts as described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and M = 1 line at choked conditions. There were 32 increments and typical overall solution times were approximately 10 hours. The SST-kω turbulence model was used.
 
-The described mesh, geometry alteration strategy, and boundary conditions were used to perform 11 CFD simulations which incrementally spanned the range of cutbacks between an unaltered trailing edge and a fully removed flange. 
+Figure~\ref{fig:ss_cutbacks_0-3} shows contours of Mach number in the region of the trailing edge for the described study. The depicted range of cutbacks is between the unaltered baseline and the case of $\frac{3}{10}$ removal of the overall length of the trailing edge suction side flange. Inverse pressure ratio is $3.3$, fully choked.
 
-Solutions were initialised using the solver’s built-in FMG initialisation. This procedure automatically constructs a coarser version of the supplied mesh, on which an initial solution is converged before refinement to the final resolution. More detailed expanation of the scheme is provided by Ansys [8]. A script in the Fluent Journal language was used to produce solutions at incrementally decreasing pressure ratios of between 0.99 and a fully choked pressure ratio of 0.3. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and M = 1 line at choked conditions. There were 32 increments and typical overall solution times were approximately 10 hours. The SST-kω turbulence model was used.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_0.png}
+		\caption{Baseline}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_1.png}
+		\caption{$\frac{1}{10}$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_2.png}
+		\caption{$\frac{2}{10}$ cutback}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_3.png}
+		\caption{$\frac{3}{10}$ cutback}
+	\end{subfigure}
+	\caption{Effects of small cutbacks on sonic line shape for Trent 900 suction-side flange erosion study}
+	\label{fig:ss_cutbacks_0-3}
+\end{figure}
+
+Figure~\ref{fig:ss_cutbacks_0-3} illustrates the alteration of the sonic line as the nozzle guide vane's trailing edge suction side flange is incrementally removed until $\frac{3}{10}$ of its length is not present. The sonic line is shown to undergo a fundamental transition over this range of cutbacks, from initially impinging on the trailing tip of the flange in the baseline case, to impinging on the acute corner of the pressure-side flange. The geometric changes are also shown to alter the aerodynamics in the suction-side region upstream of the flange, where an attached shock moved incrementally upstream with progressive cutbacks. Shock-induced boundary layer separation was present, and moved upstream correspondingly with the shock. This resulted in increasingly large separated wake region which was not in alignment with the NGV's turning angle.
+
+Figure~\ref{fig:ss_cutbacks_4-10} shows contours of Mach number in the region of the trailing edge for the described study. The depicted range of cutbacks is between the case of $\frac{4}{10}$ and the case of complete removal of the overall length of the trailing edge suction side flange. Inverse pressure ratio is $3.3$, fully choked.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_4.png}
+		\caption{$\frac{4}{10}$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_6.png}
+		\caption{$\frac{6}{10}$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_8.png}
+		\caption{$\frac{8}{10}$ cutback}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_10.png}
+		\caption{Completely cutback}
+	\end{subfigure}
+	\caption{Effects of large cutbacks on sonic line shape for Trent 900 suction-side flange erosion study}
+	\label{fig:ss_cutbacks_4-10}
+\end{figure}
+
+Figure~\ref{fig:ss_cutbacks_4-10} illustrates that the shape of the sonic line is not fundamentally altered in the range of $\frac{4}{10}$ to complete removal of the trailing edge suction-side flange. The sonic line is shown to consistently impinge on the acute corner of the pressure-side flange throughout this range of larger cutbacks. Upstream movement of the location of the suction-side attached shock continued to occur. This trend was reversed for the most extreme cases of $\frac{8}{10}$ and complete cutbacks, where the shock transitioned to a downstream location close to the corner of the suction-side flange, resulting in a significantly smaller separated wake region compared to other cases.
+
+The set of Mach number contours and sonic lines suggest that the greatest sensitivity of flow capacity to flange cutbacks is to occur for cutbacks of $\frac{3}{10}$ of the flange or less. The sensitivity of the sonic line shape to the full range of cutbacks is illustrated in Figure~\ref{fig:ss_cutbacks_m1_lines_illustration}. It is further suggested that the location of an attached shock and corresponding boundary layer separation may be sensitive to cutbacks of $\frac{4}{10}$ or more, but this may be imprecisely predicted by the present simulations.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.7\textwidth]{figs/ss_cutbacks_m1_lines_illustration.png}
+      \caption{Effects of full range of cutbacks on sonic line shape for Trent 900 suction-side flange erosion study, labelled by $\frac{1}{10}$ of flange size removed}
+      \label{fig:ss_cutbacks_m1_lines_illustration}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ss_cutbacks_vs_capacities_pressure_ratios.png}
+	\caption{2D capacity percentage delta as a function of suction-side flange cutback amount for $3$ pressure ratios}
+    \label{fig:ss_cutbacks_vs_capacities}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_vs_capacities_trends.png}
+	\end{subfigure}
+	\begin{subfigure}{.1125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_vs_capacities_trends_legend.png}
+	\end{subfigure}
+	\caption{2D capacity trends for various suction-side flange cutback amounts}
+      \label{fig:ss_cutbacks_vs_capacities}
+\end{figure}
+
+
+
 
 \textcolor{red}{2D CFD predicts a maximum ~2 percent change in capacity (when the flange is completely gone)}
 

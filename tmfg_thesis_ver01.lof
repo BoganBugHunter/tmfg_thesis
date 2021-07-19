@@ -1,22 +1,27 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces $p$-$v$ and $T$-$s$ plots of the Brayton thermodynamic cycle\relax }}{7}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces $p$-$v$ and $T$-$s$ plots of the Brayton thermodynamic cycle\relax }}{8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Considerations for defining minimum area\relax }}{14}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Creation of 2D mid-span approximation of NGV geometry\relax }}{16}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Computational domain and boundaries\relax }}{17}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Mesh for T900 throat width variation study\relax }}{21}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Details of mesh for T900 throat width variation study\relax }}{22}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Contours of Mach number for whole solution on vane KSZ03, $\frac {p_{01}}{p_2} = 3.33$\relax }}{23}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Contours of Mach number for solution near throat on vane KSZ03, $\frac {p_{01}}{p_2} = 3.33$\relax }}{24}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces 2D capacity trends for 6 Trent 900 NGVs\relax }}{25}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Sonic lines for 6 Trent 900 NGVs\relax }}{26}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces 2D NGV capacity percentage delta as a function of 2D throat width for 6 vanes\relax }}{27}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces 2D NGV capacity percentage delta as a function of 2D $A_{eff}$ for 6 vanes\relax }}{28}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces 3D capacity trends for 6 Trent 900 NGVs\relax }}{29}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces 3D NGV capacity percentage delta as a function of 3D throat area for 6 vanes\relax }}{30}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Considerations for defining minimum area\relax }}{15}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Creation of 2D mid-span approximation of NGV geometry\relax }}{17}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Computational domain and boundaries\relax }}{18}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Mesh for T900 throat width variation study\relax }}{22}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Details of mesh for T900 throat width variation study\relax }}{23}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Contours of Mach number for whole solution on vane KSZ03, $\frac {p_{01}}{p_2} = 3.33$\relax }}{24}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Contours of Mach number for solution near throat on vane KSZ03, $\frac {p_{01}}{p_2} = 3.33$\relax }}{25}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces 2D capacity trends for 6 Trent 900 NGVs\relax }}{26}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Sonic lines for 6 Trent 900 NGVs\relax }}{27}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces 2D NGV capacity percentage delta as a function of 2D throat width for 6 vanes\relax }}{28}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces 2D NGV capacity percentage delta as a function of 2D $A_{eff}$ for 6 vanes\relax }}{29}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces 3D capacity trends for 6 Trent 900 NGVs\relax }}{30}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces 3D NGV capacity percentage delta as a function of 3D throat area for 6 vanes\relax }}{31}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Geometry processing scheme for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{34}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{35}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Geometry processing scheme for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{35}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{36}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Effects of small cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{37}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Effects of large cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{38}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 suction-side flange erosion study, labelled by $\frac {1}{10}$ of flange size removed\relax }}{39}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces 2D capacity percentage delta as a function of suction-side flange cutback amount for $3$ pressure ratios\relax }}{39}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces 2D capacity trends for various suction-side flange cutback amounts\relax }}{40}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{40}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{41}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{45}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{46}

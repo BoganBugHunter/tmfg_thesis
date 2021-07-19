@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  9 JUL 2021 01:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  19 JUL 2021 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1466,7 +1466,11 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
-(./tmfg_thesis_ver01.aux)
+(./tmfg_thesis_ver01.aux
+
+LaTeX Warning: Label `fig:ss_cutbacks_vs_capacities' multiply defined.
+
+)
 \openout1 = `tmfg_thesis_ver01.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
@@ -1483,8 +1487,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
 LaTeX Font Info:    ... okay on input line 67.
 LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 67.
 LaTeX Font Info:    Try loading font information for MDA+cmr on input line 67.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/mathdesign/mdacmr.fd
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
 LaTeX Font Info:    ... okay on input line 67.
@@ -1681,23 +1684,23 @@ LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
 
  [3
 
-] (./tmfg_thesis_ver01.lof)
+] (./tmfg_thesis_ver01.lof [4
+
+])
 \tf@lof=\write4
 \openout4 = `tmfg_thesis_ver01.lof'.
 
- [4
-
-]
+ [5]
 (./tmfg_thesis_ver01.lot)
 \tf@lot=\write5
 \openout5 = `tmfg_thesis_ver01.lot'.
 
- [5
+ [6
 
 ]
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 (Font)              scaled to size 11.52008pt on input line 82.
- [6
+ [7
 
 ]
 Chapter 1.
@@ -1709,7 +1712,7 @@ LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
 (Font)              scaled to size 13.82408pt on input line 97.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 (Font)              scaled to size 13.82408pt on input line 97.
-<figs/brayton_cycle_pv_plot.png, id=29, 289.08pt x 289.08pt>
+<figs/brayton_cycle_pv_plot.png, id=32, 289.08pt x 289.08pt>
 File: figs/brayton_cycle_pv_plot.png Graphic file (type png)
 
 <use figs/brayton_cycle_pv_plot.png>
@@ -1719,29 +1722,19 @@ Package pdftex.def Info: figs/brayton_cycle_pv_plot.png used on input line 107.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
 (Font)              scaled to size 9.60007pt on input line 108.
 
-<figs/brayton_cycle_ts_plot.png, id=30, 289.08pt x 289.08pt>
+<figs/brayton_cycle_ts_plot.png, id=33, 289.08pt x 289.08pt>
 File: figs/brayton_cycle_ts_plot.png Graphic file (type png)
 
 <use figs/brayton_cycle_ts_plot.png>
 Package pdftex.def Info: figs/brayton_cycle_ts_plot.png used on input line 114.
 
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [7
+ [8
 
  <./figs/brayton_cycle_pv_plot.png (PNG copy)> <./figs/brayton_cycle_ts_plot.pn
 g (PNG copy)>]
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
 (Font)              scaled to size 10.51207pt on input line 194.
- [8]
-Missing character: There is no â in font mdbchr7t!
-Missing character: There is no € in font mdbchr7t!
-Missing character: There is no ¢ in font mdbchr7t!
-Missing character: There is no â in font mdbchr7t!
-Missing character: There is no € in font mdbchr7t!
-Missing character: There is no ¢ in font mdbchr7t!
-Missing character: There is no â in font mdbchr7t!
-Missing character: There is no € in font mdbchr7t!
-Missing character: There is no ¢ in font mdbchr7t!
  [9]
 Missing character: There is no â in font mdbchr7t!
 Missing character: There is no € in font mdbchr7t!
@@ -1752,11 +1745,21 @@ Missing character: There is no ¢ in font mdbchr7t!
 Missing character: There is no â in font mdbchr7t!
 Missing character: There is no € in font mdbchr7t!
 Missing character: There is no ¢ in font mdbchr7t!
+ [10]
 Missing character: There is no â in font mdbchr7t!
 Missing character: There is no € in font mdbchr7t!
 Missing character: There is no ¢ in font mdbchr7t!
- [10] [11]
-[12]
+Missing character: There is no â in font mdbchr7t!
+Missing character: There is no € in font mdbchr7t!
+Missing character: There is no ¢ in font mdbchr7t!
+Missing character: There is no â in font mdbchr7t!
+Missing character: There is no € in font mdbchr7t!
+Missing character: There is no ¢ in font mdbchr7t!
+Missing character: There is no â in font mdbchr7t!
+Missing character: There is no € in font mdbchr7t!
+Missing character: There is no ¢ in font mdbchr7t!
+ [11] [12]
+[13]
 Chapter 2.
 LaTeX Font Info:    Font shape `OT1/mdbch/b/n' will be
 (Font)              scaled to size 10.51207pt on input line 441.
@@ -1801,14 +1804,14 @@ LaTeX Font Info:    Font shape `MDB/mdbch/b/n' will be
 LaTeX Font Info:    Font shape `MDB/mdbch/b/n' will be
 (Font)              scaled to size 5.76004pt on input line 441.
 
-<figs/illustration_of_minimum_area_ver04.png, id=55, 645.41125pt x 647.41875pt>
+<figs/illustration_of_minimum_area_ver04.png, id=58, 645.41125pt x 647.41875pt>
 File: figs/illustration_of_minimum_area_ver04.png Graphic file (type png)
 <use figs/illustration_of_minimum_area_ver04.png>
 Package pdftex.def Info: figs/illustration_of_minimum_area_ver04.png used on in
 put line 449.
 (pdftex.def)             Requested size: 203.83417pt x 204.46155pt.
 
-<figs/illustration_of_equivalent_throat_area_integral_ver03.png, id=57, 641.396
+<figs/illustration_of_equivalent_throat_area_integral_ver03.png, id=60, 641.396
 26pt x 643.40375pt>
 File: figs/illustration_of_equivalent_throat_area_integral_ver03.png Graphic fi
 le (type png)
@@ -1817,39 +1820,39 @@ le (type png)
 Package pdftex.def Info: figs/illustration_of_equivalent_throat_area_integral_v
 er03.png used on input line 456.
 (pdftex.def)             Requested size: 203.83417pt x 204.46986pt.
- [13
+ [14
 
 ]
-[14 <./figs/illustration_of_minimum_area_ver04.png> <./figs/illustration_of_equ
+[15 <./figs/illustration_of_minimum_area_ver04.png> <./figs/illustration_of_equ
 ivalent_throat_area_integral_ver03.png>]
-<figs/2d_geometry_creation.png, id=68, 295.60437pt x 366.87062pt>
+<figs/2d_geometry_creation.png, id=71, 295.60437pt x 366.87062pt>
 File: figs/2d_geometry_creation.png Graphic file (type png)
 
 <use figs/2d_geometry_creation.png>
 Package pdftex.def Info: figs/2d_geometry_creation.png used on input line 499.
 (pdftex.def)             Requested size: 271.7835pt x 337.31793pt.
- [15]
-<figs/domain_boundary_conditions.png, id=72, 324.46219pt x 428.35031pt>
+ [16]
+<figs/domain_boundary_conditions.png, id=75, 324.46219pt x 428.35031pt>
 File: figs/domain_boundary_conditions.png Graphic file (type png)
 
 <use figs/domain_boundary_conditions.png>
 Package pdftex.def Info: figs/domain_boundary_conditions.png used on input line
  508.
 (pdftex.def)             Requested size: 271.7835pt x 358.82484pt.
- [16 <./figs/2d_geometry_creation.png>] [17 <./figs/domain_boundary_conditions.
-png>] [18] [19]
-<figs/t900_mesh_whole.png, id=86, 1105.12875pt x 1837.86626pt>
+ [17 <./figs/2d_geometry_creation.png>] [18 <./figs/domain_boundary_conditions.
+png>] [19] [20]
+<figs/t900_mesh_whole.png, id=89, 1105.12875pt x 1837.86626pt>
 File: figs/t900_mesh_whole.png Graphic file (type png)
 
 <use figs/t900_mesh_whole.png>
 Package pdftex.def Info: figs/t900_mesh_whole.png used on input line 796.
 (pdftex.def)             Requested size: 407.66833pt x 677.9527pt.
- [20]
+ [21]
 Overfull \vbox (1.04582pt too high) has occurred while \output is active []
 
 
-[21 <./figs/t900_mesh_whole.png>]
-<figs/t900_mesh_leading_edge.png, id=94, 1299.85625pt x 858.70813pt>
+[22 <./figs/t900_mesh_whole.png>]
+<figs/t900_mesh_leading_edge.png, id=97, 1299.85625pt x 858.70813pt>
 File: figs/t900_mesh_leading_edge.png Graphic file (type png)
 
 <use figs/t900_mesh_leading_edge.png>
@@ -1857,7 +1860,7 @@ Package pdftex.def Info: figs/t900_mesh_leading_edge.png used on input line 805
 .
 (pdftex.def)             Requested size: 203.83417pt x 134.64452pt.
 
-<figs/t900_mesh_trailing_edge.png, id=95, 910.90312pt x 858.20625pt>
+<figs/t900_mesh_trailing_edge.png, id=98, 910.90312pt x 858.20625pt>
 File: figs/t900_mesh_trailing_edge.png Graphic file (type png)
 
 <use figs/t900_mesh_trailing_edge.png>
@@ -1865,25 +1868,25 @@ Package pdftex.def Info: figs/t900_mesh_trailing_edge.png used on input line 81
 2.
 (pdftex.def)             Requested size: 203.83417pt x 192.04047pt.
 
-<figs/t900_mach_whole.png, id=96, 1105.12875pt x 1837.86626pt>
+<figs/t900_mach_whole.png, id=99, 1105.12875pt x 1837.86626pt>
 File: figs/t900_mach_whole.png Graphic file (type png)
 
 <use figs/t900_mach_whole.png>
 Package pdftex.def Info: figs/t900_mach_whole.png used on input line 826.
 (pdftex.def)             Requested size: 407.66833pt x 677.9527pt.
- [22 <./figs/t900_mesh_leading_edge.png> <./figs/t900_mesh_trailing_edge.png>]
+ [23 <./figs/t900_mesh_leading_edge.png> <./figs/t900_mesh_trailing_edge.png>]
 Overfull \vbox (2.19147pt too high) has occurred while \output is active []
 
 
-[23 <./figs/t900_mach_whole.png>]
-<figs/t900_mach_throat.png, id=104, 378.41376pt x 581.17125pt>
+[24 <./figs/t900_mach_whole.png>]
+<figs/t900_mach_throat.png, id=108, 378.41376pt x 581.17125pt>
 File: figs/t900_mach_throat.png Graphic file (type png)
 
 <use figs/t900_mach_throat.png>
 Package pdftex.def Info: figs/t900_mach_throat.png used on input line 833.
 (pdftex.def)             Requested size: 203.83417pt x 313.04742pt.
 
-<figs/t900_2d_capacity_trends.png, id=105, 289.08pt x 289.08pt>
+<figs/t900_2d_capacity_trends.png, id=109, 289.08pt x 289.08pt>
 File: figs/t900_2d_capacity_trends.png Graphic file (type png)
 
 <use figs/t900_2d_capacity_trends.png>
@@ -1891,143 +1894,287 @@ Package pdftex.def Info: figs/t900_2d_capacity_trends.png used on input line 84
 6.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
-<figs/t900_2d_capacity_trends_legend.png, id=106, 301.125pt x 1204.5pt>
+<figs/t900_2d_capacity_trends_legend.png, id=110, 301.125pt x 1204.5pt>
 File: figs/t900_2d_capacity_trends_legend.png Graphic file (type png)
 
 <use figs/t900_2d_capacity_trends_legend.png>
 Package pdftex.def Info: figs/t900_2d_capacity_trends_legend.png used on input 
-line 851.
+line 850.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [24 <./figs/t900_mach_throat.png>] <figs/T900_mach1_lines.png, id=111, 1626.07
+ [25 <./figs/t900_mach_throat.png>] <figs/T900_mach1_lines.png, id=114, 1626.07
 5pt x 1421.31pt>
 File: figs/T900_mach1_lines.png Graphic file (type png)
 
 <use figs/T900_mach1_lines.png>
-Package pdftex.def Info: figs/T900_mach1_lines.png used on input line 863.
+Package pdftex.def Info: figs/T900_mach1_lines.png used on input line 862.
 (pdftex.def)             Requested size: 317.07614pt x 277.1435pt.
- [25 <./figs/t900_2d_capacity_trends.png (PNG copy)> <./figs/t900_2d_capacity_t
+ [26 <./figs/t900_2d_capacity_trends.png (PNG copy)> <./figs/t900_2d_capacity_t
 rends_legend.png>]
-<figs/T900_2d_capacities_vs_throat_widths.png, id=116, 289.08pt x 289.08pt>
+<figs/T900_2d_capacities_vs_throat_widths.png, id=119, 289.08pt x 289.08pt>
 File: figs/T900_2d_capacities_vs_throat_widths.png Graphic file (type png)
 
 <use figs/T900_2d_capacities_vs_throat_widths.png>
 Package pdftex.def Info: figs/T900_2d_capacities_vs_throat_widths.png used on i
-nput line 876.
+nput line 875.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
-<figs/t900_throat_widths_legend.png, id=117, 301.125pt x 1204.5pt>
+<figs/t900_throat_widths_legend.png, id=120, 301.125pt x 1204.5pt>
 File: figs/t900_throat_widths_legend.png Graphic file (type png)
 
 <use figs/t900_throat_widths_legend.png>
 Package pdftex.def Info: figs/t900_throat_widths_legend.png used on input line 
-881.
+879.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [26 <./figs/T900_mach1_lines.png>]
-<figs/t900_2d_capacities_vs_effective_throat_widths.png, id=122, 289.08pt x 289
+ [27 <./figs/T900_mach1_lines.png>]
+<figs/t900_2d_capacities_vs_effective_throat_widths.png, id=125, 289.08pt x 289
 .08pt>
 File: figs/t900_2d_capacities_vs_effective_throat_widths.png Graphic file (type
  png)
  <use figs/t900_2d_capacities_vs_effective_throat_widths.png>
 Package pdftex.def Info: figs/t900_2d_capacities_vs_effective_throat_widths.png
- used on input line 900.
+ used on input line 898.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 File: figs/t900_2d_capacity_trends_legend.png Graphic file (type png)
 
 <use figs/t900_2d_capacity_trends_legend.png>
 Package pdftex.def Info: figs/t900_2d_capacity_trends_legend.png used on input 
-line 905.
+line 902.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [27 <./figs/T900_2d_capacities_vs_throat_widths.png (PNG copy)> <./figs/t900_t
-hroat_widths_legend.png>] [28 <./figs/t900_2d_capacities_vs_effective_throat_wi
+ [28 <./figs/T900_2d_capacities_vs_throat_widths.png (PNG copy)> <./figs/t900_t
+hroat_widths_legend.png>] [29 <./figs/t900_2d_capacities_vs_effective_throat_wi
 dths.png (PNG copy)>]
-<figs/t900_3d_capacity_trends.png, id=130, 289.08pt x 289.08pt>
+<figs/t900_3d_capacity_trends.png, id=133, 289.08pt x 289.08pt>
 File: figs/t900_3d_capacity_trends.png Graphic file (type png)
 
 <use figs/t900_3d_capacity_trends.png>
 Package pdftex.def Info: figs/t900_3d_capacity_trends.png used on input line 94
-9.
+6.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 File: figs/t900_2d_capacity_trends_legend.png Graphic file (type png)
 
 <use figs/t900_2d_capacity_trends_legend.png>
 Package pdftex.def Info: figs/t900_2d_capacity_trends_legend.png used on input 
-line 954.
+line 950.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
 
-<figs/T900_3d_capacities_vs_throat_areas.png, id=131, 289.08pt x 289.08pt>
+<figs/T900_3d_capacities_vs_throat_areas.png, id=134, 289.08pt x 289.08pt>
 File: figs/T900_3d_capacities_vs_throat_areas.png Graphic file (type png)
 
 <use figs/T900_3d_capacities_vs_throat_areas.png>
 Package pdftex.def Info: figs/T900_3d_capacities_vs_throat_areas.png used on in
-put line 968.
+put line 964.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 File: figs/t900_throat_widths_legend.png Graphic file (type png)
 
 <use figs/t900_throat_widths_legend.png>
 Package pdftex.def Info: figs/t900_throat_widths_legend.png used on input line 
-973.
+968.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [29 <./figs/t900_3d_capacity_trends.png (PNG copy)>] [30 <./figs/T900_3d_capac
+ [30 <./figs/t900_3d_capacity_trends.png (PNG copy)>] [31 <./figs/T900_3d_capac
 ities_vs_throat_areas.png (PNG copy)>]
 Chapter 3.
-[31
+[32
 
-] [32] [33]
-<figs/T900_ss_cutbacks_geometry.png, id=148, 1361.085pt x 942.52126pt>
+] [33] [34]
+<figs/T900_ss_cutbacks_geometry.png, id=151, 1361.085pt x 942.52126pt>
 File: figs/T900_ss_cutbacks_geometry.png Graphic file (type png)
 
 <use figs/T900_ss_cutbacks_geometry.png>
 Package pdftex.def Info: figs/T900_ss_cutbacks_geometry.png used on input line 
-1174.
+1169.
 (pdftex.def)             Requested size: 407.66833pt x 282.29834pt.
- [34 <./figs/T900_ss_cutbacks_geometry.png>] <figs/T900_ss_cutbacks_mesh.png, i
-d=153, 1003.75pt x 777.90625pt>
+ [35 <./figs/T900_ss_cutbacks_geometry.png>] <figs/T900_ss_cutbacks_mesh.png, i
+d=156, 1003.75pt x 777.90625pt>
 File: figs/T900_ss_cutbacks_mesh.png Graphic file (type png)
 
 <use figs/T900_ss_cutbacks_mesh.png>
-Package pdftex.def Info: figs/T900_ss_cutbacks_mesh.png used on input line 1183
+Package pdftex.def Info: figs/T900_ss_cutbacks_mesh.png used on input line 1178
 .
 (pdftex.def)             Requested size: 407.66833pt x 315.94054pt.
- [35 <./figs/T900_ss_cutbacks_mesh.png>]
-[36] [37]
-Chapter 4.
-[38
 
-] <figs/SCH_mesh_domain_placeholder.png, id=168, 980.16188pt x 572.89032pt>
+<figs/ss_cutbacks_m1_lines_0.png, id=157, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_0.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_0.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_0.png used on input line 119
+3.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+
+<figs/ss_cutbacks_m1_lines_1.png, id=158, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_1.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_1.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_1.png used on input line 120
+0.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 1201.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 1201.
+LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 1201.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 9.60007pt on input line 1201.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 6.72005pt on input line 1201.
+LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
+(Font)              scaled to size 4.80003pt on input line 1201.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 1201.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 1201.
+LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 1201.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 1201.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 1201.
+LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 1201.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 1201.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 1201.
+LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 1201.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 1201.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 1201.
+LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 1201.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 9.60007pt on input line 1201.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 6.72005pt on input line 1201.
+LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
+(Font)              scaled to size 4.80003pt on input line 1201.
+
+<figs/ss_cutbacks_m1_lines_2.png, id=159, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_2.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_2.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_2.png used on input line 120
+6.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+
+<figs/ss_cutbacks_m1_lines_3.png, id=160, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_3.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_3.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_3.png used on input line 121
+2.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+ [36 <./figs/T900_ss_cutbacks_mesh.png>]
+<figs/ss_cutbacks_m1_lines_4.png, id=166, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_4.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_4.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_4.png used on input line 122
+7.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+
+<figs/ss_cutbacks_m1_lines_6.png, id=167, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_6.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_6.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_6.png used on input line 123
+4.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+
+<figs/ss_cutbacks_m1_lines_8.png, id=168, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_8.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_8.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_8.png used on input line 124
+0.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+
+<figs/ss_cutbacks_m1_lines_10.png, id=169, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_10.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_10.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_10.png used on input line 12
+46.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+ [37 <./figs/ss_cutbacks_m1_lines_0.png> <./figs/ss_cutbacks_m1_lines_1.png> <.
+/figs/ss_cutbacks_m1_lines_2.png> <./figs/ss_cutbacks_m1_lines_3.png>]
+<figs/ss_cutbacks_m1_lines_illustration.png, id=177, 1420.30624pt x 1097.09875p
+t>
+File: figs/ss_cutbacks_m1_lines_illustration.png Graphic file (type png)
+ <use figs/ss_cutbacks_m1_lines_illustration.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_illustration.png used on inp
+ut line 1259.
+(pdftex.def)             Requested size: 317.07614pt x 244.91142pt.
+ [38 <./figs/ss_cutbacks_m1_lines_4.png> <./figs/ss_cutbacks_m1_lines_6.png> <.
+/figs/ss_cutbacks_m1_lines_8.png> <./figs/ss_cutbacks_m1_lines_10.png>]
+<figs/ss_cutbacks_vs_capacities_pressure_ratios.png, id=185, 289.08pt x 289.08p
+t>
+File: figs/ss_cutbacks_vs_capacities_pressure_ratios.png Graphic file (type png
+)
+ <use figs/ss_cutbacks_vs_capacities_pressure_ratios.png>
+Package pdftex.def Info: figs/ss_cutbacks_vs_capacities_pressure_ratios.png use
+d on input line 1266.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+
+<figs/ss_cutbacks_vs_capacities_trends.png, id=186, 289.08pt x 289.08pt>
+File: figs/ss_cutbacks_vs_capacities_trends.png Graphic file (type png)
+
+<use figs/ss_cutbacks_vs_capacities_trends.png>
+Package pdftex.def Info: figs/ss_cutbacks_vs_capacities_trends.png used on inpu
+t line 1275.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+
+<figs/ss_cutbacks_vs_capacities_trends_legend.png, id=187, 233.87375pt x 775.89
+874pt>
+File: figs/ss_cutbacks_vs_capacities_trends_legend.png Graphic file (type png)
+ <use figs/ss_cutbacks_vs_capacities_trends_legend.png>
+Package pdftex.def Info: figs/ss_cutbacks_vs_capacities_trends_legend.png used 
+on input line 1279.
+(pdftex.def)             Requested size: 50.96027pt x 169.06444pt.
+ [39 <./figs/ss_cutbacks_m1_lines_illustration.png> <./figs/ss_cutbacks_vs_capa
+cities_pressure_ratios.png (PNG copy)>] [40 <./figs/ss_cutbacks_vs_capacities_t
+rends.png (PNG copy)> <./figs/ss_cutbacks_vs_capacities_trends_legend.png (PNG 
+copy)>] [41]
+[42]
+Chapter 4.
+[43
+
+] <figs/SCH_mesh_domain_placeholder.png, id=205, 980.16188pt x 572.89032pt>
 File: figs/SCH_mesh_domain_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_domain_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_domain_placeholder.png used on input lin
-e 1341.
+e 1433.
 (pdftex.def)             Requested size: 407.66833pt x 238.26955pt.
 
-<figs/SCH_mesh_leading_edge_placeholder.png, id=169, 535.2497pt x 479.54156pt>
+<figs/SCH_mesh_leading_edge_placeholder.png, id=206, 535.2497pt x 479.54156pt>
 File: figs/SCH_mesh_leading_edge_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_leading_edge_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_leading_edge_placeholder.png used on inp
-ut line 1348.
+ut line 1440.
 (pdftex.def)             Requested size: 203.83417pt x 182.62282pt.
 
-<figs/SCH_mesh_hole_placeholder.png, id=170, 855.195pt x 545.78906pt>
+<figs/SCH_mesh_hole_placeholder.png, id=207, 855.195pt x 545.78906pt>
 File: figs/SCH_mesh_hole_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_hole_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_hole_placeholder.png used on input line 
-1355.
+1447.
 (pdftex.def)             Requested size: 203.83417pt x 130.08429pt.
- [39]
-<figs/SCH_capacity_vs_hole_position.png, id=174, 256.7994pt x 257.5221pt>
+ [44]
+<figs/SCH_capacity_vs_hole_position.png, id=211, 256.7994pt x 257.5221pt>
 File: figs/SCH_capacity_vs_hole_position.png Graphic file (type png)
 
 <use figs/SCH_capacity_vs_hole_position.png>
 Package pdftex.def Info: figs/SCH_capacity_vs_hole_position.png used on input l
-ine 1367.
+ine 1459.
 (pdftex.def)             Requested size: 203.83417pt x 204.40688pt.
- [40 <./figs/SCH_mesh_domain_placeholder.png> <./figs/SCH_mesh_leading_edge_pla
-ceholder.png> <./figs/SCH_mesh_hole_placeholder.png>] [41 <./figs/SCH_capacity_
+ [45 <./figs/SCH_mesh_domain_placeholder.png> <./figs/SCH_mesh_leading_edge_pla
+ceholder.png> <./figs/SCH_mesh_hole_placeholder.png>] [46 <./figs/SCH_capacity_
 vs_hole_position.png (PNG copy)>]
-(./tmfg_thesis_ver01.bbl [42]
+(./tmfg_thesis_ver01.bbl [47]
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
 (Font)              scaled to size 11.73846pt on input line 40.
 Package microtype Info: Loading generic settings for font family
@@ -2040,36 +2187,40 @@ Underfull \hbox (badness 1038) in paragraph at lines 39--43
 $\T1/cmtt/m/n/10.95 https : / / www . afs . enea . it / project /
  []
 
-[43
+[48
 
-]) [44] (./tmfg_thesis_ver01.aux) ) 
+]) [49] (./tmfg_thesis_ver01.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 14273 strings out of 493117
- 250062 string characters out of 6135433
- 325647 words of memory out of 5000000
- 17307 multiletter control sequences out of 15000+600000
- 74336 words of font info for 222 fonts, out of 8000000 for 9000
+ 14389 strings out of 493117
+ 253432 string characters out of 6135433
+ 325731 words of memory out of 5000000
+ 17401 multiletter control sequences out of 15000+600000
+ 84223 words of font info for 250 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,11n,94p,10393b,586s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/en
-c/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/
-dvips/ly1/texnansi.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea
-/charter/bchb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/ch
-arter/bchbi8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/char
-ter/bchr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/charter
-/bchri8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/
-mdbch/md-chb7y.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathd
-esign/mdbch/md-chr7m.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
-/mathdesign/mdbch/md-chr7t.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
-public/mathdesign/mdbch/md-chr7v.pfb></usr/local/texlive/2014/texmf-dist/fonts/
-type1/public/mathdesign/mdbch/md-chr7y.pfb></usr/local/texlive/2014/texmf-dist/
-fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb></usr/local/texlive/2014/texmf
--dist/fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on tmfg_thesis_ver01.pdf (45 pages, 5918892 bytes).
+ 59i,11n,94p,10393b,614s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/bitstrea/charter/bchbi8a.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb7y.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7m.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7t.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7v.
+pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-
+chr7y.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdb
+ch/md-chr8t.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesi
+gn/mdbch/md-chri7m.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/c
+m-super/sftt1095.pfb>
+Output written on tmfg_thesis_ver01.pdf (50 pages, 7147389 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
+ 276 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 38526 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 41658 words of extra memory for PDF output out of 42996 (max. 10000000)
 

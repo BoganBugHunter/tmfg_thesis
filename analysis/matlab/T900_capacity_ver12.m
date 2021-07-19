@@ -1384,6 +1384,7 @@ myfiguresize = [left, bottom, figure_width, figure_height];
 set(gcf,'PaperPosition', myfiguresize);
 print('../../figs/t900_2d_capacity_trends','-dpng','-r300');
 
+
 figure(3)
 %plot of Rolls-Royce 3D CFD data
 plot(T900_capacities_3D(:,11), T900_capacities_3D(:,12)/15200.3/0.00001157, 'k.')
@@ -1418,6 +1419,7 @@ bottom = (papersize(2)- figure_height)/2;
 myfiguresize = [left, bottom, figure_width, figure_height];
 set(gcf,'PaperPosition', myfiguresize);
 print('../../figs/t900_3d_capacity_trends','-dpng','-r300');
+
 
 figure(4)
 %2D Capacity versus throat width
@@ -1461,6 +1463,7 @@ bottom = (papersize(2)- figure_height)/2;
 myfiguresize = [left, bottom, figure_width, figure_height];
 set(gcf,'PaperPosition', myfiguresize);
 print('../../figs/t900_2d_capacities_vs_throat_widths','-dpng','-r300');
+
 
 figure(5)
 %3D Capacity versus throat area
@@ -1511,8 +1514,10 @@ T900_capacities_2D_design_mean = mean(T900_capacities_2D_design);
 
 gradient = [0 0 ; 110 110];
 
+
 figure(6)
 %2D Capacity versus effective throat width
+
 plot(100*throat_widths_effective(1)./max(throat_widths_effective) , 100*T900_capacities_2D_design(2)./max(T900_capacities_2D_design(2:7)), 'bo','MarkerFaceColor','blue','MarkerSize',10)
 hold on
 plot(100*throat_widths_effective(2)./max(throat_widths_effective) , 100*T900_capacities_2D_design(3)./max(T900_capacities_2D_design(2:7)), 'go','MarkerFaceColor','green','MarkerSize',10)
@@ -1521,7 +1526,6 @@ plot(100*throat_widths_effective(4)./max(throat_widths_effective) , 100*T900_cap
 plot(100*throat_widths_effective(5)./max(throat_widths_effective) , 100*T900_capacities_2D_design(6)./max(T900_capacities_2D_design(2:7)), 'mo','MarkerFaceColor','magenta','MarkerSize',10)
 plot(100*throat_widths_effective(6)./max(throat_widths_effective) , 100*T900_capacities_2D_design(7)./max(T900_capacities_2D_design(2:7)), 'ko','MarkerFaceColor','black','MarkerSize',10)
 plot(100*throat_widths_effective_mean/max(throat_widths_effective), 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'k*')
-
 %plot(1.4*gradient_1(:,1) + 100*throat_widths_effective_mean/max(throat_widths_effective), 1.4*gradient_1(:,2) + 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'r-')
 %plot(1000*gradient_1(:,1) + 100*throat_widths_effective_mean/max(throat_widths_effective), 1000*gradient_1(:,2) + 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'g')
 %plot(-1000*gradient_1(:,1) + 100*throat_widths_effective_mean/max(throat_widths_effective), -1000*gradient_1(:,2) + 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'b-')
@@ -1540,6 +1544,7 @@ ylabel('\Delta capacity, %')
 %text(100*throat_widths(4)./max(throat_widths) + 100*0.002, 100*T900_capacities_2D_design(5)./max(T900_capacities_2D_design(2:7)),'PNN06','FontName','Charter','FontSize',font_size,'VerticalAlignment','top','HorizontalAlignment','left')
 %text(100*throat_widths(5)./max(throat_widths) + 100*0.002, 100*T900_capacities_2D_design(6)./max(T900_capacities_2D_design(2:7)),'PNS03','FontName','Charter','FontSize',font_size,'VerticalAlignment','bottom','HorizontalAlignment','right')
 %text(100*throat_widths(6)./max(throat_widths) + 100*0.002, 100*T900_capacities_2D_design(7)./max(T900_capacities_2D_design(2:7)),'PNS04','FontName','Charter','FontSize',font_size,'VerticalAlignment','top','HorizontalAlignment','left')
+
 %Here we set up the axes
 pos = get(gcf, 'Position');
 set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
@@ -1555,6 +1560,84 @@ myfiguresize = [left, bottom, figure_width, figure_height];
 set(gcf,'PaperPosition', myfiguresize);
 print('../../figs/t900_2d_capacities_vs_effective_throat_widths','-dpng','-r300');
 
+
+figure(7)
+%realistic TEs with SS cutbacks
+
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,2)./T900_TE_capacities_2D(18,2), 'k.')
+hold on
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,3)./T900_TE_capacities_2D(18,2), 'kx')
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,4)./T900_TE_capacities_2D(18,2), 'k+')
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,5)./T900_TE_capacities_2D(18,2), 'kh')
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,6)./T900_TE_capacities_2D(18,2), 'k^')
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,7)./T900_TE_capacities_2D(18,2), 'ko')
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,8)./T900_TE_capacities_2D(18,2), 'ks')
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,9)./T900_TE_capacities_2D(18,2), 'kp')
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,10)./T900_TE_capacities_2D(18,2), 'k*')
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,11)./T900_TE_capacities_2D(18,2), 'kd')
+plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,12)./T900_TE_capacities_2D(18,2), 'k>')
+
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,2)./T900_TE_capacities_2D(18,2), 'k-')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,3)./T900_TE_capacities_2D(18,2), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,4)./T900_TE_capacities_2D(18,2), 'k--')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,5)./T900_TE_capacities_2D(18,2), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,6)./T900_TE_capacities_2D(18,2), 'k--')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,7)./T900_TE_capacities_2D(18,2), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,8)./T900_TE_capacities_2D(18,2), 'k--')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,9)./T900_TE_capacities_2D(18,2), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,10)./T900_TE_capacities_2D(18,2), 'k--')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,11)./T900_TE_capacities_2D(18,2), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,12)./T900_TE_capacities_2D(18,2), 'k--')
+
+xlim([1.6 2.3])
+xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
+ylabel('\Delta capacity, %')
+%legend('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Location', 'southeast')
+
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/ss_cutbacks_vs_capacities_trends','-dpng','-r300');
+
+
+figure(8)
+%capacity vs. cutback at various PRs
+
+plot(0:1:10, 100*T900_TE_capacities_2D_oversampled(10001,2:12)./T900_TE_capacities_2D_oversampled(3354,2), 'ko-')
+hold on
+%plot(0:1:10, 100*T900_TE_capacities_2D_oversampled(6670,2:12)./T900_TE_capacities_2D_oversampled(3354,2), 'kx-')
+plot(0:1:10, 100*T900_TE_capacities_2D_oversampled(3354,2:12)./T900_TE_capacities_2D_oversampled(3354,2), 'k^-')
+plot(0:1:10, 100*T900_TE_capacities_2D_oversampled(2105,2:12)./T900_TE_capacities_2D_oversampled(3354,2), 'kh-')
+%plot(0:1:10, 100*T900_TE_capacities_2D_oversampled(37,2:12)./T900_TE_capacities_2D_oversampled(3354,2), 'k^-')
+
+xlabel('Cutback amount')
+ylabel('\Delta capacity, %')
+legend('PR = 3.33', 'PR = 1.79 (design)', 'PR = 1.5', 'Location', 'southeast')
+
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/ss_cutbacks_vs_capacities_pressure_ratios','-dpng','-r300');
 
 
 
