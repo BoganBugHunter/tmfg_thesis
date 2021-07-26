@@ -55,10 +55,7 @@ PR_critical = ((gamma+1)/2)^(gamma/(1-gamma));
 
 p01 = 1;
 p2 = p01*PR_critical;
-p0c = 0.2*p01;
-
-Delta_TP = 0:0.001:0.4*(p01-p2);
-p02 = p01 - Delta_TP + p0c;
+p02 = p2:0.001:p01;
 
 CpGiel = (p01-p02)./(p01-p2);
 CpGao = (p01-p02)./(p02-p2);
@@ -77,20 +74,33 @@ CpGielSeries5 = CpGao - CpGao.^2 + CpGao.^3 - CpGao.^4 + CpGao.^5;
 
 
 figure(5)
-plot(Delta_TP,CpGaoSeries1, 'm-');
+plot(p02,CpGaoSeries1, 'm-');
 hold on
-plot(Delta_TP,CpGaoSeries2, 'c-');
-plot(Delta_TP,CpGaoSeries3, 'r-');
-plot(Delta_TP,CpGaoSeries4, 'b-');
-plot(Delta_TP,CpGaoSeries5, 'g-');
-plot(Delta_TP,CpGao, 'k--');
+plot(p02,CpGaoSeries2, 'c-');
+plot(p02,CpGaoSeries3, 'r-');
+plot(p02,CpGaoSeries4, 'b-');
+plot(p02,CpGaoSeries5, 'g-');
+plot(p02,CpGao, 'k--');
 
 figure(6)
-plot(Delta_TP,CpGielSeries1, 'm-');
+plot(p02,CpGielSeries1, 'm-');
 hold on
-plot(Delta_TP,CpGielSeries2, 'c-');
-plot(Delta_TP,CpGielSeries3, 'r-');
-plot(Delta_TP,CpGielSeries4, 'b-');
-plot(Delta_TP,CpGielSeries5, 'g-');
-plot(Delta_TP,CpGiel, 'k--');
+plot(p02,CpGielSeries2, 'c-');
+plot(p02,CpGielSeries3, 'r-');
+plot(p02,CpGielSeries4, 'b-');
+plot(p02,CpGielSeries5, 'g-');
+plot(p02,CpGiel, 'k--');
+
+
+%plot Giel's KE loss definition as a function of p02
+
+giel_ke_loss_numerator = (p01./p02).^((gamma-1)/gamma) - 1;
+giel_ke_loss_denominator = (p01./p2).^((gamma-1)/gamma) - 1;
+giel_ke_loss = giel_ke_loss_numerator/giel_ke_loss_denominator;
+
+figure(7)
+plot(p02,giel_ke_loss, 'm-');
+hold on
+plot(p02,CpGiel, 'b-');
+xlim([p2 p01]);
 

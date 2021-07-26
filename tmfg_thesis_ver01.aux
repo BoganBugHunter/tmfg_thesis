@@ -15,6 +15,7 @@
 \citation{guiffre_design_guidelines}
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}Flow capacity: background, definition, and derivation}{10}}
 \newlabel{flow_capacity_background_definition_and_derivation}{{1.2}{10}}
+\newlabel{compressible_bernouilli}{{1.9}{10}}
 \newlabel{mass_flow_rate_formula}{{1.12}{11}}
 \newlabel{capacity_definition}{{1.13}{11}}
 \newlabel{choked_capacity_from_area}{{1.21}{11}}
@@ -85,65 +86,69 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2.13}{\ignorespaces 3D NGV capacity percentage delta as a function of 3D throat area for 6 vanes\relax }}{31}}
 \newlabel{fig:T900_2d_capacities_vs_throat_areas}{{2.13}{31}}
 \citation{trinidade_loss}
-\citation{giel_te_thickness}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Trailing edge}{32}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chapter_trailing_edge}{{3}{32}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Definitions of loss for trailing edge performance evaluation}{32}}
+\citation{giel_te_thickness}
 \citation{gao_te}
-\newlabel{giel_loss_definition}{{3.7}{33}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Effects of trailing edge shape uncertainty on capacity predictability}{34}}
-\newlabel{effects_of_trailing_edge_uncertainty_on_capacity_predictability}{{3.2}{34}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Boundary conditions for trailing edge suction-side flange shape uncertainty study\relax }}{35}}
-\newlabel{ss_cutbacks_parameters}{{3.1}{35}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Geometry processing scheme for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{35}}
-\newlabel{fig:T900_ss_cutbacks_geometry}{{3.1}{35}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{36}}
-\newlabel{fig:T900_ss_cutbacks_mesh}{{3.2}{36}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Effects of small cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{37}}
-\newlabel{fig:ss_cutbacks_0-3}{{3.3}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Effects of large cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{38}}
-\newlabel{fig:ss_cutbacks_4-10}{{3.4}{38}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 suction-side flange erosion study, labelled by $\frac  {1}{10}$ of flange size removed\relax }}{39}}
-\newlabel{fig:ss_cutbacks_m1_lines_illustration}{{3.5}{39}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces 2D capacity percentage delta as a function of suction-side flange cutback amount for $3$ pressure ratios\relax }}{39}}
-\newlabel{fig:ss_cutbacks_vs_capacities}{{3.6}{39}}
+\newlabel{total_pressure_loss_coefficient}{{3.1}{33}}
+\newlabel{ke_loss_form}{{3.7}{33}}
+\citation{saha_loss}
+\newlabel{ke_loss_definition}{{3.11}{34}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Effects of trailing edge shape uncertainty on capacity predictability}{35}}
+\newlabel{effects_of_trailing_edge_uncertainty_on_capacity_predictability}{{3.2}{35}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Boundary conditions for trailing edge suction-side flange shape uncertainty study\relax }}{36}}
+\newlabel{ss_cutbacks_parameters}{{3.1}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Geometry processing scheme for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{36}}
+\newlabel{fig:T900_ss_cutbacks_geometry}{{3.1}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{37}}
+\newlabel{fig:T900_ss_cutbacks_mesh}{{3.2}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Effects of small cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{38}}
+\newlabel{fig:ss_cutbacks_0-3}{{3.3}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Effects of large cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{39}}
+\newlabel{fig:ss_cutbacks_4-10}{{3.4}{39}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 suction-side flange erosion study, labelled by $\frac  {1}{10}$ of flange size removed\relax }}{40}}
+\newlabel{fig:ss_cutbacks_m1_lines_illustration}{{3.5}{40}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces 2D capacity percentage delta as a function of suction-side flange cutback amount for $3$ pressure ratios\relax }}{40}}
+\newlabel{fig:ss_cutbacks_vs_capacities_pressure_ratios}{{3.6}{40}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Contours of Mach number in the wake region of the Trent 900 suction-side flange erosion study at design inverse pressure ratio of $1.79$\relax }}{41}}
+\newlabel{fig:ss_cutbacks_wakes_design_pr}{{3.7}{41}}
 \citation{burdett_capacity_measurement}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces 2D capacity trends for various suction-side flange cutback amounts\relax }}{42}}
+\newlabel{fig:ss_cutbacks_vs_capacities_trends}{{3.8}{42}}
 \citation{gao_te}
 \citation{giel_te_thickness}
 \citation{giel_nasa_reference}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces 2D capacity trends for various suction-side flange cutback amounts\relax }}{40}}
-\newlabel{fig:ss_cutbacks_vs_capacities}{{3.7}{40}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Performance of an alternative trailing edge design}{41}}
-\newlabel{performance_of_an_alternative_trailing_edge_design}{{3.3}{41}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Boundary conditions for trailing edge centred-ejection design study\relax }}{41}}
-\newlabel{ps_cutbacks_parameters}{{3.2}{41}}
-\citation{saha_loss}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Performance of an alternative trailing edge design}{43}}
+\newlabel{performance_of_an_alternative_trailing_edge_design}{{3.3}{43}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Boundary conditions for trailing edge centred-ejection design study\relax }}{44}}
+\newlabel{ps_cutbacks_parameters}{{3.2}{44}}
 \citation{gao_te_and_film_cooling}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Leading edge}{43}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Leading edge}{45}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chapter_leading_edge}{{4}{43}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{43}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Boundary conditions for suction-side cooling hole position study\relax }}{44}}
-\newlabel{SCH_parameters}{{4.1}{44}}
-\newlabel{fig:SCH_mesh_1}{{4.1a}{45}}
-\newlabel{sub@fig:SCH_mesh_1}{{a}{45}}
-\newlabel{fig:SCH_mesh_2}{{4.1b}{45}}
-\newlabel{sub@fig:SCH_mesh_2}{{b}{45}}
-\newlabel{fig:SCH_mesh_3}{{4.1c}{45}}
-\newlabel{sub@fig:SCH_mesh_3}{{c}{45}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{45}}
+\newlabel{chapter_leading_edge}{{4}{45}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{45}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Boundary conditions for suction-side cooling hole position study\relax }}{46}}
+\newlabel{SCH_parameters}{{4.1}{46}}
+\newlabel{fig:SCH_mesh_1}{{4.1a}{47}}
+\newlabel{sub@fig:SCH_mesh_1}{{a}{47}}
+\newlabel{fig:SCH_mesh_2}{{4.1b}{47}}
+\newlabel{sub@fig:SCH_mesh_2}{{b}{47}}
+\newlabel{fig:SCH_mesh_3}{{4.1c}{47}}
+\newlabel{sub@fig:SCH_mesh_3}{{c}{47}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{47}}
 \citation{ravelli_engine_conditions}
 \citation{barigozzi_film_cooling}
 \citation{he_film_cooling}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{46}}
-\newlabel{fig:SCH_capacity_vs_hole_position}{{4.2}{46}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result}{46}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{48}}
+\newlabel{fig:SCH_capacity_vs_hole_position}{{4.2}{48}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result}{48}}
 \bibstyle{ieeetr}
 \bibdata{tmfg_bibliography_ver01}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{47}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{49}}
 \bibcite{guiffre_design_guidelines}{1}
 \bibcite{thirumurthy_throat_area}{2}
 \bibcite{hall_area}{3}
@@ -155,11 +160,11 @@
 \bibcite{trinidade_loss}{9}
 \bibcite{giel_te_thickness}{10}
 \bibcite{gao_te}{11}
-\bibcite{burdett_capacity_measurement}{12}
-\bibcite{giel_nasa_reference}{13}
-\bibcite{saha_loss}{14}
+\bibcite{saha_loss}{12}
+\bibcite{burdett_capacity_measurement}{13}
+\bibcite{giel_nasa_reference}{14}
 \bibcite{gao_te_and_film_cooling}{15}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{48}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{50}}
 \bibcite{ravelli_engine_conditions}{16}
 \bibcite{barigozzi_film_cooling}{17}
 \bibcite{he_film_cooling}{18}

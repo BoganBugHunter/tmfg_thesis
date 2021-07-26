@@ -15,13 +15,14 @@
 \contentsline {figure}{\numberline {2.12}{\ignorespaces 3D capacity trends for 6 Trent 900 NGVs\relax }}{30}
 \contentsline {figure}{\numberline {2.13}{\ignorespaces 3D NGV capacity percentage delta as a function of 3D throat area for 6 vanes\relax }}{31}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Geometry processing scheme for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{35}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{36}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Effects of small cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{37}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Effects of large cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{38}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 suction-side flange erosion study, labelled by $\frac {1}{10}$ of flange size removed\relax }}{39}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces 2D capacity percentage delta as a function of suction-side flange cutback amount for $3$ pressure ratios\relax }}{39}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces 2D capacity trends for various suction-side flange cutback amounts\relax }}{40}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Geometry processing scheme for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{36}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV\relax }}{37}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Effects of small cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{38}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Effects of large cutbacks on sonic line shape for Trent 900 suction-side flange erosion study\relax }}{39}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 suction-side flange erosion study, labelled by $\frac {1}{10}$ of flange size removed\relax }}{40}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces 2D capacity percentage delta as a function of suction-side flange cutback amount for $3$ pressure ratios\relax }}{40}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Contours of Mach number in the wake region of the Trent 900 suction-side flange erosion study at design inverse pressure ratio of $1.79$\relax }}{41}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces 2D capacity trends for various suction-side flange cutback amounts\relax }}{42}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{45}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{46}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{47}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{48}

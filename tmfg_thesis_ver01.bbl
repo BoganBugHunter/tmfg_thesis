@@ -58,6 +58,11 @@ J.~Gau, M.~Wei, W.~Fu, Q.~Zheng, and G.~Yue, ``Experimental and numerical
   {\em Elsevier Journal of Aerospace Science and Technology}, vol.~92,
   pp.~258--268, 2019.
 
+\bibitem{saha_loss}
+R.~Saha, J.~Fridh, and T.~H. Fransson, ``Shower head and trailing edge cooling
+  influence on transonic vane aero performance,'' {\em Proceedings of ASME
+  Turbo Expo}, 2014.
+
 \bibitem{burdett_capacity_measurement}
 D.~Burdett, C.~Hambidge, and T.~Povey, ``Analysis of ultra-low uncertainty gas
   turbine flow capacity measurement techniques,'' {\em IMechE Journal of Power
@@ -66,11 +71,6 @@ D.~Burdett, C.~Hambidge, and T.~Povey, ``Analysis of ultra-low uncertainty gas
 \bibitem{giel_nasa_reference}
 S.~M. Jones, W.~J. Haller, and M.~T. Tong, ``An n+3 technology level reference
   propulsion system,'' {\em NASA technical memorandum}, 2017.
-
-\bibitem{saha_loss}
-R.~Saha, J.~Fridh, and T.~H. Fransson, ``Shower head and trailing edge cooling
-  influence on transonic vane aero performance,'' {\em Proceedings of ASME
-  Turbo Expo}, 2014.
 
 \bibitem{gao_te_and_film_cooling}
 J.~Gau, M.~Wei, Y.~Liu, Q.~Zheng, and P.~Dong, ``Experimental and numerical
