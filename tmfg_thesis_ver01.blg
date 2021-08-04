@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tmfg_thesis_ver01.aux
 The style file: ieeetr.bst
 Database file #1: tmfg_bibliography_ver01.bib
-You've used 18 entries,
+You've used 17 entries,
             1876 wiz_defined-function locations,
-            575 strings with 7030 characters,
-and the built_in function-call counts, 3873 in all, are:
-= -- 363
-> -- 181
+            570 strings with 6827 characters,
+and the built_in function-call counts, 3582 in all, are:
+= -- 334
+> -- 167
 < -- 2
-+ -- 68
-- -- 50
-* -- 287
-:= -- 606
-add.period$ -- 20
-call.type$ -- 18
-change.case$ -- 17
++ -- 63
+- -- 46
+* -- 261
+:= -- 562
+add.period$ -- 19
+call.type$ -- 17
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 195
-empty$ -- 371
-format.name$ -- 50
-if$ -- 914
+cite$ -- 17
+duplicate$ -- 182
+empty$ -- 346
+format.name$ -- 46
+if$ -- 845
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 16
-newline$ -- 59
-num.names$ -- 18
-pop$ -- 52
+int.to.str$ -- 17
+missing$ -- 15
+newline$ -- 56
+num.names$ -- 17
+pop$ -- 51
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 90
+skip$ -- 83
 stack$ -- 0
-substring$ -- 171
-swap$ -- 59
+substring$ -- 152
+swap$ -- 54
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 36
-width$ -- 20
-write$ -- 171
+while$ -- 32
+width$ -- 19
+write$ -- 160

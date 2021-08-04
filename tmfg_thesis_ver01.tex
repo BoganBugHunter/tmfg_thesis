@@ -53,7 +53,10 @@
 \usepackage{epstopdf} % allows LaTeX to include EPS files by converting each one to a PDF of the same dimensions
 
 %for when David wants a double-spaced version
-%\linespread{2.5}
+\linespread{2.5}
+
+%for commenting out sections
+\usepackage{comment}
 
 
 
@@ -167,7 +170,7 @@ combining to express the heat added as
 \end{equation}
 For maximum power, it is desirable to maximise the heat added to the flow, which would result in an increase in in $T_3$. A technological limitation is once again presented: the maximum $T_3$ is limited by the avoidance of overheating the post-combustor nozzle guide vanes, for which heat management is of prime concern to the field. $T_3$ is thus a design specification.
 
-Heat addition is well controlled for in contempoary lean-burn engines, where it may be modelled by the relationship
+Heat addition is well controlled for in contemporary lean-burn engines, where it may be modelled by the relationship
 \begin{equation}
 	Q_{23} = 
 	\eta_h
@@ -996,205 +999,6 @@ Figure~\ref{fig:T900_2d_capacities_vs_throat_areas} shows that no correlation ex
 %4) Would said alternative design reduce "loss"?
 
 
-\section{Definitions of loss for trailing edge performance evaluation}
-%--How does it perform in terms of loss?
-%--First review the literature to decide what is "loss".
-
-Loss may refer to any process whereby the recoverable energy of a turbomachinery flow is reduced during transit through a turbine stage, other than by shaft work, with corresponding entropy creation. Minimisation of loss remains a primary objective of turbomachinery design, but there is not a universal consensus on how to quantify it.
-
-Daniel Back da Trinidade et al~\cite{trinidade_loss} characterised sources of loss as shock loss, profile losses, tip leakage, endwall losses, and cooling losses. Tip leakage results from flow through the clearance space between the vane tips and the casing. It will not be considered by the present study, since the present study is of fixed NGVs. Endwall losses result from 3-dimensional secondary flows, and will not be considered in the present study which is of 2-dimensional phenomena.
-
-Trinidade et al characterised shock loss as resulting from entropy creation across the shock wave during supersonic flow. The present study will consider this mechanism during discussion of CFD results at choking pressure ratios.
-
-Profile loss was characterised by entropy creation by viscosity in the boundary layer on the blade surface. Entropy generated near the blade's trailing edge was considered as profile loss due to the high entropy creation in the wake region following flow separation at the trailing edge. The authors extended this definition to include the entropy generated as the flow turns tightly around the trailing edge curvature and forms expansion waves.
-
-The authors also defined the category of cooling losses to refer to the aerodynamic penalties incurred by cooling in general, namely ``thicker blade profiles from coolant holes, interaction of coolant film with the blade boundary layer, mixing losses between coolant and main flow and endwall losses.'' The present study seeks to isolate the mechanisms whereby film cooling causes boundary layer changes and mixing effects, discussing film cooling in Chapter~\ref{chapter_leading_edge}.
-
-The present study seeks to define a coefficient of NGV total pressure loss whose arguments are flow measurements or numerically predicted parameters. It is first useful to consider the motivation for quantifying loss in terms of total pressure. This approach treats the nozzle guide vane problem analagously to the problem of flow in a rough pipe, where frictional forces must be balanced by a negative total pressure gradient in the downstream direction. The greater the sum of frictional forces, the greater the loss of total pressure between the inlet and outlet. Total pressure loss can thus aggregate all aerodynamic drag forces acting on the nozzle guide vane or other component.
-
-In an experimental or computational domain, the total pressure loss between inlet and outlet is $p_{01} - p_{02}$. It is intuitive to normalise this against the upstream total pressure $p_{01}$ but it is more useful to normalise it against $p_{01} - p_2$, where $p_2$ is the outlet static pressure. $p_{02}$ never assumes a value greater than $p_{01}$ or less than $p_2$, so if a total pressure loss coefficient is quantified as
-\begin{equation}\label{total_pressure_loss_coefficient}
-C_{pt} = \frac{
-p_{01} - p_{02}
-}{
-p_{01} - p_2
-}
-\end{equation}
-then the coefficient will be $0$ in the case of no total pressure loss, and $1$ in the extreme case of $p_{02} = p_2$.
-
-Paul W. Giel et al~\cite{giel_te_thickness}, whose findings will be discussed in Section~\ref{performance_of_an_alternative_trailing_edge_design}, surveyed the total pressure wake profiles of a blade at mid-span. They defined a total pressure loss coefficient as in equation~\ref{total_pressure_loss_coefficient}, where $p_{01}$ and $p_{02}$ were the inlet and wake total pressures, and $p_2$ was the wake static pressure. 
-
-Jie Gao et al~\cite{gao_te}, whose findings will be discussed in section~\ref{effects_of_trailing_edge_uncertainty_on_capacity_predictability}, defined a total pressure loss coefficient as
-\begin{equation}
-{}_{Gao}C_{pt} = \frac{
-p_{01} - p_{02}
-}{
-p_{02} - p_2
-}
-\end{equation}
-
-This definition is equivalent to normalising the total pressure loss against the downstream dynamic pressure. In the case of simulations where the boundary conditions $p_{01}$ and $p_2$ are set, NGV geometry is the independent variable and $p_{02}$ is the dependent variable. It is thus less convenient for the present study to use Gao et al's loss coefficient formulation, since it does not scale linearly across a range of $p_{02}$. The definition in equation~\ref{total_pressure_loss_coefficient} will be used for this reason.
-
-Where subsequent sections are to compare the findings of Giel et al, Gao et al, and other studies of loss, it is required to formulate the total pressure loss coeffient consistently. Gao's definition of $C_{pt}$ may be expanded by Taylor series on the constant $p_{01}$ and as a function of $p_{02}$ as
-\begin{equation}
-f\left(p_{02}\right) = \\
-f\left(p_{01}\right) +
-f'\left(p_{01}\right) \left(p_{02} - p_{01}\right) +
-\frac{1}{2!} f''\left(p_{01}\right) \left(p_{02} - p_{01}\right)^2 +
-...
-\end{equation}
-where $f^n\left(p_{01}\right)$ may be shown by differentiation to be
-\begin{equation}
-f^n\left(p_{01}\right) =
-\frac{
-	\left(-1\right)^n n !
-}{
-	(p_{01} - p_2)^n
-}
-\end{equation}
-This results in the following mappings between the two definitions of total pressure loss coefficient.
-\begin{equation}
-{}_{Gao}C_{pt} = 
-\sum_{n=1}^{\infty}
-C_{pt}^n
-\end{equation}
-\begin{equation}
-C_{pt} = 
-\sum_{n=1}^{\infty}
-\left(-1\right)^{n-1}
-{}_{Gao}C_{pt}^n
-\end{equation}
-
-Since the total pressure loss coefficient quantifies loss as a summation of all drag forces on the NGV, loss may also be quantified as the total amount of kinetic energy dissipated between inlet and outlet, of the form
-\begin{equation}\label{ke_loss_form}
-\zeta =
-\frac{KE_1 - KE_2}{KE_1}
-=
-1 - \frac{KE_2}{KE_1}
-\end{equation}
-
-Kinetic energy may be formulated using the compresible form of Bernouilli's equation as
-\begin{equation}\tag{\ref{compressible_bernouilli}}
-v = 
-\sqrt[•]{ 
-2 \left( \frac{\gamma}{\gamma - 1} \right) \left[ \frac{p_0}{\rho_0} - \frac{p}{\rho} \right] 
-}
-\end{equation}
-\begin{equation}
-v =
-\sqrt[•]{ 
-	2 \left( \frac{\gamma}{\gamma - 1} \right)
-	R T_0
-	\left[
-		1 - \left(
-			\frac{p_0}{p}
-		\right)
-		^\frac{1-\gamma}{\gamma}
-	\right] 
-}
-\end{equation}
-The flow's kinetic energy at a given station is thus of the form
-\begin{equation}
-KE(p) \sim
-1 - \left(
-	\frac{p_0}{p}
-\right)
-^\frac{1-\gamma}{\gamma}
-\end{equation}
-allowing equation~\ref{ke_loss_form} to be written as
-\begin{equation}
-\zeta = 
-1 - 
-\frac{
-	1 -
-	\left(
-		\frac{p_{02}}{p_2}
-	\right)
-	^\frac{1-\gamma}{\gamma}
-}{
-	1 -
-	\left(
-		\frac{p_{01}}{p_2}
-	\right)
-	^\frac{1-\gamma}{\gamma}
-}
-\end{equation}
-\begin{equation}\label{ke_loss_definition}
-\zeta = 
-\frac{ 
-	\left(
-		\frac{p_{01}}{p_{02}}
-	\right)
-	^\frac{\gamma-1}{ \gamma } - 1 
-}{
-	\left(
-	\frac{p_{01}}{p_{2}}
-	\right)
-	^\frac{\gamma-1}{ \gamma } - 1 
-}
-\end{equation}
-This definition of kinetic energy loss coefficient was used by Giel et al. Like the total pressure loss coefficient, it takes a value of $0$ in the case of no loss where $p_{02} = p_{01}$, and $1$ in the extreme case of $p_{02} = p_2$.
- 
-\textcolor{red}{Saha paper has its own loss definitions too - seems to be doing a definition that considers the coolant/mainstream mass flow ratio.}
-
-\textcolor{red}{Ranjan Saha - SHOWER HEAD AND TRAILING EDGE COOLING INFLUENCE ON TRANSONIC VANE AERO PERFORMANCE~\cite{saha_loss}}
-	\textcolor{red}{Arguing: Loss turns out very differently depending on which loss equation you use, and some formulations might be better than others.}
-	\textcolor{red}{Raw data: Their annular sector rig which tested NGVs with and without showerhead and TE coolant to quantify loss.}
-	\textcolor{red}{I discuss: How do their definitions of loss compare to mine and others', and is there an answer to which one is best in general?}
-	\textcolor{red}{I also cite: All the other possible loss definitions, going back to Raffel and Kost and further if necessary.}
-	\textcolor{red}{My raw data: Any of my CFD data can yield loss according to any preferred definition, but this is most pertinent to my T900 TE cutbacks discussion.}
-
-\begin{equation}
-\zeta = 
-1 -
-\frac{ 
-	\left( 1 + Y \right) 
-	\left(
-		1 -
-		\left(
-			\frac{p_2}{p_{02}}
-		\right)
-		^\frac{\gamma-1}{\gamma}
-	\right)
-}{
-	\left(
-		1 -
-		\left(
-			\frac{p_2}{p_{01}}
-		\right)
-		^\frac{\gamma-1}{\gamma}
-	\right)
-	+Y
-	\left(
-		1 -
-		\left(
-			\frac{p_2}{p_{0c}}
-		\right)
-		^\frac{\gamma-1}{\gamma}
-	\right)
-}
-\end{equation}
-where $Y$ is the coolant-to-mainstream mass flux ratio.
-
-In the case of no coolant flow this becomes
-\begin{equation}
-\zeta = 
-1 -
-\frac{ 
-		1 -
-		\left(
-			\frac{p_2}{p_{02}}
-		\right)
-		^\frac{\gamma-1}{\gamma}
-}{
-		1 -
-		\left(
-			\frac{p_2}{p_{01}}
-		\right)
-		^\frac{\gamma-1}{\gamma}
-}
-\end{equation}
-
 \section{Effects of trailing edge shape uncertainty on capacity predictability}
 \label{effects_of_trailing_edge_uncertainty_on_capacity_predictability}
 
@@ -1250,8 +1054,6 @@ The resulting quadrilateral geometry allowed for the creation of a structured me
       \caption{Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV}
       \label{fig:T900_ss_cutbacks_mesh}
 \end{figure}
-
-\textcolor{red}{Show capacity trends for all the data as an initial summary, then show capacity vs erosion amount for a couple of relevant PRs (perhaps design and fully choked)}
 
 The described mesh, geometry alteration strategy, and boundary conditions were used to perform 11 CFD simulations which incrementally spanned the range of cutbacks between an unaltered trailing edge and a fully removed flange. Solutions were initialised using the solver’s built-in FMG initialisation and Journal scripts as described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and M = 1 line at choked conditions. There were 32 increments and typical overall solution times were approximately 10 hours. The SST-kω turbulence model was used.
 
@@ -1345,8 +1147,6 @@ At an inverse pressure ratio of $3.33$, Figure~\ref{fig:ss_cutbacks_vs_capacitie
 
 At lower inverse pressure ratios for which a sonic line cannot be so analysed, flow capacity varied over a significantly greater range of cutback amounts. This is to be expected by consideration of choked versus non-choked compressible flows. For a fully choked streamline, flow conditions upstream of the sonic line are independent of those downstream. This facilitates the type of approach introduced in Chapter~\ref{chapter_geometric_throat_area}, where the flow conditions immediately upstream of any choked streamline's sonic point are treated as a state of known variables. That streamline's mass flow rate is wholly a function of that state. For a non-choked streamline, its mass flow rate is a function of the state of every point along the streamline, including points downstream of where sonic conditions would appear in choked cases. 
 
-\textcolor{red}{here invent a non-choked equivalent of the Aeff integral that is basically just a flow-perpendicular line that you can draw anywhere you wish}
-
 This implies that, in the general case of compressible flow in 2D nozzles, the nozzle flow capacity will increase if the effective passage width is increased at any point along the nozzle. This is in good agreement with the observed relationship between flow capacity and cutback amount at the non-choked pressure ratios. Removal of suction-side flange material increases the effective passage width in the region local to the flange, causing a local decrease in static pressure and increase in dynamic pressure. Because most streamlines are non-choked at the flow region and pressure ratios in question, this state change propagates along the entire streamline with a corresponding increase in mass flow rate.
 
 The maximum change in capacity was $1.9$ percentage points at the design inverse pressure ratio of $1.79$, and $2.5$ percentage points at an inverse pressure ratio of $1.5$. The effect of increasing cutbacks became less pronounced at larger cutback amounts, suggesting that the size of the suction-side flange was ceasing to be the limiting factor on effective passage width for those geometries. Figure~\ref{fig:ss_cutbacks_wakes_design_pr} shows contours of Mach number in the NGV wake region for the full range of cutbacks at the design inverse pressure ratio of $1.79$. 
@@ -1378,23 +1178,203 @@ Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} plots trends of flow capacity 
 
 In terms of the effects of cutbacks on flow capacity, Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} is in good agreement with Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios}. The capacity delta produced by full flange removal continuously decreased with increasing inverse pressure ratio, and the capacity trends remained qualitatively similar for all cutback amounts. These observations suggest that the cutback-induced capacity changes and the onset of choking are 2 independent phenomena which do not influence each other. It is conlcuded that, as inverse pressure ratio increased, more streamlines became choked and ceased to be affected by cutbacks downstream of those streamlines' sonic points. It is further concluded that the capacity trend shapes and onsets of choking were unaffected by variable cutbacks, but remained a function of only inverse pressure ratio. This is likely due to the relevant geometric changes taking place downstream of the throat region. This is complementary to the results of Chapter~\ref{chapter_geometric_throat_area}, where geometric changes upstream of the throat resulted in qualitatively distinct capacity trends and dissimilar onsets of choking.
 
-\textcolor{red}{Cite the state of the art for measuring the capacity of a ring of real parts - Burdett:}
-	\textcolor{red}{Daniel Burdett - Analysis of ultra-low uncertainty gas turbine flow capacity measurement techniques~\cite{burdett_capacity_measurement}}
-		\textcolor{red}{Arguing: Experimental capacity measurement of a ring of NGVs is now excellent and getting better. CFD still has trouble with small geometric changes because they are so tiny compared with even small deviations in the mesh. The TE is especially difficult to model with CFD because it involves so many different flows meeting and mixing, with unpredictable geometry}
-		\textcolor{red}{Raw data: Experimental data showing continued improvements to the accuracy of the unsteady capacity measurement technique}
-		\textcolor{red}{I discuss: The TE is indeed particularly hard to predict. Having established an extremely accurate measurement technique for an annulus of NGVs, how could such ideas be adapted to focussing on small geometric changes at the TE?}
-		\textcolor{red}{I also cite: The history of this technique at Oxford, showing it has embodied a continual evolution in measurement accuracy and sensitivity to boundary conditions, but has been relatively underused for the study of geometric effects}
+
+\section{Definitions of loss for trailing edge performance evaluation}
+%--How does it perform in terms of loss?
+%--First review the literature to decide what is "loss".
+
+Loss may refer to any process whereby the recoverable energy of a turbomachinery flow is reduced during transit through a turbine stage, other than by shaft work, with corresponding entropy creation. Minimisation of loss remains a primary objective of turbomachinery design, but there is not a universal consensus on how to quantify it. As subsequent sections of this thesis will evaluate the losses caused by changes to the trailing edge of nozzle guide vanes, the purpose of this section is to review various definitions of loss from the literature and to facilitate the use of appropriate definitions in the present study.
+
+Daniel Back da Trinidade et al~\cite{trinidade_loss} characterised sources of loss as shock loss, profile losses, tip leakage, endwall losses, and cooling losses. Tip leakage results from flow through the clearance space between the vane tips and the casing. It will not be considered by the present study, since the present study is of fixed NGVs. Endwall losses result from 3-dimensional secondary flows, and will not be considered in the present study which is of 2-dimensional phenomena.
+
+Trinidade et al characterised shock loss as resulting from entropy creation across the shock wave during supersonic flow. The present study will consider this mechanism during discussion of CFD results at choking pressure ratios.
+
+Profile loss was characterised by entropy creation by viscosity in the boundary layer on the blade surface. Entropy generated near the blade's trailing edge was considered as profile loss due to the high entropy creation in the wake region following flow separation at the trailing edge. The authors extended this definition to include the entropy generated as the flow turns tightly around the trailing edge curvature and forms expansion waves.
+
+The authors also defined the category of cooling losses to refer to the aerodynamic penalties incurred by cooling in general, namely ``thicker blade profiles from coolant holes, interaction of coolant film with the blade boundary layer, mixing losses between coolant and main flow and endwall losses.'' The present study seeks to isolate the mechanisms whereby film cooling causes boundary layer changes and mixing effects, discussing film cooling in Chapter~\ref{chapter_leading_edge}.
+
+The present study seeks to define a coefficient of NGV total pressure loss whose arguments are flow measurements or numerically predicted parameters. It is first useful to consider the motivation for quantifying loss in terms of total pressure. This approach treats the nozzle guide vane problem analagously to the problem of flow in a rough pipe, where frictional forces must be balanced by a negative total pressure gradient in the downstream direction. The greater the sum of frictional forces, the greater the loss of total pressure between the inlet and outlet. Total pressure loss can thus aggregate all aerodynamic drag forces acting on the nozzle guide vane or other component.
+
+In an experimental or computational domain, the total pressure loss between inlet and outlet is $p_{01} - p_{02}$. It is intuitive to normalise this against the upstream total pressure $p_{01}$ but it is more useful to normalise it against $p_{01} - p_2$, where $p_2$ is the outlet static pressure. $p_{02}$ never assumes a value greater than $p_{01}$ or less than $p_2$, so if a total pressure loss coefficient is quantified as
+\begin{equation}\label{total_pressure_loss_coefficient}
+C_{pt} = \frac{
+p_{01} - p_{02}
+}{
+p_{01} - p_2
+}
+\end{equation}
+then the coefficient will be $0$ in the case of no total pressure loss, and $1$ in the extreme case of $p_{02} = p_2$.
+
+Paul W. Giel et al~\cite{giel_te_thickness}, whose findings will be discussed in Section~\ref{performance_of_an_alternative_trailing_edge_design}, surveyed the total pressure wake profiles of a blade at mid-span. They defined a total pressure loss coefficient as in equation~\ref{total_pressure_loss_coefficient}, where $p_{01}$ and $p_{02}$ were the inlet and wake total pressures, and $p_2$ was the wake static pressure. 
+
+Jie Gao et al~\cite{gao_te}, whose findings will be discussed in section~\ref{effects_of_trailing_edge_uncertainty_on_capacity_predictability}, defined a total pressure loss coefficient as
+\begin{equation}
+{}_{Gao}C_{pt} = \frac{
+p_{01} - p_{02}
+}{
+p_{02} - p_2
+}
+\end{equation}
+
+This definition is equivalent to normalising the total pressure loss against the downstream dynamic pressure. In the case of simulations where the boundary conditions $p_{01}$ and $p_2$ are set, NGV geometry is the independent variable and $p_{02}$ is the dependent variable. It is thus less convenient for the present study to use Gao et al's loss coefficient formulation, since it does not scale linearly across a range of $p_{02}$. The definition in equation~\ref{total_pressure_loss_coefficient} will be used for this reason.
+
+Where subsequent sections are to compare the findings of Giel et al, Gao et al, and other studies of loss, it is required to formulate the total pressure loss coeffient consistently. Gao's definition of $C_{pt}$ may be expanded by Taylor series on the constant $p_{01}$ and as a function of $p_{02}$ as
+\begin{equation}
+f\left(p_{02}\right) = \\
+f\left(p_{01}\right) +
+f'\left(p_{01}\right) \left(p_{02} - p_{01}\right) +
+\frac{1}{2!} f''\left(p_{01}\right) \left(p_{02} - p_{01}\right)^2 +
+...
+\end{equation}
+where $f^n\left(p_{01}\right)$ may be shown by differentiation to be
+\begin{equation}
+f^n\left(p_{01}\right) =
+\frac{
+	\left(-1\right)^n n !
+}{
+	(p_{01} - p_2)^n
+}
+\end{equation}
+This results in the following mappings between the two definitions of total pressure loss coefficient.
+\begin{equation}
+{}_{Gao}C_{pt} = 
+\sum_{n=1}^{\infty}
+C_{pt}^n
+\end{equation}
+\begin{equation}
+C_{pt} = 
+\sum_{n=1}^{\infty}
+\left(-1\right)^{n-1}
+{}_{Gao}C_{pt}^n
+\end{equation}
+
+Since the total pressure loss coefficient quantifies loss as a summation of all drag forces on the NGV, loss may also be quantified as the total amount of kinetic energy dissipated between inlet and outlet, of the form
+\begin{equation}\label{ke_loss_form}
+\zeta =
+\frac{KE_1 - KE_2}{KE_1}
+=
+1 - \frac{KE_2}{KE_1}
+\end{equation}
+
+Kinetic energy may be formulated using the compressible form of Bernouilli's equation as
+\begin{equation}\tag{\ref{compressible_bernouilli}}
+v = 
+\sqrt[•]{ 
+2 \left( \frac{\gamma}{\gamma - 1} \right) \left[ \frac{p_0}{\rho_0} - \frac{p}{\rho} \right] 
+}
+\end{equation}
+\begin{equation}
+v =
+\sqrt[•]{ 
+	2 \left( \frac{\gamma}{\gamma - 1} \right)
+	R T_0
+	\left[
+		1 - \left(
+			\frac{p_0}{p}
+		\right)
+		^\frac{1-\gamma}{\gamma}
+	\right] 
+}
+\end{equation}
+The flow's kinetic energy at a given station is thus of the form
+\begin{equation}
+KE(p) \sim
+1 - \left(
+	\frac{p_0}{p}
+\right)
+^\frac{1-\gamma}{\gamma}
+\end{equation}
+allowing equation~\ref{ke_loss_form} to be written as
+\begin{equation}
+\zeta = 
+1 - 
+\frac{
+	1 -
+	\left(
+		\frac{p_{02}}{p_2}
+	\right)
+	^\frac{1-\gamma}{\gamma}
+}{
+	1 -
+	\left(
+		\frac{p_{01}}{p_2}
+	\right)
+	^\frac{1-\gamma}{\gamma}
+}
+\end{equation}
+\begin{equation}\label{ke_loss_definition}
+\zeta = 
+\frac{ 
+	\left(
+		\frac{p_{01}}{p_{02}}
+	\right)
+	^\frac{\gamma-1}{ \gamma } - 1 
+}{
+	\left(
+	\frac{p_{01}}{p_{2}}
+	\right)
+	^\frac{\gamma-1}{ \gamma } - 1 
+}
+\end{equation}
+This definition of kinetic energy loss coefficient was used by Giel et al. Like the total pressure loss coefficient, it takes a value of $0$ in the case of no loss where $p_{02} = p_{01}$, and $1$ in the extreme case of $p_{02} = p_2$.
+
+Ranjan Saha et al~\cite{saha_loss} experimentally investigated the loss effects of shower-head and trailing edge cooling in an annular sector. By defining kinetic energy loss in 3 alternative ways, the authors demonstrated the extent to which computed loss can vary depending on definition. Discrepancies were shown to result from how the coolant kinetic energy is accounted for. Where the ratio of coolant mass flow rate to mainstream mass flow rate was $Y$, the authors defined kinetic energy loss as
+\begin{equation}\label{saha_loss_definition}
+\zeta = 
+1 -
+\frac{ 
+	\left( 1 + Y \right) 
+	\left(
+		1 -
+		\left(
+			\frac{p_2}{p_{02}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+	\right)
+}{
+	\left(
+		1 -
+		\left(
+			\frac{p_2}{p_{01}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+	\right)
+	+Y
+	\left(
+		1 -
+		\left(
+			\frac{p_2}{p_{0c}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+	\right)
+}
+\end{equation}
+In the case of no coolant flow ($Y=0$) this is equivalent to the definition in equation~\ref{ke_loss_definition}. Equation~\ref{saha_loss_definition} is equivalent to the loss definition defined by Mathias Deckers and John D. Denton~\cite{deckers_loss} in the case of no significant temperature difference between coolant and mainstream, as in a significant proportion of experimental studies.
+
+Where coolant flow is present, equation~\ref{saha_loss_definition} requires a local value of $Y$ in order to obtain the loss at any particular point. Assuming that the coolant concentration is a function of the local total pressure loss compared to an uncooled vane, the authors redefined $Y$ as a function of spanwise distance $x$ as
+\begin{equation}
+\frac{Y\left(x\right)}{Y_{max}}
+=
+\frac{
+	p_{02uc} - p_{02}\left(x\right)
+}{
+	\left| p_{02uc} - p_{02} \right|_{max}
+}
+\end{equation}
+where $p_{02uc}$ was the total pressure downstream of the cascade with no cooling, $p_{02}$ was the total pressure downstream of the cascade as a function of spanwise distance (with cooling), and $\left[ p_{02uc} - p_{02} \right]_{max}$ denotes the maximum possible difference in downstream total pressure between the uncooled and the cooled cases. Reasoning that this total pressure difference is maximal when $p_{02}=p_{01}$ and $p_{02}=p_{wake}$ (the total pressure in the wake region), Saha et al thus defined their function for local coolant/mainstream mass flux ratio as
+\begin{equation}
+\frac{Y\left(x\right)}{Y}
+=
+\frac{
+	p_{02uc} - p_{02}\left(x\right)
+}{
+	p_1 - p_{02wake}
+}
+\end{equation}
+By substituting this definition of $Y$ into equation~\ref{saha_loss_definition}, Saha et al arrived at their novel definition of kinetic energy loss intended to solve the problem of unphysical loss in the free-stream where the previous definition erroneously assumed the presence of coolant. Their new definition is able to use the nominal values for shower-head and trailing edge coolant mass flow ratio and adjust the coolant profile according to the aforementioned function of spanwise distance. Using measurements from a downstream traverse in their linear cascade, the novel loss definition was found to produce loss profiles that were in good agreement with equation~\ref{ke_loss_definition} and in disagreement with equation~\ref{saha_loss_definition}.
 		
-\textcolor{red}{Jie Gao - Experimental and numerical investigations of trailing edge injection in a transonic turbine cascade~\cite{gao_te}}
-	\textcolor{red}{Arguing: TE coolant ejection is good for reducing the wake size and reducing shock effects on the exit angle}
-	\textcolor{red}{Raw data: Their experimental and CFD linear cascade, five-hole probe data and surface pressure plots, downstream loss profile}
-	\textcolor{red}{I discuss: Does it match my blowing rate study? Do my turning angles agree with theirs as Mach number changes? Do I see the same reduction of shocks? Do I broadly agree about the benefits of TE ejection? Remember badly-predicted turning angles are like bad capacity predictions}
-	\textcolor{red}{I also cite: Whoever's loss definition they use - why didn't they compare it to others?}
-	\textcolor{red}{My raw data: A lot of my own TE CFD}
-	
-Gao et al experimentally and numerically investigated the external flow field near the trailing edge of a linear cascade with trailing edge injection. The authors' focus was on the effects of the trailing edge coolant flow on the vane's loss mechanisms and flow exit angle. Without trailing edge injection, increased exit isentropic Mach number caused the appearance of trailing edge suction side shock waves which altered the flow angle. With trailing edge injection, there was a slight reduction in this shock effect but a strong reduction in the shock wave near the trailing edge pressure side.
 		
-		
+\begin{comment}
 \section{Performance of an alternative trailing edge design}
 \label{performance_of_an_alternative_trailing_edge_design}
 %--Centred-ejection option (PS cutbacks) (and could it reduce loss) and what happens as its geometry is changed to gradually look more like an existing design
@@ -1445,6 +1425,18 @@ Cell count & 35,000\\
 \textcolor{red}{Compare my centred-ejection TE with a "naturally-formed by erosion" centred-ejection TE from the literature.} 
 
 
+A blowing rate study:
+
+\textcolor{red}{Jie Gao - Experimental and numerical investigations of trailing edge injection in a transonic turbine cascade~\cite{gao_te}}
+	\textcolor{red}{Arguing: TE coolant ejection is good for reducing the wake size and reducing shock effects on the exit angle}
+	\textcolor{red}{Raw data: Their experimental and CFD linear cascade, five-hole probe data and surface pressure plots, downstream loss profile}
+	\textcolor{red}{I discuss: Does it match my blowing rate study? Do my turning angles agree with theirs as Mach number changes? Do I see the same reduction of shocks? Do I broadly agree about the benefits of TE ejection? Remember badly-predicted turning angles are like bad capacity predictions}
+	\textcolor{red}{I also cite: Whoever's loss definition they use - why didn't they compare it to others?}
+	\textcolor{red}{My raw data: A lot of my own TE CFD}
+	
+Gao et al experimentally and numerically investigated the external flow field near the trailing edge of a linear cascade with trailing edge injection. The authors' focus was on the effects of the trailing edge coolant flow on the vane's loss mechanisms and flow exit angle. Without trailing edge injection, increased exit isentropic Mach number caused the appearance of trailing edge suction side shock waves which altered the flow angle. With trailing edge injection, there was a slight reduction in this shock effect but a strong reduction in the shock wave near the trailing edge pressure side.
+
+\end{comment}
 
 
 
