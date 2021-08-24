@@ -53,7 +53,7 @@
 \usepackage{epstopdf} % allows LaTeX to include EPS files by converting each one to a PDF of the same dimensions
 
 %for when David wants a double-spaced version
-\linespread{2.5}
+%\linespread{2.5}
 
 %for commenting out sections
 \usepackage{comment}
@@ -96,6 +96,7 @@
 %definition is done and good. next steps to add:
 
 %--we know that geometry and pr are the ONLY drivers of Aeff, but we don't know HOW geometry drives changes.
+
 
 \section{Motivation}
 
@@ -998,188 +999,30 @@ Figure~\ref{fig:T900_2d_capacities_vs_throat_areas} shows that no correlation ex
 %3) How capacity-predicable would an altrernative design of TE be?
 %4) Would said alternative design reduce "loss"?
 
+Nozzle guide vane flow capacity is known to be a function of effective throat area. Thus we must survey the practical reasons for which effective throat area might vary. In a real engine, NGV effective throat area may depart from its design value if the NGVs depart from the ideal aerodynamic design shape. This may occur through practical design choices for reasons such as cooling or blockage avoidance, because of the finite precision of manufacturing, or because of erosion while in service. 
 
-\section{Effects of trailing edge shape uncertainty on capacity predictability}
-\label{effects_of_trailing_edge_uncertainty_on_capacity_predictability}
+A goal of the present study is to help ascertain how much such design decisions and off-design conditions affect the predictability of NGV flow capacity, and to comment on ways to mitigate this limitation. The NGV trailing edge is an area of focus because it is particularly susceptible to both finite-precision and in-service departures from its design shape. 
 
-If nozzle guide vane flow capacity is known to be a function of effective throat area, we must survey the practical reasons for which effective throat area might vary. In a real engine, NGV effective throat area might depart from its design value if the NGVs depart from their design shape, either because of the finite precision of manufacturing, or because of erosion while in service. 
+The trailing edge is susceptible to finite-precision departures from its design shape because of how it is manufactured. Vane pairs are cast to a finite precision as discussed in Section~\ref{section_1d_vs_2d_capacity_uncertainty}, where significant geometric variation appears even prior to the addition of cooling features. The vanes are then machined to finish off the trailing edge shape to a high tolerance. The finishing creates the aerodynamically best possible trailing edge. 
 
-A goal of the present study is to help ascertain how much these off-design conditions might limit the predictability of NGV flow capacity, and to comment on ways to mitigate this limitation. The NGV trailing edge is an area of focus because it is particularly succeptible to both finite-precision and in-service departures from its design shape. 
-
-The trailing edge is succeptible to finite-precision departures from its design shape because of how it is manufactured. Vane pairs are cast to a finite precision as discussed in Section~\ref{section_1d_vs_2d_capacity_uncertainty}, where significant geometric variation appears in vanes even without cooling features. The vanes are then subject to machining to finish off the trailing edge shape. The finishing creates the most aerodynamic trailing edge possible, with a thin suction-side flange that cleanly meets the endwalls, and a flange chord length that is consistent across the span of the trailing edge. The creation of a repeatable minimum geometric area cannot be said to be a primary objective.
-
-The trailing edge is succeptible to in-service departures from its design shape because it is the most fragile part of the vane. The NGV remains largely intact over a lifetime of extremely hot supersonic flow, but the trailing edge flange may be subject to significant erosion. If there is a blockage in any of the plena which feed the trailing edge slot, part of its span will receive reduced coolant flow, accelerating the degradation of the trailing edge flange near that area. Such cooling failures are not uncommon in sandy environments.
-
-This study will consider the potential worst case for in-service erosion of the suction-side flange, namely its complete deletion. This worst-case erosion is assumed to take place at the NGV mid-span because this area is exposed to the greatest flow speeds and temperatures. This justifies 2-dimensional simulation of the mid-span flow. The goal is to parameterise changes to the flange and comment on how these changes alter the effective minimum area and the NGV flow capacity.
-
-2D CFD has been used to model the effects of incremental removal of material from the trailing-edge suction-side flange of an NGV. The baseline geometry is vane KSZ03 from the 6 vanes provided by Rolls-Royce for the work discussed in Chapter~\ref{chapter_geometric_throat_area}. The 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. Unlike the section of vane KSZ03 studied in Chapter~\ref{chapter_geometric_throat_area}, the NGV trailing edge was not rounded but realistically shaped, and the domain was modified to include a flow inlet within the NGV's trailing edge slot, where inlet mass flow rate was specified. Values for the simulation were set according to Table~\ref{ss_cutbacks_parameters}.
-
-\begin{table}[H]
-\caption{Boundary conditions for trailing edge suction-side flange shape uncertainty study}
-\label{ss_cutbacks_parameters}
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Parameter & Value\\
-\hline
-NGV series & Rolls-Royce Trent 900\\
-NGV turning (degrees) & 76.89\\
-Design pressure ratio & 1.79\\
-Inlet total pressure (Pa) & $4.33 \times 10^6$\\
-Inlet total temperature (K) & 300\\
-Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
-Outlet static temperature (Pa) & 300\\
-Coolant mass flow rate & 3\% of mainstream \\
-Solver type & Density-based\\
-Cell count & 35,000\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-The strategy for geometry alteration and meshing involved dividing the geometry into quadrilateral regions of solid vane that could be sequentially replaced with regions of mesh. Each replacement would incrementally cut back the NGV trailing edge's suction-side flange. This required minor alteration of the trailing edge geometry provided by Rolls-Royce. The curved surface on the inside of the pressure-side lip was changed to a straight line with an angular corner, and the curved tip of the suction-side lip was changed to a square end. Comparison of the shape of manufactured NGVs with the shape of design-intent NGVs demonstrates that the present study's trailing edge treatment is more reflective of the manufactured NGVs, which have corners rather than smooth curves in the places in question. The process of geometry refinement and incremental mesh block creation is illustrated in Figure~\ref{fig:T900_ss_cutbacks_geometry}.
+The trailing edge's principal design feature is the difference between the amount of material left on the suction side of the coolant ejection slot and the amount left on the pressure side. This creates the thinnest possible final trailing edge for the vane with the intent of minimising separated wake area and thus loss. The resulting feature will be referred to as the end-edge in this thesis, and is illustrated in Figure~\ref{fig:te_features_labelled}. The end-edge depends on the slot coolant flow for protection against in-service erosion. 
 
 \begin{figure}[H]
       \centering
-      \includegraphics[width=.9\textwidth]{figs/T900_ss_cutbacks_geometry.png}
-      \caption{Geometry processing scheme for cutbacks to the suction-side flange of a Trent 900 NGV}
-      \label{fig:T900_ss_cutbacks_geometry}
+      \includegraphics[width=.45\textwidth]{figs/te_features_labelled.png}
+      \caption{Main features of Trent nozzle guide vane trailing edge}
+      \label{fig:te_features_labelled}
 \end{figure}
 
-The resulting quadrilateral geometry allowed for the creation of a structured mesh that could be matched with a structured boundary layer mesh of the same design as that depicted in Figure~\ref{fig:t900_mesh_trailing_edge}. Beyond this, an unstructured mesh was created to the same design as that depicted in Figure~\ref{fig:t900_mesh_whole}. Detail of the trailing edge mesh is shown in Figure~\ref{fig:T900_ss_cutbacks_mesh} in a case where the suction-side flange is approximately halfway removed and replaced with structured mesh blocks.
+The 3-dimensional design of Trent nozzle guide vanes features a transition to allow the end-edge to cleanly meet the end-walls, and an end-edge chord length that is consistent across its span. The creation of a repeatable minimum geometric area which provides the required turning and flow capacity is a primary objective, but so is generating a vane with minimal loss at the start of its service life. These design goals are not necessarily aligned, and it may be the case that  a loss-optimised NGV trailing edge is suboptimal in terms of the design's repeatability or susceptibility to unintended changes while in service.
 
-\begin{figure}[H]
-      \centering
-      \includegraphics[width=.9\textwidth]{figs/T900_ss_cutbacks_mesh.png}
-      \caption{Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV}
-      \label{fig:T900_ss_cutbacks_mesh}
-\end{figure}
+The trailing edge is the part of the vane most susceptible to in-service departures from its build design because it is vulnerable to both cooling and aerodynamic damage. The NGV remains largely intact over its lifetime despite the external gas temperature and high speed external flow. In contrast, the end-edge is subject to significant erosion. If there is a blockage in any of the plena which feed the trailing edge slot, part of its span will receive reduced coolant flow, accelerating the oxidation degradation of the end-edge in that region. Such cooling failures are not uncommon in sandy environments. Here film cooling holes on the pressure side are particularly vulnerable to damage, and this has lead to the adoption of the ``cut-back'' trailing edge, where the trailing edge region is protected by coolant from the trailing edge slot that is shielded from the mainstream flow to prevent blockage. The pay-off is that the end-edge is now cooled by an external film which must remain attached and is subject to entrainment from the mainstream flow.
 
-The described mesh, geometry alteration strategy, and boundary conditions were used to perform 11 CFD simulations which incrementally spanned the range of cutbacks between an unaltered trailing edge and a fully removed flange. Solutions were initialised using the solver’s built-in FMG initialisation and Journal scripts as described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and M = 1 line at choked conditions. There were 32 increments and typical overall solution times were approximately 10 hours. The SST-kω turbulence model was used.
-
-Figure~\ref{fig:ss_cutbacks_0-3} shows contours of Mach number in the region of the trailing edge for the described study. The depicted range of cutbacks is between the unaltered baseline and the case of $\frac{3}{10}$ removal of the overall length of the trailing edge suction side flange. Inverse pressure ratio is $3.3$, fully choked.
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_0.png}
-		\caption{Baseline}
-		\vspace{0.018\textheight}
-	\end{subfigure}
-	\hspace{0.05\textwidth}
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_1.png}
-		\caption{$\frac{1}{10}$ cutback}
-		\vspace{0.018\textheight}
-	\end{subfigure}
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_2.png}
-		\caption{$\frac{2}{10}$ cutback}
-	\end{subfigure}
-	\hspace{0.05\textwidth}
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_3.png}
-		\caption{$\frac{3}{10}$ cutback}
-	\end{subfigure}
-	\caption{Effects of small cutbacks on sonic line shape for Trent 900 suction-side flange erosion study}
-	\label{fig:ss_cutbacks_0-3}
-\end{figure}
-
-Figure~\ref{fig:ss_cutbacks_0-3} illustrates the alteration of the sonic line as the nozzle guide vane's trailing edge suction side flange is incrementally removed until $\frac{3}{10}$ of its length is not present. The sonic line is shown to undergo a fundamental transition over this range of cutbacks, from initially impinging on the trailing tip of the flange in the baseline case, to impinging on the acute corner of the pressure-side flange. The geometric changes are also shown to alter the aerodynamics in the suction-side region upstream of the flange, where an attached shock moved incrementally upstream with progressive cutbacks. Shock-induced boundary layer separation was present, and moved upstream correspondingly with the shock. This resulted in increasingly large separated wake region which was not in alignment with the NGV's turning angle.
-
-Figure~\ref{fig:ss_cutbacks_4-10} shows contours of Mach number in the region of the trailing edge for the described study. The depicted range of cutbacks is between the case of $\frac{4}{10}$ and the case of complete removal of the overall length of the trailing edge suction side flange. Inverse pressure ratio is $3.3$, fully choked.
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_4.png}
-		\caption{$\frac{4}{10}$ cutback}
-		\vspace{0.018\textheight}
-	\end{subfigure}
-	\hspace{0.05\textwidth}
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_6.png}
-		\caption{$\frac{6}{10}$ cutback}
-		\vspace{0.018\textheight}
-	\end{subfigure}
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_8.png}
-		\caption{$\frac{8}{10}$ cutback}
-	\end{subfigure}
-	\hspace{0.05\textwidth}
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_10.png}
-		\caption{Completely cutback}
-	\end{subfigure}
-	\caption{Effects of large cutbacks on sonic line shape for Trent 900 suction-side flange erosion study}
-	\label{fig:ss_cutbacks_4-10}
-\end{figure}
-
-Figure~\ref{fig:ss_cutbacks_4-10} illustrates that the shape of the sonic line is not fundamentally altered in the range of $\frac{4}{10}$ to complete removal of the trailing edge suction-side flange. The sonic line is shown to consistently impinge on the acute corner of the pressure-side flange throughout this range of larger cutbacks. Upstream movement of the location of the suction-side attached shock continued to occur. This trend was reversed for the most extreme cases of $\frac{8}{10}$ and complete cutbacks, where the shock transitioned to a downstream location close to the corner of the suction-side flange, resulting in a significantly smaller separated wake region compared to other cases.
-
-The set of Mach number contours and sonic lines suggest that the greatest sensitivity of flow capacity to flange cutbacks is to occur for cutbacks of $\frac{3}{10}$ of the flange or less. The sensitivity of the sonic line shape to the full range of cutbacks is illustrated in Figure~\ref{fig:ss_cutbacks_m1_lines_illustration}. It is further suggested that the location of an attached shock and corresponding boundary layer separation may be sensitive to cutbacks of $\frac{4}{10}$ or more, but this may be imprecisely predicted by the present simulations.
-
-\begin{figure}[H]
-      \centering
-      \includegraphics[width=.7\textwidth]{figs/ss_cutbacks_m1_lines_illustration.png}
-      \caption{Effects of full range of cutbacks on sonic line shape for Trent 900 suction-side flange erosion study, labelled by $\frac{1}{10}$ of flange size removed}
-      \label{fig:ss_cutbacks_m1_lines_illustration}
-\end{figure}
-
-Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios} plots flow capacity change as a function of the amount of the suction-side flange that has been removed. The trend is plotted for 3 inverse pressure ratios: $1.5$, the design value of $1.79$, and a fully choked value of $3.33$.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.45\textwidth]{figs/ss_cutbacks_vs_capacities_pressure_ratios.png}
-	\caption{2D capacity percentage delta as a function of suction-side flange cutback amount for $3$ pressure ratios}
-    \label{fig:ss_cutbacks_vs_capacities_pressure_ratios}
-\end{figure}
-
-At an inverse pressure ratio of $3.33$, Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios} shows a relationship between flow capacity and cutback amount which is in good agreement with the observations made from the corresponding sonic line visualisations. Capacity is shown to be sensitive to cutback amounts of $0$, $\frac{1}{10}$, and $\frac{2}{10}$, and insensitive to cutbacks thereafter. The corresponding sonic lines are observed to vary in shape when capacity varies, and to remain similar in shape when capacity does not vary. The observed switching of the sonic line from the flange-attached mode (at baseline) to the pressure-side-attached mode (at cutbacks of $\frac{3}{10}$ and greater)  is associated with a $0.3$ percentage point increase in capacity. For all cutbacks subsequent to the mode switch, there was no capacity change at this pressure ratio. This is in good agreement with the discussion in Chapter~\ref{chapter_geometric_throat_area} which concluded that the effective throat area of a fully choked nozzle guide vane is predominantly a function of the shape of its sonic line.
-
-At lower inverse pressure ratios for which a sonic line cannot be so analysed, flow capacity varied over a significantly greater range of cutback amounts. This is to be expected by consideration of choked versus non-choked compressible flows. For a fully choked streamline, flow conditions upstream of the sonic line are independent of those downstream. This facilitates the type of approach introduced in Chapter~\ref{chapter_geometric_throat_area}, where the flow conditions immediately upstream of any choked streamline's sonic point are treated as a state of known variables. That streamline's mass flow rate is wholly a function of that state. For a non-choked streamline, its mass flow rate is a function of the state of every point along the streamline, including points downstream of where sonic conditions would appear in choked cases. 
-
-This implies that, in the general case of compressible flow in 2D nozzles, the nozzle flow capacity will increase if the effective passage width is increased at any point along the nozzle. This is in good agreement with the observed relationship between flow capacity and cutback amount at the non-choked pressure ratios. Removal of suction-side flange material increases the effective passage width in the region local to the flange, causing a local decrease in static pressure and increase in dynamic pressure. Because most streamlines are non-choked at the flow region and pressure ratios in question, this state change propagates along the entire streamline with a corresponding increase in mass flow rate.
-
-The maximum change in capacity was $1.9$ percentage points at the design inverse pressure ratio of $1.79$, and $2.5$ percentage points at an inverse pressure ratio of $1.5$. The effect of increasing cutbacks became less pronounced at larger cutback amounts, suggesting that the size of the suction-side flange was ceasing to be the limiting factor on effective passage width for those geometries. Figure~\ref{fig:ss_cutbacks_wakes_design_pr} shows contours of Mach number in the NGV wake region for the full range of cutbacks at the design inverse pressure ratio of $1.79$. 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.9\textwidth]{figs/ss_cutbacks_wakes_design_pr.png}
-	\caption{Contours of Mach number in the wake region of the Trent 900 suction-side flange erosion study at design inverse pressure ratio of $1.79$}
-    \label{fig:ss_cutbacks_wakes_design_pr}
-\end{figure}
-
-Key features of Figure~\ref{fig:ss_cutbacks_wakes_design_pr} include an outer wake region (rendered in green) and inner wake regions downstream of the pressure-side lip and suction-side flange (rendered in blue). No fundamental changes occured to the trailing edge's aerodynamics over the range of cutbacks. Mach number is observed to continually increase in the region adjacent to the pressure-side lip, and to continually decrease in the region adjacent to the suction-side flange. The trailing edge aerodynamics were sensitive to geometric changes across the full range of cutbacks. The reduced effect of greater cutbacks on flow capacity may result from two phenomena. Firstly, the local flow acceleration may be limited more by the position of the pressure-side lip than by the suction-side flange at higher cutback values, where the end of the flange is increasingly too far upstream to influence the pressure-side aerodynamics. Secondly, this upstream positioning of the suction-side flange tip is observed to cause a significant increase in outer wake thickness at higher cutback values. This likely reduced the effective passage width in this region and counteracted the predominant effect of flow capacity increasing.
-
-Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at each cutback value. The range of inverse pressure ratios includes the design value of $1.79$ but does not extend to fully choked values, which have been shown to be insensitive to cutback amounts greater than $\frac{3}{10}$.
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_vs_capacities_trends.png}
-	\end{subfigure}
-	\begin{subfigure}{.1125\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_vs_capacities_trends_legend.png}
-	\end{subfigure}
-	\caption{2D capacity trends for various suction-side flange cutback amounts}
-      \label{fig:ss_cutbacks_vs_capacities_trends}
-\end{figure}
-
-In terms of the effects of cutbacks on flow capacity, Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} is in good agreement with Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios}. The capacity delta produced by full flange removal continuously decreased with increasing inverse pressure ratio, and the capacity trends remained qualitatively similar for all cutback amounts. These observations suggest that the cutback-induced capacity changes and the onset of choking are 2 independent phenomena which do not influence each other. It is conlcuded that, as inverse pressure ratio increased, more streamlines became choked and ceased to be affected by cutbacks downstream of those streamlines' sonic points. It is further concluded that the capacity trend shapes and onsets of choking were unaffected by variable cutbacks, but remained a function of only inverse pressure ratio. This is likely due to the relevant geometric changes taking place downstream of the throat region. This is complementary to the results of Chapter~\ref{chapter_geometric_throat_area}, where geometric changes upstream of the throat resulted in qualitatively distinct capacity trends and dissimilar onsets of choking.
+The nozzle guide vane must provide a repeatable setting for engine core flow capacity, correct flow turning, and minimal loss. This chapter will predict and analyse these metrics for cases where the shape of the trailing edge is subject to variation. Variations will include incremental reduction in the end-edge length associated with in-service erosion, and incremental reduction in the pressure-side cut-back length as a design variable. The first section of this chapter will review the literature on various definitions of loss.
 
 
 \section{Definitions of loss for trailing edge performance evaluation}
+\label{definitions_of_loss}
 %--How does it perform in terms of loss?
 %--First review the literature to decide what is "loss".
 
@@ -1372,13 +1215,253 @@ where $p_{02uc}$ was the total pressure downstream of the cascade with no coolin
 }
 \end{equation}
 By substituting this definition of $Y$ into equation~\ref{saha_loss_definition}, Saha et al arrived at their novel definition of kinetic energy loss intended to solve the problem of unphysical loss in the free-stream where the previous definition erroneously assumed the presence of coolant. Their new definition is able to use the nominal values for shower-head and trailing edge coolant mass flow ratio and adjust the coolant profile according to the aforementioned function of spanwise distance. Using measurements from a downstream traverse in their linear cascade, the novel loss definition was found to produce loss profiles that were in good agreement with equation~\ref{ke_loss_definition} and in disagreement with equation~\ref{saha_loss_definition}.
-		
-		
-\begin{comment}
+
+
+\section{Effects of trailing edge shape uncertainty}
+\label{effects_of_trailing_edge_uncertainty_on_capacity_predictability}
+
+This section will consider increasingly severe loss of material up to a potential worst case for in-service erosion of the end-edge, namely its complete deletion. Erosion has been assumed to take place at the NGV mid-span where flow speeds and temperatures are highest and there is evidence of in-service damage. Here secondary flows across the blade are small and a 2-dimensional simulation of the mid-span flow should provide a physically realistic measure of performance.
+
+2D CFD has been used to model the effects of incremental removal of material from the trailing-edge suction-side flange of an NGV. The baseline geometry is vane KSZ03 from the 6 vanes provided by Rolls-Royce for the work discussed in Chapter~\ref{chapter_geometric_throat_area}. The 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. Unlike the section of vane KSZ03 studied in Chapter~\ref{chapter_geometric_throat_area}, the NGV trailing edge was not rounded but realistically shaped, and the domain was modified to include a flow inlet within the NGV's trailing edge slot, where inlet mass flow rate was specified. The boundary conditions used for all simulations are as listed in Table~\ref{ss_cutbacks_parameters}.
+
+For a fully choked streamline, flow conditions upstream of the sonic line are independent of those downstream. This facilitates the type of approach introduced in Chapter~\ref{chapter_geometric_throat_area}, where the flow conditions immediately upstream of any choked streamline's sonic point are treated as a known state. That streamline's mass flow rate is wholly a function of that state. For an unchoked streamline, its mass flow rate is a function of the state of every point along the streamline, including points downstream of where sonic conditions would appear in choked cases. It is thus advantageous to perform simulations at a pressure ratio where the nozzle guide vane is guaranteed fully choked. 
+
+Simulations were performed at a range of inverse pressure ratios between $1.5$ and $3.33$, and particular study was made at inverse pressure ratios of $1.5$, $1.79$ and $3.33$. This permits comment on the NGV flow capacity as a function of only the sonic line shape, and eliminates the possibility of unchoked flow passing through the nozzle, with the exception of the boundary layers. $PR=3.33$ was considered to be a case where the nozzle guide vane is definitely fully choked. Although this particularly high inverse pressure ratio is possibly unachievable in the real engine, the simulated NGVs were observed to be fully choked at a substantially lower inverse pressure ratio of $2.5$. $PR=1.79$ is the design cruise condition for the Trent 900 engine. $PR=1.5$ was considered to be a case where the nozzle guide vane is definitely not choked, and is possible to achieve in some very low-power operating conditions. 
+
+\begin{table}[H]
+\caption{Boundary conditions for trailing edge suction-side flange shape uncertainty study}
+\label{ss_cutbacks_parameters}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value\\
+\hline
+NGV series & Rolls-Royce Trent 900\\
+NGV turning (degrees) & 76.89\\
+Inverse pressure ratio $\frac{p_{01}}{p_2}$ & 1.5, 1.79, 3.33\\
+Inlet total pressure (Pa) & $4.33 \times 10^6$\\
+Inlet total temperature (K) & 300\\
+Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
+Outlet static temperature (Pa) & 300\\
+Coolant mass flow rate & 3\% of mainstream \\
+Solver type & Density-based\\
+Cell count & 35,000\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+The strategy for geometry alteration and meshing was to divide the geometry into quadrilateral regions of solid vane that were sequentially replaced by regions of fluid mesh. Each replacement incrementally erodes or cut back the NGV's end-edge. This required minor alteration of the trailing edge geometry provided by Rolls-Royce. The curved surface on the inside of the pressure-side lip was changed to a straight line with an angular corner, and the curved tip of the suction-side lip was changed to a square end. Comparison of the shape of manufactured NGVs with the shape of design-intent NGVs demonstrates that the present study's trailing edge treatment is more reflective of the manufactured NGVs, which have corners rather than smooth curves in the places in question. In any case the radius of curvature of the corner is too sharp to promote any attachment of the internal flow over its length, and so is aerodynamically irrelevant. The process of geometry refinement and incremental mesh block creation is illustrated in Figure~\ref{fig:T900_ss_cutbacks_geometry}.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{figs/T900_ss_cutbacks_geometry.png}
+      \caption{Geometry processing scheme for cutbacks to the suction-side flange of a Trent 900 NGV}
+      \label{fig:T900_ss_cutbacks_geometry}
+\end{figure}
+
+The resulting quadrilateral geometry allowed for the creation of a structured mesh that could be matched with a structured boundary layer mesh of the same design as that depicted in Figure~\ref{fig:t900_mesh_trailing_edge}. Beyond this, an unstructured mesh was created to the same design as that depicted in Figure~\ref{fig:t900_mesh_whole}. Detail of the trailing edge mesh is shown in Figure~\ref{fig:T900_ss_cutbacks_mesh} for a case where approximately $50\%$ of the end-edge is removed and replaced with structured fluid mesh blocks.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{figs/T900_ss_cutbacks_mesh.png}
+      \caption{Example of mesh for cutbacks to the suction-side flange of a Trent 900 NGV}
+      \label{fig:T900_ss_cutbacks_mesh}
+\end{figure}
+
+The described mesh, geometry alteration strategy, and boundary conditions were used to perform 11 CFD simulations which incrementally spanned the range of cutbacks between an unaltered trailing edge and a fully removed flange. Solutions were initialised using the solver's built-in FMG initialisation and Journal scripts as described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments and typical overall solution times were approximately 10 hours. The SST-k$\omega$ turbulence model was used.
+
+\subsection{Effect on capacity}
+
+Figure~\ref{fig:ss_cutbacks_0-3} shows contours of Mach number in the region of the trailing edge for the described study. The depicted range of cutbacks is between the unaltered baseline and the case of $30\%$ removal of the overall length of the trailing edge suction side flange. Inverse pressure ratio is $3.3$, fully choked.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_0.png}
+		\caption{Baseline}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_1.png}
+		\caption{$10\%$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_2.png}
+		\caption{$20\%$ cutback}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_3.png}
+		\caption{$30\%$ cutback}
+	\end{subfigure}
+	\caption{Effects of small cutbacks on sonic line shape for Trent 900 suction-side flange erosion study}
+	\label{fig:ss_cutbacks_0-3}
+\end{figure}
+
+Figure~\ref{fig:ss_cutbacks_0-3} illustrates the subtle changes in the sonic line at the nozzle exit as the nozzle guide vane's end-edge is incrementally removed until $30\%$ of its length is not present. The sonic line is shown to undergo a fundamental transition over this range of cutbacks, from initially impinging on the extremity of the end-edge in the baseline case, to impinging on the acute corner of the pressure side. The geometric changes are also shown to alter the aerodynamics in the suction-side region upstream of the flange, where an attached shock moves incrementally upstream with each increment in cutback. Shock-induced boundary layer separation is seen to be present in Figure~\ref{fig:ss_cutbacks_0-3}, and moves upstream corresponding to the position of the shock. This results in an increasingly large separated wake region which is not in alignment with the NGV's turning angle.
+
+Figure~\ref{fig:ss_cutbacks_4-10} shows contours of Mach number in the region of the trailing edge for the described study. The depicted range of cutbacks is between the case of $40\%$ and the case of complete removal of the end-edge. Inverse pressure ratio is $3.3$, fully choked.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_4.png}
+		\caption{$40\%$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_6.png}
+		\caption{$60\%$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_8.png}
+		\caption{$80\%$ cutback}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_m1_lines_10.png}
+		\caption{Completely cutback}
+	\end{subfigure}
+	\caption{Effects of large cutbacks on sonic line shape for Trent 900 suction-side flange erosion study}
+	\label{fig:ss_cutbacks_4-10}
+\end{figure}
+
+Figure~\ref{fig:ss_cutbacks_4-10} illustrates that the shape of the sonic line is not fundamentally altered in the range between $40\%$ and $100\%$ removal of the end-edge. The sonic line is shown to consistently attach to the acute corner of the pressure side throughout this range of larger cutbacks. Upstream movement of the location of the suction-side attached shock continued to occur. This trend was reversed for the most extreme cases of $80\%$ and complete cutbacks, where the shock transitioned to a downstream location close to the corner of the suction-side flange, resulting in a significantly smaller separated wake region compared to other cases.
+
+The set of Mach number contours and sonic lines suggest that the greatest sensitivity of flow capacity to flange cutbacks is to occur for cutbacks of $30\%$ of the flange or less. The sensitivity of the sonic line shape to the full range of cutbacks is illustrated in Figure~\ref{fig:ss_cutbacks_m1_lines_illustration}. It is further suggested that the location of an attached shock and corresponding boundary layer separation may be sensitive to cutbacks of $40\%$ or more, but this may be imprecisely predicted by the present simulations.
+
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=.7\textwidth]{figs/ss_cutbacks_m1_lines_illustration.png}
+      \caption{Effects of full range of cutbacks on sonic line shape for Trent 900 suction-side flange erosion study, labelled by $10\%$ of flange size removed}
+      \label{fig:ss_cutbacks_m1_lines_illustration}
+\end{figure}
+
+Figure~\ref{fig:ss_cutbacks_m1_lines_illustration} shows that upstream movement of the location of the suction-side attached shock occured between $0$ and $30\%$ removal of the end-edge. This trend did not continue for cutbacks greater than $30\%$.
+
+Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios} plots flow capacity change as a function of the amount of the end-edge that has been removed. The trend is plotted for 3 inverse pressure ratios: $1.50$, the design value of $1.79$, and a fully choked value of $3.33$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ss_cutbacks_vs_capacities_pressure_ratios.png}
+	\caption{2D capacity percentage delta as a function of suction-side flange cutback amount for $3$ pressure ratios}
+    \label{fig:ss_cutbacks_vs_capacities_pressure_ratios}
+\end{figure}
+
+At an inverse pressure ratio of $3.33$, Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios} shows a relationship between flow capacity and cutback amount which is in good agreement with the observations made from the corresponding sonic line visualisations. Capacity is shown to be sensitive to cutback amounts of $0$, $10\%$, and $20\%$, and insensitive to cutbacks thereafter. The corresponding sonic lines are observed to vary in shape when capacity varies, and to remain similar in shape when capacity does not vary. The observed switching of the sonic line from the end-edge-attached mode (at baseline) to the pressure-side-attached mode (at cutbacks of $30\%$ and greater) is associated with a $0.3$ percentage point increase in capacity. For all cutbacks subsequent to the mode switch, there is no capacity change at this pressure ratio. This is in good agreement with the discussion in Chapter~\ref{chapter_geometric_throat_area} which concluded that the effective throat area of a fully choked nozzle guide vane is predominantly a function of the shape of its sonic line.
+
+At lower inverse pressure ratios where the flow is not fully choked, and thus a sonic line cannot be drawn, flow capacity varied over a significantly greater range of cutback percentage. This is to be expected by consideration of choked versus unchoked compressible flows as discussed earlier in this section. This discussion implies that, in the general case of compressible flow in 2D nozzles, the nozzle flow capacity will increase if the effective passage width is increased at any point along the nozzle. However, this is also a consequence of providing less turning in the flow. An entirely unturned flow would have maximum capacity in the annular cross-section that is the gas turbine. 
+
+This is in good agreement with the observed relationship between flow capacity and cutback amount at the unchoked pressure ratios. Removal of end-edge material increases the effective passage width in the region local to the end-edge, causing a local decrease in static pressure and increase in dynamic pressure. Because most streamlines are unchoked at the flow region and pressure ratios in question, this state change propagates along the entire streamline with a corresponding increase in mass flow rate.
+
+The maximum change in capacity was $1.9$ percentage points at the design inverse pressure ratio of $1.79$, and $2.5$ percentage points at an inverse pressure ratio of $1.50$. The effect of increasing cutbacks became less pronounced at larger cutback amounts, suggesting that the size of the end-edge ceases to be the limiting factor on effective passage width for those geometries. Figure~\ref{fig:ss_cutbacks_wakes_design_pr} shows contours of Mach number in the NGV wake region for the full range of cutbacks at the design inverse pressure ratio of $1.79$. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.9\textwidth]{figs/ss_cutbacks_wakes_design_pr.png}
+	\caption{Contours of Mach number in the wake region of the Trent 900 suction-side flange erosion study at design inverse pressure ratio of $1.79$}
+    \label{fig:ss_cutbacks_wakes_design_pr}
+\end{figure}
+
+Key features of Figure~\ref{fig:ss_cutbacks_wakes_design_pr} include an outer wake region (rendered in green) and inner wake regions downstream of the pressure side and the end-edge (rendered in blue). No fundamental changes occured to the trailing edge's aerodynamics over the range of cutbacks. Mach number is observed to continually increase in the region adjacent to the pressure side, and to continually decrease in the region adjacent to the end-edge. The trailing edge aerodynamics were sensitive to geometric changes across the full range of cutbacks. The reduced effect of greater cutbacks on flow capacity may result from two phenomena. Firstly, the local flow acceleration may be limited more by the position of the pressure side than by the end-edge at higher cutback values, where the end-edge tip is increasingly too far upstream to influence the pressure-side aerodynamics. Secondly, this upstream positioning of the end-edge tip is observed to cause a significant increase in outer wake thickness at higher cutback values. This likely reduced the effective passage width in this region and counteracted the predominant effect of flow capacity increasing.
+
+Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at selected cutback amounts. The range of inverse pressure ratios includes the design value of $1.79$ but does not extend to fully choked values, which have been shown to be insensitive to cutback amounts greater than $30\%$.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_vs_capacities_trends.png}
+	\end{subfigure}
+	\begin{subfigure}{.1125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_vs_capacities_trends_legend_ver02.png}
+	\end{subfigure}
+	\caption{2D capacity trends for various end-edge cutback amounts}
+      \label{fig:ss_cutbacks_vs_capacities_trends}
+\end{figure}
+
+In terms of the effects of cutbacks on flow capacity, Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} is in good agreement with Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios}. The capacity delta produced by full end-edge removal continuously decreased with increasing inverse pressure ratio, and the capacity trends remained qualitatively similar for all cutback amounts. These observations suggest that the cutback-induced capacity changes and the onset of choking are 2 independent phenomena which do not influence each other. It is conlcuded that, as inverse pressure ratio increased, more streamlines became choked and ceased to be affected by cutbacks downstream of those streamlines' sonic points. It is further concluded that the capacity trend shapes and onsets of choking were unaffected by variable cutbacks, but remained a function of only inverse pressure ratio. This is likely due to the relevant geometric changes taking place downstream of the throat region. This is complementary to the results of Chapter~\ref{chapter_geometric_throat_area}, where geometric changes upstream of the throat resulted in qualitatively distinct capacity trends and dissimilar onsets of choking.
+
+\subsection{Effect on performance}
+
+Simulation data were also used to evaluate the aerodynamic penalties associated with the incremental cutbacks to the end-edge at the design inverse pressure ratio of $1.79$. These penalties include the change to the NGV's ability to turn the flow by the correct angle, and the effect of the cutbacks on the NGV loss.
+
+Velocity components at the domain outlet were surveyed and averaged over the length of the outlet. This resulted in a value for mean NGV turning angle for each incremental cutback. Figure~\ref{fig:ss_cutbacks_vs_turning_angles} plots turning angle deviation in degrees versus end-edge cutback amount.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ss_cutbacks_vs_turning_angles.png}
+	\caption{NGV turning angle delta as a function of end-edge cutback amount at $PR=1.79$}
+    \label{fig:ss_cutbacks_vs_turning_angles}
+\end{figure}
+
+Figure~\ref{fig:ss_cutbacks_vs_turning_angles} shows that the NGV's ability to turn the flow was significantly reduced as cutbacks increased. Complete removal of the end-edge resulted in a turning angle reduction of $0.3$ degrees, with increased sensitivity to cutbacks at smaller cutback amounts. This trend is in agreement with the extreme scenario of having no vane at all, where there would correspondingly be no turning at all.
+
+Overall flow turning angle was surveyed along the length of the domain outlet plane. Figure~\ref{fig:ss_cutbacks_turning_angle_surveys} plots this distribution of turning angles at selected cutback amounts. On the outlet plane, $0\rightarrow1$ denotes travel in the negative $y$ direction, which is the direction the flow turns.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_turning_angle_surveys.png}
+	\end{subfigure}
+	\begin{subfigure}{.1125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ss_cutbacks_vs_capacities_trends_legend_ver02.png}
+	\end{subfigure}
+	\caption{Outlet plane turning angle surveys for various end-edge cutback amounts at $PR=1.79$}
+      \label{fig:ss_cutbacks_turning_angle_surveys}
+\end{figure}
+
+Figure~\ref{fig:ss_cutbacks_turning_angle_surveys} further illustrates the trend of reducing turning angles present in Figure~\ref{fig:ss_cutbacks_vs_turning_angles}. It is also apparent that the incremental cutbacks caused a shift in the location of maximum turning angle. In the case of no cutback, maximum turning occured exactly halfway across the domain exit plane, at a location immediately downstream of the NGV end-edge. Subsequent cutbacks caused both a reduction in maximum turning and a shift of the maximum turning location in the opposite direction to which turning occurs. This suggests that the NGV wake continued to extend downstream of the NGV at an angle which decreased with increasing cutbacks, arriving at the domain outlet at an incrementally increasing $y$-coordinate. Assuming that the downstream turning angle distribution is indicative of the NGV wake profile, the wake did not appear to become significantly more diffuse as cutbacks increased.
+
+Figure~\ref{fig:ss_cutbacks_vs_losses} plots loss as a function of end-edge cutback amount at the design pressure ratio of $1.79$, where total pressure loss and kinetic energy loss are defined as in Section~\ref{definitions_of_loss}. Total pressure values were surveyed at the domain outlet plane and averaged to produce the loss values.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ss_cutbacks_vs_losses.png}
+	\caption{Loss as a function of end-edge cutback amount at $PR=1.79$}
+    \label{fig:ss_cutbacks_vs_losses}
+\end{figure}
+
+Figure~\ref{fig:ss_cutbacks_vs_losses} shows that both types of loss increased with incremental cutbacks. Total pressure loss was observed to increase by approximately $1\%$ over the range of cutbacks, and kinetic energy loss by approximately $0.7\%$. This is in agreement with the discussion of figure~\ref{fig:ss_cutbacks_wakes_design_pr} which suggested that loss would likely be incurred by the increasing area of separated wake that occurs as cutbacks increase. This effect may be exacerbated by the deviation from the design turning angle that also occurs, whereby the NGV wake is deflected in the positive $x$-coordinate with corresponding increase in its area.
+
+Loss delta is plotted as a function of capacity delta in Figure~\ref{fig:ss_capacities_vs_losses}. This plot covers the range of incremental cutbacks and is for the design inverse pressure ratio of $1.79$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ss_capacities_vs_losses.png}
+	\caption{Loss delta as a function of capacity delta at $PR=1.79$}
+    \label{fig:ss_capacities_vs_losses}
+\end{figure}
+
+Figure~\ref{fig:ss_capacities_vs_losses} shows that, as the end-edge is incrementally removed, capacity and loss do not change in direct proportion to each other. Although overall capacity sensitivity was greater than overall loss sensitivity, at higher cutback amounts a relatively small increase in capacity corresponded to a sharp increase in loss by both definitions. In agreement with this section's previous analysis of the capacity and loss mechanisms present across the range of cutbacks, it is concluded that capacity sensitivity is of greatest concern in cases of relatively small erosion of the NGV end-edge, and loss sensitivity is of concern in all cases but especially in cases of relatively large erosion.
+
+
+
+
+
+
 \section{Performance of an alternative trailing edge design}
 \label{performance_of_an_alternative_trailing_edge_design}
 %--Centred-ejection option (PS cutbacks) (and could it reduce loss) and what happens as its geometry is changed to gradually look more like an existing design
 %--We must also consider broader TE manufacturing changes that are likely to happen on purpose - the switch to CMC manufacturing of turbine blades. How will this change the game, and what tolerances are expected?
+
+This section considers the location of the pressure side cutback necessary to make cooling holes invulnerable to blockage.  Here a partially eroded suction side trailing-edge is used (50\% eroded) to be representative of the full lifetime of the component and the design choice position for the cutback is progressively moved upstream on the pressure side. In each case the measures outlined above are reported. 
 
 Improved materials and manufacturing techniques may neccessitate alternative trailing edge geometries. Paul W. Giel et al~\cite{giel_te_thickness} noted that ``in the pursuit of higher turbine inlet temperatures for reduced fuel burn and emissions consistent with NASA's goals~\cite{giel_nasa_reference}, Ceramic Matrix Composite (CMC) materials are now being implemented in gas turbine engines...They enable higher turbine inlet temperatures, thus enabling higher overall pressure ratios (OPRs) for the engine and higher thermal efficiency.'' 
 
@@ -1435,8 +1518,6 @@ A blowing rate study:
 	\textcolor{red}{My raw data: A lot of my own TE CFD}
 	
 Gao et al experimentally and numerically investigated the external flow field near the trailing edge of a linear cascade with trailing edge injection. The authors' focus was on the effects of the trailing edge coolant flow on the vane's loss mechanisms and flow exit angle. Without trailing edge injection, increased exit isentropic Mach number caused the appearance of trailing edge suction side shock waves which altered the flow angle. With trailing edge injection, there was a slight reduction in this shock effect but a strong reduction in the shock wave near the trailing edge pressure side.
-
-\end{comment}
 
 
 
