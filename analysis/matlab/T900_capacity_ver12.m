@@ -1362,6 +1362,20 @@ turning_angle_means(10) = mean(turning_angles_09);
 turning_angle_means(11) = mean(turning_angles_10);
 
 
+turning_angles_ps_0 = -360/(2*pi)*atan(yvel00(:,2)./xvelps0(:,2));
+turning_angles_ps_1 = -360/(2*pi)*atan(yvel01(:,2)./xvelps1(:,2));
+turning_angles_ps_2 = -360/(2*pi)*atan(yvel02(:,2)./xvelps2(:,2));
+turning_angles_ps_3 = -360/(2*pi)*atan(yvel03(:,2)./xvelps3(:,2));
+turning_angles_ps_4 = -360/(2*pi)*atan(yvel04(:,2)./xvelps4(:,2));
+
+turning_angle_ps_means = zeros(5,1);
+turning_angle_ps_means(1) = mean(turning_angles_ps_0);
+turning_angle_ps_means(2) = mean(turning_angles_ps_1);
+turning_angle_ps_means(3) = mean(turning_angles_ps_2);
+turning_angle_ps_means(4) = mean(turning_angles_ps_3);
+turning_angle_ps_means(5) = mean(turning_angles_ps_4);
+
+
 
 
 
@@ -1373,7 +1387,7 @@ turning_angle_means(11) = mean(turning_angles_10);
 %to offset the values of outlet static pressure reported by Fluent's gauge
 
 losses_tp_00 = (4325590 - (tp00(:,2)+4285900) )./(4325590 - 2416530.7);
-losses_to_01 = (4325590 - (tp01(:,2)+4285900) )./(4325590 - 2416530.7);
+losses_tp_01 = (4325590 - (tp01(:,2)+4285900) )./(4325590 - 2416530.7);
 losses_tp_02 = (4325590 - (tp02(:,2)+4285900) )./(4325590 - 2416530.7);
 losses_tp_03 = (4325590 - (tp03(:,2)+4285900) )./(4325590 - 2416530.7);
 losses_tp_04 = (4325590 - (tp04(:,2)+4285900) )./(4325590 - 2416530.7);
@@ -1386,7 +1400,7 @@ losses_tp_10 = (4325590 - (tp10(:,2)+4285900) )./(4325590 - 2416530.7);
 
 losses_tp_means = zeros(11,1);
 losses_tp_means(1) = mean(losses_tp_00);
-losses_tp_means(2) = mean(losses_to_01);
+losses_tp_means(2) = mean(losses_tp_01);
 losses_tp_means(3) = mean(losses_tp_02);
 losses_tp_means(4) = mean(losses_tp_03);
 losses_tp_means(5) = mean(losses_tp_04);
@@ -1421,6 +1435,33 @@ losses_ke_means(8) = mean(losses_ke_07);
 losses_ke_means(9) = mean(losses_ke_08);
 losses_ke_means(10) = mean(losses_ke_09);
 losses_ke_means(11) = mean(losses_ke_10);
+
+
+losses_tp_ps_0 = (4325590 - (tpps0(:,2)+4285900) )./(4325590 - 2416530.7);
+losses_tp_ps_1 = (4325590 - (tpps1(:,2)+4285900) )./(4325590 - 2416530.7);
+losses_tp_ps_2 = (4325590 - (tpps2(:,2)+4285900) )./(4325590 - 2416530.7);
+losses_tp_ps_3 = (4325590 - (tpps3(:,2)+4285900) )./(4325590 - 2416530.7);
+losses_tp_ps_4 = (4325590 - (tpps4(:,2)+4285900) )./(4325590 - 2416530.7);
+
+losses_tp_ps_means = zeros(5,1);
+losses_tp_ps_means(1) = mean(losses_tp_ps_0);
+losses_tp_ps_means(2) = mean(losses_tp_ps_1);
+losses_tp_ps_means(3) = mean(losses_tp_ps_2);
+losses_tp_ps_means(4) = mean(losses_tp_ps_3);
+losses_tp_ps_means(5) = mean(losses_tp_ps_4);
+
+losses_ke_ps_0 = ( (4325590./(tpps0(:,2)+4285900)).^0.2857 - 1 )/( (4325590/2416530.7)^0.2857 - 1 );
+losses_ke_ps_1 = ( (4325590./(tpps1(:,2)+4285900)).^0.2857 - 1 )/( (4325590/2416530.7)^0.2857 - 1 );
+losses_ke_ps_2 = ( (4325590./(tpps2(:,2)+4285900)).^0.2857 - 1 )/( (4325590/2416530.7)^0.2857 - 1 );
+losses_ke_ps_3 = ( (4325590./(tpps3(:,2)+4285900)).^0.2857 - 1 )/( (4325590/2416530.7)^0.2857 - 1 );
+losses_ke_ps_4 = ( (4325590./(tpps4(:,2)+4285900)).^0.2857 - 1 )/( (4325590/2416530.7)^0.2857 - 1 );
+
+losses_ke_ps_means = zeros(5,1);
+losses_ke_ps_means(1) = mean(losses_ke_ps_0);
+losses_ke_ps_means(2) = mean(losses_ke_ps_1);
+losses_ke_ps_means(3) = mean(losses_ke_ps_2);
+losses_ke_ps_means(4) = mean(losses_ke_ps_3);
+losses_ke_ps_means(5) = mean(losses_ke_ps_4);
 
 
 
@@ -1694,7 +1735,7 @@ xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('\Delta capacity, %')
 design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',font_size);
 design_line.LabelVerticalAlignment = 'bottom';
-%legend('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Location', 'southeast')
+legend('0%', '20%', '40%', '60%', '80%', '100%', 'Location', 'southeast')
 
 %Here we set up the axes
 pos = get(gcf, 'Position');
@@ -1827,7 +1868,6 @@ plot(tp10(:,1)/(tp00(17,1)-tp00(1,1)),turning_angles_10(:)-turning_angles_00(9),
 
 xlabel('Distance along outlet plane')
 ylabel('\Delta turning angle, degrees')
-%legend('Total pressure loss', 'Kinetic energy loss', 'Location', 'northwest')
 
 %Here we set up the axes
 pos = get(gcf, 'Position');
@@ -1843,6 +1883,216 @@ bottom = (papersize(2)- figure_height)/2;
 myfiguresize = [left, bottom, figure_width, figure_height];
 set(gcf,'PaperPosition', myfiguresize);
 print('../../figs/ss_cutbacks_turning_angle_surveys','-dpng','-r300');
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% PLOTS for PS CUTBACKS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+figure(13)
+%novel TEs, just the reruns
+
+%plot(T900_capacities_2D(18:28,1), 100*T900_capacities_2D(18:28,2)./T900_capacities_2D(18,2), 'b.')
+plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,2)./T900_capacities_2D(18,2), 'k.')
+hold on
+plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,10)./T900_capacities_2D(18,2), 'r.')
+plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,9)./T900_capacities_2D(18,2), 'g.')
+plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,8)./T900_capacities_2D(18,2), 'b.')
+plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,6)./T900_capacities_2D(18,2), 'c.')
+
+%plot(T900_capacities_2D_oversampled(:,1), 100*T900_capacities_2D_oversampled(:,2)./T900_capacities_2D(18,2), 'k-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,2)./T900_capacities_2D(18,2), 'k-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,10)./T900_capacities_2D(18,2), 'r-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,9)./T900_capacities_2D(18,2), 'g-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,8)./T900_capacities_2D(18,2), 'b-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,6)./T900_capacities_2D(18,2), 'c-')
+
+xlim([1.5 2.5])
+xlabel('NGV pressure ratio (p_{01}/p_{2})')
+ylabel('\Delta capacity, %')
+design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',font_size);
+design_line.LabelVerticalAlignment = 'bottom';
+legend('0%', '25%', '50%', '75%', '100%', 'Location', 'southeast')
+
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/ps_cutbacks_capacities_trends','-dpng','-r300');
+
+
+
+
+
+figure(14)
+plot(25*ps_cutback_throat_widths(:,1), 100*ps_cutback_throat_widths(:,2)/ps_cutback_throat_widths(1,2)-100, 'ko-')
+xlabel('Cutback amount, %')
+ylabel('Change in throat width, %')
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/ps_cutbacks_vs_throat_widths','-dpng','-r300');
+
+
+figure(16)
+plot(0:25:100, 100*ps_cutback_capacities_design(:,1)/ps_cutback_capacities_design(1,1)-100, 'ro-')
+hold on
+plot(0:25:100, 100*ps_cutback_capacities_design(:,2)/ps_cutback_capacities_design(1,2)-100, 'bo-')
+plot(0:25:100, 100*ps_cutback_capacities_design(:,3)/ps_cutback_capacities_design(1,3)-100, 'mo-')
+xlabel('Cutback amount, %')
+ylabel('\Delta Capacity, %')
+legend('PR = 1.50', 'PR = 1.79 (design)', 'PR = 3.33', 'Location', 'southeast')
+%ylim([95 104])
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/ps_cutbacks_vs_capacities','-dpng','-r300');
+
+
+figure(17)
+%mean turning angle vs PS cutback amount
+plot(0:25:100, turning_angle_ps_means(1:5)-turning_angle_ps_means(1,1), 'ko-')
+
+xlabel('Cutback amount, %')
+ylabel('\Delta turning angle, degrees')
+
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/ps_cutbacks_vs_turning_angles','-dpng','-r300');
+
+
+figure(18)
+%mean loss vs PS cutback amount
+plot(0:25:100, losses_tp_ps_means(1:5)*100, 'ro-')
+hold on
+plot(0:25:100, losses_ke_ps_means(1:5)*100, 'bo-')
+
+xlabel('Cutback amount, %')
+ylabel('Overall loss at domain outlet, %')
+legend('Total pressure loss', 'Kinetic energy loss', 'Location', 'best')
+
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/ps_cutbacks_vs_losses','-dpng','-r300');
+
+
+
+
+
+
+figure(19)
+%mean loss vs mean capacity delta
+plot(100*T900_ps_capacities_for_plotting(1,:)./T900_ps_capacities_for_plotting(1,1)-100, 100*losses_tp_ps_means(:)-100*losses_tp_ps_means(1,1), 'ro-')
+hold on
+plot(100*T900_ps_capacities_for_plotting(1,:)./T900_ps_capacities_for_plotting(1,1)-100, 100*losses_ke_ps_means(:)-100*losses_ke_ps_means(1,1), 'bo-')
+
+
+
+
+xlabel('\Delta capacity, %')
+ylabel('\Delta loss at domain outlet, %')
+legend('Total pressure loss', 'Kinetic energy loss', 'Location', 'northwest')
+
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/ps_capacities_vs_losses','-dpng','-r300');
+
+
+figure(20)
+%PS turning angle surveys
+plot(tpps0(:,1)/(tpps0(17,1)-tpps0(1,1)),turning_angles_ps_0(:)-turning_angles_ps_0(9), 'k.-')
+hold on
+plot(tpps1(:,1)/(tpps1(17,1)-tpps1(1,1)),turning_angles_ps_1(:)-turning_angles_ps_0(9), 'r.-')
+plot(tpps2(:,1)/(tpps2(17,1)-tpps2(1,1)),turning_angles_ps_2(:)-turning_angles_ps_0(9), 'g.-')
+plot(tpps3(:,1)/(tpps3(17,1)-tpps3(1,1)),turning_angles_ps_3(:)-turning_angles_ps_0(9), 'b.-')
+plot(tpps4(:,1)/(tpps4(17,1)-tpps4(1,1)),turning_angles_ps_4(:)-turning_angles_ps_0(9), 'c.-')
+
+xlabel('Distance along outlet plane')
+ylabel('\Delta turning angle, degrees')
+
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/ps_cutbacks_turning_angle_surveys','-dpng','-r300');
 
 
 

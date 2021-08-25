@@ -27,7 +27,19 @@
 \contentsline {figure}{\numberline {3.10}{\ignorespaces NGV turning angle delta as a function of end-edge cutback amount at $PR=1.79$\relax }}{46}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Outlet plane turning angle surveys for various end-edge cutback amounts at $PR=1.79$\relax }}{46}
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Loss as a function of end-edge cutback amount at $PR=1.79$\relax }}{47}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Loss delta as a function of capacity delta at $PR=1.79$\relax }}{48}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Loss delta as a function of capacity delta for end-edge cutbacks at $PR=1.79$\relax }}{48}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Geometry processing scheme for cutbacks to the pressure side of a Trent 900 NGV\relax }}{49}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Examples of meshes for cutbacks to the pressure side of a Trent 900 NGV\relax }}{50}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Effects of cutbacks on sonic line shape for Trent 900 pressure-side cutback study, PR=3.33\relax }}{51}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces NGV geometric throat width as a function of cutback amount\relax }}{52}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 pressure-side cutbacks study, labelled by \% of flange size removed\relax }}{52}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces 2D capacity percentage delta as a function of pressure-side cutback amount for 3 pressure ratios\relax }}{53}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Effects of cutbacks on trailing edge aerodynamics for Trent 900 pressure-side cutback study, PR=1.79 (design)\relax }}{54}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces 2D capacity trends for various pressure-side cutback amounts\relax }}{55}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces NGV turning angle delta as a function of pressure-side cutback amount at PR = 1.79\relax }}{56}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Outlet plane turning angle surveys for various pressure-side cutback amounts at $PR=1.79$\relax }}{57}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Loss as a function of pressure-side cutback amount at $PR=1.79$\relax }}{58}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Loss delta as a function of capacity delta for pressure-side cutbacks at P$R=1.79$\relax }}{58}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{53}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{54}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{62}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{63}

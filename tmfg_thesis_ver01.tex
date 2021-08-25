@@ -1050,7 +1050,7 @@ then the coefficient will be $0$ in the case of no total pressure loss, and $1$ 
 
 Paul W. Giel et al~\cite{giel_te_thickness}, whose findings will be discussed in Section~\ref{performance_of_an_alternative_trailing_edge_design}, surveyed the total pressure wake profiles of a blade at mid-span. They defined a total pressure loss coefficient as in equation~\ref{total_pressure_loss_coefficient}, where $p_{01}$ and $p_{02}$ were the inlet and wake total pressures, and $p_2$ was the wake static pressure. 
 
-Jie Gao et al~\cite{gao_te}, whose findings will be discussed in section~\ref{effects_of_trailing_edge_uncertainty_on_capacity_predictability}, defined a total pressure loss coefficient as
+Jie Gao et al~\cite{gao_te}, whose findings will be discussed in section~\ref{suction_side_cutbacks}, defined a total pressure loss coefficient as
 \begin{equation}
 {}_{Gao}C_{pt} = \frac{
 p_{01} - p_{02}
@@ -1217,8 +1217,8 @@ where $p_{02uc}$ was the total pressure downstream of the cascade with no coolin
 By substituting this definition of $Y$ into equation~\ref{saha_loss_definition}, Saha et al arrived at their novel definition of kinetic energy loss intended to solve the problem of unphysical loss in the free-stream where the previous definition erroneously assumed the presence of coolant. Their new definition is able to use the nominal values for shower-head and trailing edge coolant mass flow ratio and adjust the coolant profile according to the aforementioned function of spanwise distance. Using measurements from a downstream traverse in their linear cascade, the novel loss definition was found to produce loss profiles that were in good agreement with equation~\ref{ke_loss_definition} and in disagreement with equation~\ref{saha_loss_definition}.
 
 
-\section{Effects of trailing edge shape uncertainty}
-\label{effects_of_trailing_edge_uncertainty_on_capacity_predictability}
+\section{Effects of suction-side trailing edge shape uncertainty}
+\label{suction_side_cutbacks}
 
 This section will consider increasingly severe loss of material up to a potential worst case for in-service erosion of the end-edge, namely its complete deletion. Erosion has been assumed to take place at the NGV mid-span where flow speeds and temperatures are highest and there is evidence of in-service damage. Here secondary flows across the blade are small and a 2-dimensional simulation of the mid-span flow should provide a physically realistic measure of performance.
 
@@ -1378,23 +1378,18 @@ The maximum change in capacity was $1.9$ percentage points at the design inverse
 
 Key features of Figure~\ref{fig:ss_cutbacks_wakes_design_pr} include an outer wake region (rendered in green) and inner wake regions downstream of the pressure side and the end-edge (rendered in blue). No fundamental changes occured to the trailing edge's aerodynamics over the range of cutbacks. Mach number is observed to continually increase in the region adjacent to the pressure side, and to continually decrease in the region adjacent to the end-edge. The trailing edge aerodynamics were sensitive to geometric changes across the full range of cutbacks. The reduced effect of greater cutbacks on flow capacity may result from two phenomena. Firstly, the local flow acceleration may be limited more by the position of the pressure side than by the end-edge at higher cutback values, where the end-edge tip is increasingly too far upstream to influence the pressure-side aerodynamics. Secondly, this upstream positioning of the end-edge tip is observed to cause a significant increase in outer wake thickness at higher cutback values. This likely reduced the effective passage width in this region and counteracted the predominant effect of flow capacity increasing.
 
-Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at selected cutback amounts. The range of inverse pressure ratios includes the design value of $1.79$ but does not extend to fully choked values, which have been shown to be insensitive to cutback amounts greater than $30\%$.
+Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at selected cutback amounts. The range of inverse pressure ratios includes the design value of $1.79$.
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}{.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_vs_capacities_trends.png}
-	\end{subfigure}
-	\begin{subfigure}{.1125\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ss_cutbacks_vs_capacities_trends_legend_ver02.png}
-	\end{subfigure}
+	\includegraphics[width=.45\textwidth]{figs/ss_cutbacks_vs_capacities_trends.png}
 	\caption{2D capacity trends for various end-edge cutback amounts}
-      \label{fig:ss_cutbacks_vs_capacities_trends}
+    \label{fig:ss_cutbacks_vs_capacities_trends}
 \end{figure}
 
-In terms of the effects of cutbacks on flow capacity, Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} is in good agreement with Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios}. The capacity delta produced by full end-edge removal continuously decreased with increasing inverse pressure ratio, and the capacity trends remained qualitatively similar for all cutback amounts. These observations suggest that the cutback-induced capacity changes and the onset of choking are 2 independent phenomena which do not influence each other. It is conlcuded that, as inverse pressure ratio increased, more streamlines became choked and ceased to be affected by cutbacks downstream of those streamlines' sonic points. It is further concluded that the capacity trend shapes and onsets of choking were unaffected by variable cutbacks, but remained a function of only inverse pressure ratio. This is likely due to the relevant geometric changes taking place downstream of the throat region. This is complementary to the results of Chapter~\ref{chapter_geometric_throat_area}, where geometric changes upstream of the throat resulted in qualitatively distinct capacity trends and dissimilar onsets of choking.
+In terms of the effects of cutbacks on flow capacity, Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} is in good agreement with Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios}. The capacity delta produced by full end-edge removal continuously decreased with increasing inverse pressure ratio, and the capacity trends remained qualitatively similar for all cutback amounts. These observations suggest that the cutback-induced capacity changes and the onset of choking are 2 independent phenomena which do not influence each other. It is conlcuded that, as inverse pressure ratio increased, more streamlines became choked and ceased to be affected by cutbacks downstream of those streamlines' sonic points. 
+
+It is further concluded that the capacity trend shapes and onsets of choking were unaffected by variable cutbacks, but remained a function of only inverse pressure ratio. This is likely due to the relevant geometric changes taking place downstream of the throat region. This is complementary to the results of Chapter~\ref{chapter_geometric_throat_area}, where geometric changes upstream of the throat resulted in qualitatively distinct capacity trends and dissimilar onsets of choking.
 
 \subsection{Effect on performance}
 
@@ -1445,7 +1440,7 @@ Loss delta is plotted as a function of capacity delta in Figure~\ref{fig:ss_capa
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.45\textwidth]{figs/ss_capacities_vs_losses.png}
-	\caption{Loss delta as a function of capacity delta at $PR=1.79$}
+	\caption{Loss delta as a function of capacity delta for end-edge cutbacks at $PR=1.79$}
     \label{fig:ss_capacities_vs_losses}
 \end{figure}
 
@@ -1456,68 +1451,235 @@ Figure~\ref{fig:ss_capacities_vs_losses} shows that, as the end-edge is incremen
 
 
 
-\section{Performance of an alternative trailing edge design}
+\section{Effects of pressure-side trailing edge sizing}
 \label{performance_of_an_alternative_trailing_edge_design}
 %--Centred-ejection option (PS cutbacks) (and could it reduce loss) and what happens as its geometry is changed to gradually look more like an existing design
 %--We must also consider broader TE manufacturing changes that are likely to happen on purpose - the switch to CMC manufacturing of turbine blades. How will this change the game, and what tolerances are expected?
 
-This section considers the location of the pressure side cutback necessary to make cooling holes invulnerable to blockage.  Here a partially eroded suction side trailing-edge is used (50\% eroded) to be representative of the full lifetime of the component and the design choice position for the cutback is progressively moved upstream on the pressure side. In each case the measures outlined above are reported. 
+This section considers the location of the pressure-side cutback that is present on the NGV. This feature is required to prevent blockage of the coolant supply to the end-edge, which would very rapidly be damaged by oxidation erosion if the slot coolant flow were not present. Although the pressure side could be extended further downstream into a thinner feature with a smaller wake, the cutback prevents blockage of the slot coolant flow by causing it to form an external film attached to the pressure side of the end-edge. If a coolant blockage is present upstream inside the vane, the end-edge coolant film will remain relatively unchanged after mixing with itself.
 
 Improved materials and manufacturing techniques may neccessitate alternative trailing edge geometries. Paul W. Giel et al~\cite{giel_te_thickness} noted that ``in the pursuit of higher turbine inlet temperatures for reduced fuel burn and emissions consistent with NASA's goals~\cite{giel_nasa_reference}, Ceramic Matrix Composite (CMC) materials are now being implemented in gas turbine engines...They enable higher turbine inlet temperatures, thus enabling higher overall pressure ratios (OPRs) for the engine and higher thermal efficiency.'' 
 
 The authors used a linear cascade to measure the aerodynamic performance of a set of blades representing the geometric constraints of the CMC manufacturing method. Of main concern was the constraint that ``the trailing edge thicknesses of CMC blades are anticipated to be significantly larger than those of current state-of-the-art metallic blades,'' which may be expected to cause increased loss. 
 
-\textcolor{red}{Discuss other justifications for studying this design - is it more predictable because it suffers less erosion?}
+This requirement for a film-cooled end-edge calls for the pressure-side cutback to be as big as possible. However, a bigger cutback is expected to cause increased loss due to increased wake area, as well as reduced film cooling effectiveness on the end-edge as the coolant becomes mixed out. This section presents a 2D CFD study on varying the size of the pressure-side cutback, using the types of analyses presented for end-edge cutbacks in Section~\ref{suction_side_cutbacks}. The baseline geometry included a partially eroded end-edge to be representative of the full lifetime of the component. The baseline pressure-side cutback was such that the pressure side and the suction side extended by the same amount, with no end-edge. Cutbacks were then made to move the end of the pressure side upstream in increments of $25\%$, where $100\%$ is equivalent to the existing location of the pressure side of the trailing edge. The process of geometry refinement is illustrated in Figure~\ref{fig:t900_ps_cutbacks_geometry}.
 
-\textcolor{red}{Introduce my alternative design: 2D CFD was done on an alternative design of TE featuring centred coolant ejection. This shape of TE was also incrementally cut back on the pressure side so as to more resemble the existing TE design.}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.60\textwidth]{figs/t900_ps_cutbacks_geometry.png}
+	\caption{Geometry processing scheme for cutbacks to the pressure side of a Trent 900 NGV}
+    \label{fig:t900_ps_cutbacks_geometry}
+\end{figure}
 
-\textcolor{red}{Present boundary conditions.}
+As in Section~\ref{suction_side_cutbacks}, simulations were performed at a range of inverse pressure ratios between 1.5 and 3.33, and particular study was made at inverse pressure ratios of 1.5, 1.79 and 3.33. 1.79 is the design cruise condition for the Trent 900 engine. Boundary conditions were as described in Table~\ref{ss_cutbacks_parameters}.
 
-\begin{table}[H]
-\caption{Boundary conditions for trailing edge centred-ejection design study}
-\label{ps_cutbacks_parameters}
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Parameter & Value\\
-\hline
-NGV series & Rolls-Royce Trent 900\\
-NGV turning (degrees) & 76.89\\
-Design pressure ratio & 1.79\\
-Inlet total pressure (Pa) & $4.33 \times 10^6$\\
-Inlet total temperature (K) & 300\\
-Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
-Outlet static temperature (Pa) & 300\\
-Solver type & Density-based\\
-Cell count & 35,000\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
+This geometry did not allow for the approach of Section~\ref{suction_side_cutbacks} where material was replaced with structured fluid mesh. For this geometry, an additional structured quaderilateral mesh block was created for cutback sizes greater than 0. This block deformed as cutbacks were increased, maintaining element spacing on the outer edge of the structured boundary layer mesh region. The sizing of this region was consistent with that used in Section~\ref{suction_side_cutbacks}, as was the design of the unstructured quaderilateral mesh for the overall domain. Figure~\ref{fig:t900_ps_cutbacks_meshes} depicts the meshes used for the cases of $0\%$, $25\%$, $50\%$, and $75\%$ cutbacks.
 
-\textcolor{red}{Present mesh with larger and better pictures, and show how the mesh is altered as the design is altered.}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.60\textwidth]{figs/T900_ps_cutbacks_meshes.png}
+	\caption{Examples of meshes for cutbacks to the pressure side of a Trent 900 NGV}
+    \label{fig:t900_ps_cutbacks_meshes}
+\end{figure}
 
-\textcolor{red}{Plot capacity trends for the centred-ejection designs vs the baseline.}
+In Figure~\ref{fig:t900_ps_cutbacks_meshes}, deformation of the bottom edge of the aforementioned mesh block is prominently visible due to the continuation of the laminar sublayer resolution arround the circumference of the vane, which requires it to bridge the gap across the trailing edge slot. The described mesh, geometry alteration strategy, and boundary conditions were used to perform 5 CFD simulations which incrementally spanned the range of cutbacks between the desribed baseline and a fully cut back pressure side. Solutions were initialised using the solver’s built-in FMG initialisation and Journal scripts as described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments and typical overall solution times were approximately 10 hours. The SST-k$\omega$ turbulence model was used.
 
-\textcolor{red}{Is there better capacity predictability because the effects of erosion are less pronounced due to the thicker flanges?}
+\subsection{Effect on capacity}
 
-\textcolor{red}{Discuss whether this loss may be worse or better if a centred-ejection design is used, still perhaps plotting more than one definition of loss.}
+Figure~\ref{fig:ps_cutbacks_choked} shows contours of Mach number in the region of the trailing edge for the described study. The depicted range of cutbacks is between $0\%$ and $100\%$. Inverse pressure ratio is $3.33$, fully choked.
 
-\textcolor{red}{When using this configuration, is there an optimal blowing rate that might re-energise the base region? Plot blowing rate vs loss, remembering that the graph I currently have is erroneously for the other type of TE, not for the centred-ejection kind. Should I try to re-run just this one thing?}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_choked_0.png}
+		\caption{Baseline}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_choked_25.png}
+		\caption{$25\%$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_choked_50.png}
+		\caption{$50\%$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_choked_75.png}
+		\caption{$75\%$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_choked_100.png}
+		\caption{$100\%$ cutback}
+	\end{subfigure}
+	\caption{Effects of cutbacks on sonic line shape for Trent 900 pressure-side cutback study, PR=3.33}
+	\label{fig:ps_cutbacks_choked}
+\end{figure}
 
-\textcolor{red}{Compare my centred-ejection TE with a "naturally-formed by erosion" centred-ejection TE from the literature.} 
+Figure~\ref{fig:ps_cutbacks_choked} illustrates that the sonic line moved incrementally upstream with increasing pressure-side cutbacks. The sonic line remained attached to the pressure side of the trailing edge at a point just upstream of where boundary layer separation occurred, and this remained true as both the pressure side and the sonic line progressed upstream as cutbacks increased. On the suction side of the adjacent vane, the sonic line attached at a point that also moved incrementally upstream. In all cases, a shock was present immediately upstream of the point of pressure-side boundary layer separation, which was in a region of high convex curvature on the vane surface. Shock-induced boundary layer separation also occured on the suction side of the trailing edge at a location that was not affected by the incremental changes to the pressure side. In cases of $25\%$ cutback or more, an additional shock appeared downstream of the pressure-side trailing edge, and appeared stronger as cutbacks increased. The overall trend observed is that increasing cutbacks caused the line of geometric minimum width to move upstream, and that the sonic line moved upstream correspondingly. This observation is supported by the relationship between the cutback amount and the nozzle's geometric throat width, which is plotted in Figure~\ref{fig:ps_cutbacks_vs_throat_widths}. The sensitivity of the sonic line shape to the full range of cutbacks is illustrated in Figure~\ref{fig:ps_cutbacks_m1_lines_illustration}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ps_cutbacks_vs_throat_widths.png}
+	\caption{NGV geometric throat width as a function of cutback amount}
+    \label{fig:ps_cutbacks_vs_throat_widths}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.7\textwidth]{figs/ps_cutbacks_m1_lines_illustration.png}
+	\caption{Effects of full range of cutbacks on sonic line shape for Trent 900 pressure-side cutbacks study, labelled by \% of flange size removed}
+    \label{fig:ps_cutbacks_m1_lines_illustration}
+\end{figure}
+
+Figures~\ref{fig:ps_cutbacks_vs_throat_widths} and~\ref{fig:ps_cutbacks_m1_lines_illustration} are in good agreement with the hypothesis that increasing the pressure-side cutbacks resulted in an upstream movement of the NGV's geometric throat line, with a corresponding increase in throat width that was approximately linearly related to the size of the cutback.
+
+Figure~\ref{fig:ps_cutbacks_vs_capacities} plots flow capacity change as a function of the amount of pressure-side cutback. The trend is plotted for 3 inverse pressure ratios: 1.50, the design value of 1.79, and a fully choked value of 3.33.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ps_cutbacks_vs_capacities.png}
+	\caption{2D capacity percentage delta as a function of pressure-side cutback amount for 3 pressure ratios}
+    \label{fig:ps_cutbacks_vs_capacities}
+\end{figure}
+
+At an inverse pressure ratio of 3.33, Figure~\ref{fig:ps_cutbacks_vs_capacities} shows a relationship between cutback amount and capacity delta that is in agreement with the hypothesis that the present changes are driven by an incremental increase in throat area. The graph of capacity versus cutback amount is similar in shape to the graph of throat width versus cutback amount in Figure~\ref{fig:ps_cutbacks_vs_throat_widths}. At the design inverse pressure ratio, capacity initially increased sharply with cutback amount but became less sensitive for greater cutbacks. At both the fully choked and the design inverse pressure ratios, $100\%$ cutback resulted in a $1\%$ increase in flow capacity. At the unchoked inverse presure ratio of 1.5, the change in capacity was slightly smaller at $0.97\%$. 
+
+Overall it was apparent that only the fully choked cases were changing in direct proportion to changes to the nozzle throat width, with $100\%$ cutback increasing both throat width and flow capacity by $1\%$. The design-condition cases and fully unchoked cases were evidently subject to aerodynamic changes downstream of the trailing edge region which allowed for greater sensitivity to smaller cutbacks and lesser sensitivity to larger cutbacks. To illustrate some of the relevant aerodnamic effects, Figure~\ref{fig:ps_cutbacks_design} shows contours of Mach number in the region of the trailing edge for the described study. The depicted range of cutbacks is between $0\%$ and $100\%$. Inverse pressure ratio is $1.79$, the design cruise condition.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_0.png}
+		\caption{Baseline}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_25.png}
+		\caption{$25\%$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_50.png}
+		\caption{$50\%$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_75.png}
+		\caption{$75\%$ cutback}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_100.png}
+		\caption{$100\%$ cutback}
+	\end{subfigure}
+	\caption{Effects of cutbacks on trailing edge aerodynamics for Trent 900 pressure-side cutback study, PR=1.79 (design)}
+	\label{fig:ps_cutbacks_design}
+\end{figure}
+
+Figure~\ref{fig:ps_cutbacks_design} shows that the trailing edge region aerodynamics remained fundamentally unchanged in the case of incremental pressure-side cutbacks at the design pressure ratio. An exception to this was the presence of a region of accelerated flow adjacent to the area near the end of the pressure side where the vane surface has high convex curvature. This feature became more pronounced as cutbacks increased, suggesting that it contributed to the non-linear relationship between cutback amount and flow capacity delta at the design inverse pressure ratio. 
+
+Another significantly changing feature occured directly downstream of this region, where the flow remained attached along part of the convex surface. The high-momentum mainstream is observed to turn towards the positive $x$-direction more as cutback increased, iminging on the low-momentum outer wake region. This resulted in reduced flow turning overall, which will be discussed subsequently. This downstream flow straightening corresponds to an expansion in the effective flow width downstream of the vane, a change which is likely a primary cause of the observed trend of capacity increasing sharply with smaller cutbacks. In the extreme, the transformation of outer wake area into mainstream area is limited by the momentum of the slow coolant flow, which prevents the mainstream from completely overwhelming the wake. This is likely the reason why both unchoked cases exhibited reduced sensitivity of capacity to cutbacks at larger cutback amounts.
+
+Figure~\ref{fig:ps_cutbacks_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at selected cutback amounts. The range of inverse pressure ratios includes the design value of $1.79$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ps_cutbacks_capacities_trends.png}
+	\caption{2D capacity trends for various pressure-side cutback amounts}
+    \label{fig:ps_cutbacks_capacities_trends}
+\end{figure}
+
+Figure~\ref{fig:ps_cutbacks_capacities_trends} is in good agreement with Figure~\ref{fig:ps_cutbacks_vs_capacities}. The capacity delta produced by a $100\%$ pressure-side cutback continuously increased with increasing inverse pressure ratio. It is concluded that, as inverse pressure ratio increased, more streamlines became choked, causing effects such as downstream flow straightening and expansion to have a reduced effect on flow capacity. When the flow was fully choked, capacity changes were almost directly proportional to the throat width changes that corresponded to the incremental cutbacks. This is complementary to the conclusions of Section~\ref{suction_side_cutbacks}, where capacity changes were primarily driven by effects other than a changing throat area, and were thus more sensitive at lower inverse pressure ratios rather than higher ones. 
+
+Capacity trends remained qualitatively similar for all cutback amounts. It is thus further concluded that the capacity trend shapes and onsets of choking were unaffected by pressure-side cutbacks, but remained a function of only inverse pressure ratio. This is likely due to the relevant geometric changes taking place downstream of the throat region. Both the conclusions of Section~\ref{suction_side_cutbacks} and this section are complementary to the results of Chapter~\ref{chapter_geometric_throat_area}.
+
+\subsection{Effect on performance}
+%\textcolor{red}{When using this configuration, is there an optimal blowing rate that might re-energise the base region? Plot blowing rate vs loss, remembering that the graph I currently have is erroneously for the other type of TE, not for the centred-ejection kind. Should I try to re-run just this one thing?}
+%\textcolor{red}{Compare my centred-ejection TE with a "naturally-formed by erosion" centred-ejection TE from the literature.} 
 
 
-A blowing rate study:
 
-\textcolor{red}{Jie Gao - Experimental and numerical investigations of trailing edge injection in a transonic turbine cascade~\cite{gao_te}}
-	\textcolor{red}{Arguing: TE coolant ejection is good for reducing the wake size and reducing shock effects on the exit angle}
-	\textcolor{red}{Raw data: Their experimental and CFD linear cascade, five-hole probe data and surface pressure plots, downstream loss profile}
-	\textcolor{red}{I discuss: Does it match my blowing rate study? Do my turning angles agree with theirs as Mach number changes? Do I see the same reduction of shocks? Do I broadly agree about the benefits of TE ejection? Remember badly-predicted turning angles are like bad capacity predictions}
-	\textcolor{red}{I also cite: Whoever's loss definition they use - why didn't they compare it to others?}
-	\textcolor{red}{My raw data: A lot of my own TE CFD}
-	
-Gao et al experimentally and numerically investigated the external flow field near the trailing edge of a linear cascade with trailing edge injection. The authors' focus was on the effects of the trailing edge coolant flow on the vane's loss mechanisms and flow exit angle. Without trailing edge injection, increased exit isentropic Mach number caused the appearance of trailing edge suction side shock waves which altered the flow angle. With trailing edge injection, there was a slight reduction in this shock effect but a strong reduction in the shock wave near the trailing edge pressure side.
+
+Simulation data were also used to evaluate the aerodynamic penalties associated with the incremental cutbacks to the pressure side at the design inverse pressure ratio of 1.79. These penalties include the change to the NGV's ability to turn the flow by the correct angle, and the effect of the cutbacks on the NGV loss.
+
+Velocity components at the domain outlet were surveyed and averaged over the length of the outlet. This resulted in a value for mean NGV turning angle for each incremental cutback. Figure~\ref{fig:ps_cutbacks_vs_turning_angles} plots turning angle deviation in degrees versus end-edge cutback amount.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ps_cutbacks_vs_turning_angles.png}
+	\caption{NGV turning angle delta as a function of pressure-side cutback amount at PR = 1.79}
+    \label{fig:ps_cutbacks_vs_turning_angles}
+\end{figure}
+
+Figure~\ref{fig:ps_cutbacks_vs_turning_angles} shows that the NGV's ability to turn the flow was slightly reduced as cutbacks increased. Complete removal of the end-edge resulted in a turning angle reduction of 0.14 degrees. This is approximately half the sensitivity to end-edge cutbacks shown to be present in Section~\ref{suction_side_cutbacks}, which was 0.3 degrees. It is suggested that the correct end-edge length is more essential for proper flow turning than the position of the trailing edge's pressure side.
+
+Overall flow turning angle was surveyed along the length of the domain outlet plane. Figure~\ref{fig:ps_cutbacks_turning_angle_surveys} plots this distribution of turning angles throughout the range of cutback amounts. On the outlet plane, 0$\rightarrow$1 denotes travel in the negative y direction, which is the direction the flow turns.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_turning_angle_surveys.png}
+	\end{subfigure}
+	\begin{subfigure}{.1125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_turning_angles_survey_legend.png}
+	\end{subfigure}
+	\caption{Outlet plane turning angle surveys for various pressure-side cutback amounts at $PR=1.79$}
+      \label{fig:ps_cutbacks_turning_angle_surveys}
+\end{figure}
+
+Figure~\ref{fig:ps_cutbacks_turning_angle_surveys} indicates that there is not an  obvious pattern to describe the changes that occured to the flow turning angle downstream of the NGV. Overall, the location of maximum turning was observed to move in the positive $y$ direction. This is both intuitive given that material is being removed from the vane, and in agreement with the similar observation from Section~\ref{suction_side_cutbacks}. It is interesting to note that the first pressure-side cutback of $25\%$ produced a small change in the location of maximum turning in the opposite direction to the general trend, although mean turning angle was slightly reduced even by this cutback amount. Subsequent cutbacks resulted in an apparent mode switch where the maximum turning location was shifted in the positive $y$ direction but was only negligibly affected by changes to cutback size between $50\%$ and $100\%$. it is suggested that this behaviour was related to the prior observation that post-throat flow straightening was possible for smaller cutback sizes but was limited by interaction between the mainstream and the slot coolant flow momentum at the larger cutback sizes.
+
+Figure~\ref{fig:ps_cutbacks_vs_losses} plots loss as a function of pressure-side cutback amount at the design pressure ratio of 1.79, where total pressure loss and kinetic energy loss are defined as in Section 3.1. Total pressure values were surveyed at the domain outlet plane and averaged to produce the loss values.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ps_cutbacks_vs_losses.png}
+	\caption{Loss as a function of pressure-side cutback amount at $PR=1.79$}
+    \label{fig:ps_cutbacks_vs_losses}
+\end{figure}
+
+Figure~\ref{fig:ps_cutbacks_vs_losses} shows that both types of loss initially increased with increasing cutbacks, but were decreasing at the final and largest cutback size. This is largely in agreement with the hypothesis that larger cutbacks produce larger wake areas which produce more loss, but the final data points suggest that a counteractive mechanism is also present and becomes dominant at the largest cutback size. This mechanism may involve the aforementioned impingement onto the pressure-side wake from the masinstream at the largest cutback size, reducing the area of this wake region and reversing the trend of increasing loss. Total pressure loss was observed to increase by approximately 0.32\% over the range of cutbacks, and kinetic energy loss by approximately 0.23\%.
+
+Loss delta is plotted as a function of capacity delta in Figure~\ref{fig:ps_capacities_vs_losses}. This plot covers the range of incremental cutbacks and is for the design inverse pressure ratio of 1.79.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/ps_capacities_vs_losses.png}
+	\caption{Loss delta as a function of capacity delta for pressure-side cutbacks at P$R=1.79$}
+    \label{fig:ps_capacities_vs_losses}
+\end{figure}
+
+Figure~\ref{fig:ps_capacities_vs_losses} shows that, as the pressure side is incrementally removed, capacity and loss do not change in direct proportion to each other. Overall capacity sensitivity was greater than overall loss sensitivity by approximately a factor of two, which is similar to the equivalent result in Sectio~\ref{suction_side_cutbacks}. At higher cutback amounts a relatively small increase in capacity corresponded to a sharp increase in loss by both definitions, except for the case of $100\%$ cutback where loss was observed to decrease as discussed.
+
+
+
+%A blowing rate study:
+%\textcolor{red}{Jie Gao - Experimental and numerical investigations of trailing edge injection in a transonic turbine cascade~\cite{gao_te}}
+%	\textcolor{red}{Arguing: TE coolant ejection is good for reducing the wake size and reducing shock effects on the exit angle}
+%	\textcolor{red}{Raw data: Their experimental and CFD linear cascade, five-hole probe data and surface pressure plots, downstream loss profile}
+%	\textcolor{red}{I discuss: Does it match my blowing rate study? Do my turning angles agree with theirs as Mach number changes? Do I see the same reduction of shocks? Do I broadly agree about the benefits of TE ejection? Remember badly-predicted turning angles are like bad capacity predictions}
+%	\textcolor{red}{I also cite: Whoever's loss definition they use - why didn't they compare it to others?}
+%	\textcolor{red}{My raw data: A lot of my own TE CFD}
+%Gao et al experimentally and numerically investigated the external flow field near the trailing edge of a linear cascade with trailing edge injection. The authors' focus was on the effects of the trailing edge coolant flow on the vane's loss mechanisms and flow exit angle. Without trailing edge injection, increased exit isentropic Mach number caused the appearance of trailing edge suction side shock waves which altered the flow angle. With trailing edge injection, there was a slight reduction in this shock effect but a strong reduction in the shock wave near the trailing edge pressure side.
 
 
 
