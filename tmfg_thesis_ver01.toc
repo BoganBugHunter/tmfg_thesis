@@ -16,6 +16,7 @@
 \contentsline {section}{\numberline {3.3}Effects of pressure-side trailing edge sizing}{48}
 \contentsline {subsection}{\numberline {3.3.1}Effect on capacity}{50}
 \contentsline {subsection}{\numberline {3.3.2}Effect on performance}{56}
+\contentsline {section}{\numberline {3.4}Chapter conclusions}{59}
 \contentsline {chapter}{\numberline {4}Leading edge}{60}
 \contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{60}
 \contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result}{63}
