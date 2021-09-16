@@ -4,42 +4,42 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Considerations for defining minimum area\relax }}{16}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Creation of 2D mid-span approximation of NGV geometry\relax }}{18}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Computational domain and boundaries\relax }}{19}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Mesh for T900 throat width variation study\relax }}{23}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Details of mesh for T900 throat width variation study\relax }}{24}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Contours of Mach number for whole solution on vane KSZ03, $\frac {p_{01}}{p_2} = 3.33$\relax }}{25}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Contours of Mach number for solution near throat on vane KSZ03, $\frac {p_{01}}{p_2} = 3.33$\relax }}{26}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Mesh for Trent 900 throat width variation study\relax }}{23}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Details of mesh for Trent 900 throat width variation study\relax }}{24}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Contours of Mach number for whole solution on vane KSZ03 at $\frac {p_{01}}{p_2}=3.33$\relax }}{25}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Contours of Mach number for solution near throat on vane KSZ03 at $\frac {p_{01}}{p_2}=3.33$\relax }}{26}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces 2D capacity trends for 6 Trent 900 NGVs\relax }}{27}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Sonic lines for 6 Trent 900 NGVs\relax }}{28}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces 2D NGV capacity percentage delta as a function of 2D throat width for 6 vanes\relax }}{29}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces 2D NGV capacity percentage delta as a function of 2D $A_{eff}$ for 6 vanes\relax }}{30}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Sonic lines for 6 Trent 900 NGVs at $\frac {p_{01}}{p_2}=3.33$\relax }}{28}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces 2D NGV capacity percentage delta as a function of 2D throat width for 6 NGVs at $\frac {p_{01}}{p_2}=1.79$ (design)\relax }}{29}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces 2D NGV capacity percentage delta as a function of 2D $A_{eff}$ for 6 NGVs at $\frac {p_{01}}{p_2}=1.79$ (design)\relax }}{30}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces 3D capacity trends for 6 Trent 900 NGVs\relax }}{31}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces 3D NGV capacity percentage delta as a function of 3D throat area for 6 vanes\relax }}{32}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces 3D NGV capacity percentage delta as a function of 3D throat area for 6 NGVs at $\frac {p_{01}}{p_2}=1.79$ (design)\relax }}{32}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Main features of Trent nozzle guide vane trailing edge\relax }}{34}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Geometry processing scheme for cutbacks to the end-edge of a Trent 900 NGV\relax }}{39}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Example of mesh for cutbacks to the end-edge of a Trent 900 NGV\relax }}{40}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Effects of small cutbacks on sonic line shape for Trent 900 end-edge erosion study\relax }}{41}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Effects of large cutbacks on sonic line shape for Trent 900 end-edge erosion study\relax }}{42}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 end-edge erosion study, labelled by $10\%$ of end-edge removed\relax }}{43}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces 2D capacity percentage delta as a function of end-edge cutback amount for $3$ pressure ratios\relax }}{43}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Contours of Mach number in the wake region of the Trent 900 end-edge erosion study at design inverse pressure ratio of $1.79$\relax }}{44}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces 2D capacity trends for various end-edge cutback amounts\relax }}{45}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces NGV turning angle delta as a function of end-edge cutback amount at $PR=1.79$\relax }}{46}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Outlet plane turning angle surveys for various end-edge cutback amounts at $PR=1.79$\relax }}{46}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Loss as a function of end-edge cutback amount at $PR=1.79$\relax }}{47}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Loss delta as a function of capacity delta for end-edge cutbacks at $PR=1.79$\relax }}{48}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Geometry processing scheme for cutbacks to the pressure side of a Trent 900 NGV\relax }}{49}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Examples of meshes for cutbacks to the pressure side of a Trent 900 NGV\relax }}{50}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Effects of cutbacks on sonic line shape for Trent 900 pressure-side cutback study, PR=3.33\relax }}{51}
-\contentsline {figure}{\numberline {3.17}{\ignorespaces NGV geometric throat width as a function of cutback amount\relax }}{52}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 pressure-side cutbacks study, labelled by \% of cutback\relax }}{52}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces 2D capacity percentage delta as a function of pressure-side cutback amount for 3 pressure ratios\relax }}{53}
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Effects of cutbacks on trailing edge aerodynamics for Trent 900 pressure-side cutback study, PR=1.79 (design)\relax }}{54}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces 2D capacity trends for various pressure-side cutback amounts\relax }}{55}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces NGV turning angle delta as a function of pressure-side cutback amount at PR = 1.79\relax }}{56}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Outlet plane turning angle surveys for various pressure-side cutback amounts at $PR=1.79$\relax }}{57}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Loss as a function of pressure-side cutback amount at $PR=1.79$\relax }}{58}
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Loss delta as a function of capacity delta for pressure-side cutbacks at P$R=1.79$\relax }}{58}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Main features of Trent nozzle guide vane trailing edge\relax }}{35}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Geometry processing scheme for cutbacks to the end-edge of a Trent 900 NGV\relax }}{40}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Example of mesh for cutbacks to the end-edge of a Trent 900 NGV\relax }}{41}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Effects of small cutbacks on sonic line shape for Trent 900 end-edge erosion study at $\frac {p_{01}}{p_2}=3.33$\relax }}{42}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Effects of large cutbacks on sonic line shape for Trent 900 end-edge erosion study at $\frac {p_{01}}{p_2}=3.33$\relax }}{43}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 end-edge erosion study, labelled by $10\%$ of end-edge removed\relax }}{44}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces 2D capacity percentage delta as a function of end-edge cutback amount for $3$ pressure ratios\relax }}{45}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Contours of Mach number in the wake region of the Trent 900 end-edge erosion study at $\frac {p_{01}}{p_2}=1.79$ (design)\relax }}{46}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces 2D capacity trends for various end-edge cutback amounts\relax }}{47}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces NGV turning angle delta as a function of end-edge cutback amount at $\frac {p_{01}}{p_2}=1.79$\relax }}{48}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Outlet plane turning angle surveys for various end-edge cutback amounts at $\frac {p_{01}}{p_2}=1.79$\relax }}{48}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Loss as a function of end-edge cutback amount at $\frac {p_{01}}{p_2}=1.79$\relax }}{49}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Loss delta as a function of capacity delta for end-edge cutbacks at $\frac {p_{01}}{p_2}=1.79$\relax }}{50}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Geometry processing scheme for cutbacks to the pressure side of a Trent 900 NGV\relax }}{51}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Examples of meshes for cutbacks to the pressure side of a Trent 900 NGV\relax }}{52}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Effects of cutbacks on sonic line shape for Trent 900 pressure-side cutback study at $\frac {p_{01}}{p_2}=3.33$\relax }}{53}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces NGV geometric throat width as a function of cutback amount\relax }}{54}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Effects of full range of cutbacks on sonic line shape for Trent 900 pressure-side cutbacks study, labelled by \% of cutback\relax }}{54}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces 2D capacity percentage delta as a function of pressure-side cutback amount for 3 pressure ratios\relax }}{55}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Effects of cutbacks on trailing edge aerodynamics for Trent 900 pressure-side cutback study at $\frac {p_{01}}{p_2}=1.79$ (design)\relax }}{56}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces 2D capacity trends for various pressure-side cutback amounts\relax }}{57}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces NGV turning angle delta as a function of pressure-side cutback amount at $\frac {p_{01}}{p_2}=1.79$\relax }}{58}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Outlet plane turning angle surveys for various pressure-side cutback amounts at $\frac {p_{01}}{p_2}=1.79$\relax }}{59}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Loss as a function of pressure-side cutback amount at $\frac {p_{01}}{p_2}=1.79$\relax }}{60}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Loss delta as a function of capacity delta for pressure-side cutbacks at P$R=1.79$\relax }}{60}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{62}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{63}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Details of mesh for XWB single cooling hole study\relax }}{64}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position\relax }}{65}
