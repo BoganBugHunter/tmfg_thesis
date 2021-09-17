@@ -1759,19 +1759,123 @@ Aerodynamic performance evaluations have included total pressure loss, kinetic e
 
 Chapter~\ref{chapter_geometric_throat_area} has discussed how variations in the nozzle guide vane's overall cast shape affect flow capacity and performance, developing analytical techniques to draw conclusions about the relevance of throat width versus other factors at different pressure ratios. Chapter~\ref{chapter_trailing_edge} has focused these analytical techniques on the NGV trailing edge, whose proximity to the throat region causes it to significantly affect capacity if its geometry is subject to small changes. This chapter will complete the present study's evaluation of near-throat variations by considering the effects of film coolant injection on the NGV suction side. 
 
-If a film cooling row is required on this part of the vane, small variations in the row's placement will cause the film coolant to be injected at various locations throughout the throat region. At choking pressure ratios, injection locations immediately upstream of the sonic line are expected to cause distinctly different effects compared to injection locations downstream of the sonic line. At all pressure ratios, varying the film coolant injection location is expected to cause variations in capacity and performance. This is due to the exchange of momentum between film coolant and mainstream, and due to the resulting variation in downstream boundary layer thickness, which directly affects the effective throat width.
- 
+If a film cooling row is required on this part of the vane, small variations in the row's placement will cause the film coolant to be injected at various locations throughout the throat region. At choking pressure ratios, injection locations immediately upstream of the sonic line are expected to cause distinctly different effects compared to injection locations downstream of the sonic line. At all pressure ratios, varying the film coolant injection location is expected to cause variations in capacity and performance. This is due to the exchange of momentum between film coolant and mainstream, and due to the resulting variation in downstream boundary layer thickness which directly affects the effective throat width.
+
+
+
 \section{sensitivity of capacity to cooling holes on the leading suction side}
 
 \textcolor{red}{Adding cooling holes causes complex effects - here discussed as loss, so I need citations for capacity too:}
 \textcolor{red}{Jie Gao - Experimental and numerical investigations of hole injection on the suction side throat of transonic turbine vanes in a cascade with trailing edge injection~\cite{gao_te_and_film_cooling}}
-		\textcolor{red}{Arguing: Like their above paper but with a SS cooling slot. It causes passage blockage, a thicker wake, and more loss. But when there are shock waves, the film coolant enhances the TE PS shock but reduces the TE SS shock, which could be used toreatly reduce the TE SS shock if the injection is upstream of the throat}
+		\textcolor{red}{Arguing: Like their above paper but with a SS cooling slot. It causes passage blockage, a thicker wake, and more loss. But when there are shock waves, the film coolant enhances the TE PS shock but reduces the TE SS shock, which could be used to greatly reduce the TE SS shock if the injection is upstream of the throat}
 		\textcolor{red}{Raw data: Their experimental and CFD linear cascade, with strong emphasis placed on the loss definitions and techniques established by Denton and Xu, Mee et al, and Schobieri}
 		\textcolor{red}{I discuss: Ways in which my SS injection might interact with the flow (including shockwaves) as they suggest. Will I see it without having TE injection too?}
 		\textcolor{red}{I also cite: Denton and Xu, Mee et al, and Schobieri for established precident on loss quantification}
 		\textcolor{red}{My raw data: My moving coolant row study}
 
 \textcolor{red}{2D CFD was done on an XWB NGV with no coolant features apart from the addition of a single cooling row on the upstream suction side. The position of this featrure was varied, thus varying whereabouts in the flow the coolant was introduced.}
+
+
+
+
+This section will consider the effects of varying the location of a single row of film cooling holes on the suction side of an otherwise uncooled nozzle guide vane. The introduction of film coolant in this region is shown to affect the NGV flow capacity, and this effect is shown to be sensitive to the precise location of the film cooling hole row. This section's results are compared to those of existing analytical and 2D CFD studies of the effects of film cooling on flow capacity.
+
+
+
+\subsection{Geometry, mesh, and boundary conditions}
+
+
+If a film cooling row is to be modelled using 2-dimensional CFD, several considerations must be made to ensure the simulation is representative of real engine conditions. These considerations fall into 2 categories, namely the correct setting of boundary conditions at the coolant inlet, and the mitigation of 3-dimensional flow phenomena that affect coolant mixing but are not captured by 2-dimensional simulations. This second set of cosiderations will be discussed in Section~\ref{quasi_3D_cfd}, which uses a case of 3D CFD to validate the present study's 2D CFD results in the presence of 3D phenomena.
+
+The coolant inlet boundary exists to model the network of passageways that feeds compressor bleed air to the film cooling holes in a real engine. The present study represents this as a small plenum connected to the coolant hole. The coolant hole is specified as a thin rectangular passage of engine-representative diameter, with no-slip walls. Total pressure is specified on the coolant plenum walls, and is calculated according to existing analytical methods which are reviewed in this section. An example of a 2D CFD domain for a single cooling row and its plenum is shown in Figure~\ref{fig:film_cooling_hole_boundary_conditions}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/film_cooling_hole_boundary_conditions.png}
+	\caption{Computational domain and boundaries for a film cooling hole and plenum}
+    \label{fig:film_cooling_hole_boundary_conditions}
+\end{figure}
+
+The setting of the correct total pressure on the film cooling hole plenum has been the subject of study. Thomas Povey~\cite{povey_film_cooling_model} produced an analytical model of the effect of film cooling on flow capacity, part of which provides a mapping between the plenum total pressure and temperature, the local static pressure, and the resulting mass flow rate of coolant from the hole in question. The model is based on the assignment of nominal values to 4 parameters, these being the coolant total pressure loss coefficient,
+\begin{equation}
+\zeta_p = 
+\frac{
+	p_{0cp} - p_{0c}
+}{
+	p_{0cp} - p_w
+}
+\end{equation}
+the cooling efficiency,
+\begin{equation}
+\eta = 
+\frac{
+	T_{0c} - T_{0cp}
+}{
+	T_w - T_{0cp}
+}
+\end{equation}
+the metal effectiveness,
+\begin{equation}
+\epsilon_M = 
+\frac{
+	T_{01} - T_w
+}{
+	T_{01} - T_{0cp}
+}
+\end{equation}
+and the design ratio of plenum total pressure to mainstream total pressure,
+\begin{equation}
+r_{cp} =
+\frac{p_{0cp}}{p_{01}}
+\end{equation}
+where $p_{0cp}$ and $T_{0cp}$ are the total pressure and temperature at the coolant plenum boundary, $p_{0c}$ and $T_{0c}$ are the coolant total pressure and temperature at the hole exit, $p_{01}$ and $T_{01}$ are the mainstream total pressure and temperature, $p_w$ is the local external static pressure, and $T_w$ is the local wall temperature. Assuming that the mainstream total pressure remains approximately constant up to the introduction of film coolant, the above definitions combine to express the coolant total pressure as
+\begin{equation}
+p_{0c} =
+p_{01}
+\left[
+\frac{p_{0cp}}{p_{01}}
+\left( 1 - \zeta_p \right)
++
+\frac{p_w}{p_{01}}
+\zeta_p
+\right]
+\end{equation}
+and the coolant total temperature as
+\begin{equation}
+T_{0c} = 
+T_{0cp}
+\left[
+\eta
+\left(
+\frac{T_{01}}{T_{0cp}} - 1
+\right)
+\left(
+1 - \epsilon_m
+\right)
++ 1
+\right]
+\end{equation}
+Having thus obtained $p_{0c}$, $T_{0c}$, the mass flow rate out of the coolant hole may be computed if the local static pressure $p_w$ is obtained by CFD or other means. Conversely this model provides a means of setting the total pressure on the plenum boundary for a given design mass flow rate of coolant and a known vane surface static pressure distribution. Nominal values assumed by the author, and used by the present study, are given in Table~\ref{film_cooling_model_nominal_values}.
+
+\begin{table}[H]
+\caption{Nominal values from film cooling model by Povey}
+\label{film_cooling_model_nominal_values}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value\\
+\hline
+Coolant total pressure loss coefficient $\zeta_p$ & 0.7\\
+Cooling efficiency $\eta$ & 0.8\\
+Metal effectiveness $\epsilon_M$ & 0.6\\
+Plenum/mainstream total pressure ratio $\frac{p_{0cp}}{p_{01}}$ & 1.025\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
 
 \textcolor{red}{Present boundary conditions.}
 \begin{table}[H]
@@ -1838,7 +1942,16 @@ Cell count & $40,000$\\
 	\textcolor{red}{Changing boundary layer thickness causing a change in effective throat area}
 
     
-\section{Consideration of corrections necessary to interpret 2D result}
+    
+    
+    
+    
+    
+    
+    
+    
+\section{Consideration of corrections necessary to interpret 2D result - 3D row matching BR}
+\label{quasi_3D_cfd}
 
 \textcolor{red}{Different:}
 
@@ -1866,7 +1979,9 @@ Cell count & $40,000$\\
 		\textcolor{red}{Arguing: A novel design for film cooling holes, using a zigzag-shaped trench, has some advantages but is only really suitable for the middle PS}
 		\textcolor{red}{Raw data: Their 3D CFD on a single-vane linear cascade, where the trench moves around various positions}
 		\textcolor{red}{I discuss: They mention BR etc, relevant to me. Their movable trench is a bit like my movable 2D slot, except it is mainly confined to the PS, whereas mine is on the SS. But my quasi-3D study could be easily adapted to repeat their study of the novel trench shape}
-		\textcolor{red}{My raw data: My Q3D study}
+		\textcolor{red}{My raw data: My Q3D study}    
+    
+
 
 
 
