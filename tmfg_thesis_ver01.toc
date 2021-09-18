@@ -23,8 +23,8 @@
 \contentsline {subsection}{\numberline {3.3.2}Effect on capacity}{53}
 \contentsline {subsection}{\numberline {3.3.3}Effect on performance}{59}
 \contentsline {section}{\numberline {3.4}Chapter conclusions}{62}
-\contentsline {chapter}{\numberline {4}Leading edge}{63}
-\contentsline {section}{\numberline {4.1}sensitivity of capacity to cooling holes on the leading suction side}{63}
+\contentsline {chapter}{\numberline {4}Film cooling}{63}
+\contentsline {section}{\numberline {4.1}Sensitivity of capacity to cooling holes on the leading suction side}{63}
 \contentsline {subsection}{\numberline {4.1.1}Geometry, mesh, and boundary conditions}{64}
 \contentsline {section}{\numberline {4.2}Consideration of corrections necessary to interpret 2D result - 3D row matching BR}{68}
 \contentsline {chapter}{Bibliography}{69}

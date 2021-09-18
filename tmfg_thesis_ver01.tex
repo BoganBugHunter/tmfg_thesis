@@ -1736,7 +1736,7 @@ Aerodynamic performance evaluations have included total pressure loss, kinetic e
 
 
 
-\chapter{Leading edge}
+\chapter{Film cooling}
 \label{chapter_leading_edge}
 %How the LE matters too.
 
@@ -1753,41 +1753,32 @@ Aerodynamic performance evaluations have included total pressure loss, kinetic e
 %2) What current models best explain the effects of film coolant row location on capacity?
 %3) What corrections are necessary to interpret these 2D slot results in the real context of 2 rows of holes?
 
-\textcolor{red}{It is sometimes necessary to add extra cooling holes on the suction-side at the LE.}
-
-\textcolor{red}{Coolant introduced into this part of the flow has complex interactions with the mainstream, affecting NGV capacity.}
+%Things that are true:
+%1) It is sometimes necessary to add extra cooling holes on the suction-side at the LE.
+%2) Coolant introduced into this part of the flow has complex interactions with the mainstream, affecting NGV capacity.
 
 Chapter~\ref{chapter_geometric_throat_area} has discussed how variations in the nozzle guide vane's overall cast shape affect flow capacity and performance, developing analytical techniques to draw conclusions about the relevance of throat width versus other factors at different pressure ratios. Chapter~\ref{chapter_trailing_edge} has focused these analytical techniques on the NGV trailing edge, whose proximity to the throat region causes it to significantly affect capacity if its geometry is subject to small changes. This chapter will complete the present study's evaluation of near-throat variations by considering the effects of film coolant injection on the NGV suction side. 
 
 If a film cooling row is required on this part of the vane, small variations in the row's placement will cause the film coolant to be injected at various locations throughout the throat region. At choking pressure ratios, injection locations immediately upstream of the sonic line are expected to cause distinctly different effects compared to injection locations downstream of the sonic line. At all pressure ratios, varying the film coolant injection location is expected to cause variations in capacity and performance. This is due to the exchange of momentum between film coolant and mainstream, and due to the resulting variation in downstream boundary layer thickness which directly affects the effective throat width.
 
 
+\section{Sensitivity of capacity to cooling holes on the leading suction side}
 
-\section{sensitivity of capacity to cooling holes on the leading suction side}
+%\textcolor{red}{Adding cooling holes causes complex effects - here discussed as loss, so I need citations for capacity too:}
+%\textcolor{red}{Jie Gao - Experimental and numerical investigations of hole injection on the suction side throat of transonic turbine vanes in a cascade with trailing edge injection~\cite{gao_te_and_film_cooling}}
+%		\textcolor{red}{Arguing: Like their above paper but with a SS cooling slot. It causes passage blockage, a thicker wake, and more loss. But when there are shock waves, the film coolant enhances the TE PS shock but reduces the TE SS shock, which could be used to greatly reduce the TE SS shock if the injection is upstream of the throat}
+%		\textcolor{red}{Raw data: Their experimental and CFD linear cascade, with strong emphasis placed on the loss definitions and techniques established by Denton and Xu, Mee et al, and Schobieri}
+%		\textcolor{red}{I discuss: Ways in which my SS injection might interact with the flow (including shockwaves) as they suggest. Will I see it without having TE injection too?}
+%		\textcolor{red}{I also cite: Denton and Xu, Mee et al, and Schobieri for established precident on loss quantification}
+%		\textcolor{red}{My raw data: My moving coolant row study}
 
-\textcolor{red}{Adding cooling holes causes complex effects - here discussed as loss, so I need citations for capacity too:}
-\textcolor{red}{Jie Gao - Experimental and numerical investigations of hole injection on the suction side throat of transonic turbine vanes in a cascade with trailing edge injection~\cite{gao_te_and_film_cooling}}
-		\textcolor{red}{Arguing: Like their above paper but with a SS cooling slot. It causes passage blockage, a thicker wake, and more loss. But when there are shock waves, the film coolant enhances the TE PS shock but reduces the TE SS shock, which could be used to greatly reduce the TE SS shock if the injection is upstream of the throat}
-		\textcolor{red}{Raw data: Their experimental and CFD linear cascade, with strong emphasis placed on the loss definitions and techniques established by Denton and Xu, Mee et al, and Schobieri}
-		\textcolor{red}{I discuss: Ways in which my SS injection might interact with the flow (including shockwaves) as they suggest. Will I see it without having TE injection too?}
-		\textcolor{red}{I also cite: Denton and Xu, Mee et al, and Schobieri for established precident on loss quantification}
-		\textcolor{red}{My raw data: My moving coolant row study}
-
-\textcolor{red}{2D CFD was done on an XWB NGV with no coolant features apart from the addition of a single cooling row on the upstream suction side. The position of this featrure was varied, thus varying whereabouts in the flow the coolant was introduced.}
-
-
-
-
-This section will consider the effects of varying the location of a single row of film cooling holes on the suction side of an otherwise uncooled nozzle guide vane. The introduction of film coolant in this region is shown to affect the NGV flow capacity, and this effect is shown to be sensitive to the precise location of the film cooling hole row. This section's results are compared to those of existing analytical and 2D CFD studies of the effects of film cooling on flow capacity.
-
-
+This section will consider the effects of varying the location of a single row of film cooling holes on the suction side of an otherwise uncooled nozzle guide vane. The introduction of film coolant in this region is shown to affect the NGV flow capacity, and this effect is shown to be sensitive to the precise location of the film cooling hole row. This section uses the Rolls-Royce Trent XWB 84K nozzle guide vane as its baseline geometry. This has been selected because it represents one of the latest iterations of contemporary large civil aero engines, introduced into service in 2015 to power the Airbus A350 XWB. Successive generations of aero engines have used increasingly high pressure ratios and combustor outlet temperatures, and thus the latest engine design is considered to be the most representative of designs most likely to require additional film cooling in future.
 
 \subsection{Geometry, mesh, and boundary conditions}
 
+If a film cooling row is to be modelled using 2-dimensional CFD, several considerations must be made to ensure the simulation is representative of real engine conditions. These considerations fall into 2 categories, namely the correct setting of boundary conditions at the coolant inlet, and the mitigation of 3-dimensional flow phenomena that affect coolant mixing but are not captured by 2-dimensional simulations. This second set of considerations will be discussed in Section~\ref{quasi_3D_cfd}, which uses a case of 3D CFD to validate the present study's 2D CFD results in the presence of 3D phenomena.
 
-If a film cooling row is to be modelled using 2-dimensional CFD, several considerations must be made to ensure the simulation is representative of real engine conditions. These considerations fall into 2 categories, namely the correct setting of boundary conditions at the coolant inlet, and the mitigation of 3-dimensional flow phenomena that affect coolant mixing but are not captured by 2-dimensional simulations. This second set of cosiderations will be discussed in Section~\ref{quasi_3D_cfd}, which uses a case of 3D CFD to validate the present study's 2D CFD results in the presence of 3D phenomena.
-
-The coolant inlet boundary exists to model the network of passageways that feeds compressor bleed air to the film cooling holes in a real engine. The present study represents this as a small plenum connected to the coolant hole. The coolant hole is specified as a thin rectangular passage of engine-representative diameter, with no-slip walls. Total pressure is specified on the coolant plenum walls, and is calculated according to existing analytical methods which are reviewed in this section. An example of a 2D CFD domain for a single cooling row and its plenum is shown in Figure~\ref{fig:film_cooling_hole_boundary_conditions}.
+The coolant inlet boundary exists to model the network of passageways that feeds compressor bleed air to the film cooling holes in a real engine. The present study represents this as a small plenum connected to the coolant hole. The coolant hole is specified as a narrow rectangular passage of engine-representative diameter, with no-slip walls. Total pressure is specified on the coolant plenum walls. An example of a 2D CFD domain for a single cooling row and its plenum is shown in Figure~\ref{fig:film_cooling_hole_boundary_conditions}.
 
 \begin{figure}[H]
 	\centering
@@ -1796,88 +1787,72 @@ The coolant inlet boundary exists to model the network of passageways that feeds
     \label{fig:film_cooling_hole_boundary_conditions}
 \end{figure}
 
-The setting of the correct total pressure on the film cooling hole plenum has been the subject of study. Thomas Povey~\cite{povey_film_cooling_model} produced an analytical model of the effect of film cooling on flow capacity, part of which provides a mapping between the plenum total pressure and temperature, the local static pressure, and the resulting mass flow rate of coolant from the hole in question. The model is based on the assignment of nominal values to 4 parameters, these being the coolant total pressure loss coefficient,
-\begin{equation}
-\zeta_p = 
-\frac{
-	p_{0cp} - p_{0c}
-}{
-	p_{0cp} - p_w
-}
-\end{equation}
-the cooling efficiency,
-\begin{equation}
-\eta = 
-\frac{
-	T_{0c} - T_{0cp}
-}{
-	T_w - T_{0cp}
-}
-\end{equation}
-the metal effectiveness,
-\begin{equation}
-\epsilon_M = 
-\frac{
-	T_{01} - T_w
-}{
-	T_{01} - T_{0cp}
-}
-\end{equation}
-and the design ratio of plenum total pressure to mainstream total pressure,
-\begin{equation}
-r_{cp} =
-\frac{p_{0cp}}{p_{01}}
-\end{equation}
-where $p_{0cp}$ and $T_{0cp}$ are the total pressure and temperature at the coolant plenum boundary, $p_{0c}$ and $T_{0c}$ are the coolant total pressure and temperature at the hole exit, $p_{01}$ and $T_{01}$ are the mainstream total pressure and temperature, $p_w$ is the local external static pressure, and $T_w$ is the local wall temperature. Assuming that the mainstream total pressure remains approximately constant up to the introduction of film coolant, the above definitions combine to express the coolant total pressure as
-\begin{equation}
-p_{0c} =
-p_{01}
-\left[
-\frac{p_{0cp}}{p_{01}}
-\left( 1 - \zeta_p \right)
-+
-\frac{p_w}{p_{01}}
-\zeta_p
-\right]
-\end{equation}
-and the coolant total temperature as
-\begin{equation}
-T_{0c} = 
-T_{0cp}
-\left[
-\eta
+The present study aims to simulate an engine-representative ratio of coolant-to-mainstream mass flow rate. Although it is optional to specifify a desired mass flow rate on an inlet boundary in CFD, this is not a realistic simulation of the physics of a nozzle guide vane, where the designer has instead specified a total pressure within each film coolant plenum. The coolant flow through the plenum and hole is then subject to a degree of total pressure loss. The resulting mass flow rate from the film cooling hole is related to the total pressure and temperature at the hole exit $p_{0c}$ and $T_{0c}$, the local mainstream static pressure $p_m$, and the hole cross-sectional area $A_h$ by an adapted form of equation~\ref{mass_flow_rate_formula}, as
+\begin{equation}\label{film_coolant_mass_flow_rate}
+\dot{m_c} =
+\frac{p_{0c}}{\sqrt[•]{T_{0c}}} \>
+A_h \;
+\sqrt[]{\frac{\gamma}{R}}
 \left(
-\frac{T_{01}}{T_{0cp}} - 1
-\right)
-\left(
-1 - \epsilon_m
-\right)
-+ 1
-\right]
+    \frac{p_m}{p_{0c}}
+\right)^\frac{1}{\gamma}
+\sqrt[•]{
+	\left(
+		\frac{2}{\gamma - 1}  
+	\right)
+	\left[
+		1 - \left( \frac{p_m}{p_{0c}} \right)^\frac{\gamma-1}{\gamma}
+	\right] 
+}
 \end{equation}
-Having thus obtained $p_{0c}$, $T_{0c}$, the mass flow rate out of the coolant hole may be computed if the local static pressure $p_w$ is obtained by CFD or other means. Conversely this model provides a means of setting the total pressure on the plenum boundary for a given design mass flow rate of coolant and a known vane surface static pressure distribution. Nominal values assumed by the author, and used by the present study, are given in Table~\ref{film_cooling_model_nominal_values}.
+For a desired value of $m_c$ and a value of $p_m$ calculated at a benchmark cooling hole location, it is thus possible to compute a required value of $p_{0c}$. This may be achieved iteratively by rearranging equation~\ref{film_coolant_mass_flow_rate} as
+\begin{equation}
+x_n =
+p_m
+\left[
+	1-
+	\frac{
+		R\left(\gamma-1\right)
+	}{
+		2\gamma
+	}
+	T_{0c}
+	\left(
+		\frac{
+			\dot{m_c}
+			x_{n-1}^{\frac{1-\gamma}{\gamma}}
+		}{
+			A_h
+			p_w^{\frac{1}{\gamma}}
+		}
+	\right)
+	^2
+\right]
+^{\frac{\gamma}{1-\gamma}}
+\end{equation}
+where $x=p_{0c}$. $T_{0c}$ is assumed to be $300 K$ as the present study does not simulate heat transfer and sets all inlets to the same temperature. Significant total pressure loss is assumed to occur between the coolant plenum and the point where the coolant exits the hole to mix with the mainstream. This loss may be quantified in a form similar to the general total pressure loss coefficient in equation~\ref{total_pressure_loss_coefficient}, as
+\begin{equation}\label{film_coolant_loss_coefficient}
+\zeta_c = 
+\frac{
+p_{0cp} - p_{0c}
+}{
+p_{0cp} - p_m
+}
+\end{equation}
+If $\zeta_c$ is assigned an engine-representative value, the required $p_{0cp}$ may be computed by rearranging equation~\ref{film_coolant_loss_coefficient} as
+\begin{equation}
+p_{0cp} =
+\frac{
+	p_{0c} - \zeta_c p_m
+}{
+	1 - \zeta_c
+}
+\end{equation}
 
-\begin{table}[H]
-\caption{Nominal values from film cooling model by Povey}
-\label{film_cooling_model_nominal_values}
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Parameter & Value\\
-\hline
-Coolant total pressure loss coefficient $\zeta_p$ & 0.7\\
-Cooling efficiency $\eta$ & 0.8\\
-Metal effectiveness $\epsilon_M$ & 0.6\\
-Plenum/mainstream total pressure ratio $\frac{p_{0cp}}{p_{01}}$ & 1.025\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
+A series of 2D CFD simulations have been performed with a single cooling hole at a range of locations throughout the nozzle guide vane throat region. The baseline geometry is the Rolls-Royce Trent XWB 84K nozzle guide vane. A 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. The NGV trailing edge was smoothly rounded as this section of study is not concerned with trailing edge effects. The NGV surface was modified to include the cooling hole and plenum with its total pressure inlet boundary condition described above. Matlab was used to parametrically generate 11 geometries by moving the single cooling hole between $0\%$ and $100\%$ of its range of travel in increments of $10\%$. The boundary conditions used for all simulations are listed in Table~\ref{SCH_parameters}. The range of hole locations is illustrated in Figure~\ref{fig:SCH_hole_range}.
 
+Simulations were performed at the design inverse pressure ratio of $1.65$ but not at a fully choked inverse pressure ratio. This desicion was made because the majority of the range of hole locations lie downstream of the nozzle's sonic line. In accordance with the other findings of this study, these locations are expected to have minimal effect on the NGV capacity.
 
-
-
-\textcolor{red}{Present boundary conditions.}
 \begin{table}[H]
 \caption{Boundary conditions for suction-side cooling hole position study}
 \label{SCH_parameters}
@@ -1889,12 +1864,14 @@ Parameter & Value\\
 NGV series & Rolls-Royce Trent XWB 84K\\
 NGV turning (degrees) & $73.97$\\
 NGV throat width (m) & $1.25 \times 10^-2$\\
-Design pressure ratio & $1.65$\\
+Design inverse pressure ratio & $1.65$\\
 Inlet total pressure (Pa) & $4.33 \times 10^6$\\
 Inlet total temperature (K) & $300$\\
 Outlet static pressure (Pa) & $2.63 \times 10^6$\\
 Outlet static temperature (Pa) & $300$\\
-Coolant/mainstream mass flow ratio & $0.003$\\
+Benchmark coolant mass flow rate & $1\%$ of mainstream\\
+Film coolant loss coefficient $\zeta_c$ & $0.7$\\
+Coolant plenum total pressure $p_{0cp}$ & $102.47\%$ of mainstream\\
 Solver type & Density-based\\
 Cell count & $40,000$\\
 \hline
@@ -1902,7 +1879,15 @@ Cell count & $40,000$\\
 \end{center}
 \end{table}
 
-\textcolor{red}{Present mesh, showing how the variable location coolant row is introduced.}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/SCH_hole_range.png}
+	\caption{Range of locations for a single suction-side film cooling hole on a Trent XWB NGV}
+    \label{fig:SCH_hole_range}
+\end{figure}
+
+Figure~\ref{fig:SCH_hole_range} depicts a range of geometries which allows the introduction of film coolant at various locations both upstream and downstream of the NGV geometric throat (and its sonic line in the case of fully choked flow). As the cooling hole and plenum consist of 2 rectangles, each was assigned a structured quaderilateral mesh that could be matched with a structured boundary layer mesh of the same design as that depicted in Figure~\ref{fig:t900_mesh_leading_edge}. Beyond this, an unstructured mesh was created to the same design as that depicted in Figure~\ref{fig:t900_mesh_whole}. Details of the resulting mesh are shown in Figure~\ref{fig:SCH_mesh} for a case where the single cooling hole is near the downstream end of its range of locations.
+
 \begin{figure}[H]
   \centering
   \begin{subfigure}{.9\textwidth}
@@ -1926,6 +1911,7 @@ Cell count & $40,000$\\
     \label{fig:SCH_mesh_3}
   \end{subfigure}
   \caption{Details of mesh for XWB single cooling hole study}
+  \label{fig:SCH_mesh}
 \end{figure}
 
 \textcolor{red}{Review the literature for why correctly modelling turbulence is important for capturing the mainstream/coolant mixing, and thus why two turbulence models are compared.}

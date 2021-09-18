@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  17 SEP 2021 22:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  18 SEP 2021 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1686,12 +1686,12 @@ LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
 
  [4] (./tmfg_thesis_ver01.lof [5
 
-])
+] [6])
 \tf@lof=\write5
 \openout5 = `tmfg_thesis_ver01.lof'.
 
 
-[6] [7] (./tmfg_thesis_ver01.lot)
+[7] (./tmfg_thesis_ver01.lot)
 \tf@lot=\write6
 \openout6 = `tmfg_thesis_ver01.lot'.
 
@@ -2408,44 +2408,57 @@ Chapter 4.
 [63
 
 ]
-<figs/film_cooling_hole_boundary_conditions.png, id=302, 616.3025pt x 389.455pt
->
+<figs/film_cooling_hole_boundary_conditions.png, id=302, 579.16376pt x 359.3425
+pt>
 File: figs/film_cooling_hole_boundary_conditions.png Graphic file (type png)
  <use figs/film_cooling_hole_boundary_conditions.png>
 Package pdftex.def Info: figs/film_cooling_hole_boundary_conditions.png used on
- input line 1794.
-(pdftex.def)             Requested size: 203.83417pt x 128.80579pt.
- [64 <./figs/film_cooling_hole_boundary_conditions.png>] [65]
-<figs/SCH_mesh_domain_placeholder.png, id=310, 980.16188pt x 572.89032pt>
+ input line 1785.
+(pdftex.def)             Requested size: 203.83417pt x 126.46811pt.
+Missing character: There is no â in font mdbchr7t!
+Missing character: There is no € in font mdbchr7t!
+Missing character: There is no ¢ in font mdbchr7t!
+Missing character: There is no â in font mdbchr7t!
+Missing character: There is no € in font mdbchr7t!
+Missing character: There is no ¢ in font mdbchr7t!
+ [64 <./figs/film_cooling_hole_boundary_conditions.png>]
+<figs/SCH_hole_range.png, id=307, 612.2875pt x 782.925pt>
+File: figs/SCH_hole_range.png Graphic file (type png)
+
+<use figs/SCH_hole_range.png>
+Package pdftex.def Info: figs/SCH_hole_range.png used on input line 1884.
+(pdftex.def)             Requested size: 203.83417pt x 260.63588pt.
+ [65]
+<figs/SCH_mesh_domain_placeholder.png, id=311, 980.16188pt x 572.89032pt>
 File: figs/SCH_mesh_domain_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_domain_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_domain_placeholder.png used on input lin
-e 1910.
+e 1895.
 (pdftex.def)             Requested size: 407.66833pt x 238.26955pt.
 
-<figs/SCH_mesh_leading_edge_placeholder.png, id=311, 535.2497pt x 479.54156pt>
+<figs/SCH_mesh_leading_edge_placeholder.png, id=312, 535.2497pt x 479.54156pt>
 File: figs/SCH_mesh_leading_edge_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_leading_edge_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_leading_edge_placeholder.png used on inp
-ut line 1917.
+ut line 1902.
 (pdftex.def)             Requested size: 203.83417pt x 182.62282pt.
 
-<figs/SCH_mesh_hole_placeholder.png, id=312, 855.195pt x 545.78906pt>
+<figs/SCH_mesh_hole_placeholder.png, id=313, 855.195pt x 545.78906pt>
 File: figs/SCH_mesh_hole_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_hole_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_hole_placeholder.png used on input line 
-1924.
+1909.
 (pdftex.def)             Requested size: 203.83417pt x 130.08429pt.
- [66]
-<figs/SCH_capacity_vs_hole_position.png, id=317, 256.7994pt x 257.5221pt>
+ [66 <./figs/SCH_hole_range.png>]
+<figs/SCH_capacity_vs_hole_position.png, id=319, 256.7994pt x 257.5221pt>
 File: figs/SCH_capacity_vs_hole_position.png Graphic file (type png)
 
 <use figs/SCH_capacity_vs_hole_position.png>
 Package pdftex.def Info: figs/SCH_capacity_vs_hole_position.png used on input l
-ine 1936.
+ine 1922.
 (pdftex.def)             Requested size: 203.83417pt x 204.40688pt.
  [67 <./figs/SCH_mesh_domain_placeholder.png> <./figs/SCH_mesh_leading_edge_pla
 ceholder.png> <./figs/SCH_mesh_hole_placeholder.png>] [68 <./figs/SCH_capacity_
@@ -2467,10 +2480,10 @@ $\T1/cmtt/m/n/10.95 https : / / www . afs . enea . it / project /
 
 ]) [71] (./tmfg_thesis_ver01.aux) ) 
 Here is how much of TeX's memory you used:
- 14663 strings out of 493117
- 261270 string characters out of 6135433
- 328879 words of memory out of 5000000
- 17588 multiletter control sequences out of 15000+600000
+ 14669 strings out of 493117
+ 261407 string characters out of 6135433
+ 327904 words of memory out of 5000000
+ 17593 multiletter control sequences out of 15000+600000
  86690 words of font info for 287 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,11n,94p,10393b,614s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2489,10 +2502,10 @@ type1/public/mathdesign/mdbch/md-chr7y.pfb></usr/local/texlive/2014/texmf-dist/
 fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb></usr/local/texlive/2014/texmf
 -dist/fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb></usr/local/texlive/201
 4/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on tmfg_thesis_ver01.pdf (72 pages, 10365742 bytes).
+Output written on tmfg_thesis_ver01.pdf (72 pages, 10372195 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
+ 382 PDF objects out of 1000 (max. 8388607)
  199 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 43866 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 43871 words of extra memory for PDF output out of 51595 (max. 10000000)
 
