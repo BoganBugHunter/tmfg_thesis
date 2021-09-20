@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  18 SEP 2021 19:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  21 SEP 2021 00:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2426,7 +2426,7 @@ Missing character: There is no ¢ in font mdbchr7t!
 File: figs/SCH_hole_range.png Graphic file (type png)
 
 <use figs/SCH_hole_range.png>
-Package pdftex.def Info: figs/SCH_hole_range.png used on input line 1884.
+Package pdftex.def Info: figs/SCH_hole_range.png used on input line 1877.
 (pdftex.def)             Requested size: 203.83417pt x 260.63588pt.
  [65]
 <figs/SCH_mesh_domain_placeholder.png, id=311, 980.16188pt x 572.89032pt>
@@ -2434,7 +2434,7 @@ File: figs/SCH_mesh_domain_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_domain_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_domain_placeholder.png used on input lin
-e 1895.
+e 1888.
 (pdftex.def)             Requested size: 407.66833pt x 238.26955pt.
 
 <figs/SCH_mesh_leading_edge_placeholder.png, id=312, 535.2497pt x 479.54156pt>
@@ -2442,7 +2442,7 @@ File: figs/SCH_mesh_leading_edge_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_leading_edge_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_leading_edge_placeholder.png used on inp
-ut line 1902.
+ut line 1895.
 (pdftex.def)             Requested size: 203.83417pt x 182.62282pt.
 
 <figs/SCH_mesh_hole_placeholder.png, id=313, 855.195pt x 545.78906pt>
@@ -2450,20 +2450,119 @@ File: figs/SCH_mesh_hole_placeholder.png Graphic file (type png)
 
 <use figs/SCH_mesh_hole_placeholder.png>
 Package pdftex.def Info: figs/SCH_mesh_hole_placeholder.png used on input line 
-1909.
+1902.
 (pdftex.def)             Requested size: 203.83417pt x 130.08429pt.
  [66 <./figs/SCH_hole_range.png>]
-<figs/SCH_capacity_vs_hole_position.png, id=319, 256.7994pt x 257.5221pt>
-File: figs/SCH_capacity_vs_hole_position.png Graphic file (type png)
+<figs/sch_mach_contours_0.png, id=319, 524.96124pt x 639.38875pt>
+File: figs/sch_mach_contours_0.png Graphic file (type png)
 
-<use figs/SCH_capacity_vs_hole_position.png>
-Package pdftex.def Info: figs/SCH_capacity_vs_hole_position.png used on input l
-ine 1922.
-(pdftex.def)             Requested size: 203.83417pt x 204.40688pt.
+<use figs/sch_mach_contours_0.png>
+Package pdftex.def Info: figs/sch_mach_contours_0.png used on input line 1923.
+(pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
+
+<figs/sch_mach_contours_1.png, id=320, 524.96124pt x 639.38875pt>
+File: figs/sch_mach_contours_1.png Graphic file (type png)
+
+<use figs/sch_mach_contours_1.png>
+Package pdftex.def Info: figs/sch_mach_contours_1.png used on input line 1930.
+(pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
+
+<figs/sch_mach_contours_2.png, id=321, 524.96124pt x 639.38875pt>
+File: figs/sch_mach_contours_2.png Graphic file (type png)
+
+<use figs/sch_mach_contours_2.png>
+Package pdftex.def Info: figs/sch_mach_contours_2.png used on input line 1936.
+(pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
+
+<figs/sch_mach_contours_3.png, id=322, 524.96124pt x 639.38875pt>
+File: figs/sch_mach_contours_3.png Graphic file (type png)
+
+<use figs/sch_mach_contours_3.png>
+Package pdftex.def Info: figs/sch_mach_contours_3.png used on input line 1942.
+(pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
+File: figs/mach_legend_choked_horizontal.png Graphic file (type png)
+
+<use figs/mach_legend_choked_horizontal.png>
+Package pdftex.def Info: figs/mach_legend_choked_horizontal.png used on input l
+ine 1947.
+(pdftex.def)             Requested size: 181.18439pt x 78.72385pt.
  [67 <./figs/SCH_mesh_domain_placeholder.png> <./figs/SCH_mesh_leading_edge_pla
-ceholder.png> <./figs/SCH_mesh_hole_placeholder.png>] [68 <./figs/SCH_capacity_
-vs_hole_position.png (PNG copy)>]
-(./tmfg_thesis_ver01.bbl [69]
+ceholder.png> <./figs/SCH_mesh_hole_placeholder.png>]
+<figs/sch_mach_contours_4.png, id=329, 524.96124pt x 639.38875pt>
+File: figs/sch_mach_contours_4.png Graphic file (type png)
+
+<use figs/sch_mach_contours_4.png>
+Package pdftex.def Info: figs/sch_mach_contours_4.png used on input line 1957.
+(pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
+
+<figs/sch_mach_contours_5.png, id=330, 524.96124pt x 639.38875pt>
+File: figs/sch_mach_contours_5.png Graphic file (type png)
+
+<use figs/sch_mach_contours_5.png>
+Package pdftex.def Info: figs/sch_mach_contours_5.png used on input line 1964.
+(pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
+
+<figs/sch_mach_contours_6.png, id=331, 524.96124pt x 639.38875pt>
+File: figs/sch_mach_contours_6.png Graphic file (type png)
+
+<use figs/sch_mach_contours_6.png>
+Package pdftex.def Info: figs/sch_mach_contours_6.png used on input line 1970.
+(pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
+File: figs/mach_legend_choked_horizontal.png Graphic file (type png)
+
+<use figs/mach_legend_choked_horizontal.png>
+Package pdftex.def Info: figs/mach_legend_choked_horizontal.png used on input l
+ine 1975.
+(pdftex.def)             Requested size: 181.18439pt x 78.72385pt.
+ [68 <./figs/sch_mach_contours_0.png> <./figs/sch_mach_contours_1.png> <./figs/
+sch_mach_contours_2.png> <./figs/sch_mach_contours_3.png>] [69 <./figs/sch_mach
+_contours_4.png> <./figs/sch_mach_contours_5.png> <./figs/sch_mach_contours_6.p
+ng>]
+<figs/sch_hole_location_vs_capacity.png, id=345, 289.08pt x 289.08pt>
+File: figs/sch_hole_location_vs_capacity.png Graphic file (type png)
+
+<use figs/sch_hole_location_vs_capacity.png>
+Package pdftex.def Info: figs/sch_hole_location_vs_capacity.png used on input l
+ine 2006.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+ [70 <./figs/sch_hole_location_vs_capacity.png (PNG copy)>]
+<figs/sch_surface_isentropic_mach_number_vs_capacity.png, id=349, 289.08pt x 28
+9.08pt>
+File: figs/sch_surface_isentropic_mach_number_vs_capacity.png Graphic file (typ
+e png)
+ <use figs/sch_surface_isentropic_mach_number_vs_capacity.png>
+Package pdftex.def Info: figs/sch_surface_isentropic_mach_number_vs_capacity.pn
+g used on input line 2031.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+ [71 <./figs/sch_surface_isentropic_mach_number_vs_capacity.png (PNG copy)>]
+<figs/sch_hole_location_vs_coolant_capacity.png, id=353, 289.08pt x 289.08pt>
+File: figs/sch_hole_location_vs_coolant_capacity.png Graphic file (type png)
+
+<use figs/sch_hole_location_vs_coolant_capacity.png>
+Package pdftex.def Info: figs/sch_hole_location_vs_coolant_capacity.png used on
+ input line 2048.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+
+<figs/sch_static_pressure_coefficient_vs_coolant_capacity.png, id=354, 289.08pt
+ x 289.08pt>
+File: figs/sch_static_pressure_coefficient_vs_coolant_capacity.png Graphic file
+ (type png)
+
+<use figs/sch_static_pressure_coefficient_vs_coolant_capacity.png>
+Package pdftex.def Info: figs/sch_static_pressure_coefficient_vs_coolant_capaci
+ty.png used on input line 2066.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+ [72 <./figs/sch_hole_location_vs_coolant_capacity.png (PNG copy)>]
+<figs/sch_hole_location_vs_loss.png, id=359, 289.08pt x 289.08pt>
+File: figs/sch_hole_location_vs_loss.png Graphic file (type png)
+
+<use figs/sch_hole_location_vs_loss.png>
+Package pdftex.def Info: figs/sch_hole_location_vs_loss.png used on input line 
+2079.
+(pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
+ [73 <./figs/sch_static_pressure_coefficient_vs_coolant_capacity.png (PNG copy)
+> <./figs/sch_hole_location_vs_loss.png (PNG copy)>] (./tmfg_thesis_ver01.bbl [
+74]
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
 (Font)              scaled to size 11.73846pt on input line 40.
 Package microtype Info: Loading generic settings for font family
@@ -2476,36 +2575,36 @@ Underfull \hbox (badness 1038) in paragraph at lines 39--43
 $\T1/cmtt/m/n/10.95 https : / / www . afs . enea . it / project /
  []
 
-[70
+) [75
 
-]) [71] (./tmfg_thesis_ver01.aux) ) 
+] (./tmfg_thesis_ver01.aux) ) 
 Here is how much of TeX's memory you used:
- 14669 strings out of 493117
- 261407 string characters out of 6135433
- 327904 words of memory out of 5000000
- 17593 multiletter control sequences out of 15000+600000
- 86690 words of font info for 287 fonts, out of 8000000 for 9000
+ 14735 strings out of 493117
+ 263757 string characters out of 6135433
+ 328959 words of memory out of 5000000
+ 17640 multiletter control sequences out of 15000+600000
+ 87144 words of font info for 293 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,11n,94p,10393b,614s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/en
-c/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/
-dvips/ly1/texnansi.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea
-/charter/bchb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/ch
-arter/bchbi8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/char
-ter/bchr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/charter
-/bchri8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/
-mdbch/md-chb7y.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathd
-esign/mdbch/md-chr7m.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
-/mathdesign/mdbch/md-chr7t.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
-public/mathdesign/mdbch/md-chr7v.pfb></usr/local/texlive/2014/texmf-dist/fonts/
-type1/public/mathdesign/mdbch/md-chr7y.pfb></usr/local/texlive/2014/texmf-dist/
-fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb></usr/local/texlive/2014/texmf
--dist/fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on tmfg_thesis_ver01.pdf (72 pages, 10372195 bytes).
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvip
+s/cm-super/cm-super-t1.enc}{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/
+ly1/texnansi.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/chart
+er/bchb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/charter/
+bchbi8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/charter/bc
+hr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/bitstrea/charter/bchri
+8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/mdbch/
+md-chb7y.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathdesign/
+mdbch/md-chr7m.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/mathd
+esign/mdbch/md-chr7t.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public
+/mathdesign/mdbch/md-chr7v.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
+public/mathdesign/mdbch/md-chr7y.pfb></usr/local/texlive/2014/texmf-dist/fonts/
+type1/public/mathdesign/mdbch/md-chr8t.pfb></usr/local/texlive/2014/texmf-dist/
+fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on tmfg_thesis_ver01.pdf (76 pages, 12443710 bytes).
 PDF statistics:
- 382 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
+ 415 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 43871 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 43926 words of extra memory for PDF output out of 51595 (max. 10000000)
 

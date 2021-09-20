@@ -72,21 +72,4 @@ M.~Deckers and J.~D. Denton, ``The aerodynamics of trailing-edge-cooled
 S.~M. Jones, W.~J. Haller, and M.~T. Tong, ``An n+3 technology level reference
   propulsion system,'' {\em NASA technical memorandum}, 2017.
 
-\bibitem{ravelli_engine_conditions}
-S.~Ravelli, H.~Abdeh, and G.~Barigozzi, ``Numerical assessment of density ratio
-  and mainstream turbulence effects on leading edge film cooling: Heat and mass
-  transfer methods,'' {\em Proceedings of ASME Turbo Expo}, 2020.
-
-\bibitem{barigozzi_film_cooling}
-G.~Barigozzi, L.~Casarsa, F.~Pagnacco, and S.~Rouina, ``Experimental
-  investigation of the interaction between showerhead coolant jets and main
-  flow,'' {\em Elsevier Journal of Experimental Thermal and Fluid Science},
-  vol.~104, pp.~43--58, 2019.
-
-\bibitem{he_film_cooling}
-W.~He, Q.~Deng, W.~Zhou, T.~Gau, and Z.~Feng, ``Film cooling and aerodynamic
-  performances of a turbine nozzle guide vane t with trenched cooling holes,''
-  {\em Elsevier Journal of Applied Thermal Engineering}, vol.~150,
-  pp.~150--163, 2019.
-
 \end{thebibliography}
