@@ -1915,7 +1915,7 @@ plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_ove
 plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,6)./T900_capacities_2D(18,2), 'c-')
 
 xlim([1.5 2.5])
-xlabel('NGV pressure ratio (p_{01}/p_{2})')
+xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('\Delta capacity, %')
 design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',font_size);
 design_line.LabelVerticalAlignment = 'bottom';
@@ -1943,7 +1943,7 @@ print('../../figs/ps_cutbacks_capacities_trends','-dpng','-r300');
 figure(14)
 plot(25*ps_cutback_throat_widths(:,1), 100*ps_cutback_throat_widths(:,2)/ps_cutback_throat_widths(1,2)-100, 'ko-')
 xlabel('Cutback amount, %')
-ylabel('Change in throat width, %')
+ylabel('\Delta throat width, %')
 %Here we set up the axes
 pos = get(gcf, 'Position');
 set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
@@ -1966,7 +1966,7 @@ hold on
 plot(0:25:100, 100*ps_cutback_capacities_design(:,2)/ps_cutback_capacities_design(1,2)-100, 'bo-')
 plot(0:25:100, 100*ps_cutback_capacities_design(:,3)/ps_cutback_capacities_design(1,3)-100, 'mo-')
 xlabel('Cutback amount, %')
-ylabel('\Delta Capacity, %')
+ylabel('\Delta capacity, %')
 legend('PR = 1.50', 'PR = 1.79 (design)', 'PR = 3.33', 'Location', 'southeast')
 %ylim([95 104])
 %Here we set up the axes

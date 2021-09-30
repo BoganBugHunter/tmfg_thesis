@@ -102,23 +102,34 @@ m_c = mass_flow_rates(:,4);
 
 p_m = mass_flow_rates(:,5) + fluent_operating_pressure;
 
-p_0c = zeta_p*p_m(:) + (1-zeta_p)*p_0cp;
+p_0c = zeta_p.*p_m(:) + (1-zeta_p)*p_0cp;
+ 
+G_c = ( sqrt(T_0c)/p_0cp ).*m_c;
 
-G_c = ( sqrt(T_0c)./p_0c )*m_c_benchmark;
 
-
-%work out the inlet capacities
+%work out the capacities
 
 m_in = mass_flow_rates(:,2);
 
-G_in = ( sqrt(T_0m)./p_0m ).*m_in;
+G_in = ( sqrt(T_0m)/p_0m ).*m_in;
 
-G_out = G_c + G_in;
+G_out = ( sqrt(T_0m)/p_0m ).*( m_in + m_c );
+
+G_baseline = ( sqrt(T_0m)/p_0m )*baseline;
 
 
 
 %define a surface pressure coefficient
 C_p = (p_m-min(p_m))/(max(p_m)-min(p_m));
+%C_p = p_m;
+%C_p = p_0cp./p_m;
+
+%define the critical pressure ratio
+r_crit = ((gamma+1)/2)^(gamma/(1-gamma));
+
+%define a coolant isentropic capacity
+G_c_isent = (sqrt(T_0c)/p_0cp).*(p_0c/sqrt(T_0c))*A_h.*sqrt(gamma/R).*(p_m./p_0c).^(1/gamma).*sqrt( (2/(gamma-1)).*( 1 - (p_m./p_0c).^((gamma-1)/gamma) ) );
+
 
 %define a surface isentropic Mach number
 M_surf = sqrt( (2/(gamma-1))*( (p_0m./p_m).^((gamma-1)/gamma) -1 ) );
@@ -153,14 +164,18 @@ geometric_throat_normalised = (50/27)*(geometric_throat_location - 26);
 
 
 figure(1)
-plot(hole_positions,100*(G_in/G_in(1,1) - 1), 'r-o')
+plot(hole_positions,100*(G_in/G_baseline - 1), 'r-o')
 hold on
-plot(hole_positions,100*(G_out/G_out(1,1) - 1), 'b-o')
+plot(hole_positions,100*(G_out/G_baseline - 1), 'b-o')
 
 xlabel('Distance along suction side, % of range')
-ylabel('\Delta capacity, %')
+ylabel('\Delta capacity, % of baseline')
 throat_line = xline(geometric_throat_normalised,'-k',{'Geometric throat'},'FontName','Charter','FontSize',font_size);
 throat_line.LabelVerticalAlignment = 'top';
+throat_line.LabelHorizontalAlignment = 'left';
+baseline_line = yline(100*(G_baseline/G_baseline - 1),'-k',{'Baseline'},'FontName','Charter','FontSize',font_size);
+baseline_line.LabelVerticalAlignment = 'bottom';
+baseline_line.LabelHorizontalAlignment = 'right';
 legend('\Gamma_{in}', '\Gamma_{out}', 'Location', 'southeast')
 
 %Here we set up the axes
@@ -181,6 +196,8 @@ print('../../figs/sch_hole_location_vs_capacity','-dpng','-r300');
 
 figure(2)
 plot(hole_positions,100*(G_c/G_c(1,1) - 1), 'k-o')
+%hold on
+%plot(hole_positions,100*(G_c_isent/G_c_isent(1,1) - 1), 'r-o')
 
 xlabel('Distance along suction side, % of range')
 ylabel('\Delta  coolant capacity, %')
@@ -204,36 +221,18 @@ print('../../figs/sch_hole_location_vs_coolant_capacity','-dpng','-r300');
 
 
 figure(3)
-plot(  C_p,  100*(G_in/G_in(1,1) - 1), 'r-o')
+plot(  M_surf, 100*(G_in/G_baseline - 1), 'r-o')
 hold on
-plot(  C_p,  100*(G_out/G_out(1,1) - 1), 'b-o')
+plot(  M_surf, 100*(G_out/G_baseline - 1), 'b-o')
 
-xlabel('Surface static pressure coefficient')
-ylabel('\Delta  capacity, %')
-
-%Here we set up the axes
-pos = get(gcf, 'Position');
-set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
-set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
-set(gca,'FontName','Charter','FontSize',font_size)
-% Here we preserve the size of the image when we save it.
-set(gcf,'InvertHardcopy','on');
-set(gcf,'PaperUnits', 'inches');
-papersize = get(gcf, 'PaperSize');
-left = (papersize(1)- figure_width)/2;
-bottom = (papersize(2)- figure_height)/2;
-myfiguresize = [left, bottom, figure_width, figure_height];
-set(gcf,'PaperPosition', myfiguresize);
-print('../../figs/sch_static_pressure_coefficient_vs_capacity','-dpng','-r300');
-
-
-figure(4)
-plot(  M_surf,  100*(G_in/G_in(1,1) - 1), 'r-o')
-hold on
-plot(  M_surf,  100*(G_out/G_out(1,1) - 1), 'b-o')
-
+%labels = {'0','7','26','44','63','81','100'};
+%text(M_surf, 100*(G_out/G_out(1,1) - 1), labels,'VerticalAlignment','bottom','HorizontalAlignment','right')
 xlabel('Surface isentropic Mach number')
-ylabel('\Delta capacity, %')
+ylabel('\Delta capacity, % of baseline')
+baseline_line = yline(100*(G_baseline/G_baseline - 1),'-k',{'Baseline'},'FontName','Charter','FontSize',font_size);
+baseline_line.LabelVerticalAlignment = 'top';
+baseline_line.LabelHorizontalAlignment = 'left';
+legend('\Gamma_{in}', '\Gamma_{out}', 'Location', 'northwest')
 
 %Here we set up the axes
 pos = get(gcf, 'Position');
@@ -251,11 +250,14 @@ set(gcf,'PaperPosition', myfiguresize);
 print('../../figs/sch_surface_isentropic_mach_number_vs_capacity','-dpng','-r300');
 
 
-figure(5)
-plot(  C_p,  100*(G_c/G_c(1,1) - 1), 'k-o')
+figure(4)
+%plot(  C_p,  100*(G_c/G_c(1,1) - 1), 'k-o')
+plot(  100*(G_c_isent/G_c_isent(1,1) - 1),  100*(G_c/G_c(1,1) - 1), 'k-o')
 
-xlabel('Surface static pressure coefficient')
+xlabel('\Delta coolant isentropic capacity, %')
 ylabel('\Delta  coolant capacity, %')
+%choked_line = xline(100*(G_c_isent_choked/G_c_isent(1,1) - 1),'-k',{'Geometric throat'},'FontName','Charter','FontSize',font_size);
+%choked_line.LabelVerticalAlignment = 'bottom';
 
 %Here we set up the axes
 pos = get(gcf, 'Position');
@@ -270,10 +272,10 @@ left = (papersize(1)- figure_width)/2;
 bottom = (papersize(2)- figure_height)/2;
 myfiguresize = [left, bottom, figure_width, figure_height];
 set(gcf,'PaperPosition', myfiguresize);
-print('../../figs/sch_static_pressure_coefficient_vs_coolant_capacity','-dpng','-r300');
+print('../../figs/sch_coolant_isentropic_capacity_vs_coolant_capacity','-dpng','-r300');
 
 
-figure(6)
+figure(5)
 plot(hole_positions,100*loss, 'k-o')
 
 xlabel('Distance along suction side, % of range')

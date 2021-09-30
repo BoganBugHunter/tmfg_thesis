@@ -19,7 +19,7 @@
 % stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
 
 %%% other formatting improvement or adjustment packages
-\usepackage[margin=1.0in]{geometry} % set the size of all margins in inches
+\usepackage[margin=1.00in]{geometry} % set the size of all margins in inches. nominal 1.00in
 \setlength{\parindent}{0em} % don't indent paragraphs
 \setlength{\parskip}{1em} % space between paragraphs
 
@@ -90,6 +90,7 @@
 
 
 \chapter{Introduction}
+\label{chapter_introduction}
 %--Include some derivation of how capacity prediction errors can cause exponentially increasing errors in later stages
 %--In the relevant chapter, extend capacity to 2D to show how it becomes more nuanced
 
@@ -399,13 +400,17 @@ NGVs are cast to high precision. Chapter~\ref{chapter_geometric_throat_area} wil
 
 Chapter~\ref{chapter_trailing_edge} will discuss the other way in which NGV manufacturing introduces geometric variations that reduce capacity predictability, namely the machining of the trailing edge shape. The machining is designed to optimise the trailing edge's aerodynamics, and not necessarily to minimise variations in its shape. The chapter presents 2D CFD analyses of the effects of variable trailing edge cutback sizing on the 2D flow field and resulting flow capacity of the NGV. To address the variability of contemporary trailing edge designs and to examine the possibility of thicker trailing edges in the event of novel manufacturing methods, the chapter presents 2D CFD analyses of a design without a cutback. This design's loss performance is analysed, informed by a review of various definitions of loss from the literature, where a lack of consensus on a loss definition is demonstrated.
 
-Chapter~\ref{chapter_leading_edge} will analyse the effects of film coolant injection location on both flow capacity and loss. The chapter discusses the possible requirement for an additional suction-side film cooling hole row to be added to NGVs. Given the variability inherent in the process of drilling film cooling holes, justification is given for a 2D CFD study of the effects of hole location on flow capacity and loss, analogous to the variable trailing edge study of Chapter~\ref{chapter_trailing_edge}. A correlation between hole location and flow capacity is analysed, as is the hole location's effect on loss. The chapter also presents a quasi-3D CFD study to demonstrate that 2D CFD (which amounts to a cooling slot) does not accurately model the discharge and mixing phenomena of a row of circular holes.
+Chapter~\ref{chapter_leading_edge} will analyse the effects of film coolant injection location on both flow capacity and loss. The chapter discusses the possible requirement for an additional suction-side film cooling hole row to be added to NGVs. Given the variability inherent in the process of drilling film cooling holes, justification is given for a 2D CFD study of the effects of hole location on flow capacity and loss, analogous to the variable trailing edge study of Chapter~\ref{chapter_trailing_edge}. A correlation between hole location and flow capacity is analysed, as is the hole location's effect on loss. %The chapter also presents a quasi-3D CFD study to demonstrate that 2D CFD (which amounts to a cooling slot) does not accurately model the discharge and mixing phenomena of a row of circular holes.
 
 Literature review will not be the subject of its own chapter. Literature will be reviewed throughout the thesis whenever relevant to the topic under discussion.
 
 \section{Summary of findings}
 
-\textcolor{red}{Write this after you've got the findings.}
+Chapter~\ref{chapter_geometric_throat_area} will find geometric throat width to be a useful predictor of 2-dimensional nozzle guide vane flow capacity. However, the accuracy of the prediction is shown to be dependant on the feasibility of predicting the shape of the sonic line when the NGV is fully choked. If the sonic line is known to not vary significantly in shape within a given production standard of NGV, designers may have more confidence in using the geometric throat area to predict capacity without the use of CFD. In general, capacity predictability is challenged by the reduction of effective throat area by boundary layers whose thickness is difficult to define. In 3 dimensions, capacity predictability is further challenged by the existence of secondary flows.
+
+Chapter~\ref{chapter_trailing_edge} will show how changes to the NGV trailing edge geometry affect capacity differently at different pressure ratios. Changes to the NGV suction side trailing edge have little effect at fully-choked pressure ratios, whereas changes to the pressure side have a significant effect at the same pressure ratios. This is shown to result from the relative importance of the throat width when the flow is choked, compared to when it is not. At unchoked pressure ratios, it is possible for post-throat geometric changes to have a significant effect on capacity. The chapter will also present a detailed investigation of the aerodynamic penalties of altering the NGV trailing edge.
+
+Chapter~\ref{chapter_leading_edge} will show that the introduction of film coolant on the NGV suction side has a significant effect on capacity. Coolant injection into locally slower regions is found to have a minimal penalty on both capacity and loss, and in extreme cases to even increase the capacity. Coolant injection into locally faster regions is found to cause a reduction in the capacity. The coolant injection is argued to be equivalent to a change in the effective area at the point of injection, which is in agreement with the arguments about effective area presented in the earlier chapters.
 
 \chapter{Geometric throat area}
 \label{chapter_geometric_throat_area}
@@ -455,7 +460,7 @@ where $\vu*{v}$ is the unit vector of local flow velocity, $\vu*{r}$ is the unit
 	\begin{subfigure}{.45\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/illustration_of_equivalent_throat_area_integral_ver03.png}
-		\caption{Integral for 2D nozzle equivalent throat area}
+		\caption{Integral for 2D nozzle equivalent throat area \hfill \break}
 		\label{fig:illustration_of_equivalent_throat_area_integral}
 	\end{subfigure}
 	\caption{Considerations for defining minimum area}
@@ -519,14 +524,14 @@ This configuration has been the basis for all other 2D CFD analyses in the prese
 Parameter & Value\\
 \hline
 NGV series & Rolls-Royce Trent 900\\
-NGV turning (degrees) & 76.89\\
-Inverse pressure ratio $\frac{p_{01}}{p_2}$ & 1.79, 3.33\\
+NGV turning (degrees) & $76.89$\\
+Inverse pressure ratio $\frac{p_{01}}{p_2}$ & $1.79$, $3.33$\\
 Inlet total pressure (Pa) & $4.33 \times 10^6$\\
-Inlet total temperature (K) & 300\\
+Inlet total temperature (K) & $300$\\
 Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
-Outlet static temperature (Pa) & 300\\
+Outlet static temperature (K) & $300$\\
 Solver type & Density-based\\
-Cell count & 35,000\\
+Cell count & $35,000$\\
 \hline
 \end{tabular}
 \end{center}
@@ -993,7 +998,7 @@ Nozzle guide vane flow capacity correlates well with $A_{eff}$ at the design pre
 Conclusions are more difficult to draw in the case of 3D capacity, where a 3D extension of the $A_{eff}$ approach is rational but would require careful adjustment for the delayed onset of choking in 3D compared to 2D. Where Section~\ref{section_1d_vs_2d_capacity_uncertainty} suggested a boundary-layer model as a future addition to the technique, Section~\ref{2d_vs_3d_capacity_uncertainty} has presented data from 3D geometries for which the equivalent inverse pressure ratio of $3.33$ would produce significant regions of secondary flow which are not choked. These regions may be accounted for by an appropriate model or negated by the use of an even higher inverse pressure ratio. The overall conclusion of this chapter is that future analyses of casting variations versus flow capacity should involve 3D simulation, should account for both boundary layers and secondary flows when conceptualising $A_{eff}$ in 3D, and should use a statistically significant number of scanned vanes to produce two key metrics. Firstly the mean departure of the vanes' sonic surfaces from the surface of minimum area will reveal whether the minimum area is a useful capacity predictor for that production standard. Secondly the variance of the vanes' sonic line shapes will indicate that production standard's capacity uncertainty.
 
 
-\chapter{Trailing edge}
+\chapter{Trailing edge shape}
 \label{chapter_trailing_edge}
 %How the trailing edge can drive capacity changes (and loss changes incidentally). These changes are discussed as those happening in-life to the existing engine parts, and also those resulting from an alternative design.
 %Why am I including "loss" here, when this part is really about the robustness of capacity predictions on vanes that will change shape with wear? Because the proposed alternative design needs to be decent for loss to be a viable alternative.
@@ -1251,15 +1256,15 @@ Simulations were performed at a range of inverse pressure ratios between $1.5$ a
 Parameter & Value\\
 \hline
 NGV series & Rolls-Royce Trent 900\\
-NGV turning (degrees) & 76.89\\
-Inverse pressure ratio $\frac{p_{01}}{p_2}$ & 1.5, 1.79, 3.33\\
+NGV turning (degrees) & $76.89$\\
+Inverse pressure ratio $\frac{p_{01}}{p_2}$ & $1.5$, $1.79$, $3.33$\\
 Inlet total pressure (Pa) & $4.33 \times 10^6$\\
-Inlet total temperature (K) & 300\\
+Inlet total temperature (K) & $300$\\
 Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
-Outlet static temperature (Pa) & 300\\
-Coolant mass flow rate & 3\% of mainstream \\
+Outlet static temperature (K) & $300$\\
+Coolant mass flow rate & $3.00\%$ of mainstream \\
 Solver type & Density-based\\
-Cell count & 35,000\\
+Cell count & $35,000$\\
 \hline
 \end{tabular}
 \end{center}
@@ -1736,7 +1741,7 @@ Aerodynamic performance evaluations have included total pressure loss, kinetic e
 
 
 
-\chapter{Film cooling}
+\chapter{Film cooling location}
 \label{chapter_leading_edge}
 %How the LE matters too.
 
@@ -1763,6 +1768,7 @@ If a film cooling row is required on this part of the vane, small variations in 
 
 
 \section{Sensitivity of capacity to cooling holes on the leading suction side}
+\label{sensitivity_of_capacity_to_cooling_holes_on_the_leading_suction_side}
 
 %\textcolor{red}{Adding cooling holes causes complex effects - here discussed as loss, so I need citations for capacity too:}
 %\textcolor{red}{Jie Gao - Experimental and numerical investigations of hole injection on the suction side throat of transonic turbine vanes in a cascade with trailing edge injection~\cite{gao_te_and_film_cooling}}
@@ -1772,9 +1778,22 @@ If a film cooling row is required on this part of the vane, small variations in 
 %		\textcolor{red}{I also cite: Denton and Xu, Mee et al, and Schobieri for established precident on loss quantification}
 %		\textcolor{red}{My raw data: My moving coolant row study}
 
-This section will consider the effects of varying the location of a single row of film cooling holes on the suction side of an otherwise uncooled nozzle guide vane. The introduction of film coolant in this region is shown to affect the NGV flow capacity, and this effect is shown to be sensitive to the precise location of the film cooling hole row. This section uses the Rolls-Royce Trent XWB 84K nozzle guide vane as its baseline geometry. This has been selected because it represents one of the latest iterations of contemporary large civil aero engines, introduced into service in 2015 to power the Airbus A350 XWB. Successive generations of aero engines such as the Trent XWB 96K have used increasingly high pressure ratios and combustor outlet temperatures, and thus the latest engine design is considered to be the most representative of designs most likely to require additional film cooling in future.
+This section will consider the effects of varying the location of a single row of film cooling holes on the suction side of an otherwise uncooled nozzle guide vane. Real NGVs have a full showerhead of cooling holes on their leading edge, whose capacity and aerodynamic effects are far greater than those caused by the addition of a single row. These cooling holes are known to be necessary to prevent rapid failure of the NGV. The present study's goal is to control for the effects of the showerhead by simulating only a single film cooling row on the NGV suction side. Conventionally, film cooling has been avoided in this area to minimise loss, but newer engine combustor outlet temperatures are more likely to require suction side films in future. It is thus timely to understand their effects on flow capacity and aerodynamic performance. 
+
+The introduction of film coolant in this region is shown to affect the NGV flow capacity, and this effect is shown to be sensitive to the precise location of the film cooling hole row. This section uses the Rolls-Royce Trent XWB 84K nozzle guide vane as its baseline geometry. This has been selected because it represents one of the latest iterations of contemporary large civil aero engines, introduced into service in 2015 to power the Airbus A350 XWB. Successive generations of aero engines such as the Trent XWB 97K have used increasingly high pressure ratios and combustor outlet temperatures, and thus the latest engine design is considered to be the most representative of designs most likely to require additional film cooling in future.
 
 \subsection{Geometry, mesh, and boundary conditions}
+
+A series of 2D CFD simulations were performed with a single cooling hole at a range of locations throughout the nozzle guide vane throat region. The blade profile geometry is the Rolls-Royce Trent XWB 84K nozzle guide vane. A 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. The NGV trailing edge was smoothly rounded as this section of study is not concerned with trailing edge effects. The NGV surface was modified to include a single cooling hole consisting of a slot and plenum with its total pressure inlet boundary condition described above. Matlab was used to parametrically generate 7 geometries by moving the single cooling hole between $0\%$ and $100\%$ of its possible range of physical locations on the NGV suction side in increments of approximately $16\%$, although spacing of simulated hole locations was closer in the throat region of the nozzle. The range of hole locations is illustrated in Figure~\ref{fig:SCH_hole_range}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/SCH_hole_range.png}
+	\caption{Range of locations for a single suction-side film cooling hole on a Trent XWB NGV}
+    \label{fig:SCH_hole_range}
+\end{figure}
+
+Simulations were performed at the design inverse pressure ratio of $1.65$ but not at a fully choked inverse pressure ratio. This desicion was made because the majority of the range of hole locations lie downstream of the nozzle's sonic line. In accordance with the other findings of this study, these locations are expected to have minimal effect on the NGV capacity.
 
 If a film cooling row is to be modelled using 2-dimensional CFD, several considerations must be made to ensure the simulation is representative of real engine conditions. These considerations fall into 2 categories, namely the correct setting of boundary conditions at the coolant inlet, and the mitigation of 3-dimensional flow phenomena that affect coolant mixing but are not captured by 2-dimensional simulations. %This second set of considerations will be discussed in Section~\ref{quasi_3D_cfd}, which uses a case of 3D CFD to validate the present study's 2D CFD results in the presence of 3D phenomena.
 
@@ -1787,7 +1806,7 @@ The coolant inlet boundary exists to model the network of passageways that feeds
     \label{fig:film_cooling_hole_boundary_conditions}
 \end{figure}
 
-The present study aims to simulate an engine-representative ratio of coolant-to-mainstream mass flow rate. Although it is optional to specifify a desired mass flow rate on an inlet boundary in CFD, this is not a realistic simulation of the physics of a nozzle guide vane, where the designer has instead specified a total pressure within each film coolant plenum. The coolant flow through the plenum and hole is then subject to a degree of total pressure loss. The resulting mass flow rate from the film cooling hole is related to the total pressure and temperature at the hole exit $p_{0c}$ and $T_{0c}$, the local mainstream static pressure $p_m$, and the hole cross-sectional area $A_h$ by an adapted form of equation~\ref{mass_flow_rate_formula}, as
+The present study aims to simulate an engine-representative ratio of coolant-to-mainstream mass flow rate. Although it is optional to specify a desired mass flow rate on an inlet boundary in CFD, this is not a realistic simulation of the physics of a nozzle guide vane, where the designer has instead targeted a total pressure within each film coolant plenum. The coolant flow through the plenum and hole is then subject to a degree of total pressure loss. The resulting ideal isentropic mass flow rate from the film cooling hole is related to the total pressure and temperature at the hole exit $p_{0c}$ and $T_{0c}$, the local mainstream static pressure $p_m$, and the hole cross-sectional area $A_h$ by an adapted form of equation~\ref{mass_flow_rate_formula}, as
 \begin{equation}\label{film_coolant_mass_flow_rate}
 \dot{m_c} =
 \frac{p_{0c}}{\sqrt[•]{T_{0c}}} \>
@@ -1805,7 +1824,7 @@ A_h \;
 	\right] 
 }
 \end{equation}
-For a desired value of $\dot{m_c}$ and a value of $p_m$ calculated at a benchmark cooling hole location, it is thus possible to compute a required value of $p_{0c}$. This may be achieved iteratively by rearranging equation~\ref{film_coolant_mass_flow_rate} as
+For a desired value of $\dot{m_c}$ and a value of $p_m$ calculated at a benchmark cooling hole location, it is thus possible to compute a required minimum value of $p_{0c}$. This may be achieved iteratively by rearranging equation~\ref{film_coolant_mass_flow_rate} as
 \begin{equation}\label{coolant_mass_flow_rate}
 x_n =
 p_m
@@ -1830,7 +1849,9 @@ p_m
 \right]
 ^{\frac{\gamma}{1-\gamma}}
 \end{equation}
-where $x=p_{0c}$. $T_{0c}$ is assumed to be $300 K$ as the present study assumes adiabatic conditions. Significant total pressure loss is assumed to occur between the coolant plenum and the point where the coolant exits the hole to mix with the mainstream. This loss may be quantified in a form similar to the general total pressure loss coefficient in equation~\ref{total_pressure_loss_coefficient}, as
+where $x=p_{0c}$. $T_{0c}$ is assumed to be $300 K$ as the present study assumes adiabatic conditions. 
+
+Isentropic conditions may not be assumed, since losses in the plena of a real NGV cause the mass flow rate $\dot{m}$ to be significantly lower than that predicted by equation~\ref{coolant_mass_flow_rate}, which assumes isentropic flow driven by the ratio $\frac{p_m}{p_{0c}}$. This loss may be quantified by applying a loss coefficient of a form similar to the general total pressure loss coefficient in equation~\ref{total_pressure_loss_coefficient}, as
 \begin{equation}\label{film_coolant_loss_coefficient}
 \zeta_c = 
 \frac{
@@ -1840,11 +1861,17 @@ p_{0cp} - p_m
 }
 \end{equation}
 
-Although typical values for $p_{0cp}$ and $\zeta_c$ may be referenced from the literature, the present study sought to report values accurate for the case of 2-dimensional CFD where loss mechanisms are unlike those present in either a real coolant plenum or in 3D CFD. A CFD solution was converged using the same benchmark cooling hole location as was used to report the benchmark $p_m$ for equation~\ref{coolant_mass_flow_rate}. The coolant plenum was, in this special case, specified with the desired coolant mass flow rate. The reported value for $p_{0cp}$ (area-averaged across the plenum inlet boundary) was used as the benchmark value for all subsequent simulations, and was used along with the reported value for $p_{0c}$ (area averaged across the plenum hole exit) to evaluate $\zeta_c$.
+Typical values for $p_{0cp}$ and $\zeta_c$ may be referenced from the literature. However, the present study sought to use 2D CFD to model a film cooling hole row as a slot, while achieving mass flow rates representative of those expected in a fully 3D vane with discrete hole locations. Such a 2D case will have inlerently lower loss than the 3D case. 
 
-A series of 2D CFD simulations were then performed with a single cooling hole at a range of locations throughout the nozzle guide vane throat region. The baseline geometry is the Rolls-Royce Trent XWB 84K nozzle guide vane. A 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. The NGV trailing edge was smoothly rounded as this section of study is not concerned with trailing edge effects. The NGV surface was modified to include the cooling hole and plenum with its total pressure inlet boundary condition described above. Matlab was used to parametrically generate 7 geometries by moving the single cooling hole between $0\%$ and $100\%$ of its range of travel in increments of approximately $16\%$, although spacing of simulated hole locations was closer in the throat region of the nozzle. The boundary conditions used for all simulations are listed in Table~\ref{SCH_parameters}. The range of hole locations is illustrated in Figure~\ref{fig:SCH_hole_range}.
+The differences in aerodynamic performance between film cooling holes and slots has long been a subject of research, with flow mechanisms downstream of hole rows being more complex than those formed by slots. A discrete hole is likely to have a pair of conter-rotating secondary flow vortices formed as the coolant enters the hole, with an unsteady process of vortex stripping and entrainment into the mainstream as the coolant exits the hole. In contrast, a slot tends to form a steady contiguous film on the external surface, with a separation bubble present under some conditions. To obtain boundary conditions likely to acheive coolant mass flow rates on the desired magnitude, coolant plenum boundary conditions were computed via the following process.
+\begin{enumerate}
+  \item Converge a baseline CFD solution with no cooling holes. Use this case to report a baseline mainstream mass flow rate $\dot{m}$ and a baseline NGV surface static pressure distribution. Use the surface static pressure distribution to report a value of $p_m$ at each cooling hole location.
+  \item Converge a CFD solution with the cooling hole at position $0$ and the cooling hole plenum specified as a mass flow inlet providing the benchmark coolant mass flow rate $\dot{m_c} = 1\%$ of $\dot{m}$. Report values for $p_{0cp}$ and $p_{0c}$ area-averaged across the plenum inlet boundary and the cooling hole exit.
+  \item Use  this $p_{0cp}$ as the specified total pressure on the coolant plenum inlet for all cases in the study.
+  \item Use this $p_{0cp}$ and $p_{0c}$ to evaluate $\zeta_c$ for the purpose of further discussion.
+\end{enumerate}
 
-Simulations were performed at the design inverse pressure ratio of $1.65$ but not at a fully choked inverse pressure ratio. This desicion was made because the majority of the range of hole locations lie downstream of the nozzle's sonic line. In accordance with the other findings of this study, these locations are expected to have minimal effect on the NGV capacity.
+The resulting boundary conditions were used for all simulations and are listed in Table~\ref{SCH_parameters}.
 
 \begin{table}[H]
 \caption{Boundary conditions for suction-side cooling hole position study}
@@ -1856,12 +1883,11 @@ Parameter & Value\\
 \hline
 NGV series & Rolls-Royce Trent XWB 84K\\
 NGV turning (degrees) & $73.97$\\
-NGV throat width (m) & $1.25 \times 10^-2$\\
-Design inverse pressure ratio & $1.65$\\
+Design inverse pressure ratio $\frac{p_{01}}{p_2}$ & $1.65$\\
 Inlet total pressure (Pa) & $4.33 \times 10^6$\\
 Inlet total temperature (K) & $300$\\
 Outlet static pressure (Pa) & $2.63 \times 10^6$\\
-Outlet static temperature (Pa) & $300$\\
+Outlet static temperature (K) & $300$\\
 Benchmark coolant mass flow rate & $1.00\%$ of mainstream\\
 Film coolant loss coefficient $\zeta_c$ & $0.8$\\
 Coolant plenum total pressure $p_{0cp}$ & $79.91\%$ of mainstream\\
@@ -1872,49 +1898,20 @@ Cell count & $40,000$\\
 \end{center}
 \end{table}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.45\textwidth]{figs/SCH_hole_range.png}
-	\caption{Range of locations for a single suction-side film cooling hole on a Trent XWB NGV}
-    \label{fig:SCH_hole_range}
-\end{figure}
+The computed value for $\zeta_c$ of $0.8$ corresponds to a high degree of total pressure loss within the coolant plenum and hole, which is to be expected both in simulation and in real engine parts. This suggests that the mass flow rate of coolant predicted by the present CFD study is likely to depart significantly from that predicted by isentropic flow alone. The computed value for $p_{0cp}$ of $79.91\%$ of mainstream is used as the coolant plenum total pressure in all subsequent CFD simulations.
 
-Figure~\ref{fig:SCH_hole_range} depicts a range of geometries which allows the introduction of film coolant at various locations both upstream and downstream of the NGV geometric throat (and its sonic line in the case of fully choked flow). As the cooling hole and plenum consist of 2 rectangles, each was assigned a structured quaderilateral mesh that could be matched with a structured boundary layer mesh of the same design as that depicted in Figure~\ref{fig:t900_mesh_leading_edge}. Beyond this, an unstructured mesh was created to the same design as that depicted in Figure~\ref{fig:t900_mesh_whole}. Details of the resulting mesh are shown in Figure~\ref{fig:SCH_mesh} for a case where the single cooling hole is near the downstream end of its range of locations.
+Figure~\ref{fig:SCH_hole_range} depicts a range of geometries which allows the introduction of film coolant at various locations both upstream and downstream of the NGV geometric throat (and its sonic line in the case of fully choked flow). As the cooling hole and plenum consist of 2 rectangles, each was assigned a structured quaderilateral mesh that could be matched with a structured boundary layer mesh of the same design as that depicted in Figure~\ref{fig:t900_mesh_leading_edge}. Beyond this, an unstructured mesh was created to the same design as that depicted in Figure~\ref{fig:t900_mesh_whole}. Details of the resulting mesh are shown in Figure~\ref{fig:SCH_mesh}.
 
 \begin{figure}[H]
-  \centering
-  \begin{subfigure}{.9\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{figs/SCH_mesh_domain_placeholder.png}
-    \caption{XWB mesh for NGV and upstream domain}
-    \label{fig:SCH_mesh_1}
-  \end{subfigure}
-  \vspace{0.05\textwidth}
-  \begin{subfigure}{.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{figs/SCH_mesh_leading_edge_placeholder.png}
-    \caption{XWB mesh for leading edge}
-    \label{fig:SCH_mesh_2}
-  \end{subfigure}
-  \hspace{0.05\textwidth}
-  \begin{subfigure}{.45\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{figs/SCH_mesh_hole_placeholder.png}
-    \caption{XWB mesh for cooling hole and plenum}
-    \label{fig:SCH_mesh_3}
-  \end{subfigure}
-  \caption{Details of mesh for XWB single cooling hole study}
-  \label{fig:SCH_mesh}
+      \centering
+      \includegraphics[width=.60\textwidth]{figs/SCH_mesh_hole.png}
+      \caption{Detail of mesh for XWB single cooling hole study}
+      \label{fig:SCH_mesh}
 \end{figure}
 
 \subsection{Effect on capacity}
 
-
-
-
-
-
-Figures~\ref{fig:sch_mach_0-3} and~\ref{fig:sch_mach_4-6} show contours of Mach number in the region of the nozzle guide vane for the described study. Inverse pressure ratio is $1.65$, the design cruise condition.
+Figures~\ref{fig:sch_mach_0-3},~\ref{fig:sch_mach_4-6},~\ref{fig:sch_detail_mach_0-3}, and~\ref{fig:sch_detail_mach_4-6} show contours of Mach number in the region of the nozzle guide vane for the described study. Inverse pressure ratio is $1.65$, the design cruise condition.
 
 \begin{figure}[H]
 	\centering
@@ -1944,7 +1941,7 @@ Figures~\ref{fig:sch_mach_0-3} and~\ref{fig:sch_mach_4-6} show contours of Mach 
 	\end{subfigure}
 	\begin{subfigure}{.4\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{figs/mach_legend_choked_horizontal.png}
+		\includegraphics[width=\linewidth]{figs/mach_legend_sch_horizontal.png}
 	\end{subfigure}
 	\caption{Effects of cooling hole location on Mach contours for Trent XWB film cooling study at $\frac{p_{01}}{p_2}=1.65$}
 	\label{fig:sch_mach_0-3}
@@ -1970,21 +1967,89 @@ Figures~\ref{fig:sch_mach_0-3} and~\ref{fig:sch_mach_4-6} show contours of Mach 
 		\includegraphics[width=\linewidth]{figs/sch_mach_contours_6.png}
 		\caption{Hole at $100\%$ of range}
 	\end{subfigure}
+	\hspace{0.071\textwidth}
 	\begin{subfigure}{.4\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{figs/mach_legend_choked_horizontal.png}
+		\includegraphics[width=\linewidth]{figs/mach_legend_sch_horizontal.png}
 	\end{subfigure}
 	\caption{Effects of cooling hole location on Mach contours for Trent XWB film cooling study at $\frac{p_{01}}{p_2}=1.65$}
 	\label{fig:sch_mach_4-6}
 \end{figure}
 
-Figures~\ref{fig:sch_mach_0-3} and~\ref{fig:sch_mach_4-6} illustrate the presence of transonic flow phenomena that varied significantly with the variations to the location of film coolant injection. Injection locations upstream and far downstream of the throat region caused localised flow acceleration as the potential field of the coolant jet caused a narrowing of the effective throat area. At injection locations immediately downstream of the throat, where the mainstream flow velocity was greatest, this effect was significantly stronger. Here the local acceleration resulted in regions of supersonic flow within the mainstream, followed by deceleration through a shock attached to the suction side of the nozzle guide vane. 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/sch_detail_mach_contours_0.png}
+		\caption{Hole at $0\%$ of range}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/sch_detail_mach_contours_1.png}
+		\caption{Hole at $7\%$ of range}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/sch_detail_mach_contours_2.png}
+		\caption{Hole at $26\%$ of range}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/sch_detail_mach_contours_3.png}
+		\caption{Hole at $44\%$ of range}
+	\end{subfigure}
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/mach_legend_sch_horizontal.png}
+	\end{subfigure}
+	\caption{Mach contours near single cooling hole for Trent XWB film cooling study at $\frac{p_{01}}{p_2}=1.65$}
+	\label{fig:sch_detail_mach_0-3}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/sch_detail_mach_contours_4.png}
+		\caption{Hole at $63\%$ of range}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/sch_detail_mach_contours_5.png}
+		\caption{Hole at $81\%$ of range}
+		\vspace{0.018\textheight}
+	\end{subfigure}
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/sch_detail_mach_contours_6.png}
+		\caption{Hole at $100\%$ of range}
+	\end{subfigure}
+	\hspace{0.071\textwidth}
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/mach_legend_sch_horizontal.png}
+	\end{subfigure}
+	\caption{Mach contours near single cooling hole for Trent XWB film cooling study at $\frac{p_{01}}{p_2}=1.65$}
+	\label{fig:sch_detail_mach_4-6}
+\end{figure}
+
+Figures~\ref{fig:sch_mach_0-3},~\ref{fig:sch_mach_4-6},~\ref{fig:sch_detail_mach_0-3}, and~\ref{fig:sch_detail_mach_4-6} illustrate the presence of transonic flow phenomena that varied significantly with the variations to the location of film coolant injection. Injection locations upstream and far downstream of the throat region caused localised flow acceleration as the potential field of the coolant jet caused a narrowing of the effective throat area. At injection locations immediately downstream of the throat, where the mainstream flow velocity was greatest, this effect was significantly stronger. Here the local acceleration resulted in regions of supersonic flow within the mainstream, followed by deceleration through a shock attached to the suction side of the nozzle guide vane. 
 
 In all cases, the suction side boundary layer thickness increased immediately downstream of the film cooling hole, due to the mainstream flow being displaced by the momentum of the coolant jet in the direction perpendicular to the NGV surface. In the cases with the hole at $0\%$ and $7\%$ of the range of travel, where the injection location was upstream of the geometric throat, this increase in boundary layer thickness amounted to a local bubble after which the boundary layer became thinner again and experienced conventional growth further downstream. In the case with the hole at $26\%$ of the range of travel, the coolant injection appeared to initiate a growth of the boundary layer which began immediately downstream of the hole and continued throughout the suction side of the NGV, resulting in a distinctly thicker boundary layer at the suction side trailing edge compared to the cases of pre-throat coolant injection.
 
 In the cases with the hole at $44\%$ and $63\%$ of the range of travel, where the coolant-induced acceleration and shock were strongest, the coolant-induced boundary layer growth appeared be delayed until the point of shock attachment on the NGV suction side. Downstream of this, an uninterrupted boundary layer growth again resulted in a thick boundary layer at the suction side trailing edge. In the cases with the hole at $81\%$ and $100\%$ of the range of travel, boundary layer growth was reminiscent of the case of $26\%$, initiating immediately downstream of the film cooling hole despite the presence of supersonic regions and shocks. All of these observations suggest that shock loss is an important factor in evaluating the performance effects of the cooling hole location. This will be discussed subsequently.
 
-Figure~\ref{fig:sch_hole_location_vs_capacity} plots the percentage change in the NGV flow capacity as a function of the cooling hole location. For this analysis, two definitions of capacity are provided. The first, $\Gamma_{in}$, is defined as
+Figures~\ref{fig:sch_detail_mach_0-3} and~\ref{fig:sch_detail_mach_4-6} show that coolant flow separation occured within the plenum and hole passage. This is not considered to significantly affect the accuracy of the conclusions drawn from the present study, as the flow is seen to reattach before exiting the coolant hole. Furthermore, the boundary conditions set at the coolant plenum boundary have been shown to result in the correct coolant mass flow rate, and thus phenomena such in-passage separation are accounted for. Furthermore, as shown in Figures~\ref{fig:sch_detail_mach_0-3} and~\ref{fig:sch_detail_mach_4-6}, within the coolant hole and plenum, the flow structures remained highly similar regardless of location on the NGV suction side.
+
+Figure~\ref{fig:sch_hole_location_vs_capacity} plots the percentage change in the NGV flow capacity as a function of the cooling hole location. 
+
+For this analysis, two definitions of capacity are provided. The first, $\Gamma_{in}$, is defined as
 \begin{equation}
 \Gamma_{in} =
 \frac{\sqrt{T_{01}}}{p_{01}}
@@ -1994,12 +2059,13 @@ where $T_{01}$ and $p_{01}$ are the upstream total conditions and $\dot{m}$ is t
 \begin{equation}
 \Gamma_{out} =
 \frac{\sqrt{T_{01}}}{p_{01}}
+\left(
 \dot{m}
 +
-\frac{\sqrt{T_{0c}}}{p_{0c}}
 \dot{m_c}
+\right)
 \end{equation}
-where $T_{0c}$ and $p_{0c}$ are the upstream total conditions and $\dot{m_c}$ is the coolant mass flow rate which may vary with injection location as the coolant plenum is specified by total pressure instead of mass flow rate.
+where $\dot{m_c}$ is the coolant mass flow rate which may vary with injection location as the coolant plenum is specified by total pressure instead of mass flow rate.
 
 \begin{figure}[H]
       \centering
@@ -2008,9 +2074,9 @@ where $T_{0c}$ and $p_{0c}$ are the upstream total conditions and $\dot{m_c}$ is
       \label{fig:sch_hole_location_vs_capacity}
 \end{figure}
 
-Figure~\ref{fig:sch_hole_location_vs_capacity} shows a general trend of flow capacity increasing as the film coolant is injected. The maximum range of $\Gamma_{in}$ was $3.87\%$ over the range of hole locations, and the maximum range of $\Gamma_{out}$ was $3.76\%$. This trend is uniformly true for the cases where coolant is injected downstream of the geometric throat. It is hypothesised that this capacity increase is primarily driven by the introduction of the coolant into regions of progressively lower mainstream flow velocity as the hole location moves downstream and away from the throat region. This decrease in mainstream flow velocity is observable in Figures~\ref{fig:sch_mach_0-3} and~\ref{fig:sch_mach_4-6} and is to be expected of unchoked flow downstream of the throat of a nozzle guide vane. Assuming that, in general, film coolant affects NGV capacity via the exchange of momentum between the fast mainstream and the slower coolant, it is concluded that this defecit to mainstream flow momentum is less severe as the coolant is injected into slower regions further downstream.
+Figure~\ref{fig:sch_hole_location_vs_capacity} shows a general trend of flow capacity increasing as the film coolant is injected. The maximum range of $\Gamma_{in}$ was $3.82\%$ over the range of hole locations, and the maximum range of $\Gamma_{out}$ was $4.67\%$. This trend is uniformly true for the cases where coolant is injected downstream of the geometric throat. It is hypothesised that this capacity increase is primarily driven by the introduction of the coolant into regions of progressively lower mainstream flow velocity as the hole location moves downstream and away from the throat region. This decrease in mainstream flow velocity is observable in Figures~\ref{fig:sch_mach_0-3} and~\ref{fig:sch_mach_4-6} and is to be expected of unchoked flow downstream of the throat of a nozzle guide vane. Assuming that, in general, film coolant affects NGV capacity via the exchange of momentum between the fast mainstream and the slower coolant, it is concluded that this defecit to mainstream flow momentum is less severe as the coolant is injected into slower regions further downstream.
 
-This hypothesis is supported by the capacity predictions for the cases where coolant is injected upstream of, or very near, the NGV geometric throat. Compared to the furthest location upstream, the $2$ subsequent downstream locations resulted in a defecit to flow capacity which was most severe in the region local to the throat. Here the mainstream flow velocity was highest and thus the coolant injection would be expected to cause the greatest deficit to mainstream momenum and thus mass flow rate. This hyposthesis may be further tested by considering the isentropic Mach number on the NGV surface, which may be defined as
+This hypothesis is supported by the capacity predictions for the cases where coolant is injected upstream of, or very near, the NGV geometric throat. Compared to the furthest location upstream, the $2$ subsequent downstream locations resulted in a defecit to flow capacity which was most severe in the region local to the throat. Here the mainstream flow velocity was highest and thus the coolant injection would be expected to cause the greatest deficit to mainstream momentum and thus mass flow rate. This hyposthesis may be further tested by considering the isentropic Mach number on the NGV surface, which may be defined as
 \begin{equation}
 M_{isent} =
 \sqrt{
@@ -2036,11 +2102,12 @@ Figure~\ref{fig:sch_surface_isentropic_mach_number_vs_capacity} plots the percen
 Figure~\ref{fig:sch_surface_isentropic_mach_number_vs_capacity} shows a relationship between surface isentropic Mach number and flow capacity which is in agreement with the prior discussion for cases downstream of the geometric throat, as capacity decreased as the coolant was injected into locations having a higher Mach number. The 3 data points furthest upstream are less clearly interpretable. A trend of capacity decreasing with local Mach number was arguably present, however these data were not in alignment with those downstream of the throat. This suggests that a consideration of the local flow velocity or Mach number does not entirely explain the observed relationship between hole location and capacity.
 
 We may also examine the variation in the capacity of the coolant itself as it is injected at various locations at a constant plenum total pressure. The coolant capacity is defined as
-\begin{equation}
+\begin{equation}\label{coolant_capacity}
 \Gamma_c =
-\frac{\sqrt{T_{0c}}}{p_{0c}}
+\frac{\sqrt{T_{0cp}}}{p_{0cp}}
 \dot{m_c}
 \end{equation}
+where $T_{0cp}$ and $p_{0cp}$ are the coolant plenum inlet total conditions.
 Figure~\ref{fig:sch_hole_location_vs_coolant_capacity} plots the coolant capacity as a function of the cooling hole location.
 
 \begin{figure}[H]
@@ -2050,25 +2117,18 @@ Figure~\ref{fig:sch_hole_location_vs_coolant_capacity} plots the coolant capacit
       \label{fig:sch_hole_location_vs_coolant_capacity}
 \end{figure}
 
-Figure~\ref{fig:sch_hole_location_vs_coolant_capacity} shows that the coolant capacity varied significantly with the hole location, with the maximum range being approximately $21.35\%$. This variation is hypothesised to be the result of different hole locations causing the coolant to be injected into regions of different static pressure, with correspondingly different pressure ratios as defined in equation~\ref{coolant_mass_flow_rate}. A static pressure coefficient may be defined using the NGV surface static pressure at each hole location as
-\begin{equation}
-C_p =
-\frac{
-p_m - p_m\left(min\right)
-}{
-p_m\left(max\right) - p_m\left(min\right)
-}
-\end{equation}
-Figure~\ref{fig:sch_static_pressure_coefficient_vs_coolant_capacity} plots the coolant capacity as a function of the NGV surface static pressure coefficient.
+Figure~\ref{fig:sch_hole_location_vs_coolant_capacity} shows that the coolant capacity varied significantly with the hole location, with the maximum range being approximately $137.10\%$, or a factor of $2.37$. This variation is hypothesised to be the result of different hole locations causing the coolant to be injected into regions of different static pressure $p_m$, with correspondingly different pressure ratios as defined in equation~\ref{coolant_mass_flow_rate}. If this is the case, the predicted coolant capacity would be expected to correlate closely with the coolant isentropic mass flow rate given by equation~\ref{film_coolant_mass_flow_rate} using the local $p_m$ and $p_0c$ as inputs. The predicted coolant capacity is plotted as a function of the coolant isentropic capacity (defined as in equation~\ref{coolant_capacity}) in Figure~\ref{fig:sch_coolant_isentropic_capacity_vs_coolant_capacity}.
 
 \begin{figure}[H]
       \centering
-      \includegraphics[width=.45\textwidth]{figs/sch_static_pressure_coefficient_vs_coolant_capacity.png}
-      \caption{Coolant capacity percentage delta as a function of single cooling hole position}
-      \label{fig:sch_static_pressure_coefficient_vs_coolant_capacity}
+      \includegraphics[width=.45\textwidth]{figs/sch_coolant_isentropic_capacity_vs_coolant_capacity.png}
+      \caption{Coolant capacity percentage delta as a function of coolant isentropic capacity percentage delta}
+      \label{fig:sch_coolant_isentropic_capacity_vs_coolant_capacity}
 \end{figure}
 
-Figure~\ref{fig:sch_static_pressure_coefficient_vs_coolant_capacity} illustrates that the coolant capacity is highly dependent on the local static pressure at the point of injection. It is concluded that the coolant plenum is well-modelled as a supersonic nozzle and that the ratio of $\frac{p_{0c}}{p_m}$ is a good predictor of the coolant mass flow rate for a given plenum static pressure and engine-representative value of $\zeta_c$.
+Figure~\ref{fig:sch_coolant_isentropic_capacity_vs_coolant_capacity} shows a trend of the predicted coolant capacity increasing in moderate correlation with the coolant isentropic capacity for the range of injection locations between $0\%$ and $44\%$ of range. At locations further downstream, the coolant isentropic capacity decreases but the predicted capacity does not also decrease as expected. This is likely to result from the interaction between the coolant and the shock that forms immediately downstream of the injection location at mid-range positions. This shock formation is visible in detail in the Mach number contours in Figures~\ref{fig:sch_detail_mach_0-3} and~\ref{fig:sch_detail_mach_4-6}. 
+
+At locations between $0\%$ and $44\%$, coolant capacity increased as a result of decreasing local static pressure, although this mechanism of increase is assumed to be partly attenuated by the appearance of the shocks. At locations incrementally further downstream, the local static pressure was increasing, with a corresponding decrease in the coolant isentropic capacity. However, mainstream flow velocity was decreasing, with a corresponding decrease in shock formation downstream of the single cooling hole. These opposing efects are hypothesised to cause the trend of approximately constant predicted coolant capacity for hole loctions downstream of $44\%$ of range.
 
 \subsection{Effect on performance}
     
@@ -2084,10 +2144,21 @@ Shock loss has been hypothesised to be a significant influence on the aerodynami
 The trend exhibited in Figure~\ref{fig:sch_hole_location_vs_loss} is in good agreement with the prior discussion of Figures~\ref{fig:sch_mach_0-3} and~\ref{fig:sch_mach_4-6} which suggests that the degree of aerodynamic loss incurred will correlate strongly with the strength of shocks precipitated by the injection of film coolant. The Mach contours show the increasing appearance of shocks as the coolant is introduced further downstream, with shocks most apparent when the coolant hole is at $44\%$, $63\%$, and $81\%$ of its range of positions. Correspondingly these positions resulted in the greatest amount of total pressure loss. It is concluded that shock loss is the primary loss mechanism driving the observed trend.
     
     
-    
-    
+\section{Chapter conclusions}
 
-    
+This chapter has investigated the effects of injecting film coolant at a constant plenum total pressure, but at varying locations, on the suction side of a nozzle guide vane. This investigation has been justified by the movement in industry towards higher combustor outlet temperatures leading to NGVs that are likely to require additional film cooling rows.
+
+Where, historically, film coolant rows have been grouped in a shower-head at the NGV leading edge, novel designs are likely to need the additional row at some location on the suction side. The capacity and aerodynamic penalties associated with this change are best understood by considering the reasons for which film coolant is currently only dispersed from the leading edge shower-head.
+
+Section~\ref{sensitivity_of_capacity_to_cooling_holes_on_the_leading_suction_side} has demonstrated how the injection of coolant into regions of high mainstream flow velocity causes both reduced flow capacity and increased loss. The CFD-derived trends of flow capacity as a function of cooling hole location have illustrated that injection near the NGV throat region causes a minimum flow capacity compared to the rest of the trend. Elsewhere injection into locally slower regions results in capacity predictions that match or even exceed the baseline capacity derived from aplying the same CFD boundary conditions to an uncooled and unfeatured NGV. Loss has also been considered, with the conclusion that the present cases experienced a significant degree of shock loss due to the formation of shocks immediately downstream of the sigle cooling hole. 
+
+It is concluded that, depending on the ratio of coolant-to-mainstream momentum, film coolant injection is capable of either energising a low-velocity mainstream or of de-energising a high-velocity mainstream. This is particularly interesting when considered alongside the other conclusions of this thesis. All previous chapters have sought to characterise nozzle guide vane flow capacity in 2 simple ways: it is a function of the effective areas throughout the nozzle, and if the flow is choked then it is a function of only the effective throat area. The suction side film cooling problem may be characterised similarly. Injection of film coolant into a high-velocity mainstream is, in the limiting case, equivalent to the placement of a stationary obstacle to the flow, and is therefore characteristic of a reduction in the effective area of the flow at that location along the nozzle. At the other extreme is the case of introducing film coolant into a nozzle with $0$ mainstream velocity. Assuming the film coolant has a momentum component along the direction of the nozzle, this is characteristic of creating an effective area of flow velocity where before there was none. Since the suction side film cooling investigation has been entirely at non-choked pressure ratios, it is to be expected that the film coolant injection location continues to have an effect throughout the suction side and beyond the NGV geometric throat.
+
+This chapter's conclusions are in good agreement with those of the other chapters, in particular where the relationship between flow capacity and effective area is concerned. This study advocates for ongoing investigation into the reasons for which effective area varies throughout the nozzle guide vane passage. Chapter~\ref{chapter_introduction} has outlined the importance of flow capacity as the dependent variable. Chapter~\ref{chapter_geometric_throat_area} has introduced the concept of effective area, and investigated the effects if it should vary with the shape of the NGV as a result of the first stage of manufacturing, namely casting. Chapter~\ref{chapter_trailing_edge} has introduced the geometry of the NGV trailing edge, and investigated the effects if it should vary due to machining or due to in-service erosion. Finally Chapter~\ref{chapter_leading_edge} has introduced coolant not into the low-velocity wake region but into the high-velocity suction side as a coolant film, and discussed the effects of varying the injection location. In combination these chapters seek to present a holistic discussion of the main challenges to our understanding and prediction of nozzle guide vane flow capacity and loss.
+
+
+
+ 
 
 
 
