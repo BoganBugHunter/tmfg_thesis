@@ -71,7 +71,9 @@ T900_TE_capacities_2D(:,2:end) = T900_TE_data_2D(:,2:end)*sqrt(300)/(39690 + 428
 
 %Capacity/Area trends
 
-T900_capacities_2D_design = T900_capacities_2D(22,:) + (0.05086/0.079022)*(T900_capacities_2D(22,:) - T900_capacities_2D(22,:));
+%T900_capacities_2D_design = T900_capacities_2D(22,:) + (0.05086/0.079022)*(T900_capacities_2D(22,:) - T900_capacities_2D(22,:));
+T900_capacities_2D_design = T900_capacities_2D(21,:) + (1.79-1.7391)/(1.8182-1.7391)*(T900_capacities_2D(22,:) - T900_capacities_2D(21,:)); %interpolate to get IPR=1.79. See data.
+
 
 T900_capacity_Mskew_mean = mean(T900_capacities_2D_design(2:4));
 T900_capacity_EP1_mean = mean(T900_capacities_2D_design(5:7));
@@ -92,6 +94,8 @@ throat_number_2D = T900_capacity_change_mean/throat_width_change_mean;
 
 
 %Capacity/Area trends
+
+%T900_capacities_3D_design = T900_capacities_3D(5,:) + (1.79-1.7870)/(1.8220-1.7870)*(T900_capacities_3D(6,:) - T900_capacities_3D(5,:)); %interpolate to get IPR=1.79. See data.
 
 T900_capacity_Mskew_mean_3D = mean(T900_capacities_3D_design(2:4));
 T900_capacity_EP1_mean_3D = mean(T900_capacities_3D_design(5:7));
@@ -1485,19 +1489,19 @@ marker_size = 8;       % MarkerSize
 
 figure(2)
 %plot of normalised NGV capacity against NGV pressure ratio
-plot(T900_capacities_2D(18:28,1), T900_capacities_2D(18:28,7)./0.000004781, 'k.')
+plot(T900_capacities_2D(18:28,1), 100*(T900_capacities_2D(18:28,7)./T900_capacities_2D_design(1,2) - 1), 'k.') %normalised against the capacity of KSZ03 at IPR=1.79
 hold on
-plot(T900_capacities_2D(18:28,1), T900_capacities_2D(18:28,5)./0.000004781, 'r.')
-plot(T900_capacities_2D(18:28,1), T900_capacities_2D(18:28,6)./0.000004781, 'm.')
-plot(T900_capacities_2D(18:28,1), T900_capacities_2D(18:28,3)./0.000004781, 'g.')
-plot(T900_capacities_2D(18:28,1), T900_capacities_2D(18:28,2)./0.000004781, 'b.')
-plot(T900_capacities_2D(18:28,1), T900_capacities_2D(18:28,4)./0.000004781, 'c.')
-plot(T900_capacities_2D_oversampled(:,1), T900_capacities_2D_oversampled(:,7)./0.000004781, 'k--')
-plot(T900_capacities_2D_oversampled(:,1), T900_capacities_2D_oversampled(:,5)./0.000004781, 'r--')
-plot(T900_capacities_2D_oversampled(:,1), T900_capacities_2D_oversampled(:,6)./0.000004781, 'm--')
-plot(T900_capacities_2D_oversampled(:,1), T900_capacities_2D_oversampled(:,3)./0.000004781, 'g-')
-plot(T900_capacities_2D_oversampled(:,1), T900_capacities_2D_oversampled(:,2)./0.000004781, 'b-')
-plot(T900_capacities_2D_oversampled(:,1), T900_capacities_2D_oversampled(:,4)./0.000004781, 'c-')
+plot(T900_capacities_2D(18:28,1), 100*(T900_capacities_2D(18:28,5)./T900_capacities_2D_design(1,2) - 1), 'r.')
+plot(T900_capacities_2D(18:28,1), 100*(T900_capacities_2D(18:28,6)./T900_capacities_2D_design(1,2) - 1), 'm.')
+plot(T900_capacities_2D(18:28,1), 100*(T900_capacities_2D(18:28,3)./T900_capacities_2D_design(1,2) - 1), 'g.')
+plot(T900_capacities_2D(18:28,1), 100*(T900_capacities_2D(18:28,2)./T900_capacities_2D_design(1,2) - 1), 'b.')
+plot(T900_capacities_2D(18:28,1), 100*(T900_capacities_2D(18:28,4)./T900_capacities_2D_design(1,2) - 1), 'c.')
+plot(T900_capacities_2D_oversampled(:,1), 100*(T900_capacities_2D_oversampled(:,7)./T900_capacities_2D_design(1,2) - 1), 'k--')
+plot(T900_capacities_2D_oversampled(:,1), 100*(T900_capacities_2D_oversampled(:,5)./T900_capacities_2D_design(1,2) - 1), 'r--')
+plot(T900_capacities_2D_oversampled(:,1), 100*(T900_capacities_2D_oversampled(:,6)./T900_capacities_2D_design(1,2) - 1), 'm--')
+plot(T900_capacities_2D_oversampled(:,1), 100*(T900_capacities_2D_oversampled(:,3)./T900_capacities_2D_design(1,2) - 1), 'g-')
+plot(T900_capacities_2D_oversampled(:,1), 100*(T900_capacities_2D_oversampled(:,2)./T900_capacities_2D_design(1,2) - 1), 'b-')
+plot(T900_capacities_2D_oversampled(:,1), 100*(T900_capacities_2D_oversampled(:,4)./T900_capacities_2D_design(1,2) - 1), 'c-')
 xlim([1.5 2.5])
 xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('\Delta capacity, %')
@@ -1524,20 +1528,20 @@ print('../../figs/t900_2d_capacity_trends','-dpng','-r300');
 
 figure(3)
 %plot of Rolls-Royce 3D CFD data
-plot(T900_capacities_3D(:,11), T900_capacities_3D(:,12)/15200.3/0.00001157, 'k.')
+plot(T900_capacities_3D(:,11), 100*(T900_capacities_3D(:,12)/18.1656 - 1), 'k.') %18.1656 is the capacity of KSZ03 at IPR=1.79
 hold on
-plot(T900_capacities_3D(:,7), T900_capacities_3D(:,8)/15200.3/0.00001157, 'r.')
-plot(T900_capacities_3D(:,9), T900_capacities_3D(:,10)/15200.3/0.00001157, 'm.')
-plot(T900_capacities_3D(:,3), T900_capacities_3D(:,4)/15200.3/0.00001157, 'g.')
-plot(T900_capacities_3D(:,1), T900_capacities_3D(:,2)/15200.3/0.00001157, 'b.')
-plot(T900_capacities_3D(:,5), T900_capacities_3D(:,6)/15200.3/0.00001157, 'c.')
-plot(T900_capacity_3D_6_oversampled(:,1), T900_capacity_3D_6_oversampled(:,2)/15200.3/0.00001157, 'k--')
+plot(T900_capacities_3D(:,7), 100*(T900_capacities_3D(:,8)/18.1656 - 1), 'r.')
+plot(T900_capacities_3D(:,9), 100*(T900_capacities_3D(:,10)/18.1656 - 1), 'm.')
+plot(T900_capacities_3D(:,3), 100*(T900_capacities_3D(:,4)/18.1656 - 1), 'g.')
+plot(T900_capacities_3D(:,1), 100*(T900_capacities_3D(:,2)/18.1656 - 1), 'b.')
+plot(T900_capacities_3D(:,5), 100*(T900_capacities_3D(:,6)/18.1656 - 1), 'c.')
+plot(T900_capacity_3D_6_oversampled(:,1), 100*(T900_capacity_3D_6_oversampled(:,2)/18.1656 - 1), 'k--')
 hold on
-plot(T900_capacity_3D_4_oversampled(:,1), T900_capacity_3D_4_oversampled(:,2)/15200.3/0.00001157, 'r--')
-plot(T900_capacity_3D_5_oversampled(:,1), T900_capacity_3D_5_oversampled(:,2)/15200.3/0.00001157, 'm--')
-plot(T900_capacity_3D_2_oversampled(:,1), T900_capacity_3D_2_oversampled(:,2)/15200.3/0.00001157, 'g-')
-plot(T900_capacity_3D_1_oversampled(:,1), T900_capacity_3D_1_oversampled(:,2)/15200.3/0.00001157, 'b-')
-plot(T900_capacity_3D_3_oversampled(:,1), T900_capacity_3D_3_oversampled(:,2)/15200.3/0.00001157, 'c-')
+plot(T900_capacity_3D_4_oversampled(:,1), 100*(T900_capacity_3D_4_oversampled(:,2)/18.1656 - 1), 'r--')
+plot(T900_capacity_3D_5_oversampled(:,1), 100*(T900_capacity_3D_5_oversampled(:,2)/18.1656 - 1), 'm--')
+plot(T900_capacity_3D_2_oversampled(:,1), 100*(T900_capacity_3D_2_oversampled(:,2)/18.1656 - 1), 'g-')
+plot(T900_capacity_3D_1_oversampled(:,1), 100*(T900_capacity_3D_1_oversampled(:,2)/18.1656 - 1), 'b-')
+plot(T900_capacity_3D_3_oversampled(:,1), 100*(T900_capacity_3D_3_oversampled(:,2)/18.1656 - 1), 'c-')
 xlim([1.5 2.5]) 
 xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('\Delta capacity, %')
@@ -1564,22 +1568,23 @@ print('../../figs/t900_3d_capacity_trends','-dpng','-r300');
 
 figure(4)
 %2D Capacity versus throat width
-%plot(100*throat_widths(1:3)./max(throat_widths) , 100*T900_capacities_2D_design(2:4)./max(T900_capacities_2D_design(2:7)), 'ro')
-plot(100*throat_widths(1)./max(throat_widths) , 100*T900_capacities_2D_design(2)./max(T900_capacities_2D_design(2:7)), 'bo','MarkerFaceColor','blue','MarkerSize',10)
+%plot(100*throat_widths(1:3)./throat_widths(1)-100 , 100*T900_capacities_2D_design(2:4)./max(T900_capacities_2D_design(2:7)), 'ro')
+plot(100*throat_widths(1)./throat_widths(1)-100 , 100*T900_capacities_2D_design(2)./T900_capacities_2D_design(1,2)-100, 'bo','MarkerFaceColor','blue','MarkerSize',10)
 hold on
-%plot(100*throat_widths(4:6)./max(throat_widths) , 100*T900_capacities_2D_design(5:7)./max(T900_capacities_2D_design(2:7)), 'bo')
-plot(100*throat_widths(2)./max(throat_widths) , 100*T900_capacities_2D_design(3)./max(T900_capacities_2D_design(2:7)), 'go','MarkerFaceColor','green','MarkerSize',10)
-plot(100*throat_widths(3)./max(throat_widths) , 100*T900_capacities_2D_design(4)./max(T900_capacities_2D_design(2:7)), 'co','MarkerFaceColor','cyan','MarkerSize',10)
-plot(100*throat_widths(4)./max(throat_widths) , 100*T900_capacities_2D_design(5)./max(T900_capacities_2D_design(2:7)), 'ro','MarkerFaceColor','red','MarkerSize',10)
-plot(100*throat_widths(5)./max(throat_widths) , 100*T900_capacities_2D_design(6)./max(T900_capacities_2D_design(2:7)), 'mo','MarkerFaceColor','magenta','MarkerSize',10)
-plot(100*throat_widths(6)./max(throat_widths) , 100*T900_capacities_2D_design(7)./max(T900_capacities_2D_design(2:7)), 'ko','MarkerFaceColor','black','MarkerSize',10)
-plot(100*throat_width_Mskew_mean/max(throat_widths), 100*T900_capacity_Mskew_mean/max(T900_capacities_2D_design(2:7)), 'k*')
-plot(100*throat_width_EP1_mean/max(throat_widths), 100*T900_capacity_EP1_mean/max(T900_capacities_2D_design(2:7)), 'k*')
-plot(1.4*gradient_1(:,1) + 100*throat_width_Mskew_mean/max(throat_widths), 1.4*gradient_1(:,2) + 100*T900_capacity_Mskew_mean/max(T900_capacities_2D_design(2:7)), 'k-')
-plot(1000*gradient_1(:,1) + 100*throat_width_EP1_mean/max(throat_widths), 1000*gradient_1(:,2) + 100*T900_capacity_EP1_mean/max(T900_capacities_2D_design(2:7)), 'k')
-plot(-1000*gradient_1(:,1) + 100*throat_width_Mskew_mean/max(throat_widths), -1000*gradient_1(:,2) + 100*T900_capacity_Mskew_mean/max(T900_capacities_2D_design(2:7)), 'k-')
-plot(-0.8*gradient_1(:,1) + 100*throat_width_EP1_mean/max(throat_widths), -0.8*gradient_1(:,2) + 100*T900_capacity_EP1_mean/max(T900_capacities_2D_design(2:7)), 'k')
-axis([100*0.99*min(throat_widths)/max(throat_widths) 100*1.01 100*0.99*min(T900_capacities_2D_design(2:7))/max(T900_capacities_2D_design(2:7)) 100*1.01])
+%plot(100*throat_widths(4:6)./throat_widths(1) , 100*T900_capacities_2D_design(5:7)./T900_capacities_2D_design(1:2), 'bo')
+plot(100*throat_widths(2)./throat_widths(1)-100 , 100*T900_capacities_2D_design(3)./T900_capacities_2D_design(1,2)-100, 'go','MarkerFaceColor','green','MarkerSize',10)
+plot(100*throat_widths(3)./throat_widths(1)-100 , 100*T900_capacities_2D_design(4)./T900_capacities_2D_design(1,2)-100, 'co','MarkerFaceColor','cyan','MarkerSize',10)
+plot(100*throat_widths(4)./throat_widths(1)-100 , 100*T900_capacities_2D_design(5)./T900_capacities_2D_design(1,2)-100, 'ro','MarkerFaceColor','red','MarkerSize',10)
+plot(100*throat_widths(5)./throat_widths(1)-100 , 100*T900_capacities_2D_design(6)./T900_capacities_2D_design(1,2)-100, 'mo','MarkerFaceColor','magenta','MarkerSize',10)
+plot(100*throat_widths(6)./throat_widths(1)-100 , 100*T900_capacities_2D_design(7)./T900_capacities_2D_design(1,2)-100, 'ko','MarkerFaceColor','black','MarkerSize',10)
+plot(100*throat_width_Mskew_mean/throat_widths(1)-100, 100*T900_capacity_Mskew_mean/T900_capacities_2D_design(1,2)-100, 'k*')
+plot(100*throat_width_EP1_mean/throat_widths(1)-100, 100*T900_capacity_EP1_mean/T900_capacities_2D_design(1,2)-100, 'k*')
+plot(1.4*gradient_1(:,1) + 100*throat_width_Mskew_mean/throat_widths(1)-100, 1.4*gradient_1(:,2) + 100*T900_capacity_Mskew_mean/T900_capacities_2D_design(1,2)-100, 'k-')
+plot(1000*gradient_1(:,1) + 100*throat_width_EP1_mean/throat_widths(1)-100, 1000*gradient_1(:,2) + 100*T900_capacity_EP1_mean/T900_capacities_2D_design(1,2)-100, 'k')
+plot(-1000*gradient_1(:,1) + 100*throat_width_Mskew_mean/throat_widths(1)-100, -1000*gradient_1(:,2) + 100*T900_capacity_Mskew_mean/T900_capacities_2D_design(1,2)-100, 'k-')
+plot(-0.8*gradient_1(:,1) + 100*throat_width_EP1_mean/throat_widths(1)-100, -0.8*gradient_1(:,2) + 100*T900_capacity_EP1_mean/T900_capacities_2D_design(1,2)-100, 'k')
+%axis([100*0.99*min(throat_widths)/throat_widths(1)-100 100*1.01-100 100*0.99*min(T900_capacities_2D_design(2:7))/T900_capacities_2D_design(1,2)-100 100*1.01-100])
+axis([-2 3.5 -2 3.5])
 xlabel('\Delta throat width, %')
 ylabel('\Delta capacity, %')
 %legend('M-skewed', 'EP1', 'Avg. M-skewed vane', 'Avg. EP1 vane', 'Line of gradient 1', 'Line of gradient 1', 'Location', 'NorthWest')
@@ -1608,22 +1613,23 @@ print('../../figs/t900_2d_capacities_vs_throat_widths','-dpng','-r300');
 
 figure(5)
 %3D Capacity versus throat area
-%plot(100*throat_areas_digitised(1:3)./max(throat_areas_digitised) , 100*T900_capacities_3D_design(2:4)./max(T900_capacities_3D_design(2:7)), 'ro')
-plot(100*throat_areas_digitised(1)./max(throat_areas_digitised) , 100*T900_capacities_3D_design(2)./max(T900_capacities_3D_design(2:7)), 'bo','MarkerFaceColor','blue','MarkerSize',10)
+%plot(100*throat_areas_digitised(1:3)./throat_areas_digitised(1)-100 , 100*T900_capacities_3D_design(2:4)./T900_capacities_3D_design(2)-100, 'ro')
+plot(100*throat_areas_digitised(1)./throat_areas_digitised(1)-100 , 100*T900_capacities_3D_design(2)./T900_capacities_3D_design(2)-100, 'bo','MarkerFaceColor','blue','MarkerSize',10)
 hold on
-plot(100*throat_areas_digitised(4:6)./max(throat_areas_digitised) , 100*T900_capacities_3D_design(5:7)./max(T900_capacities_3D_design(2:7)), 'bo')
-plot(100*throat_areas_digitised(2)./max(throat_areas_digitised) , 100*T900_capacities_3D_design(3)./max(T900_capacities_3D_design(2:7)), 'go','MarkerFaceColor','green','MarkerSize',10)
-plot(100*throat_areas_digitised(3)./max(throat_areas_digitised) , 100*T900_capacities_3D_design(4)./max(T900_capacities_3D_design(2:7)), 'co','MarkerFaceColor','cyan','MarkerSize',10)
-plot(100*throat_areas_digitised(4)./max(throat_areas_digitised) , 100*T900_capacities_3D_design(5)./max(T900_capacities_3D_design(2:7)), 'ro','MarkerFaceColor','red','MarkerSize',10)
-plot(100*throat_areas_digitised(5)./max(throat_areas_digitised) , 100*T900_capacities_3D_design(6)./max(T900_capacities_3D_design(2:7)), 'mo','MarkerFaceColor','magenta','MarkerSize',10)
-plot(100*throat_areas_digitised(6)./max(throat_areas_digitised) , 100*T900_capacities_3D_design(7)./max(T900_capacities_3D_design(2:7)), 'ko','MarkerFaceColor','black','MarkerSize',10)
-plot(100*throat_width_Mskew_mean_3D/max(throat_areas_digitised), 100*T900_capacity_Mskew_mean_3D/max(T900_capacities_3D_design(2:7)), 'k*')
-plot(100*throat_width_EP1_mean_3D/max(throat_areas_digitised), 100*T900_capacity_EP1_mean_3D/max(T900_capacities_3D_design(2:7)), 'k*')
-plot(1.4*gradient_1(:,1) + 100*throat_width_Mskew_mean_3D/max(throat_areas_digitised), 1.4*gradient_1(:,2) + 100*T900_capacity_Mskew_mean_3D/max(T900_capacities_3D_design(2:7)), 'k-')
-plot(1000*gradient_1(:,1) + 100*throat_width_EP1_mean_3D/max(throat_areas_digitised), 1000*gradient_1(:,2) + 100*T900_capacity_EP1_mean_3D/max(T900_capacities_3D_design(2:7)), 'k')
-plot(-1000*gradient_1(:,1) + 100*throat_width_Mskew_mean_3D/max(throat_areas_digitised), -1000*gradient_1(:,2) + 100*T900_capacity_Mskew_mean_3D/max(T900_capacities_3D_design(2:7)), 'k-')
-plot(-0.8*gradient_1(:,1) + 100*throat_width_EP1_mean_3D/max(throat_areas_digitised), -0.8*gradient_1(:,2) + 100*T900_capacity_EP1_mean_3D/max(T900_capacities_3D_design(2:7)), 'k')
-axis([100*0.99*min(throat_areas_digitised)/max(throat_areas_digitised) 100*1.01 100*0.99*min(T900_capacities_3D_design(2:7))/max(T900_capacities_3D_design(2:7)) 100*1.01])
+%plot(100*throat_areas_digitised(4:6)./throat_areas_digitised(1)-100 , 100*T900_capacities_3D_design(5:7)./T900_capacities_3D_design(2)-100, 'bo')
+plot(100*throat_areas_digitised(2)./throat_areas_digitised(1)-100 , 100*T900_capacities_3D_design(3)./T900_capacities_3D_design(2)-100, 'go','MarkerFaceColor','green','MarkerSize',10)
+plot(100*throat_areas_digitised(3)./throat_areas_digitised(1)-100 , 100*T900_capacities_3D_design(4)./T900_capacities_3D_design(2)-100, 'co','MarkerFaceColor','cyan','MarkerSize',10)
+plot(100*throat_areas_digitised(4)./throat_areas_digitised(1)-100 , 100*T900_capacities_3D_design(5)./T900_capacities_3D_design(2)-100, 'ro','MarkerFaceColor','red','MarkerSize',10)
+plot(100*throat_areas_digitised(5)./throat_areas_digitised(1)-100 , 100*T900_capacities_3D_design(6)./T900_capacities_3D_design(2)-100, 'mo','MarkerFaceColor','magenta','MarkerSize',10)
+plot(100*throat_areas_digitised(6)./throat_areas_digitised(1)-100 , 100*T900_capacities_3D_design(7)./T900_capacities_3D_design(2)-100, 'ko','MarkerFaceColor','black','MarkerSize',10)
+plot(100*throat_width_Mskew_mean_3D/throat_areas_digitised(1)-100, 100*T900_capacity_Mskew_mean_3D/T900_capacities_3D_design(2)-100, 'k*')
+plot(100*throat_width_EP1_mean_3D/throat_areas_digitised(1)-100, 100*T900_capacity_EP1_mean_3D/T900_capacities_3D_design(2)-100, 'k*')
+plot(1.4*gradient_1(:,1) + 100*throat_width_Mskew_mean_3D/throat_areas_digitised(1)-100, 1.4*gradient_1(:,2) + 100*T900_capacity_Mskew_mean_3D/T900_capacities_3D_design(2)-100, 'k-')
+plot(1000*gradient_1(:,1) + 100*throat_width_EP1_mean_3D/throat_areas_digitised(1)-100, 1000*gradient_1(:,2) + 100*T900_capacity_EP1_mean_3D/T900_capacities_3D_design(2)-100, 'k')
+plot(-1000*gradient_1(:,1) + 100*throat_width_Mskew_mean_3D/throat_areas_digitised(1)-100, -1000*gradient_1(:,2) + 100*T900_capacity_Mskew_mean_3D/T900_capacities_3D_design(2)-100, 'k-')
+plot(-0.8*gradient_1(:,1) + 100*throat_width_EP1_mean_3D/throat_areas_digitised(1)-100, -0.8*gradient_1(:,2) + 100*T900_capacity_EP1_mean_3D/T900_capacities_3D_design(2)-100, 'k')
+%axis([100*0.99*min(throat_areas_digitised)/max(throat_areas_digitised) 100*1.01 100*0.99*min(T900_capacities_3D_design(2:7))/max(T900_capacities_3D_design(2:7)) 100*1.01])
+axis([-2 2.5 -2 3.5])
 xlabel('\Delta throat area, %')
 ylabel('\Delta capacity, %')
 %legend('M-skewed', 'EP1', 'Avg. M-skewed vane', 'Avg. EP1 vane', 'Line of gradient 1', 'Line of gradient 1', 'Location', 'NorthWest')
@@ -1653,28 +1659,27 @@ throat_widths_effective = [0.0128,0.013,0.0127,0.0133,0.0133,0.0132]';
 throat_widths_effective_mean = mean(throat_widths_effective);
 T900_capacities_2D_design_mean = mean(T900_capacities_2D_design);
 
-gradient = [0 0 ; 110 110];
+gradient = [-10 -10 ; 10 10];
 
 
 figure(6)
 %2D Capacity versus effective throat width
-
-plot(100*throat_widths_effective(1)./max(throat_widths_effective) , 100*T900_capacities_2D_design(2)./max(T900_capacities_2D_design(2:7)), 'bo','MarkerFaceColor','blue','MarkerSize',10)
+plot(100*throat_widths_effective(1)./throat_widths_effective(1)-100 , 100*T900_capacities_2D_design(2)./T900_capacities_2D_design(1,2)-100, 'bo','MarkerFaceColor','blue','MarkerSize',10)
 hold on
-plot(100*throat_widths_effective(2)./max(throat_widths_effective) , 100*T900_capacities_2D_design(3)./max(T900_capacities_2D_design(2:7)), 'go','MarkerFaceColor','green','MarkerSize',10)
-plot(100*throat_widths_effective(3)./max(throat_widths_effective) , 100*T900_capacities_2D_design(4)./max(T900_capacities_2D_design(2:7)), 'co','MarkerFaceColor','cyan','MarkerSize',10)
-plot(100*throat_widths_effective(4)./max(throat_widths_effective) , 100*T900_capacities_2D_design(5)./max(T900_capacities_2D_design(2:7)), 'ro','MarkerFaceColor','red','MarkerSize',10)
-plot(100*throat_widths_effective(5)./max(throat_widths_effective) , 100*T900_capacities_2D_design(6)./max(T900_capacities_2D_design(2:7)), 'mo','MarkerFaceColor','magenta','MarkerSize',10)
-plot(100*throat_widths_effective(6)./max(throat_widths_effective) , 100*T900_capacities_2D_design(7)./max(T900_capacities_2D_design(2:7)), 'ko','MarkerFaceColor','black','MarkerSize',10)
-plot(100*throat_widths_effective_mean/max(throat_widths_effective), 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'k*')
+plot(100*throat_widths_effective(2)./throat_widths_effective(1)-100 , 100*T900_capacities_2D_design(3)./T900_capacities_2D_design(1,2)-100, 'go','MarkerFaceColor','green','MarkerSize',10)
+plot(100*throat_widths_effective(3)./throat_widths_effective(1)-100 , 100*T900_capacities_2D_design(4)./T900_capacities_2D_design(1,2)-100, 'co','MarkerFaceColor','cyan','MarkerSize',10)
+plot(100*throat_widths_effective(4)./throat_widths_effective(1)-100 , 100*T900_capacities_2D_design(5)./T900_capacities_2D_design(1,2)-100, 'ro','MarkerFaceColor','red','MarkerSize',10)
+plot(100*throat_widths_effective(5)./throat_widths_effective(1)-100 , 100*T900_capacities_2D_design(6)./T900_capacities_2D_design(1,2)-100, 'mo','MarkerFaceColor','magenta','MarkerSize',10)
+plot(100*throat_widths_effective(6)./throat_widths_effective(1)-100 , 100*T900_capacities_2D_design(7)./T900_capacities_2D_design(1,2)-100, 'ko','MarkerFaceColor','black','MarkerSize',10)
+%plot(100*throat_widths_effective_mean/throat_widths_effective(1)-100, 100*T900_capacities_2D_design_mean/T900_capacities_2D_design(1,2)-100, 'k*')
 %plot(1.4*gradient_1(:,1) + 100*throat_widths_effective_mean/max(throat_widths_effective), 1.4*gradient_1(:,2) + 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'r-')
 %plot(1000*gradient_1(:,1) + 100*throat_widths_effective_mean/max(throat_widths_effective), 1000*gradient_1(:,2) + 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'g')
 %plot(-1000*gradient_1(:,1) + 100*throat_widths_effective_mean/max(throat_widths_effective), -1000*gradient_1(:,2) + 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'b-')
 %plot(-0.8*gradient_1(:,1) + 100*throat_widths_effective_mean/max(throat_widths_effective), -0.8*gradient_1(:,2) + 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'c')
-%plot(gradient(:,1) + 100*throat_widths_effective_mean/max(throat_widths_effective), -gradient(:,2) + 100*T900_capacities_2D_design_mean/max(T900_capacities_2D_design(2:7)), 'c')
-plot(gradient(:,1),gradient(:,2),'k-')
-
-axis([100*0.99*min(throat_widths_effective)/max(throat_widths_effective) 100*1.01 100*0.99*min(T900_capacities_2D_design(2:7))/max(T900_capacities_2D_design(2:7)) 100*1.01])
+%plot(gradient(:,1) + 100*throat_widths_effective_mean/throat_widths_effective(1)-100, -gradient(:,2) + 100*T900_capacities_2D_design_mean/T900_capacities_2D_design(1,2)-100, 'c')
+plot(gradient(:,1),gradient(:,2)-0.7,'k-')
+%axis([100*0.99*min(throat_widths_effective)/max(throat_widths_effective) 100*1.01 100*0.99*min(T900_capacities_2D_design(2:7))/max(T900_capacities_2D_design(2:7)) 100*1.01])
+axis([-2 5 -2 3.5])
 xlabel('\Delta effective throat width, %')
 ylabel('\Delta capacity, %')
 %legend('M-skewed', 'EP1', 'Avg. M-skewed vane', 'Avg. EP1 vane', 'Line of gradient 1', 'Line of gradient 1', 'Location', 'NorthWest')
@@ -1705,30 +1710,30 @@ print('../../figs/t900_2d_capacities_vs_effective_throat_widths','-dpng','-r300'
 figure(7)
 %realistic TEs with SS cutbacks
 
-plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,2)./T900_TE_capacities_2D(18,2), 'k.')
+plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,2)./T900_capacities_2D_design(1,2) - 1), 'k.')
 hold on
-%plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,3)./T900_TE_capacities_2D(18,2), 'kx')
-plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,4)./T900_TE_capacities_2D(18,2), 'r.')
-%plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,5)./T900_TE_capacities_2D(18,2), 'kh')
-plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,6)./T900_TE_capacities_2D(18,2), 'g.')
-%plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,7)./T900_TE_capacities_2D(18,2), 'ko')
-plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,8)./T900_TE_capacities_2D(18,2), 'b.')
-%plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,9)./T900_TE_capacities_2D(18,2), 'kp')
-plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,10)./T900_TE_capacities_2D(18,2), 'c.')
-%plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,11)./T900_TE_capacities_2D(18,2), 'kd')
-plot(T900_TE_capacities_2D(:,1), 100*T900_TE_capacities_2D(:,12)./T900_TE_capacities_2D(18,2), 'm.')
+%plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,3)./T900_capacities_2D_design(1,2) - 1), 'kx')
+plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,4)./T900_capacities_2D_design(1,2) - 1), 'r.')
+%plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,5)./T900_capacities_2D_design(1,2) - 1), 'kh')
+plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,6)./T900_capacities_2D_design(1,2) - 1), 'g.')
+%plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,7)./T900_capacities_2D_design(1,2) - 1), 'ko')
+plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,8)./T900_capacities_2D_design(1,2) - 1), 'b.')
+%plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,9)./T900_capacities_2D_design(1,2) - 1), 'kp')
+plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,10)./T900_capacities_2D_design(1,2) - 1), 'c.')
+%plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,11)./T900_capacities_2D_design(1,2) - 1), 'kd')
+plot(T900_TE_capacities_2D(:,1), 100*(T900_TE_capacities_2D(:,12)./T900_capacities_2D_design(1,2) - 1), 'm.')
 
-plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,2)./T900_TE_capacities_2D(18,2), 'k-')
-%plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,3)./T900_TE_capacities_2D(18,2), 'k-.')
-plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,4)./T900_TE_capacities_2D(18,2), 'r-')
-%plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,5)./T900_TE_capacities_2D(18,2), 'k-.')
-plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,6)./T900_TE_capacities_2D(18,2), 'g-')
-%plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,7)./T900_TE_capacities_2D(18,2), 'k-.')
-plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,8)./T900_TE_capacities_2D(18,2), 'b-')
-%plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,9)./T900_TE_capacities_2D(18,2), 'k-.')
-plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,10)./T900_TE_capacities_2D(18,2), 'c-')
-%plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,11)./T900_TE_capacities_2D(18,2), 'k-.')
-plot(T900_TE_capacities_2D_oversampled(:,1), 100*T900_TE_capacities_2D_oversampled(:,12)./T900_TE_capacities_2D(18,2), 'm-')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,2)./T900_capacities_2D_design(1,2) - 1), 'k-')
+%plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,3)./T900_capacities_2D_design(1,2) - 1), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,4)./T900_capacities_2D_design(1,2) - 1), 'r-')
+%plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,5)./T900_capacities_2D_design(1,2) - 1), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,6)./T900_capacities_2D_design(1,2) - 1), 'g-')
+%plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,7)./T900_capacities_2D_design(1,2) - 1), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,8)./T900_capacities_2D_design(1,2) - 1), 'b-')
+%plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,9)./T900_capacities_2D_design(1,2) - 1), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,10)./T900_capacities_2D_design(1,2) - 1), 'c-')
+%plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,11)./T900_capacities_2D_design(1,2) - 1), 'k-.')
+plot(T900_TE_capacities_2D_oversampled(:,1), 100*(T900_TE_capacities_2D_oversampled(:,12)./T900_capacities_2D_design(1,2) - 1), 'm-')
 
 xlim([1.5 2.5])
 xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
@@ -1866,8 +1871,10 @@ plot(tp06(:,1)/(tp00(17,1)-tp00(1,1)),turning_angles_06(:)-turning_angles_00(9),
 plot(tp08(:,1)/(tp00(17,1)-tp00(1,1)),turning_angles_08(:)-turning_angles_00(9), 'c.-')
 plot(tp10(:,1)/(tp00(17,1)-tp00(1,1)),turning_angles_10(:)-turning_angles_00(9), 'm.-')
 
-xlabel('Distance along outlet plane')
+xlabel('Distance along outlet plane, normalised by NGV pitch')
 ylabel('\Delta turning angle, degrees')
+te_line = xline(0.5,'-k',{'NGV trailing edge'},'FontName','Charter','FontSize',font_size);
+te_line.LabelVerticalAlignment = 'bottom';
 
 %Here we set up the axes
 pos = get(gcf, 'Position');
@@ -1899,20 +1906,20 @@ print('../../figs/ss_cutbacks_turning_angle_surveys','-dpng','-r300');
 figure(13)
 %novel TEs, just the reruns
 
-%plot(T900_capacities_2D(18:28,1), 100*T900_capacities_2D(18:28,2)./T900_capacities_2D(18,2), 'b.')
-plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,2)./T900_capacities_2D(18,2), 'k.')
+%plot(T900_capacities_2D(18:28,1), 100*T900_capacities_2D(18:28,2)./T900_capacities_2D_design(1,2), 'b.')
+plot(T900_novel_capacities_2D(:,1), 100*(T900_novel_capacities_2D(:,2)./T900_capacities_2D_design(1,2) - 1), 'k.')
 hold on
-plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,10)./T900_capacities_2D(18,2), 'r.')
-plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,9)./T900_capacities_2D(18,2), 'g.')
-plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,8)./T900_capacities_2D(18,2), 'b.')
-plot(T900_novel_capacities_2D(:,1), 100*T900_novel_capacities_2D(:,6)./T900_capacities_2D(18,2), 'c.')
+plot(T900_novel_capacities_2D(:,1), 100*(T900_novel_capacities_2D(:,10)./T900_capacities_2D_design(1,2) - 1), 'r.')
+plot(T900_novel_capacities_2D(:,1), 100*(T900_novel_capacities_2D(:,9)./T900_capacities_2D_design(1,2) - 1), 'g.')
+plot(T900_novel_capacities_2D(:,1), 100*(T900_novel_capacities_2D(:,8)./T900_capacities_2D_design(1,2) - 1), 'b.')
+plot(T900_novel_capacities_2D(:,1), 100*(T900_novel_capacities_2D(:,6)./T900_capacities_2D_design(1,2) - 1), 'c.')
 
-%plot(T900_capacities_2D_oversampled(:,1), 100*T900_capacities_2D_oversampled(:,2)./T900_capacities_2D(18,2), 'k-')
-plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,2)./T900_capacities_2D(18,2), 'k-')
-plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,10)./T900_capacities_2D(18,2), 'r-')
-plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,9)./T900_capacities_2D(18,2), 'g-')
-plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,8)./T900_capacities_2D(18,2), 'b-')
-plot(T900_novel_capacities_2D_oversampled(:,1), 100*T900_novel_capacities_2D_oversampled(:,6)./T900_capacities_2D(18,2), 'c-')
+%plot(T900_capacities_2D_oversampled(:,1), 100*(T900_capacities_2D_oversampled(:,2)./T900_capacities_2D_design(1,2) - 1), 'k-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*(T900_novel_capacities_2D_oversampled(:,2)./T900_capacities_2D_design(1,2) - 1), 'k-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*(T900_novel_capacities_2D_oversampled(:,10)./T900_capacities_2D_design(1,2) - 1), 'r-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*(T900_novel_capacities_2D_oversampled(:,9)./T900_capacities_2D_design(1,2) - 1), 'g-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*(T900_novel_capacities_2D_oversampled(:,8)./T900_capacities_2D_design(1,2) - 1), 'b-')
+plot(T900_novel_capacities_2D_oversampled(:,1), 100*(T900_novel_capacities_2D_oversampled(:,6)./T900_capacities_2D_design(1,2) - 1), 'c-')
 
 xlim([1.5 2.5])
 xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
@@ -2076,8 +2083,10 @@ plot(tpps2(:,1)/(tpps2(17,1)-tpps2(1,1)),turning_angles_ps_2(:)-turning_angles_p
 plot(tpps3(:,1)/(tpps3(17,1)-tpps3(1,1)),turning_angles_ps_3(:)-turning_angles_ps_0(9), 'b.-')
 plot(tpps4(:,1)/(tpps4(17,1)-tpps4(1,1)),turning_angles_ps_4(:)-turning_angles_ps_0(9), 'c.-')
 
-xlabel('Distance along outlet plane')
+xlabel('Distance along outlet plane, normalised by NGV pitch')
 ylabel('\Delta turning angle, degrees')
+te_line = xline(0.5,'-k',{'NGV trailing edge'},'FontName','Charter','FontSize',font_size);
+te_line.LabelVerticalAlignment = 'bottom';
 
 %Here we set up the axes
 pos = get(gcf, 'Position');

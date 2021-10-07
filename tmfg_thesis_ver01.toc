@@ -1,33 +1,34 @@
 \contentsline {chapter}{List of Figures}{5}
 \contentsline {chapter}{List of Tables}{8}
-\contentsline {chapter}{\numberline {1}Introduction}{10}
-\contentsline {section}{\numberline {1.1}Motivation}{10}
-\contentsline {section}{\numberline {1.2}Flow capacity: background, definition, and derivation}{12}
-\contentsline {section}{\numberline {1.3}Research structure}{14}
-\contentsline {section}{\numberline {1.4}Summary of findings}{15}
-\contentsline {chapter}{\numberline {2}Geometric throat area}{16}
-\contentsline {section}{\numberline {2.1}Nozzle guide vane capacity uncertainty in 2 dimensions}{18}
-\contentsline {subsection}{\numberline {2.1.1}Geometry, mesh, and boundary conditions}{18}
-\contentsline {subsection}{\numberline {2.1.2}Effect on 2D capacity}{25}
-\contentsline {section}{\numberline {2.2}Comparison of 2D capacity predictions with 3D data}{32}
-\contentsline {subsection}{\numberline {2.2.1}Effect on 2D capacity versus 3D capacity}{32}
-\contentsline {section}{\numberline {2.3}Chapter conclusions}{34}
-\contentsline {chapter}{\numberline {3}Trailing edge shape}{35}
-\contentsline {section}{\numberline {3.1}Definitions of loss for trailing edge performance evaluation}{37}
-\contentsline {section}{\numberline {3.2}Effects of suction-side trailing edge shape uncertainty}{40}
-\contentsline {subsection}{\numberline {3.2.1}Geometry, mesh, and boundary conditions}{40}
-\contentsline {subsection}{\numberline {3.2.2}Effect on capacity}{42}
-\contentsline {subsection}{\numberline {3.2.3}Effect on performance}{48}
-\contentsline {section}{\numberline {3.3}Effects of pressure-side trailing edge sizing}{51}
-\contentsline {subsection}{\numberline {3.3.1}Geometry, mesh, and boundary conditions}{52}
-\contentsline {subsection}{\numberline {3.3.2}Effect on capacity}{53}
-\contentsline {subsection}{\numberline {3.3.3}Effect on performance}{59}
-\contentsline {section}{\numberline {3.4}Chapter conclusions}{62}
-\contentsline {chapter}{\numberline {4}Film cooling location}{63}
-\contentsline {section}{\numberline {4.1}Sensitivity of capacity to cooling holes on the leading suction side}{63}
-\contentsline {subsection}{\numberline {4.1.1}Geometry, mesh, and boundary conditions}{64}
-\contentsline {subsection}{\numberline {4.1.2}Effect on capacity}{67}
-\contentsline {subsection}{\numberline {4.1.3}Effect on performance}{75}
-\contentsline {section}{\numberline {4.2}Chapter conclusions}{76}
-\contentsline {chapter}{Bibliography}{76}
-\contentsline {chapter}{Bibliography}{77}
+\contentsline {chapter}{\numberline {1}Introduction}{12}
+\contentsline {section}{\numberline {1.1}Motivation}{12}
+\contentsline {section}{\numberline {1.2}Flow capacity: background, definition, and derivation}{14}
+\contentsline {section}{\numberline {1.3}Research structure}{16}
+\contentsline {section}{\numberline {1.4}Summary of findings}{17}
+\contentsline {chapter}{\numberline {2}Geometric throat area}{19}
+\contentsline {section}{\numberline {2.1}Nozzle guide vane capacity uncertainty in 2 dimensions}{21}
+\contentsline {subsection}{\numberline {2.1.1}Geometry, mesh, and boundary conditions}{21}
+\contentsline {subsection}{\numberline {2.1.2}Effect on 2D capacity}{28}
+\contentsline {section}{\numberline {2.2}Comparison of 2D capacity predictions with 3D data}{35}
+\contentsline {subsection}{\numberline {2.2.1}Effect on 2D capacity versus 3D capacity}{35}
+\contentsline {section}{\numberline {2.3}Chapter conclusions}{37}
+\contentsline {chapter}{\numberline {3}Trailing edge shape}{38}
+\contentsline {section}{\numberline {3.1}Definitions of loss for trailing edge performance evaluation}{40}
+\contentsline {section}{\numberline {3.2}Effects of suction-side trailing edge shape uncertainty}{43}
+\contentsline {subsection}{\numberline {3.2.1}Geometry, mesh, and boundary conditions}{43}
+\contentsline {subsection}{\numberline {3.2.2}Effect on capacity}{45}
+\contentsline {subsection}{\numberline {3.2.3}Effect on performance}{51}
+\contentsline {section}{\numberline {3.3}Effects of pressure-side trailing edge sizing}{54}
+\contentsline {subsection}{\numberline {3.3.1}Geometry, mesh, and boundary conditions}{55}
+\contentsline {subsection}{\numberline {3.3.2}Effect on capacity}{56}
+\contentsline {subsection}{\numberline {3.3.3}Effect on performance}{62}
+\contentsline {section}{\numberline {3.4}Chapter conclusions}{65}
+\contentsline {chapter}{\numberline {4}Film cooling location}{66}
+\contentsline {section}{\numberline {4.1}Sensitivity of capacity to cooling holes on the suction side}{66}
+\contentsline {subsection}{\numberline {4.1.1}Geometry, mesh, and boundary conditions}{67}
+\contentsline {subsection}{\numberline {4.1.2}Effect on capacity}{70}
+\contentsline {subsection}{\numberline {4.1.3}Effect on performance}{78}
+\contentsline {section}{\numberline {4.2}Chapter conclusions}{79}
+\contentsline {chapter}{\numberline {5}Conclusion}{81}
+\contentsline {chapter}{Bibliography}{82}
+\contentsline {chapter}{Bibliography}{83}
