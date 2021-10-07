@@ -1871,7 +1871,7 @@ plot(tp06(:,1)/(tp00(17,1)-tp00(1,1)),turning_angles_06(:)-turning_angles_00(9),
 plot(tp08(:,1)/(tp00(17,1)-tp00(1,1)),turning_angles_08(:)-turning_angles_00(9), 'c.-')
 plot(tp10(:,1)/(tp00(17,1)-tp00(1,1)),turning_angles_10(:)-turning_angles_00(9), 'm.-')
 
-xlabel('Distance along outlet plane, normalised by NGV pitch')
+xlabel({'Distance along outlet plane,','normalised by NGV pitch'})
 ylabel('\Delta turning angle, degrees')
 te_line = xline(0.5,'-k',{'NGV trailing edge'},'FontName','Charter','FontSize',font_size);
 te_line.LabelVerticalAlignment = 'bottom';
@@ -2083,7 +2083,7 @@ plot(tpps2(:,1)/(tpps2(17,1)-tpps2(1,1)),turning_angles_ps_2(:)-turning_angles_p
 plot(tpps3(:,1)/(tpps3(17,1)-tpps3(1,1)),turning_angles_ps_3(:)-turning_angles_ps_0(9), 'b.-')
 plot(tpps4(:,1)/(tpps4(17,1)-tpps4(1,1)),turning_angles_ps_4(:)-turning_angles_ps_0(9), 'c.-')
 
-xlabel('Distance along outlet plane, normalised by NGV pitch')
+xlabel({'Distance along outlet plane,','normalised by NGV pitch'})
 ylabel('\Delta turning angle, degrees')
 te_line = xline(0.5,'-k',{'NGV trailing edge'},'FontName','Charter','FontSize',font_size);
 te_line.LabelVerticalAlignment = 'bottom';
