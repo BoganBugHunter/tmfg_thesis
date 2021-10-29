@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  7 OCT 2021 17:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.7.15)  29 OCT 2021 02:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1757,31 +1757,28 @@ LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 245.
+(Font)              scaled to size 13.82408pt on input line 247.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 13.82408pt on input line 245.
+(Font)              scaled to size 13.82408pt on input line 247.
  <figs/brayton_cycle_pv_plot.png, id=53, 289.08pt x 289.08pt>
 File: figs/brayton_cycle_pv_plot.png Graphic file (type png)
 
 <use figs/brayton_cycle_pv_plot.png>
-Package pdftex.def Info: figs/brayton_cycle_pv_plot.png used on input line 253.
+Package pdftex.def Info: figs/brayton_cycle_pv_plot.png used on input line 255.
 
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 254.
+(Font)              scaled to size 9.60007pt on input line 256.
 
 <figs/brayton_cycle_ts_plot.png, id=54, 289.08pt x 289.08pt>
 File: figs/brayton_cycle_ts_plot.png Graphic file (type png)
 
 <use figs/brayton_cycle_ts_plot.png>
-Package pdftex.def Info: figs/brayton_cycle_ts_plot.png used on input line 260.
+Package pdftex.def Info: figs/brayton_cycle_ts_plot.png used on input line 262.
 
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
  [13 <./figs/brayton_cycle_pv_plot.png (PNG copy)> <./figs/brayton_cycle_ts_plo
 t.png (PNG copy)>] [14]
-Missing character: There is no â in font mdbchr7t!
-Missing character: There is no € in font mdbchr7t!
-Missing character: There is no ¢ in font mdbchr7t!
 Missing character: There is no â in font mdbchr7t!
 Missing character: There is no € in font mdbchr7t!
 Missing character: There is no ¢ in font mdbchr7t!
@@ -1808,7 +1805,7 @@ Chapter 2.
 File: figs/illustration_of_minimum_area_ver04.png Graphic file (type png)
 <use figs/illustration_of_minimum_area_ver04.png>
 Package pdftex.def Info: figs/illustration_of_minimum_area_ver04.png used on in
-put line 598.
+put line 551.
 (pdftex.def)             Requested size: 203.83417pt x 204.46155pt.
 
 <figs/illustration_of_equivalent_throat_area_integral_ver03.png, id=77, 641.396
@@ -1818,7 +1815,7 @@ le (type png)
 
 <use figs/illustration_of_equivalent_throat_area_integral_ver03.png>
 Package pdftex.def Info: figs/illustration_of_equivalent_throat_area_integral_v
-er03.png used on input line 605.
+er03.png used on input line 558.
 (pdftex.def)             Requested size: 203.83417pt x 204.46986pt.
  [19
 
@@ -1829,7 +1826,7 @@ ivalent_throat_area_integral_ver03.png>]
 File: figs/2d_geometry_creation.png Graphic file (type png)
 
 <use figs/2d_geometry_creation.png>
-Package pdftex.def Info: figs/2d_geometry_creation.png used on input line 644.
+Package pdftex.def Info: figs/2d_geometry_creation.png used on input line 598.
 (pdftex.def)             Requested size: 271.7835pt x 337.31793pt.
  [21]
 <figs/domain_boundary_conditions.png, id=91, 324.4923pt x 428.3202pt>
@@ -1837,22 +1834,22 @@ File: figs/domain_boundary_conditions.png Graphic file (type png)
 
 <use figs/domain_boundary_conditions.png>
 Package pdftex.def Info: figs/domain_boundary_conditions.png used on input line
- 653.
+ 607.
 (pdftex.def)             Requested size: 271.7835pt x 358.76695pt.
  [22 <./figs/2d_geometry_creation.png (PNG copy)>] [23 <./figs/domain_boundary_
 conditions.png (PNG copy)>] [24]
-[25] <figs/t900_mesh_whole.png, id=105, 1105.12875pt x 1837.86626pt>
+[25] <figs/t900_mesh_whole.png, id=105, 552.56438pt x 918.93312pt>
 File: figs/t900_mesh_whole.png Graphic file (type png)
 
 <use figs/t900_mesh_whole.png>
-Package pdftex.def Info: figs/t900_mesh_whole.png used on input line 920.
-(pdftex.def)             Requested size: 385.02547pt x 640.29022pt.
+Package pdftex.def Info: figs/t900_mesh_whole.png used on input line 845.
+(pdftex.def)             Requested size: 385.02547pt x 640.30423pt.
  [26]
 <figs/t900_mesh_leading_edge.png, id=109, 1299.85625pt x 858.70813pt>
 File: figs/t900_mesh_leading_edge.png Graphic file (type png)
 
 <use figs/t900_mesh_leading_edge.png>
-Package pdftex.def Info: figs/t900_mesh_leading_edge.png used on input line 929
+Package pdftex.def Info: figs/t900_mesh_leading_edge.png used on input line 854
 .
 (pdftex.def)             Requested size: 203.83417pt x 134.64452pt.
 
@@ -1860,37 +1857,37 @@ Package pdftex.def Info: figs/t900_mesh_leading_edge.png used on input line 929
 File: figs/t900_mesh_trailing_edge.png Graphic file (type png)
 
 <use figs/t900_mesh_trailing_edge.png>
-Package pdftex.def Info: figs/t900_mesh_trailing_edge.png used on input line 93
-6.
+Package pdftex.def Info: figs/t900_mesh_trailing_edge.png used on input line 86
+1.
 (pdftex.def)             Requested size: 203.83417pt x 192.04047pt.
  [27 <./figs/t900_mesh_whole.png>]
 <figs/t900_mach_whole.png, id=115, 552.56438pt x 918.93312pt>
 File: figs/t900_mach_whole.png Graphic file (type png)
 
 <use figs/t900_mach_whole.png>
-Package pdftex.def Info: figs/t900_mach_whole.png used on input line 952.
+Package pdftex.def Info: figs/t900_mach_whole.png used on input line 877.
 (pdftex.def)             Requested size: 385.02547pt x 640.30423pt.
  [28 <./figs/t900_mesh_leading_edge.png> <./figs/t900_mesh_trailing_edge.png>]
 <figs/mach_legend_choked.png, id=119, 136.51pt x 314.17375pt>
 File: figs/mach_legend_choked.png Graphic file (type png)
 
 <use figs/mach_legend_choked.png>
-Package pdftex.def Info: figs/mach_legend_choked.png used on input line 961.
+Package pdftex.def Info: figs/mach_legend_choked.png used on input line 886.
 (pdftex.def)             Requested size: 67.94241pt x 156.3674pt.
 
 <figs/t900_mach_throat.png, id=120, 378.41376pt x 581.17125pt>
 File: figs/t900_mach_throat.png Graphic file (type png)
 
 <use figs/t900_mach_throat.png>
-Package pdftex.def Info: figs/t900_mach_throat.png used on input line 966.
+Package pdftex.def Info: figs/t900_mach_throat.png used on input line 891.
 (pdftex.def)             Requested size: 203.83417pt x 313.04742pt.
  [29 <./figs/t900_mach_whole.png>]
 <figs/t900_2d_capacity_trends.png, id=125, 289.08pt x 289.08pt>
 File: figs/t900_2d_capacity_trends.png Graphic file (type png)
 
 <use figs/t900_2d_capacity_trends.png>
-Package pdftex.def Info: figs/t900_2d_capacity_trends.png used on input line 98
-0.
+Package pdftex.def Info: figs/t900_2d_capacity_trends.png used on input line 90
+5.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
 <figs/t900_2d_capacity_trends_legend.png, id=126, 301.125pt x 1204.5pt>
@@ -1898,14 +1895,14 @@ File: figs/t900_2d_capacity_trends_legend.png Graphic file (type png)
 
 <use figs/t900_2d_capacity_trends_legend.png>
 Package pdftex.def Info: figs/t900_2d_capacity_trends_legend.png used on input 
-line 984.
+line 909.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [30 <./figs/mach_legend_choked.png> <./figs/t900_mach_throat.png>]
+ [30 <./figs/mach_legend_choked.png> <./figs/t900_mach_throat.png (PNG copy)>]
 <figs/T900_mach1_lines.png, id=132, 1626.075pt x 1421.31pt>
 File: figs/T900_mach1_lines.png Graphic file (type png)
 
 <use figs/T900_mach1_lines.png>
-Package pdftex.def Info: figs/T900_mach1_lines.png used on input line 996.
+Package pdftex.def Info: figs/T900_mach1_lines.png used on input line 921.
 (pdftex.def)             Requested size: 317.07614pt x 277.1435pt.
  [31 <./figs/t900_2d_capacity_trends.png (PNG copy)> <./figs/t900_2d_capacity_t
 rends_legend.png>] [32 <./figs/T900_mach1_lines.png>]
@@ -1914,7 +1911,7 @@ File: figs/T900_2d_capacities_vs_throat_widths.png Graphic file (type png)
 
 <use figs/T900_2d_capacities_vs_throat_widths.png>
 Package pdftex.def Info: figs/T900_2d_capacities_vs_throat_widths.png used on i
-nput line 1032.
+nput line 957.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
 <figs/t900_throat_widths_legend.png, id=142, 301.125pt x 1204.5pt>
@@ -1922,504 +1919,504 @@ File: figs/t900_throat_widths_legend.png Graphic file (type png)
 
 <use figs/t900_throat_widths_legend.png>
 Package pdftex.def Info: figs/t900_throat_widths_legend.png used on input line 
-1036.
+961.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
  [33 <./figs/T900_2d_capacities_vs_throat_widths.png (PNG copy)> <./figs/t900_t
-hroat_widths_legend.png>]
-<figs/t900_2d_capacities_vs_effective_throat_widths.png, id=147, 289.08pt x 289
+hroat_widths_legend.png>] [34]
+<figs/t900_2d_capacities_vs_effective_throat_widths.png, id=150, 289.08pt x 289
 .08pt>
 File: figs/t900_2d_capacities_vs_effective_throat_widths.png Graphic file (type
  png)
  <use figs/t900_2d_capacities_vs_effective_throat_widths.png>
 Package pdftex.def Info: figs/t900_2d_capacities_vs_effective_throat_widths.png
- used on input line 1057.
+ used on input line 986.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 File: figs/t900_2d_capacity_trends_legend.png Graphic file (type png)
 
 <use figs/t900_2d_capacity_trends_legend.png>
 Package pdftex.def Info: figs/t900_2d_capacity_trends_legend.png used on input 
-line 1061.
+line 990.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [34 <./figs/t900_2d_capacities_vs_effective_throat_widths.png (PNG copy)>]
-<figs/t900_3d_capacity_trends.png, id=151, 289.08pt x 289.08pt>
+ [35 <./figs/t900_2d_capacities_vs_effective_throat_widths.png (PNG copy)>]
+<figs/t900_3d_capacity_trends.png, id=154, 289.08pt x 289.08pt>
 File: figs/t900_3d_capacity_trends.png Graphic file (type png)
 
 <use figs/t900_3d_capacity_trends.png>
 Package pdftex.def Info: figs/t900_3d_capacity_trends.png used on input line 10
-85.
+14.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 File: figs/t900_2d_capacity_trends_legend.png Graphic file (type png)
 
 <use figs/t900_2d_capacity_trends_legend.png>
 Package pdftex.def Info: figs/t900_2d_capacity_trends_legend.png used on input 
-line 1089.
+line 1018.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [35 <./figs/t900_3d_capacity_trends.png (PNG copy)>]
-<figs/T900_3d_capacities_vs_throat_areas.png, id=155, 289.08pt x 289.08pt>
+ [36 <./figs/t900_3d_capacity_trends.png (PNG copy)>]
+<figs/T900_3d_capacities_vs_throat_areas.png, id=159, 289.08pt x 289.08pt>
 File: figs/T900_3d_capacities_vs_throat_areas.png Graphic file (type png)
 
 <use figs/T900_3d_capacities_vs_throat_areas.png>
 Package pdftex.def Info: figs/T900_3d_capacities_vs_throat_areas.png used on in
-put line 1125.
+put line 1054.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 File: figs/t900_throat_widths_legend.png Graphic file (type png)
 
 <use figs/t900_throat_widths_legend.png>
 Package pdftex.def Info: figs/t900_throat_widths_legend.png used on input line 
-1129.
+1058.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [36 <./figs/T900_3d_capacities_vs_throat_areas.png (PNG copy)>] [37]
+ [37] [38 <./figs/T900_3d_capacities_vs_throat_areas.png (PNG copy)>] [39]
 Chapter 3.
-<figs/te_features_labelled.png, id=163, 638.385pt x 851.18pt>
+<figs/te_features_labelled.png, id=169, 638.385pt x 851.18pt>
 File: figs/te_features_labelled.png Graphic file (type png)
 
 <use figs/te_features_labelled.png>
-Package pdftex.def Info: figs/te_features_labelled.png used on input line 1178.
+Package pdftex.def Info: figs/te_features_labelled.png used on input line 1107.
 
 (pdftex.def)             Requested size: 203.83417pt x 271.77272pt.
- [38
+ [40
 
-] [39 <./figs/te_features_labelled.png>] [40]
+] [41 <./figs/te_features_labelled.png>] [42]
 Missing character: There is no â in font mdbchr7t!
 Missing character: There is no € in font mdbchr7t!
 Missing character: There is no ¢ in font mdbchr7t!
 Missing character: There is no â in font mdbchr7t!
 Missing character: There is no € in font mdbchr7t!
 Missing character: There is no ¢ in font mdbchr7t!
- [41] [42] [43]
-<figs/T900_ss_cutbacks_geometry.png, id=184, 1361.085pt x 942.52126pt>
+ [43] [44] [45]
+<figs/T900_ss_cutbacks_geometry.png, id=190, 1020.81375pt x 706.89093pt>
 File: figs/T900_ss_cutbacks_geometry.png Graphic file (type png)
 
 <use figs/T900_ss_cutbacks_geometry.png>
 Package pdftex.def Info: figs/T900_ss_cutbacks_geometry.png used on input line 
-1427.
-(pdftex.def)             Requested size: 407.66833pt x 282.29834pt.
+1356.
+(pdftex.def)             Requested size: 407.66833pt x 282.30913pt.
 
-<figs/T900_ss_cutbacks_mesh.png, id=185, 1003.75pt x 777.90625pt>
+<figs/T900_ss_cutbacks_mesh.png, id=191, 1003.75pt x 777.90625pt>
 File: figs/T900_ss_cutbacks_mesh.png Graphic file (type png)
 
 <use figs/T900_ss_cutbacks_mesh.png>
-Package pdftex.def Info: figs/T900_ss_cutbacks_mesh.png used on input line 1436
+Package pdftex.def Info: figs/T900_ss_cutbacks_mesh.png used on input line 1367
 .
 (pdftex.def)             Requested size: 407.66833pt x 315.94054pt.
- [44 <./figs/T900_ss_cutbacks_geometry.png>] <figs/ss_cutbacks_m1_lines_0.png, 
-id=190, 359.3425pt x 343.2825pt>
+ [46 <./figs/T900_ss_cutbacks_geometry.png (PNG copy)>]
+<figs/ss_cutbacks_m1_lines_0.png, id=195, 359.3425pt x 343.2825pt>
 File: figs/ss_cutbacks_m1_lines_0.png Graphic file (type png)
 
 <use figs/ss_cutbacks_m1_lines_0.png>
-Package pdftex.def Info: figs/ss_cutbacks_m1_lines_0.png used on input line 145
-1.
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_0.png used on input line 138
+2.
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/ss_cutbacks_m1_lines_1.png, id=191, 359.3425pt x 343.2825pt>
+<figs/ss_cutbacks_m1_lines_1.png, id=196, 359.3425pt x 343.2825pt>
 File: figs/ss_cutbacks_m1_lines_1.png Graphic file (type png)
 
 <use figs/ss_cutbacks_m1_lines_1.png>
-Package pdftex.def Info: figs/ss_cutbacks_m1_lines_1.png used on input line 145
-8.
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_1.png used on input line 138
+9.
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 1459.
+(Font)              scaled to size 9.60007pt on input line 1390.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 1459.
+(Font)              scaled to size 6.72005pt on input line 1390.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 1459.
+(Font)              scaled to size 4.80003pt on input line 1390.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 1459.
+(Font)              scaled to size 9.60007pt on input line 1390.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 1459.
+(Font)              scaled to size 6.72005pt on input line 1390.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 4.80003pt on input line 1459.
+(Font)              scaled to size 4.80003pt on input line 1390.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 1459.
+(Font)              scaled to size 9.60007pt on input line 1390.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 1459.
+(Font)              scaled to size 6.72005pt on input line 1390.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 1459.
+(Font)              scaled to size 4.80003pt on input line 1390.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 1459.
+(Font)              scaled to size 9.60007pt on input line 1390.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 1459.
+(Font)              scaled to size 6.72005pt on input line 1390.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 1459.
+(Font)              scaled to size 4.80003pt on input line 1390.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 1459.
+(Font)              scaled to size 9.60007pt on input line 1390.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 1459.
+(Font)              scaled to size 6.72005pt on input line 1390.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 1459.
+(Font)              scaled to size 4.80003pt on input line 1390.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 1459.
+(Font)              scaled to size 9.60007pt on input line 1390.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 1459.
+(Font)              scaled to size 6.72005pt on input line 1390.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 1459.
+(Font)              scaled to size 4.80003pt on input line 1390.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 1459.
+(Font)              scaled to size 9.60007pt on input line 1390.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 1459.
+(Font)              scaled to size 6.72005pt on input line 1390.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 1459.
+(Font)              scaled to size 4.80003pt on input line 1390.
 
-<figs/ss_cutbacks_m1_lines_2.png, id=192, 359.3425pt x 343.2825pt>
+<figs/ss_cutbacks_m1_lines_2.png, id=197, 359.3425pt x 343.2825pt>
 File: figs/ss_cutbacks_m1_lines_2.png Graphic file (type png)
 
 <use figs/ss_cutbacks_m1_lines_2.png>
-Package pdftex.def Info: figs/ss_cutbacks_m1_lines_2.png used on input line 146
-4.
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_2.png used on input line 139
+5.
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/ss_cutbacks_m1_lines_3.png, id=193, 359.3425pt x 343.2825pt>
+<figs/ss_cutbacks_m1_lines_3.png, id=198, 359.3425pt x 343.2825pt>
 File: figs/ss_cutbacks_m1_lines_3.png Graphic file (type png)
 
 <use figs/ss_cutbacks_m1_lines_3.png>
-Package pdftex.def Info: figs/ss_cutbacks_m1_lines_3.png used on input line 147
-0.
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_3.png used on input line 140
+1.
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/mach_legend_choked_horizontal.png, id=194, 314.17375pt x 136.51pt>
+<figs/mach_legend_choked_horizontal.png, id=199, 314.17375pt x 136.51pt>
 File: figs/mach_legend_choked_horizontal.png Graphic file (type png)
 
 <use figs/mach_legend_choked_horizontal.png>
 Package pdftex.def Info: figs/mach_legend_choked_horizontal.png used on input l
-ine 1475.
+ine 1406.
 (pdftex.def)             Requested size: 181.18439pt x 78.72385pt.
- [45 <./figs/T900_ss_cutbacks_mesh.png>] [46 <./figs/ss_cutbacks_m1_lines_0.png
+ [47 <./figs/T900_ss_cutbacks_mesh.png>] [48 <./figs/ss_cutbacks_m1_lines_0.png
  (PNG copy)> <./figs/ss_cutbacks_m1_lines_1.png (PNG copy)> <./figs/ss_cutbacks
 _m1_lines_2.png (PNG copy)> <./figs/ss_cutbacks_m1_lines_3.png (PNG copy)> <./f
-igs/mach_legend_choked_horizontal.png>] <figs/ss_cutbacks_m1_lines_4.png, id=20
-3, 359.3425pt x 343.2825pt>
+igs/mach_legend_choked_horizontal.png>] [49] <figs/ss_cutbacks_m1_lines_4.png, 
+id=213, 359.3425pt x 343.2825pt>
 File: figs/ss_cutbacks_m1_lines_4.png Graphic file (type png)
 
 <use figs/ss_cutbacks_m1_lines_4.png>
-Package pdftex.def Info: figs/ss_cutbacks_m1_lines_4.png used on input line 149
-0.
-(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
-
-<figs/ss_cutbacks_m1_lines_6.png, id=204, 359.3425pt x 343.2825pt>
-File: figs/ss_cutbacks_m1_lines_6.png Graphic file (type png)
-
-<use figs/ss_cutbacks_m1_lines_6.png>
-Package pdftex.def Info: figs/ss_cutbacks_m1_lines_6.png used on input line 149
-7.
-(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
-
-<figs/ss_cutbacks_m1_lines_8.png, id=205, 359.3425pt x 343.2825pt>
-File: figs/ss_cutbacks_m1_lines_8.png Graphic file (type png)
-
-<use figs/ss_cutbacks_m1_lines_8.png>
-Package pdftex.def Info: figs/ss_cutbacks_m1_lines_8.png used on input line 150
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_4.png used on input line 142
 3.
 (pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
 
-<figs/ss_cutbacks_m1_lines_10.png, id=206, 359.3425pt x 343.2825pt>
+<figs/ss_cutbacks_m1_lines_6.png, id=214, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_6.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_6.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_6.png used on input line 143
+0.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+
+<figs/ss_cutbacks_m1_lines_8.png, id=215, 359.3425pt x 343.2825pt>
+File: figs/ss_cutbacks_m1_lines_8.png Graphic file (type png)
+
+<use figs/ss_cutbacks_m1_lines_8.png>
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_8.png used on input line 143
+6.
+(pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
+
+<figs/ss_cutbacks_m1_lines_10.png, id=216, 359.3425pt x 343.2825pt>
 File: figs/ss_cutbacks_m1_lines_10.png Graphic file (type png)
 
 <use figs/ss_cutbacks_m1_lines_10.png>
-Package pdftex.def Info: figs/ss_cutbacks_m1_lines_10.png used on input line 15
-09.
+Package pdftex.def Info: figs/ss_cutbacks_m1_lines_10.png used on input line 14
+42.
 (pdftex.def)             Requested size: 203.83417pt x 194.7302pt.
 File: figs/mach_legend_choked_horizontal.png Graphic file (type png)
 
 <use figs/mach_legend_choked_horizontal.png>
 Package pdftex.def Info: figs/mach_legend_choked_horizontal.png used on input l
-ine 1514.
+ine 1447.
 (pdftex.def)             Requested size: 181.18439pt x 78.72385pt.
- [47 <./figs/ss_cutbacks_m1_lines_4.png (PNG copy)> <./figs/ss_cutbacks_m1_line
+ [50 <./figs/ss_cutbacks_m1_lines_4.png (PNG copy)> <./figs/ss_cutbacks_m1_line
 s_6.png (PNG copy)> <./figs/ss_cutbacks_m1_lines_8.png (PNG copy)> <./figs/ss_c
 utbacks_m1_lines_10.png (PNG copy)>]
-<figs/ss_cutbacks_m1_lines_illustration.png, id=210, 1420.30624pt x 1097.09875p
+<figs/ss_cutbacks_m1_lines_illustration.png, id=220, 1420.30624pt x 1097.09875p
 t>
 File: figs/ss_cutbacks_m1_lines_illustration.png Graphic file (type png)
  <use figs/ss_cutbacks_m1_lines_illustration.png>
 Package pdftex.def Info: figs/ss_cutbacks_m1_lines_illustration.png used on inp
-ut line 1526.
+ut line 1459.
 (pdftex.def)             Requested size: 317.07614pt x 244.91142pt.
 
-<figs/ss_cutbacks_vs_capacities_pressure_ratios.png, id=211, 289.08pt x 289.08p
+<figs/ss_cutbacks_vs_capacities_pressure_ratios.png, id=221, 289.08pt x 289.08p
 t>
 File: figs/ss_cutbacks_vs_capacities_pressure_ratios.png Graphic file (type png
 )
  <use figs/ss_cutbacks_vs_capacities_pressure_ratios.png>
 Package pdftex.def Info: figs/ss_cutbacks_vs_capacities_pressure_ratios.png use
-d on input line 1537.
+d on input line 1470.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [48 <./figs/ss_cutbacks_m1_lines_illustration.png>] [49 <./figs/ss_cutbacks_vs
+ [51 <./figs/ss_cutbacks_m1_lines_illustration.png>] [52 <./figs/ss_cutbacks_vs
 _capacities_pressure_ratios.png (PNG copy)>]
-<figs/ss_cutbacks_wakes_design_pr.png, id=221, 2505.36pt x 765.86125pt>
+<figs/ss_cutbacks_wakes_design_pr.png, id=229, 2505.36pt x 765.86125pt>
 File: figs/ss_cutbacks_wakes_design_pr.png Graphic file (type png)
 
 <use figs/ss_cutbacks_wakes_design_pr.png>
 Package pdftex.def Info: figs/ss_cutbacks_wakes_design_pr.png used on input lin
-e 1555.
+e 1488.
 (pdftex.def)             Requested size: 407.66833pt x 124.60873pt.
 
-<figs/mach_legend_design_horizontal.png, id=222, 314.17375pt x 136.51pt>
+<figs/mach_legend_design_horizontal.png, id=230, 314.17375pt x 136.51pt>
 File: figs/mach_legend_design_horizontal.png Graphic file (type png)
 
 <use figs/mach_legend_design_horizontal.png>
 Package pdftex.def Info: figs/mach_legend_design_horizontal.png used on input l
-ine 1559.
+ine 1492.
 (pdftex.def)             Requested size: 181.18439pt x 78.72385pt.
 
-<figs/ss_cutbacks_vs_capacities_trends.png, id=223, 289.08pt x 289.08pt>
+<figs/ss_cutbacks_vs_capacities_trends.png, id=231, 289.08pt x 289.08pt>
 File: figs/ss_cutbacks_vs_capacities_trends.png Graphic file (type png)
 
 <use figs/ss_cutbacks_vs_capacities_trends.png>
 Package pdftex.def Info: figs/ss_cutbacks_vs_capacities_trends.png used on inpu
-t line 1571.
+t line 1504.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [50 <./figs/ss_cutbacks_wakes_design_pr.png> <./figs/mach_legend_design_horizo
+ [53 <./figs/ss_cutbacks_wakes_design_pr.png> <./figs/mach_legend_design_horizo
 ntal.png>]
-<figs/ss_cutbacks_vs_turning_angles.png, id=229, 289.08pt x 289.08pt>
+<figs/ss_cutbacks_vs_turning_angles.png, id=237, 289.08pt x 289.08pt>
 File: figs/ss_cutbacks_vs_turning_angles.png Graphic file (type png)
 
 <use figs/ss_cutbacks_vs_turning_angles.png>
 Package pdftex.def Info: figs/ss_cutbacks_vs_turning_angles.png used on input l
-ine 1588.
+ine 1521.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [51 <./figs/ss_cutbacks_vs_capacities_trends.png (PNG copy)>]
-<figs/ss_cutbacks_turning_angle_surveys.png, id=233, 289.08pt x 289.08pt>
+ [54 <./figs/ss_cutbacks_vs_capacities_trends.png (PNG copy)>]
+<figs/ss_cutbacks_turning_angle_surveys.png, id=242, 289.08pt x 289.08pt>
 File: figs/ss_cutbacks_turning_angle_surveys.png Graphic file (type png)
 
 <use figs/ss_cutbacks_turning_angle_surveys.png>
 Package pdftex.def Info: figs/ss_cutbacks_turning_angle_surveys.png used on inp
-ut line 1601.
+ut line 1534.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
-<figs/ss_cutbacks_vs_capacities_trends_legend_ver02.png, id=234, 301.125pt x 12
+<figs/ss_cutbacks_vs_capacities_trends_legend_ver02.png, id=243, 301.125pt x 12
 04.5pt>
 File: figs/ss_cutbacks_vs_capacities_trends_legend_ver02.png Graphic file (type
  png)
  <use figs/ss_cutbacks_vs_capacities_trends_legend_ver02.png>
 Package pdftex.def Info: figs/ss_cutbacks_vs_capacities_trends_legend_ver02.png
- used on input line 1605.
+ used on input line 1538.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [52 <./figs/ss_cutbacks_vs_turning_angles.png (PNG copy)> <./figs/ss_cutbacks_
+ [55 <./figs/ss_cutbacks_vs_turning_angles.png (PNG copy)> <./figs/ss_cutbacks_
 turning_angle_surveys.png (PNG copy)> <./figs/ss_cutbacks_vs_capacities_trends_
-legend_ver02.png>] <figs/ss_cutbacks_vs_losses.png, id=239, 289.08pt x 289.08pt
+legend_ver02.png>] <figs/ss_cutbacks_vs_losses.png, id=248, 289.08pt x 289.08pt
 >
 File: figs/ss_cutbacks_vs_losses.png Graphic file (type png)
 
 <use figs/ss_cutbacks_vs_losses.png>
-Package pdftex.def Info: figs/ss_cutbacks_vs_losses.png used on input line 1618
+Package pdftex.def Info: figs/ss_cutbacks_vs_losses.png used on input line 1551
 .
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
-<figs/ss_capacities_vs_losses.png, id=240, 289.08pt x 289.08pt>
+<figs/ss_capacities_vs_losses.png, id=249, 289.08pt x 289.08pt>
 File: figs/ss_capacities_vs_losses.png Graphic file (type png)
 
 <use figs/ss_capacities_vs_losses.png>
-Package pdftex.def Info: figs/ss_capacities_vs_losses.png used on input line 16
-29.
+Package pdftex.def Info: figs/ss_capacities_vs_losses.png used on input line 15
+62.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [53 <./figs/ss_cutbacks_vs_losses.png (PNG copy)>] [54 <./figs/ss_capacities_v
+ [56 <./figs/ss_cutbacks_vs_losses.png (PNG copy)>] [57 <./figs/ss_capacities_v
 s_losses.png (PNG copy)>]
-<figs/t900_ps_cutbacks_geometry.png, id=248, 910.40125pt x 878.28125pt>
+<figs/t900_ps_cutbacks_geometry.png, id=256, 910.40125pt x 878.28125pt>
 File: figs/t900_ps_cutbacks_geometry.png Graphic file (type png)
 
 <use figs/t900_ps_cutbacks_geometry.png>
 Package pdftex.def Info: figs/t900_ps_cutbacks_geometry.png used on input line 
-1658.
+1591.
 (pdftex.def)             Requested size: 271.7835pt x 262.19986pt.
 
-<figs/T900_ps_cutbacks_meshes.png, id=249, 1260.71pt x 1260.71pt>
+<figs/T900_ps_cutbacks_meshes.png, id=257, 1260.71pt x 1260.71pt>
 File: figs/T900_ps_cutbacks_meshes.png Graphic file (type png)
 
 <use figs/T900_ps_cutbacks_meshes.png>
 Package pdftex.def Info: figs/T900_ps_cutbacks_meshes.png used on input line 16
-69.
+02.
 (pdftex.def)             Requested size: 271.7835pt x 271.77837pt.
- [55 <./figs/t900_ps_cutbacks_geometry.png>] <figs/ps_cutbacks_choked_0.png, id
-=254, 359.3425pt x 343.2825pt>
+ [58 <./figs/t900_ps_cutbacks_geometry.png>] <figs/ps_cutbacks_choked_0.png, id
+=262, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_choked_0.png Graphic file (type png)
 
 <use figs/ps_cutbacks_choked_0.png>
-Package pdftex.def Info: figs/ps_cutbacks_choked_0.png used on input line 1684.
+Package pdftex.def Info: figs/ps_cutbacks_choked_0.png used on input line 1617.
 
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/ps_cutbacks_choked_25.png, id=255, 359.3425pt x 343.2825pt>
+<figs/ps_cutbacks_choked_25.png, id=263, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_choked_25.png Graphic file (type png)
 
 <use figs/ps_cutbacks_choked_25.png>
-Package pdftex.def Info: figs/ps_cutbacks_choked_25.png used on input line 1691
+Package pdftex.def Info: figs/ps_cutbacks_choked_25.png used on input line 1624
 .
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/ps_cutbacks_choked_50.png, id=256, 359.3425pt x 343.2825pt>
+<figs/ps_cutbacks_choked_50.png, id=264, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_choked_50.png Graphic file (type png)
 
 <use figs/ps_cutbacks_choked_50.png>
-Package pdftex.def Info: figs/ps_cutbacks_choked_50.png used on input line 1697
+Package pdftex.def Info: figs/ps_cutbacks_choked_50.png used on input line 1630
 .
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/ps_cutbacks_choked_75.png, id=257, 359.3425pt x 343.2825pt>
+<figs/ps_cutbacks_choked_75.png, id=265, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_choked_75.png Graphic file (type png)
 
 <use figs/ps_cutbacks_choked_75.png>
-Package pdftex.def Info: figs/ps_cutbacks_choked_75.png used on input line 1704
+Package pdftex.def Info: figs/ps_cutbacks_choked_75.png used on input line 1637
 .
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 File: figs/mach_legend_choked.png Graphic file (type png)
  <use figs/mach_legend_choked.png>
-Package pdftex.def Info: figs/mach_legend_choked.png used on input line 1710.
+Package pdftex.def Info: figs/mach_legend_choked.png used on input line 1643.
 (pdftex.def)             Requested size: 67.94241pt x 156.3674pt.
 
-<figs/ps_cutbacks_choked_100.png, id=258, 359.3425pt x 343.2825pt>
+<figs/ps_cutbacks_choked_100.png, id=266, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_choked_100.png Graphic file (type png)
 
 <use figs/ps_cutbacks_choked_100.png>
-Package pdftex.def Info: figs/ps_cutbacks_choked_100.png used on input line 171
-4.
+Package pdftex.def Info: figs/ps_cutbacks_choked_100.png used on input line 164
+7.
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
- [56 <./figs/T900_ps_cutbacks_meshes.png (PNG copy)>] [57 <./figs/ps_cutbacks_c
+ [59 <./figs/T900_ps_cutbacks_meshes.png (PNG copy)>] [60 <./figs/ps_cutbacks_c
 hoked_0.png (PNG copy)> <./figs/ps_cutbacks_choked_25.png (PNG copy)> <./figs/p
 s_cutbacks_choked_50.png (PNG copy)> <./figs/ps_cutbacks_choked_75.png (PNG cop
 y)> <./figs/ps_cutbacks_choked_100.png (PNG copy)>] <figs/ps_cutbacks_vs_throat
-_widths.png, id=265, 289.08pt x 289.08pt>
+_widths.png, id=274, 289.08pt x 289.08pt>
 File: figs/ps_cutbacks_vs_throat_widths.png Graphic file (type png)
 
 <use figs/ps_cutbacks_vs_throat_widths.png>
 Package pdftex.def Info: figs/ps_cutbacks_vs_throat_widths.png used on input li
-ne 1726.
+ne 1659.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
-<figs/ps_cutbacks_m1_lines_illustration.png, id=266, 1373.13pt x 846.16125pt>
+<figs/ps_cutbacks_m1_lines_illustration.png, id=275, 1373.13pt x 846.16125pt>
 File: figs/ps_cutbacks_m1_lines_illustration.png Graphic file (type png)
 
 <use figs/ps_cutbacks_m1_lines_illustration.png>
 Package pdftex.def Info: figs/ps_cutbacks_m1_lines_illustration.png used on inp
-ut line 1733.
+ut line 1666.
 (pdftex.def)             Requested size: 317.07614pt x 195.38768pt.
- [58 <./figs/ps_cutbacks_vs_throat_widths.png (PNG copy)>]
-<figs/ps_cutbacks_vs_capacities.png, id=270, 289.08pt x 289.08pt>
+ [61 <./figs/ps_cutbacks_vs_throat_widths.png (PNG copy)>]
+<figs/ps_cutbacks_vs_capacities.png, id=279, 289.08pt x 289.08pt>
 File: figs/ps_cutbacks_vs_capacities.png Graphic file (type png)
 
 <use figs/ps_cutbacks_vs_capacities.png>
 Package pdftex.def Info: figs/ps_cutbacks_vs_capacities.png used on input line 
-1744.
+1677.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [59 <./figs/ps_cutbacks_m1_lines_illustration.png> <./figs/ps_cutbacks_vs_capa
+ [62 <./figs/ps_cutbacks_m1_lines_illustration.png> <./figs/ps_cutbacks_vs_capa
 cities.png (PNG copy)>]
-<figs/ps_cutbacks_design_0.png, id=275, 359.3425pt x 343.2825pt>
+<figs/ps_cutbacks_design_0.png, id=284, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_design_0.png Graphic file (type png)
 
 <use figs/ps_cutbacks_design_0.png>
-Package pdftex.def Info: figs/ps_cutbacks_design_0.png used on input line 1757.
+Package pdftex.def Info: figs/ps_cutbacks_design_0.png used on input line 1690.
 
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/ps_cutbacks_design_25.png, id=276, 359.3425pt x 343.2825pt>
+<figs/ps_cutbacks_design_25.png, id=285, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_design_25.png Graphic file (type png)
 
 <use figs/ps_cutbacks_design_25.png>
-Package pdftex.def Info: figs/ps_cutbacks_design_25.png used on input line 1764
+Package pdftex.def Info: figs/ps_cutbacks_design_25.png used on input line 1697
 .
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/ps_cutbacks_design_50.png, id=277, 359.3425pt x 343.2825pt>
+<figs/ps_cutbacks_design_50.png, id=286, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_design_50.png Graphic file (type png)
 
 <use figs/ps_cutbacks_design_50.png>
-Package pdftex.def Info: figs/ps_cutbacks_design_50.png used on input line 1770
+Package pdftex.def Info: figs/ps_cutbacks_design_50.png used on input line 1703
 .
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/ps_cutbacks_design_75.png, id=278, 359.3425pt x 343.2825pt>
+<figs/ps_cutbacks_design_75.png, id=287, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_design_75.png Graphic file (type png)
 
 <use figs/ps_cutbacks_design_75.png>
-Package pdftex.def Info: figs/ps_cutbacks_design_75.png used on input line 1777
+Package pdftex.def Info: figs/ps_cutbacks_design_75.png used on input line 1710
 .
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
 
-<figs/mach_legend_design.png, id=279, 136.51pt x 314.17375pt>
+<figs/mach_legend_design.png, id=288, 136.51pt x 314.17375pt>
 File: figs/mach_legend_design.png Graphic file (type png)
 
 <use figs/mach_legend_design.png>
-Package pdftex.def Info: figs/mach_legend_design.png used on input line 1783.
+Package pdftex.def Info: figs/mach_legend_design.png used on input line 1716.
 (pdftex.def)             Requested size: 67.94241pt x 156.3674pt.
 
-<figs/ps_cutbacks_design_100.png, id=280, 359.3425pt x 343.2825pt>
+<figs/ps_cutbacks_design_100.png, id=289, 359.3425pt x 343.2825pt>
 File: figs/ps_cutbacks_design_100.png Graphic file (type png)
 
 <use figs/ps_cutbacks_design_100.png>
-Package pdftex.def Info: figs/ps_cutbacks_design_100.png used on input line 178
-7.
+Package pdftex.def Info: figs/ps_cutbacks_design_100.png used on input line 172
+0.
 (pdftex.def)             Requested size: 190.24568pt x 181.74504pt.
- [60] [61 <./figs/ps_cutbacks_design_0.png (PNG copy)> <./figs/ps_cutbacks_desi
+ [63] [64 <./figs/ps_cutbacks_design_0.png (PNG copy)> <./figs/ps_cutbacks_desi
 gn_25.png (PNG copy)> <./figs/ps_cutbacks_design_50.png (PNG copy)> <./figs/ps_
 cutbacks_design_75.png (PNG copy)> <./figs/mach_legend_design.png> <./figs/ps_c
 utbacks_design_100.png (PNG copy)>]
-<figs/ps_cutbacks_capacities_trends.png, id=289, 289.08pt x 289.08pt>
+<figs/ps_cutbacks_capacities_trends.png, id=297, 289.08pt x 289.08pt>
 File: figs/ps_cutbacks_capacities_trends.png Graphic file (type png)
 
 <use figs/ps_cutbacks_capacities_trends.png>
 Package pdftex.def Info: figs/ps_cutbacks_capacities_trends.png used on input l
-ine 1803.
+ine 1736.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [62 <./figs/ps_cutbacks_capacities_trends.png (PNG copy)>]
-<figs/ps_cutbacks_vs_turning_angles.png, id=293, 289.08pt x 289.08pt>
+ [65 <./figs/ps_cutbacks_capacities_trends.png (PNG copy)>]
+<figs/ps_cutbacks_vs_turning_angles.png, id=301, 289.08pt x 289.08pt>
 File: figs/ps_cutbacks_vs_turning_angles.png Graphic file (type png)
 
 <use figs/ps_cutbacks_vs_turning_angles.png>
 Package pdftex.def Info: figs/ps_cutbacks_vs_turning_angles.png used on input l
-ine 1825.
+ine 1758.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
-<figs/ps_cutbacks_turning_angle_surveys.png, id=294, 289.08pt x 289.08pt>
+<figs/ps_cutbacks_turning_angle_surveys.png, id=302, 289.08pt x 289.08pt>
 File: figs/ps_cutbacks_turning_angle_surveys.png Graphic file (type png)
 
 <use figs/ps_cutbacks_turning_angle_surveys.png>
 Package pdftex.def Info: figs/ps_cutbacks_turning_angle_surveys.png used on inp
-ut line 1838.
+ut line 1771.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
-<figs/ps_cutbacks_turning_angles_survey_legend.png, id=295, 301.125pt x 1204.5p
+<figs/ps_cutbacks_turning_angles_survey_legend.png, id=303, 301.125pt x 1204.5p
 t>
 File: figs/ps_cutbacks_turning_angles_survey_legend.png Graphic file (type png)
 
  <use figs/ps_cutbacks_turning_angles_survey_legend.png>
 Package pdftex.def Info: figs/ps_cutbacks_turning_angles_survey_legend.png used
- on input line 1842.
+ on input line 1775.
 (pdftex.def)             Requested size: 50.96027pt x 203.82495pt.
- [63 <./figs/ps_cutbacks_vs_turning_angles.png (PNG copy)>]
-<figs/ps_cutbacks_vs_losses.png, id=299, 289.08pt x 289.08pt>
+ [66 <./figs/ps_cutbacks_vs_turning_angles.png (PNG copy)>]
+<figs/ps_cutbacks_vs_losses.png, id=308, 289.08pt x 289.08pt>
 File: figs/ps_cutbacks_vs_losses.png Graphic file (type png)
 
 <use figs/ps_cutbacks_vs_losses.png>
-Package pdftex.def Info: figs/ps_cutbacks_vs_losses.png used on input line 1854
+Package pdftex.def Info: figs/ps_cutbacks_vs_losses.png used on input line 1787
 .
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [64 <./figs/ps_cutbacks_turning_angle_surveys.png (PNG copy)> <./figs/ps_cutba
+ [67 <./figs/ps_cutbacks_turning_angle_surveys.png (PNG copy)> <./figs/ps_cutba
 cks_turning_angles_survey_legend.png>]
-<figs/ps_capacities_vs_losses.png, id=304, 289.08pt x 289.08pt>
+<figs/ps_capacities_vs_losses.png, id=313, 289.08pt x 289.08pt>
 File: figs/ps_capacities_vs_losses.png Graphic file (type png)
 
 <use figs/ps_capacities_vs_losses.png>
-Package pdftex.def Info: figs/ps_capacities_vs_losses.png used on input line 18
-65.
+Package pdftex.def Info: figs/ps_capacities_vs_losses.png used on input line 17
+98.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [65 <./figs/ps_cutbacks_vs_losses.png (PNG copy)> <./figs/ps_capacities_vs_los
-ses.png (PNG copy)>] [66]
+ [68 <./figs/ps_cutbacks_vs_losses.png (PNG copy)> <./figs/ps_capacities_vs_los
+ses.png (PNG copy)>] [69]
 Chapter 4.
-[67
+[70
 
-] <figs/SCH_hole_range.png, id=315, 612.2875pt x 782.925pt>
+] <figs/SCH_hole_range.png, id=323, 612.2875pt x 782.925pt>
 File: figs/SCH_hole_range.png Graphic file (type png)
 
 <use figs/SCH_hole_range.png>
-Package pdftex.def Info: figs/SCH_hole_range.png used on input line 1940.
+Package pdftex.def Info: figs/SCH_hole_range.png used on input line 1873.
 (pdftex.def)             Requested size: 203.83417pt x 260.63588pt.
- [68 <./figs/SCH_hole_range.png>]
-<figs/film_cooling_hole_boundary_conditions.png, id=320, 579.16376pt x 359.3425
+ [71 <./figs/SCH_hole_range.png>]
+<figs/film_cooling_hole_boundary_conditions.png, id=328, 579.16376pt x 359.3425
 pt>
 File: figs/film_cooling_hole_boundary_conditions.png Graphic file (type png)
  <use figs/film_cooling_hole_boundary_conditions.png>
 Package pdftex.def Info: figs/film_cooling_hole_boundary_conditions.png used on
- input line 1953.
+ input line 1886.
 (pdftex.def)             Requested size: 203.83417pt x 126.46811pt.
 Missing character: There is no â in font mdbchr7t!
 Missing character: There is no € in font mdbchr7t!
@@ -2427,199 +2424,199 @@ Missing character: There is no ¢ in font mdbchr7t!
 Missing character: There is no â in font mdbchr7t!
 Missing character: There is no € in font mdbchr7t!
 Missing character: There is no ¢ in font mdbchr7t!
- [69 <./figs/film_cooling_hole_boundary_conditions.png>] [70]
-<figs/SCH_mesh_hole.png, id=328, 858.20625pt x 488.82625pt>
+ [72 <./figs/film_cooling_hole_boundary_conditions.png>] [73]
+<figs/SCH_mesh_hole.png, id=337, 858.20625pt x 488.82625pt>
 File: figs/SCH_mesh_hole.png Graphic file (type png)
 
 <use figs/SCH_mesh_hole.png>
-Package pdftex.def Info: figs/SCH_mesh_hole.png used on input line 2057.
+Package pdftex.def Info: figs/SCH_mesh_hole.png used on input line 1990.
 (pdftex.def)             Requested size: 271.7835pt x 154.80154pt.
- [71 <./figs/SCH_mesh_hole.png>]
-<figs/sch_mach_contours_0.png, id=333, 524.96124pt x 639.38875pt>
+ [74 <./figs/SCH_mesh_hole.png>]
+<figs/sch_mach_contours_0.png, id=342, 524.96124pt x 639.38875pt>
 File: figs/sch_mach_contours_0.png Graphic file (type png)
 
 <use figs/sch_mach_contours_0.png>
-Package pdftex.def Info: figs/sch_mach_contours_0.png used on input line 2071.
+Package pdftex.def Info: figs/sch_mach_contours_0.png used on input line 2004.
 (pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
 
-<figs/sch_mach_contours_1.png, id=334, 524.96124pt x 639.38875pt>
+<figs/sch_mach_contours_1.png, id=343, 524.96124pt x 639.38875pt>
 File: figs/sch_mach_contours_1.png Graphic file (type png)
 
 <use figs/sch_mach_contours_1.png>
-Package pdftex.def Info: figs/sch_mach_contours_1.png used on input line 2078.
+Package pdftex.def Info: figs/sch_mach_contours_1.png used on input line 2011.
 (pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
 
-<figs/sch_mach_contours_2.png, id=335, 524.96124pt x 639.38875pt>
+<figs/sch_mach_contours_2.png, id=344, 524.96124pt x 639.38875pt>
 File: figs/sch_mach_contours_2.png Graphic file (type png)
 
 <use figs/sch_mach_contours_2.png>
-Package pdftex.def Info: figs/sch_mach_contours_2.png used on input line 2084.
+Package pdftex.def Info: figs/sch_mach_contours_2.png used on input line 2017.
 (pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
 
-<figs/sch_mach_contours_3.png, id=336, 524.96124pt x 639.38875pt>
+<figs/sch_mach_contours_3.png, id=345, 524.96124pt x 639.38875pt>
 File: figs/sch_mach_contours_3.png Graphic file (type png)
 
 <use figs/sch_mach_contours_3.png>
-Package pdftex.def Info: figs/sch_mach_contours_3.png used on input line 2090.
+Package pdftex.def Info: figs/sch_mach_contours_3.png used on input line 2023.
 (pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
 
-<figs/mach_legend_sch_horizontal.png, id=337, 314.17375pt x 136.51pt>
+<figs/mach_legend_sch_horizontal.png, id=346, 314.17375pt x 136.51pt>
 File: figs/mach_legend_sch_horizontal.png Graphic file (type png)
 
 <use figs/mach_legend_sch_horizontal.png>
 Package pdftex.def Info: figs/mach_legend_sch_horizontal.png used on input line
- 2095.
+ 2028.
 (pdftex.def)             Requested size: 181.18439pt x 78.72385pt.
 
-<figs/sch_mach_contours_4.png, id=338, 524.96124pt x 639.38875pt>
+<figs/sch_mach_contours_4.png, id=347, 524.96124pt x 639.38875pt>
 File: figs/sch_mach_contours_4.png Graphic file (type png)
 
 <use figs/sch_mach_contours_4.png>
-Package pdftex.def Info: figs/sch_mach_contours_4.png used on input line 2105.
+Package pdftex.def Info: figs/sch_mach_contours_4.png used on input line 2038.
 (pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
 
-<figs/sch_mach_contours_5.png, id=339, 524.96124pt x 639.38875pt>
+<figs/sch_mach_contours_5.png, id=348, 524.96124pt x 639.38875pt>
 File: figs/sch_mach_contours_5.png Graphic file (type png)
 
 <use figs/sch_mach_contours_5.png>
-Package pdftex.def Info: figs/sch_mach_contours_5.png used on input line 2112.
+Package pdftex.def Info: figs/sch_mach_contours_5.png used on input line 2045.
 (pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
 
-<figs/sch_mach_contours_6.png, id=340, 524.96124pt x 639.38875pt>
+<figs/sch_mach_contours_6.png, id=349, 524.96124pt x 639.38875pt>
 File: figs/sch_mach_contours_6.png Graphic file (type png)
 
 <use figs/sch_mach_contours_6.png>
-Package pdftex.def Info: figs/sch_mach_contours_6.png used on input line 2118.
+Package pdftex.def Info: figs/sch_mach_contours_6.png used on input line 2051.
 (pdftex.def)             Requested size: 190.24568pt x 231.7115pt.
 File: figs/mach_legend_sch_horizontal.png Graphic file (type png)
  <use figs/mach_legend_sch_horizontal.png>
 Package pdftex.def Info: figs/mach_legend_sch_horizontal.png used on input line
- 2124.
+ 2057.
 (pdftex.def)             Requested size: 181.18439pt x 78.72385pt.
 
-[72 <./figs/sch_mach_contours_0.png> <./figs/sch_mach_contours_1.png> <./figs/s
+[75 <./figs/sch_mach_contours_0.png> <./figs/sch_mach_contours_1.png> <./figs/s
 ch_mach_contours_2.png> <./figs/sch_mach_contours_3.png> <./figs/mach_legend_sc
 h_horizontal.png>]
-<figs/sch_detail_mach_contours_0.png, id=350, 622.325pt x 434.62375pt>
+<figs/sch_detail_mach_contours_0.png, id=358, 622.325pt x 434.62375pt>
 File: figs/sch_detail_mach_contours_0.png Graphic file (type png)
 
 <use figs/sch_detail_mach_contours_0.png>
 Package pdftex.def Info: figs/sch_detail_mach_contours_0.png used on input line
- 2134.
+ 2067.
 (pdftex.def)             Requested size: 190.24568pt x 132.86179pt.
 
-<figs/sch_detail_mach_contours_1.png, id=351, 622.325pt x 434.62375pt>
+<figs/sch_detail_mach_contours_1.png, id=359, 622.325pt x 434.62375pt>
 File: figs/sch_detail_mach_contours_1.png Graphic file (type png)
 
 <use figs/sch_detail_mach_contours_1.png>
 Package pdftex.def Info: figs/sch_detail_mach_contours_1.png used on input line
- 2141.
+ 2074.
 (pdftex.def)             Requested size: 190.24568pt x 132.86179pt.
 
-<figs/sch_detail_mach_contours_2.png, id=352, 622.325pt x 434.62375pt>
+<figs/sch_detail_mach_contours_2.png, id=360, 622.325pt x 434.62375pt>
 File: figs/sch_detail_mach_contours_2.png Graphic file (type png)
 
 <use figs/sch_detail_mach_contours_2.png>
 Package pdftex.def Info: figs/sch_detail_mach_contours_2.png used on input line
- 2147.
+ 2080.
 (pdftex.def)             Requested size: 190.24568pt x 132.86179pt.
 
-<figs/sch_detail_mach_contours_3.png, id=353, 622.325pt x 434.62375pt>
+<figs/sch_detail_mach_contours_3.png, id=361, 622.325pt x 434.62375pt>
 File: figs/sch_detail_mach_contours_3.png Graphic file (type png)
 
 <use figs/sch_detail_mach_contours_3.png>
 Package pdftex.def Info: figs/sch_detail_mach_contours_3.png used on input line
- 2153.
+ 2086.
 (pdftex.def)             Requested size: 190.24568pt x 132.86179pt.
 File: figs/mach_legend_sch_horizontal.png Graphic file (type png)
 
 <use figs/mach_legend_sch_horizontal.png>
 Package pdftex.def Info: figs/mach_legend_sch_horizontal.png used on input line
- 2158.
+ 2091.
 (pdftex.def)             Requested size: 181.18439pt x 78.72385pt.
- [73 <./figs/sch_mach_contours_4.png> <./figs/sch_mach_contours_5.png> <./figs/
+ [76 <./figs/sch_mach_contours_4.png> <./figs/sch_mach_contours_5.png> <./figs/
 sch_mach_contours_6.png>]
-<figs/sch_detail_mach_contours_4.png, id=360, 622.325pt x 434.62375pt>
+<figs/sch_detail_mach_contours_4.png, id=368, 622.325pt x 434.62375pt>
 File: figs/sch_detail_mach_contours_4.png Graphic file (type png)
 
 <use figs/sch_detail_mach_contours_4.png>
 Package pdftex.def Info: figs/sch_detail_mach_contours_4.png used on input line
- 2168.
+ 2101.
 (pdftex.def)             Requested size: 190.24568pt x 132.86179pt.
 
-<figs/sch_detail_mach_contours_5.png, id=361, 622.325pt x 434.62375pt>
+<figs/sch_detail_mach_contours_5.png, id=369, 622.325pt x 434.62375pt>
 File: figs/sch_detail_mach_contours_5.png Graphic file (type png)
 
 <use figs/sch_detail_mach_contours_5.png>
 Package pdftex.def Info: figs/sch_detail_mach_contours_5.png used on input line
- 2175.
+ 2108.
 (pdftex.def)             Requested size: 190.24568pt x 132.86179pt.
 
-<figs/sch_detail_mach_contours_6.png, id=362, 622.325pt x 434.62375pt>
+<figs/sch_detail_mach_contours_6.png, id=370, 622.325pt x 434.62375pt>
 File: figs/sch_detail_mach_contours_6.png Graphic file (type png)
 
 <use figs/sch_detail_mach_contours_6.png>
 Package pdftex.def Info: figs/sch_detail_mach_contours_6.png used on input line
- 2181.
+ 2114.
 (pdftex.def)             Requested size: 190.24568pt x 132.86179pt.
 File: figs/mach_legend_sch_horizontal.png Graphic file (type png)
 
 <use figs/mach_legend_sch_horizontal.png>
 Package pdftex.def Info: figs/mach_legend_sch_horizontal.png used on input line
- 2187.
+ 2120.
 (pdftex.def)             Requested size: 181.18439pt x 78.72385pt.
- [74 <./figs/sch_detail_mach_contours_0.png> <./figs/sch_detail_mach_contours_1
+ [77 <./figs/sch_detail_mach_contours_0.png> <./figs/sch_detail_mach_contours_1
 .png> <./figs/sch_detail_mach_contours_2.png> <./figs/sch_detail_mach_contours_
-3.png>] [75 <./figs/sch_detail_mach_contours_4.png> <./figs/sch_detail_mach_con
+3.png>] [78 <./figs/sch_detail_mach_contours_4.png> <./figs/sch_detail_mach_con
 tours_5.png> <./figs/sch_detail_mach_contours_6.png>]
-<figs/sch_hole_location_vs_capacity.png, id=376, 289.08pt x 289.08pt>
+<figs/sch_hole_location_vs_capacity.png, id=385, 289.08pt x 289.08pt>
 File: figs/sch_hole_location_vs_capacity.png Graphic file (type png)
 
 <use figs/sch_hole_location_vs_capacity.png>
 Package pdftex.def Info: figs/sch_hole_location_vs_capacity.png used on input l
-ine 2223.
+ine 2156.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [76 <./figs/sch_hole_location_vs_capacity.png (PNG copy)>]
-<figs/sch_surface_isentropic_mach_number_vs_capacity.png, id=380, 289.08pt x 28
+ [79 <./figs/sch_hole_location_vs_capacity.png (PNG copy)>]
+<figs/sch_surface_isentropic_mach_number_vs_capacity.png, id=389, 289.08pt x 28
 9.08pt>
 File: figs/sch_surface_isentropic_mach_number_vs_capacity.png Graphic file (typ
 e png)
  <use figs/sch_surface_isentropic_mach_number_vs_capacity.png>
 Package pdftex.def Info: figs/sch_surface_isentropic_mach_number_vs_capacity.pn
-g used on input line 2248.
+g used on input line 2181.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [77 <./figs/sch_surface_isentropic_mach_number_vs_capacity.png (PNG copy)>]
-<figs/sch_hole_location_vs_coolant_capacity.png, id=384, 289.08pt x 289.08pt>
+ [80 <./figs/sch_surface_isentropic_mach_number_vs_capacity.png (PNG copy)>]
+<figs/sch_hole_location_vs_coolant_capacity.png, id=393, 289.08pt x 289.08pt>
 File: figs/sch_hole_location_vs_coolant_capacity.png Graphic file (type png)
 
 <use figs/sch_hole_location_vs_coolant_capacity.png>
 Package pdftex.def Info: figs/sch_hole_location_vs_coolant_capacity.png used on
- input line 2267.
+ input line 2200.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
 
-<figs/sch_coolant_isentropic_capacity_vs_coolant_capacity.png, id=385, 289.08pt
+<figs/sch_coolant_isentropic_capacity_vs_coolant_capacity.png, id=394, 289.08pt
  x 289.08pt>
 File: figs/sch_coolant_isentropic_capacity_vs_coolant_capacity.png Graphic file
  (type png)
 
 <use figs/sch_coolant_isentropic_capacity_vs_coolant_capacity.png>
 Package pdftex.def Info: figs/sch_coolant_isentropic_capacity_vs_coolant_capaci
-ty.png used on input line 2276.
+ty.png used on input line 2209.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [78 <./figs/sch_hole_location_vs_coolant_capacity.png (PNG copy)>]
-<figs/sch_hole_location_vs_loss.png, id=390, 289.08pt x 289.08pt>
+ [81 <./figs/sch_hole_location_vs_coolant_capacity.png (PNG copy)>]
+<figs/sch_hole_location_vs_loss.png, id=398, 289.08pt x 289.08pt>
 File: figs/sch_hole_location_vs_loss.png Graphic file (type png)
 
 <use figs/sch_hole_location_vs_loss.png>
 Package pdftex.def Info: figs/sch_hole_location_vs_loss.png used on input line 
-2291.
+2224.
 (pdftex.def)             Requested size: 203.83417pt x 203.83229pt.
- [79 <./figs/sch_coolant_isentropic_capacity_vs_coolant_capacity.png (PNG copy)
->] [80 <./figs/sch_hole_location_vs_loss.png (PNG copy)>] [81]
+ [82 <./figs/sch_coolant_isentropic_capacity_vs_coolant_capacity.png (PNG copy)
+>] [83 <./figs/sch_hole_location_vs_loss.png (PNG copy)>] [84]
 Chapter 5.
-[82
+[85
 
-] (./tmfg_thesis_ver01.bbl [83]
+] (./tmfg_thesis_ver01.bbl [86]
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
 (Font)              scaled to size 11.73846pt on input line 40.
 Package microtype Info: Loading generic settings for font family
@@ -2632,15 +2629,15 @@ Underfull \hbox (badness 1038) in paragraph at lines 39--43
 $\T1/cmtt/m/n/10.95 https : / / www . afs . enea . it / project /
  []
 
-[84
+[87
 
-]) [85] (./tmfg_thesis_ver01.aux) ) 
+]) [88] (./tmfg_thesis_ver01.aux) ) 
 Here is how much of TeX's memory you used:
- 14757 strings out of 493117
- 264794 string characters out of 6135433
- 327032 words of memory out of 5000000
+ 14761 strings out of 493117
+ 264834 string characters out of 6135433
+ 327974 words of memory out of 5000000
  17664 multiletter control sequences out of 15000+600000
- 86607 words of font info for 287 fonts, out of 8000000 for 9000
+ 86834 words of font info for 290 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,15n,94p,10393b,614s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/en
@@ -2658,10 +2655,10 @@ type1/public/mathdesign/mdbch/md-chr7y.pfb></usr/local/texlive/2014/texmf-dist/
 fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb></usr/local/texlive/2014/texmf
 -dist/fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb></usr/local/texlive/201
 4/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on tmfg_thesis_ver01.pdf (86 pages, 13832264 bytes).
+Output written on tmfg_thesis_ver01.pdf (89 pages, 13854522 bytes).
 PDF statistics:
- 459 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
+ 467 PDF objects out of 1000 (max. 8388607)
+ 237 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  43956 words of extra memory for PDF output out of 51595 (max. 10000000)
 

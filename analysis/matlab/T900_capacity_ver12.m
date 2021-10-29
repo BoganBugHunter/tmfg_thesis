@@ -1352,32 +1352,48 @@ turning_angles_08 = -360/(2*pi)*atan(yvel08(:,2)./xvel08(:,2));
 turning_angles_09 = -360/(2*pi)*atan(yvel09(:,2)./xvel09(:,2));
 turning_angles_10 = -360/(2*pi)*atan(yvel10(:,2)./xvel10(:,2));
 
-turning_angle_means = zeros(11,1);
-turning_angle_means(1) = mean(turning_angles_00);
-turning_angle_means(2) = mean(turning_angles_01);
-turning_angle_means(3) = mean(turning_angles_02);
-turning_angle_means(4) = mean(turning_angles_03);
-turning_angle_means(5) = mean(turning_angles_04);
-turning_angle_means(6) = mean(turning_angles_05);
-turning_angle_means(7) = mean(turning_angles_06);
-turning_angle_means(8) = mean(turning_angles_07);
-turning_angle_means(9) = mean(turning_angles_08);
-turning_angle_means(10) = mean(turning_angles_09);
-turning_angle_means(11) = mean(turning_angles_10);
+turning_angle_means = zeros(11,2);
+turning_angle_means(1,1) = mean(turning_angles_00);
+turning_angle_means(2,1) = mean(turning_angles_01);
+turning_angle_means(3,1) = mean(turning_angles_02);
+turning_angle_means(4,1) = mean(turning_angles_03);
+turning_angle_means(5,1) = mean(turning_angles_04);
+turning_angle_means(6,1) = mean(turning_angles_05);
+turning_angle_means(7,1) = mean(turning_angles_06);
+turning_angle_means(8,1) = mean(turning_angles_07);
+turning_angle_means(9,1) = mean(turning_angles_08);
+turning_angle_means(10,1) = mean(turning_angles_09);
+turning_angle_means(11,1) = mean(turning_angles_10);
+turning_angle_means(1,2) = 77.63529;
+turning_angle_means(2,2) = 77.56094;
+turning_angle_means(3,2) = 77.53521;
+turning_angle_means(4,2) = 77.48066;
+turning_angle_means(5,2) = 77.44296;
+turning_angle_means(6,2) = 77.40117;
+turning_angle_means(7,2) = 77.38652;
+turning_angle_means(8,2) = 77.37629;
+turning_angle_means(9,2) = 77.3653;
+turning_angle_means(10,2) = 77.34689;
+turning_angle_means(11,2) = 77.33496;
 
 
-turning_angles_ps_0 = -360/(2*pi)*atan(yvel00(:,2)./xvelps0(:,2));
-turning_angles_ps_1 = -360/(2*pi)*atan(yvel01(:,2)./xvelps1(:,2));
-turning_angles_ps_2 = -360/(2*pi)*atan(yvel02(:,2)./xvelps2(:,2));
-turning_angles_ps_3 = -360/(2*pi)*atan(yvel03(:,2)./xvelps3(:,2));
-turning_angles_ps_4 = -360/(2*pi)*atan(yvel04(:,2)./xvelps4(:,2));
+turning_angles_ps_0 = -360/(2*pi)*atan(yvelps0(:,2)./xvelps0(:,2));
+turning_angles_ps_1 = -360/(2*pi)*atan(yvelps1(:,2)./xvelps1(:,2));
+turning_angles_ps_2 = -360/(2*pi)*atan(yvelps2(:,2)./xvelps2(:,2));
+turning_angles_ps_3 = -360/(2*pi)*atan(yvelps3(:,2)./xvelps3(:,2));
+turning_angles_ps_4 = -360/(2*pi)*atan(yvelps4(:,2)./xvelps4(:,2));
 
-turning_angle_ps_means = zeros(5,1);
-turning_angle_ps_means(1) = mean(turning_angles_ps_0);
-turning_angle_ps_means(2) = mean(turning_angles_ps_1);
-turning_angle_ps_means(3) = mean(turning_angles_ps_2);
-turning_angle_ps_means(4) = mean(turning_angles_ps_3);
-turning_angle_ps_means(5) = mean(turning_angles_ps_4);
+turning_angle_ps_means = zeros(5,2);
+turning_angle_ps_means(1,1) = mean(turning_angles_ps_0);
+turning_angle_ps_means(2,1) = mean(turning_angles_ps_1);
+turning_angle_ps_means(3,1) = mean(turning_angles_ps_2);
+turning_angle_ps_means(4,1) = mean(turning_angles_ps_3);
+turning_angle_ps_means(5,1) = mean(turning_angles_ps_4);
+turning_angle_ps_means(1,2) = 77.38442;
+turning_angle_ps_means(2,2) = 77.35767;
+turning_angle_ps_means(3,2) = 77.23937;
+turning_angle_ps_means(4,2) = 77.22615;
+turning_angle_ps_means(5,2) = 77.26096;
 
 
 
@@ -1790,7 +1806,10 @@ print('../../figs/ss_cutbacks_vs_capacities_pressure_ratios','-dpng','-r300');
 
 figure(9)
 %mean turning angle vs SS cutback amount
-plot(0:10:100, turning_angle_means(1:11)-turning_angle_means(1,1), 'ko-')
+%plot(0:10:100, turning_angle_means(1:11,1)-turning_angle_means(1,1),
+%'ro-') %area averaged
+%hold on
+plot(0:10:100, turning_angle_means(1:11,2)-turning_angle_means(1,2), 'ko-') %mass averaged
 
 xlabel('Cutback amount, %')
 ylabel('\Delta turning angle, degrees')
@@ -1994,7 +2013,10 @@ print('../../figs/ps_cutbacks_vs_capacities','-dpng','-r300');
 
 figure(17)
 %mean turning angle vs PS cutback amount
-plot(0:25:100, turning_angle_ps_means(1:5)-turning_angle_ps_means(1,1), 'ko-')
+%plot(0:25:100, turning_angle_ps_means(1:5,1)-turning_angle_ps_means(1,1),
+%'ro-') % area weighted
+%hold on
+plot(0:25:100, turning_angle_ps_means(1:5,2)-turning_angle_ps_means(1,2), 'ko-') % mass weighted
 
 xlabel('Cutback amount, %')
 ylabel('\Delta turning angle, degrees')
