@@ -94,7 +94,7 @@ The key finding of the study is that all capacity prediction errors ultimately r
 
 I was never much of a writer. I was never much of a scientist either, which probably isn't the wisest thing to admit in an MSc thesis. Nonetheless, over the unusual course of my degree, I've been lucky enough to know several people who've helped me to write, helped me to do science, and perhaps most crucially, helped me to stick at it.
 
-Dr David Gillespie is an exceptional thesis supervisor because he didn't just supervise the thesis -- he supervised the student too. I brought along a few unusual needs beyond the scope of the present study, which no doubt made me frustrating to work with at times. David has helped me keep the whole thing on track, while always understanding whenever I needed some change to my schedule, or even to pause altogether. I believe this is a serious amount of patience and a real commitment to helping someone, and I cannot thank him enough. I reckon he's also helped me become a decent scientist, but I guess we'll see about that.
+Dr David Gillespie is an exceptional thesis supervisor because he didn't just supervise the thesis -- he supervised the student too. I brought along a few unusual needs beyond the scope of the present study, which no doubt made me frustrating to work with at times. Undeterred, David helped me keep the whole thing on track. He always understood if I needed some adjustment to the schedule, or even to pause altogether. I believe this is a serious amount of patience and a real commitment to helping someone, and I cannot thank him enough. I reckon he's also helped me become a decent scientist, but I guess we'll see about that.
 
 Chris Parton is a musicologist at Princeton University. Besides his inspiring work on Clara Schumann, he's known for inventing the Parton Method for Literature Review. You might say it's just a spreadsheet of sources, comments, and cross-references -- I say it's invaluable for keeping track of my citations, which is very welcome when all of them are some combination of the words ``cooling'', ``turbine'', and ``vane''. Chris has been a very dear friend and partner in silly ideas for a long time, which makes him both a help-to-write person and a help-to-stick-at-it person. Double points for Chris and good luck to him in finishing his PhD. He'd better not forget to thank me.
 
@@ -237,16 +237,19 @@ OPR & Overall pressure ratio \\
 
 %--we know that geometry and pr are the ONLY drivers of Aeff, but we don't know HOW geometry drives changes.
 
-Jet engines cannot achieve a reversible, adiabatic cycle. Although the principle of operation is based on the ideal Brayton thermodynamic cycle, the design space for a real engine is bounded by the capabilities of the available materials, the means of manufacture, and the design of the components. The differences between the ideal cycle and the real engine operation cannot be fully understood using contemporary low-order models. Consequently it remains extremely difficult to accurately predict the engine core mass flow rate, despite this quantity being essential for optimal engine design. Additionally, lack of knowledge of loss mechanisms typically leads to over-prediction of the NGV capacity. When the manufactured engine operating condition is adjusted to achieve the required thrust, the aerodynamic matching of components is compromised.
+Jet engines cannot achieve a reversible, adiabatic cycle. Although the principle of operation is based on the ideal Brayton thermodynamic cycle, the design space for a real engine is bounded by the capabilities of the available materials, the means of manufacture, and the design of the components. The differences between the ideal cycle and the real engine operation cannot be fully understood using contemporary low-order models. Consequently it remains extremely difficult to accurately predict the engine core mass flow rate, despite this quantity being essential for optimal engine design.
 
-This thesis analyses the high-pressure turbine nozzle guide vanes (NGVs), the component that limits the engine core mass flow rate. The study investigates how the pseudo-dimensionless mass flow rate, \textit{flow capacity}, is affected by various design parameters necessary to achieve a cooled, long-life NGV. Furthermore the sensitivity of flow capacity to small manufacturing tolerance errors is characterised. Further analyses will examine the aerodynamic performance of this component in terms of its ability to impart the correct whirl angle to the post-combustor flow with minimal loss, so as to most efficiently deliver the flow to the high pressure turbine and beyond.
+A key factor in overall engine size, and thus weight, is the required geometric throat area of the high pressure turbine nozzle guide vanes (NGVs). These are the set of stationary vanes upstream of the rotor, which impart whirl to the hot high-pressure combustion products leaving the combustor. The NGV annulus sets the mass flow rate through the engine core, and thus sizes the engine, but it is not a perfect nozzle and is subject to losses. Lack of knowledge of loss mechanisms typically leads to over-prediction of the NGV capacity. When the manufactured engine operating condition is adjusted to achieve the required thrust, the aerodynamic matching of components is compromised.
+
+This thesis analyses the high-pressure turbine NGVs. The study investigates how the pseudo-dimensionless mass flow rate, \textit{flow capacity}, is affected by various design parameters necessary to achieve a cooled, long-life NGV. Furthermore the sensitivity of flow capacity to small manufacturing tolerance errors is characterised. Further analyses examine the aerodynamic performance of this component in terms of its ability to impart the correct whirl angle to the post-combustor flow with minimal loss, so as to most efficiently deliver the flow to the high pressure turbine and beyond.
 
 
 
-\newpage
 \section{Motivation}
 
-The requirement for an accurate core mass flow rate prediction is introduced by consideration of the ideal Brayton thermodynamic cycle, which is plotted in Figure~\ref{fig:brayton_cycle_plots}.
+For the engine manufacturer, the penalty for over-predicting flow capacity is an engine with a larger nacelle, as the bypass air must be ducted around a larger core. For the aircraft manufacturer, this incurs the severe penalties of increased drag and increased weight, affecting fuel consumption, range, and passenger capacity.
+
+The requirement for an accurate core mass flow rate prediction may be illustrated by consideration of the ideal Brayton thermodynamic cycle, which is plotted in Figure~\ref{fig:brayton_cycle_plots}.
 
 \begin{figure}[H]
 	\centering
@@ -313,7 +316,7 @@ combining to express the heat added as
 		\frac{\gamma-1}{\gamma}
 	\right]
 \end{equation}
-For maximum power, it is desirable to maximise the heat added to the flow, which would result in an increase in in $T_{i3}$. A technological limitation is once again presented: the maximum $T_{i3}$ is limited by the avoidance of overheating the post-combustor nozzle guide vanes, for which heat management is of prime concern to the field. $T_{i3}$ is thus a design specification.
+It is desirable to maximise the specific power of the engine in order to build the smallest engine possible. This is achieved by maximising the heat added to the flow, which would result in an increase in in $T_{i3}$. A technological limitation is once again presented: the maximum $T_{i3}$ is limited by the avoidance of overheating the post-combustor nozzle guide vanes, for which heat management is of prime concern to the field. $T_{i3}$ is thus a design specification.
 
 Heat addition is well controlled for in contemporary lean-burn engines, where it may be modelled by the relationship
 \begin{equation}
@@ -337,7 +340,7 @@ where $\dot{m_f}$ is the fuel mass flow rate, $H_{LV}$ is the lower heating valu
 \end{equation}
 where $r_p$ is the compression ratio, $\frac{p_{i2}}{p_{i1}}$. It is shown that the core mass flow rate, $\dot{m_i}$, must be accurately predicted if the engine is to be accurately maintained at the optimal operating conditions allowed by its construction. $r_p$ and $T_{i3}$ are known design specifications, $T_{i1}$ is a measurable ambient condition, and all other terms are approximately constant. 
 
-The design of any jet engine depends on accurate prediction of $\dot{m_i}$. It has been shown that this is directly tied to the performance and operational margins of the upstream engine components. Predictability of $\dot{m_i}$ also affects the design of every downstream turbine stage. If it differs from its expected value due to a poor prediction, all subsequent turbine stages will be sized for an incorrect mass flow rate. The resulting errors in flow velocity and pressure will compound with each additional stage, leading to increasingly incorrect specification of turbine sizes and turning angles.
+The design of any jet engine depends on accurate prediction of $\dot{m_i}$. It is shown that this is directly tied to the performance and operational margins of the upstream engine components. Predictability of $\dot{m_i}$ also affects the design of every downstream turbine stage. If it differs from its expected value due to a poor prediction, all subsequent turbine stages will be sized for an incorrect mass flow rate. The resulting errors in flow velocity and pressure will compound with each additional stage, leading to increasingly incorrect specification of turbine sizes and turning angles.
 
 Guiffre' and Pini~\cite{guiffre_design_guidelines} performed numerical analysis to discuss scaleable guidelines for turbine stage design, validating their model using high-fidelity CFD.  Correct stage matching was found to be highly dependent on matching the \textit{volumetric flow ratio}, defined by the authors as a stage's total-to-static density ratio. To accurately quantify this parameter within the analytical and computational methods discussed in this thesis, mass flow rate would need to be predicted correctly.
 
@@ -345,6 +348,7 @@ A strong understanding of NGV mass flow rate predictability should allow engine-
 
 Section~\ref{flow_capacity_background_definition_and_derivation} will outline the analysis involved in parameterising and predicting mass flow rate. The section will also present the alternative metric of \textit{flow capacity} as a more useful way of characterising mass flow rate independently of the NGV upstream total pressure and temperature. Defining a purely geometric mass flow rate capacity allows for experimental testing of NGVs without recreating the extreme boundary conditions to which real NGVs are exposed. Setting the correct pressure ratio is sufficient, as the subsequent derivation will show. This expedites the testing of different NGV geometries' effects on mass flow rate.
 
+\newpage
 \section{Flow capacity: background, definition, and derivation}
 \label{flow_capacity_background_definition_and_derivation}
 
@@ -358,7 +362,7 @@ where density may be expressed as a function of \textit{pressure ratio}, the rat
 \begin{equation}
 \rho = \frac{p_0}{R T_0} \left(\frac{p}{p_0}\right)^\frac{1}{\gamma}
 \end{equation}
-and velocity is given by the compressible form of Bernoulli's equation as
+and velocity is given by conservation of energy as
 \begin{equation}\label{compressible_bernouilli}
 u =
 \sqrt[•]{ 
@@ -475,7 +479,7 @@ It is shown that the capacity of one-dimensional isentropic nozzle flow is a fun
 
 Section~\ref{research_structure} will introduce the structure of the following chapters, which are to analyse the capacity of 2-dimensional and 3-dimensional nozzle flows, presenting and discussing analytical techniques for applying the 1D capacity equation to 2D and 3D data. In such cases, capacity will be defined by equation~\ref{capacity_definition}.
 
-\newpage
+
 \section{Research structure}
 \label{research_structure}
 
@@ -577,13 +581,13 @@ The present study will nonetheless discuss the reasons for which geometric throa
 
 The immediate challenge in quantifying 2D nozzle flow capacity is that analytical approaches are incomplete. If any nozzle's $A_{eff}$ could be inferred from its geometry, it would be possible to investigate the effects of the geometry on the flow capacity to a high degree of accuracy, but the only way to find $A_{eff}$ is to solve the flow computationally to obtain the sonic line. Once a CFD solution has been obtained, the flow capacity is necessarily also obtained. 
 
-Those concerned with mapping NGV geometry onto flow capacity are thus presented with 2 options: either perform CFD on every conceivable shape of NGV and create a lookup table of arbitrary fidelity, or analyse a relatively small set of CFD solutions to create heuristics about what types of geometric changes cause what types of changes to the shape of the sonic line and local flow vectors. Furthermore, a typical starting point for a commercial engine designer is to conduct a 2D analysis based on a previous ``successful'' engine design, with some cooling features included. This has neccessarily limited design changes, and has led to local optimisation within a very small design envelope.
+Those concerned with mapping NGV geometry onto flow capacity are thus presented with 2 options: either perform CFD on every conceivable shape of NGV and create a lookup table of arbitrary fidelity, or analyse a relatively small set of CFD solutions to create heuristics about what types of geometric changes cause what types of changes to the shape of the sonic line and local flow vectors. Furthermore, a typical starting point for a commercial engine designer is to conduct a 2D analysis based on a previous ``successful'' engine design, with some cooling features included. This has necessarily limited design changes, and has led to local optimisation within a very small design envelope.
 
 \subsection{Geometry, mesh, and boundary conditions}
 
 Rolls-Royce plc have provided the present study with a family of NGV geometries suitable for such an approach, all from the Trent 900 engine. Geometric variation among Trent 900 NGVs has been subject to extensive measurement by Rolls-Royce. In one such set of studies, Hall~\cite{hall_area} and Zamboni~\cite{zamboni_area} produced geometric definitions of 6 NGVs. These 6 NGVs are members of 2 slightly different production standards within the Trent 900 NGV family, which are referred to by the company as the M-skew standard and the EP1 standard. Rolls-Royce randomly selected three production NGVs from each standard and measured their surface geometries using the \textit{white light}/\textit{GOM} scanning method. This resulted in the 6 geometric definition files used by Hall~\cite{hall_area} and Zamboni~\cite{zamboni_area}, which were provided to the present study. These files do not include film cooling holes or the trailing edge slot. The trailing edges are smoothly rounded.
 
-Variations exist among the geometry of the 6 NGVs, even when cooling features are not accounted for. Although these variations are of the order of $0.5$ mm, they are suffiently large to significantly affect flow capacity. Zamboni~\cite{zamboni_area} described the process for quantifying these variations in 3D, which will be discussed in Section~\ref{2d_vs_3d_capacity_uncertainty}. The present study defined an approach for deriving 2D geometries from the 3D files and quantifying the variations among them.
+Variations exist among the geometry of the 6 NGVs, even when cooling features are not accounted for. Although these variations are of the order of $0.5$ mm, they are sufficiently large to significantly affect flow capacity. Zamboni~\cite{zamboni_area} described the process for quantifying these variations in 3D, which will be discussed in Section~\ref{2d_vs_3d_capacity_uncertainty}. The present study defined an approach for deriving 2D geometries from the 3D files and quantifying the variations among them.
 
 The 3D NGV surface shape was provided by Rolls-Royce as a set of co-ordinates which define 21 closed loops on the vane surface. Each loop consists of a pair of streamlines which diverge from a stagnation point on the vane's leading edge and converge at the trailing edge. The 11th loop was thus considered to be the closest approximation to a mid-span slice of the NGV. MATLAB was used to process the 3D curve of the 11th loop, producing a 2D section via the following process. 
 \begin{enumerate}
@@ -634,7 +638,6 @@ Cell count & $35,000$\\
 \end{center}
 \end{table}
 
-\newpage
 For turbomachinery flows of this type, the boundary layer thickness will be shown to be large enough to significantly affect the NGV throat area. The mesh must resolve the whole boundary layer within a region of high resolution which is sufficiently large to cover the maximum boundary layer thickness. The maximum thickness of a turbulent boundary layer is approximated by the formula
 \begin{equation}\label{boundary_layer_thickness}
 \delta \approx
@@ -836,7 +839,7 @@ M
 \end{equation}
 This expression is of similar form to the expression for Reynolds number in equation~\ref{reynolds_number_compressible}. Both are shown to be a function of Mach number and of the upstream conditions $\frac{p_0}{\sqrt{T_0}}$. If these expressions are normalised against the upstream conditions in a similar way to flow capacity, it is shown that both the dimensionless speed $Re$ and the dimensionless boundary layer thickness $y_+$ are purely functions of Mach number and of a geometric parameter -- $L$ and $y$ respectively. This is subject to the assumptions that $\mu$ is approximately constant within the range of temperatures and $\sqrt{\frac{C_f}{2}}$ is approximately constant for sufficiently high Reynolds numbers.
 
-Equation~\ref{y_plus_compressible} may be rearranged to compute a real distance $y$ from the wall given a value of $y_+$. In the general case of turbulent boundary layers, the laminar sublayer occupies the region of $y_+ < 5$. The present study placed the first layer of mesh nodes at a wall distance of 0.3 $\mu$m corresponding to a $y_+$ value of $5$. This is in accordance with a study of laminar sublayer resolution by Salim and Cheah~\cite{salim_y_plus}.
+Equation~\ref{y_plus_compressible} may be rearranged to compute a real distance $y$ from the wall given a value of $y_+$. In the general case of turbulent boundary layers, the laminar sublayer occupies the region of $y_+ < 5$. The present study placed the first layer of mesh nodes at a wall distance of $0.3$ $\mu$m corresponding to a $y_+$ value of $5$. This is in accordance with a study of laminar sublayer resolution by Salim and Cheah~\cite{salim_y_plus}. The size of the first layer of mesh nodes was confirmed by measurement of the mesh after generation.
 
 Within the structured boundary mesh, element size was grown so that the outermost elements had an aspect ratio of approximately $\frac{1}{2}$. Beyond this, the domain was populated with an unstructured quadrilateral-dominant mesh. Node distributions along the two periodic boundaries were made identical, and nodes adjacent to the structured boundary layer mesh were made to match its outermost node distributions. Within the general domain, unstructured mesh generation was automated using Ansys Fluent's built-in meshing feature. The resulting mesh formed the basis for all other 2-dimensional NGV meshes in the study. The mesh and periodic pattern are depicted in Figure~\ref{fig:t900_mesh_whole} and details of the mesh, showing the structured boundary layer treatment, are depicted in Figure~\ref{fig:t900_mesh_details}.
 
@@ -866,16 +869,16 @@ Within the structured boundary mesh, element size was grown so that the outermos
 	\label{fig:t900_mesh_details}
 \end{figure}
 
-The described mesh and boundary condition specifications were used to perform a series of CFD simulations of each of the 6 2D NGVs in Ansys Fluent 2020 R2. Solutions were initialised using the solver's built-in FMG initialisation. This procedure automatically constructs a coarser version of the supplied mesh, on which an initial solution is converged before refinement to the final resolution. More detailed explanation of the scheme is provided by Ansys~\cite{ansys_fmg_initialisation}. A script in the Fluent Journal language was used to produce solutions at incrementally increasing inverse pressure ratios of between $1.5$ and a fully choked inverse pressure ratio of $3.33$. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments of pressure ratio, and typical overall solution times were approximately 10 hours. The k-$\omega$ SST turbulence model was used.
+The described mesh and boundary condition specifications were used to perform a series of CFD simulations of each of the 6 2D NGVs in Ansys Fluent 2020 R2. Solutions were initialised using the solver's built-in FMG initialisation. This procedure automatically constructs a coarser version of the supplied mesh, on which an initial solution is converged before refinement to the final resolution. More detailed explanation of the scheme is provided by Ansys~\cite{ansys_fmg_initialisation}. A script in the Fluent Journal language was used to produce solutions at incrementally increasing inverse pressure ratios of between $1.5$ and a fully choked inverse pressure ratio of $3.33$. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments of pressure ratio, and typical overall solution times were approximately 10 hours. The k-$\omega$ SST turbulence model was used. For these simulations and all others described in this thesis, convergence was determined by the outlet mass flow rate fluctuating by a factor of $10^{-6}$ or less. Mesh independence was verified by incrementally refining the mesh in Fluent and again confirming the outlet mass flow rate did not fluctuate significantly.
 
 \subsection{Effect on 2D capacity}
 
-Figure~\ref{fig:t900_mach_whole} shows contours of Mach number for one of the 6 solutions (vane KSZ03) at a fully choked pressure ratio. Figure~\ref{fig:t900_mach_throat} shown contours of Mach number for the same solution in the throat region.
+Figure~\ref{fig:t900_mach_whole} shows contours of Mach number for one of the 6 solutions (vane KSZ03) at a fully choked pressure ratio. Streamlines released from the domain inlet illustrate the flow path through one of the vane passages. Figure~\ref{fig:t900_mach_throat} shown contours of Mach number for the same solution in the throat region.
 
 \begin{figure}[H]
       \centering
       \includegraphics[width=.85\textwidth]{figs/t900_mach_whole.png}
-      \caption{Contours of Mach number for whole solution on Trent 900 vane KSZ03 at $\frac{p_{01}}{p_2}=3.33$}
+      \caption{Contours of Mach number for whole solution on Trent 900 vane KSZ03 at $\frac{p_{01}}{p_2}=3.33$ with streamlines illustrating flow through a single vane passage}
       \label{fig:t900_mach_whole}
 \end{figure}
 
@@ -900,6 +903,8 @@ Figure~\ref{fig:t900_2d_capacity_trends} plots percentage changes in the flow ca
 
 \begin{figure}[H]
 	\centering
+	$\Delta$ capacity $= \frac{\Gamma - \Gamma_{KSZ03}}{\Gamma_{KSZ03}}$
+	\hspace{0.45cm}
 	\begin{subfigure}{.45\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_2d_capacity_trends.png}
@@ -939,7 +944,7 @@ Production standard & Serial number & Throat width (mm)\\
  & PNN06 & 12.7\\
  & PNS03 & 12.7\\
 \hline
-\multirow{3}{*}{M-skewed} & KTA01 & 12.5\\
+\multirow{3}{*}{M-skew} & KTA01 & 12.5\\
  & KSZ03 & 12.4\\
  & KVD04 & 12.2\\
 \hline
@@ -947,11 +952,12 @@ Production standard & Serial number & Throat width (mm)\\
 \end{center}
 \end{table}
 
-\newpage
 Discussion is warranted of the relationship between flow capacity and throat area. Consideration is to be made of both throat area in its pure geometric form $A$, and its effective from $A_{eff}$ as defined in equation~\ref{effective_throat_area_integral}. Figure~\ref{fig:T900_2d_capacities_vs_throat_widths} plots the 6 NGVs' variations in capacity at design pressure ratio against their variations in geometric throat width. Capacity changes are normalised against the capacity of vane KSZ03 at the design pressure ratio. Throat width changes are normalised against the geometric throat width of vane KSZ03. The averages of the M-skew and EP1 families are plotted and lines of gradient 1 are plotted intersecting the average values, such that any deviations from 1-dimensional compressible flow correspond to deviations from the lines of gradient 1.
 
 \begin{figure}[H]
 	\centering
+	$\Delta$ capacity $= \frac{\Gamma - \Gamma_{KSZ03}}{\Gamma_{KSZ03}}$
+	\hspace{0.45cm}
 	\begin{subfigure}{.45\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/T900_2d_capacities_vs_throat_widths.png}
@@ -974,13 +980,14 @@ Although NGV throat width is a good predictor of NGV flow capacity if aerodynami
 	\int_{1}^2 \vu*{u} \vdot \vu*{r} dL
 \end{equation}
 
-\newpage
 To achieve this, results for $M$ and $x$ and $y$ velocity components were exported from each Fluent solution. These data were imported into Matlab and interpolated onto a structured quadrilateral grid which covered the region around the throat between 2 adjacent NGVs. Within this domain, data points corresponding to the sonic line were identified using an algorithm to detect the cross-over from $M<1$ to $M>1$. A subsequent algorithm was used to order and connect these points into a sonic line. It was then possible to compute the local velocity unit vector $\vu*{u}$ and local unit vector orthogonal to the sonic line $\vu*{r}$ at each point, and to perform the integral. 
 
 This resulted in Figure~\ref{fig:T900_2d_capacities_vs_effective_throat_widths}, which plots the 6 NGVs' variations in capacity at design pressure ratio against their variations in effective throat width. Capacity changes are normalised against the capacity of vane KSZ03 at the design pressure ratio. Effective throat width changes are normalised against the effective throat width of vane KSZ03. Because the concept of $A_{eff}$ is designed to account for generalised variations between NGVs, Figure~\ref{fig:T900_2d_capacities_vs_effective_throat_widths} does not group the NGVs into 2 separate families. A line of gradient $1$ is plotted and positioned on the $y$ axis to fit the data. It is notable that this line does not correspond to the line $y=x$, but instead corresponds to a negative offset in capacity. This suggests the presence of boundary layer effects which reduced the capacity compared to the values which effective throat area alone would predict.
 
 \begin{figure}[H]
 	\centering
+	$\Delta$ capacity $= \frac{\Gamma - \Gamma_{KSZ03}}{\Gamma_{KSZ03}}$
+	\hspace{0.45cm}
 	\begin{subfigure}{.45\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_2d_capacities_vs_effective_throat_widths.png}
@@ -1009,6 +1016,8 @@ Figure~\ref{fig:t900_3d_capacity_trends} plots percentage changes in the flow ca
 
 \begin{figure}[H]
 	\centering
+	$\Delta$ capacity $= \frac{\Gamma - \Gamma_{KSZ03}}{\Gamma_{KSZ03}}$
+	\hspace{0.45cm}
 	\begin{subfigure}{.45\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/t900_3d_capacity_trends.png}
@@ -1021,9 +1030,11 @@ Figure~\ref{fig:t900_3d_capacity_trends} plots percentage changes in the flow ca
 	\label{fig:t900_3d_capacity_trends}
 \end{figure}
 
-The predominant feature of Figure~\ref{fig:t900_3d_capacity_trends} is the continued rise in capacity with pressure ratio, in constrast to the 2D simulations where capacity plateaued between inverse pressure ratios of $2.0$ and $2.2$ for all $6$ NGVs. This suggests that none of the NGVs reached a fully choked condition over the entire range of pressure ratios. While regions of the NGV span must be choked at these higher inverse pressure ratios, a 3D NGV passage will exhibit secondary flow structures leading to progressive choking. A sufficiently high inverse pressure ratio will result in a flattening of the capacity trend as choking cannot progress further, but this limiting condition is not reached by the range of pressure ratios in the data provided by Rolls-Royce. This alone is sufficient to preclude the present $A_{eff}$ approach in these 3D cases, since it has been shown to be limited even by the presence of thin boundary layers in the 2D cases. In this case, a sonic surface may not exist as a flow-limiting condition, as there are unchoked alternative flow paths across the NGV span.
+The predominant feature of Figure~\ref{fig:t900_3d_capacity_trends} is the continued rise in capacity with pressure ratio, in contrast to the 2D simulations where capacity plateaued between inverse pressure ratios of $2.0$ and $2.2$ for all $6$ NGVs. This suggests that none of the NGVs reached a fully choked condition over the entire range of pressure ratios. While regions of the NGV span must be choked at these higher inverse pressure ratios, a 3D NGV passage will exhibit secondary flow structures leading to progressive choking. A sufficiently high inverse pressure ratio will result in a flattening of the capacity trend as choking cannot progress further, but this limiting condition is not reached by the range of pressure ratios in the data provided by Rolls-Royce. This alone is sufficient to preclude the present $A_{eff}$ approach in these 3D cases, since it has been shown to be limited even by the presence of thin boundary layers in the 2D cases. In this case, a sonic surface may not exist as a flow-limiting condition, as there are unchoked alternative flow paths across the NGV span.
 
-Zamboni~\cite{zamboni_area} defined the Rolls-Royce process for calculating 3D throat area as follows: ``Along each vane span section, the throat line is defined as that line which connects the trailing edge of one vane with the point of minimum distance on the suction surface of the nearby vane in the tangential direction. For a vane with a trailing edge slot, the trailing edge point is defined as the start of the cut back... The throat surface interpolates all the throat lines spanwise.'' Their study produced values for throat area of the 6 NGVs in question. These values are listed in Table~\ref{T900_throat_areas}, where they are normalised against vane KSZ03 due to the sensitive nature of the data.
+Zamboni~\cite{zamboni_area} defined the Rolls-Royce process for calculating 3D throat area as follows: ``Along each vane span section, the throat line is defined as that line which connects the trailing edge of one vane with the point of minimum distance on the suction surface of the nearby vane in the tangential direction. For a vane with a trailing edge slot, the trailing edge point is defined as the start of the cut back... The throat surface interpolates all the throat lines spanwise.'' It is notable that the engine maker has defined the geometric throat by assuming the trailing edge point to be the start of the cutback. Results in Chapter~\ref{chapter_trailing_edge} show this assumption to be inaccurate, as the 2D sonic line is observed to attach variously at this point or at the very end of the trailing edge, depending on precise cutback size.
+
+The Rolls-Royce study produced values for throat area of the 6 NGVs in question. These values are listed in Table~\ref{T900_throat_areas}, where they are normalised against vane KSZ03 due to the sensitive nature of the data.
 
 \begin{table}[H]
 \caption{Throat areas of 6 Trent 900 NGVs}
@@ -1037,7 +1048,7 @@ Production standard & Serial number & $\Delta$ throat area, $\%$\\
  & PNN06 & $0.8616$\\
  & PNS03 & $0.5575$\\
  \hline
- \multirow{3}{*}{M-skewed} & KTA01 & $0.3928$\\
+ \multirow{3}{*}{M-skew} & KTA01 & $0.3928$\\
  & KSZ03 & $0.0000$\\
  & KVD04 & $-0.4435$\\
 \hline
@@ -1049,6 +1060,8 @@ The viability of the geometric throat area approach to 3D data is illustrated in
 
 \begin{figure}[H]
 	\centering
+	$\Delta$ capacity $= \frac{\Gamma - \Gamma_{KSZ03}}{\Gamma_{KSZ03}}$
+	\hspace{0.45cm}
 	\begin{subfigure}{.45\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/T900_3d_capacities_vs_throat_areas.png}
@@ -1133,7 +1146,7 @@ The authors also defined the category of cooling losses to refer to the aerodyna
 
 The present study seeks to define a coefficient of NGV total pressure loss whose arguments are flow measurements or numerically predicted parameters. It is first useful to consider the motivation for quantifying loss in terms of total pressure. This approach treats the nozzle guide vane problem analogously to the problem of flow in a rough pipe, where frictional forces must be balanced by a negative total pressure gradient in the downstream direction. The greater the sum of frictional forces, the greater the loss of total pressure between the inlet and outlet. Total pressure loss can thus aggregate all aerodynamic drag forces acting on the nozzle guide vane or other component.
 
-In an experimental or computational domain, the total pressure loss between inlet and outlet is $p_{01} - p_{02}$. It is intuitive to normalise this against the upstream total pressure $p_{01}$ but it is more useful to normalise it against $p_{01} - p_2$, where $p_2$ is the outlet static pressure. $p_{02}$ never assumes a value greater than $p_{01}$ or less than $p_2$, so if a total pressure loss coefficient is quantified as
+In an experimental or computational domain, the total pressure loss between inlet and outlet is $p_{01} - p_{02}$. It is intuitive to normalise this against the upstream total pressure $p_{01}$ but it is more useful to normalise it against $p_{01} - p_2$, where $p_2$ is the outlet static pressure. $p_{02}$ never assumes a value greater than $p_{01}$ nor less than $p_2$, so if a total pressure loss coefficient is quantified as
 \begin{equation}\label{total_pressure_loss_coefficient}
 C_{pt} = \frac{
 p_{01} - p_{02}
@@ -1194,7 +1207,7 @@ Since the total pressure loss coefficient quantifies loss as a summation of all 
 1 - \frac{KE_2}{KE_1}
 \end{equation}
 
-Kinetic energy may be formulated using the compressible form of Bernoulli's equation as
+Kinetic energy may be formulated using conservation of energy as
 \begin{equation}\tag{\ref{compressible_bernouilli}}
 u = 
 \sqrt[•]{ 
@@ -1413,7 +1426,6 @@ Figure~\ref{fig:ss_cutbacks_0-3} illustrates the subtle changes in the sonic lin
 
 The geometric changes are also shown to alter the aerodynamics in the suction-side region upstream of the end-edge, where an attached shock moves incrementally upstream with each increment in cutback. Shock-induced boundary layer separation is seen to be present in Figure~\ref{fig:ss_cutbacks_0-3}, and moves upstream corresponding to the position of the shock. This results in an increasingly large separated wake region which is not in alignment with the NGV's turning angle.
 
-\newpage
 Figure~\ref{fig:ss_cutbacks_4-10} shows further contours of Mach number. Again the range of cutbacks is between $40\%$ and complete removal of the end-edge. Again the inverse pressure ratio is $3.3$, fully choked.
 
 \begin{figure}[H]
@@ -1478,7 +1490,6 @@ At lower inverse pressure ratios where the flow is not fully choked, and thus a 
 
 This is in good agreement with the observed relationship between flow capacity and cutback amount at the unchoked pressure ratios. Removal of end-edge material increases the effective passage width in the region local to the end-edge, causing a local decrease in static pressure and increase in dynamic pressure. Because most streamlines are unchoked at the flow region and pressure ratios in question, this state change propagates along the entire streamline with a corresponding increase in mass flow rate.
 
-\newpage
 The maximum change in capacity was $1.9$ percentage points at the design inverse pressure ratio of $1.79$, and $2.5$ percentage points at an inverse pressure ratio of $1.50$. The effect of increasing cutbacks became less pronounced at larger cutback amounts, suggesting that the size of the end-edge ceases to be the limiting factor on effective passage width for those geometries. Figure~\ref{fig:ss_cutbacks_wakes_design_pr} shows contours of Mach number in the NGV wake region for the full range of cutbacks at the design inverse pressure ratio of $1.79$, labelled by the percentage of the end-edge removed.
 
 \begin{figure}[H]
@@ -1497,7 +1508,7 @@ The maximum change in capacity was $1.9$ percentage points at the design inverse
 
 Key features of Figure~\ref{fig:ss_cutbacks_wakes_design_pr} include an outer wake region (rendered in green) and inner wake regions downstream of the pressure side and the end-edge (rendered in blue). No fundamental changes occurred to the trailing edge's aerodynamics over the range of cutbacks. Mach number is observed to continually increase in the region adjacent to the pressure side, and to continually decrease in the region adjacent to the end-edge. The trailing edge aerodynamics were sensitive to geometric changes across the full range of cutbacks. The reduced effect of greater cutbacks on flow capacity may result from two phenomena. Firstly, the local flow acceleration may be limited more by the position of the pressure side than by the end-edge at higher cutback values, where the end-edge tip is increasingly too far upstream to influence the pressure-side aerodynamics. Secondly, this upstream positioning of the end-edge tip is observed to cause a significant increase in outer wake thickness at higher cutback values. This likely reduced the effective passage width in this region and counteracted the predominant effect of flow capacity increasing.
 
-Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at selected cutback amounts. The range of inverse pressure ratios includes the design value of $1.79$.
+Figure~\ref{fig:ss_cutbacks_vs_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at selected cutback amounts. The range of inverse pressure ratios includes the design value of $1.79$. Capacity changes are normalised against the case of $0$ cutback at the design pressure ratio.
 
 \begin{figure}[H]
 	\centering
@@ -1529,6 +1540,10 @@ Overall flow turning angle was surveyed along the length of the domain outlet pl
 
 \begin{figure}[H]
 	\centering
+	\begin{subfigure}{.125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/outlet_minifigure.png}
+	\end{subfigure}
 	\begin{subfigure}{.45\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ss_cutbacks_turning_angle_surveys.png}
@@ -1541,7 +1556,6 @@ Overall flow turning angle was surveyed along the length of the domain outlet pl
       \label{fig:ss_cutbacks_turning_angle_surveys}
 \end{figure}
 
-\newpage
 Figure~\ref{fig:ss_cutbacks_turning_angle_surveys} further illustrates the trend of reducing turning angles present in Figure~\ref{fig:ss_cutbacks_vs_turning_angles}. It is also apparent that the incremental cutbacks caused a shift in the location of maximum turning angle. In the case of no cutback, maximum turning occurred exactly halfway across the domain exit plane, at a location immediately downstream of the NGV end-edge. Subsequent cutbacks caused both a reduction in maximum turning and a shift of the maximum turning location in the opposite direction to which turning occurs. This suggests that the NGV wake continued to extend downstream of the NGV at an angle which decreased with increasing cutbacks, arriving at the domain outlet at an incrementally increasing $y$-coordinate. Assuming that the downstream turning angle distribution is indicative of the NGV wake profile, the wake did not appear to become significantly more diffuse as cutbacks increased.
 
 Figure~\ref{fig:ss_cutbacks_vs_losses} plots loss as a function of end-edge cutback amount at the design pressure ratio of $1.79$, where total pressure loss and kinetic energy loss are defined as in Section~\ref{definitions_of_loss}. Total pressure values were surveyed at the domain outlet plane and averaged to produce the loss values.
@@ -1584,7 +1598,7 @@ The authors used a linear cascade to measure the aerodynamic performance of a se
 
 \subsection{Geometry, mesh, and boundary conditions}
 
-The larger the pressure-side cutback, the less the likelihood of coolant blockage, and the easier it is to perform the machining of the trailing edge. However, a bigger cutback is expected to cause increased loss due to increased wake area, as well as reduced film cooling effectiveness on the end-edge as the coolant becomes mixed out. This section presents a 2D CFD study on varying the size of the pressure-side cutback, using the types of analyses presented for end-edge cutbacks in Section~\ref{suction_side_cutbacks}. The baseline geometry included a partially eroded end-edge to be representative of the full lifetime of the component, for which a cutback amount of approximately $50\%$ was chosen. The baseline pressure-side cutback was such that the pressure side and the suction side extended by the same amount, with no end-edge. Cutbacks were then made to move the end of the pressure side upstream in increments of $25\%$, where $100\%$ is equivalent to the existing location of the pressure side of the trailing edge. The process of geometry refinement is illustrated in Figure~\ref{fig:t900_ps_cutbacks_geometry}.
+The larger the pressure-side cutback, the less the likelihood of coolant blockage, and the easier it is to perform the machining of the trailing edge. However, a bigger cutback is expected to cause increased loss due to increased wake area, although the limiting design factor is the reduction in film cooling effectiveness on the end-edge as the coolant becomes mixed out. With enough mixing, there would eventually be no cooling potential in the film cooling flow. This section presents a 2D CFD study on varying the size of the pressure-side cutback, using the types of analyses presented for end-edge cutbacks in Section~\ref{suction_side_cutbacks}. The baseline geometry included a partially eroded end-edge to be representative of the full lifetime of the component, for which a cutback amount of approximately $50\%$ was chosen. The baseline pressure-side cutback was such that the pressure side and the suction side extended by the same amount, with no end-edge. Cutbacks were then made to move the end of the pressure side upstream in increments of $25\%$, where $100\%$ is equivalent to the existing location of the pressure side of the trailing edge. The process of geometry refinement is illustrated in Figure~\ref{fig:t900_ps_cutbacks_geometry}.
 
 \begin{figure}[H]
 	\centering
@@ -1651,7 +1665,6 @@ Figure~\ref{fig:ps_cutbacks_choked} shows contours of Mach number in the region 
 	\label{fig:ps_cutbacks_choked}
 \end{figure}
 
-\newpage
 Figure~\ref{fig:ps_cutbacks_choked} illustrates that the sonic line moved incrementally upstream with increasing pressure-side cutbacks. The sonic line remained attached to the pressure side of the trailing edge at a point just upstream of where boundary layer separation occurred, and this remained true as both the pressure side and the sonic line progressed upstream as cutbacks increased. On the suction side of the adjacent vane, the sonic line attached at a point that also moved incrementally upstream. In all cases, a shock was present immediately upstream of the point of pressure-side boundary layer separation, which was in a region of high convex curvature on the vane surface. Shock-induced boundary layer separation also occurred on the suction side of the trailing edge at a location that was not affected by the incremental changes to the pressure side. In cases of $25\%$ cutback or more, an additional shock appeared downstream of the pressure-side trailing edge, and appeared stronger as cutbacks increased. The overall trend observed is that increasing cutbacks caused the line of geometric minimum width to move upstream, and that the sonic line moved upstream correspondingly. This observation is supported by the relationship between the cutback amount and the nozzle's geometric throat width, which is plotted in Figure~\ref{fig:ps_cutbacks_vs_throat_widths}. The sensitivity of the sonic line shape to the full range of cutbacks is illustrated in Figure~\ref{fig:ps_cutbacks_m1_lines_illustration}.
 
 \begin{figure}[H]
@@ -1724,12 +1737,11 @@ Overall it was apparent that only the fully choked cases were changing in direct
 	\label{fig:ps_cutbacks_design}
 \end{figure}
 
-\newpage
 Figure~\ref{fig:ps_cutbacks_design} shows that the trailing edge region aerodynamics remained fundamentally unchanged in the case of incremental pressure-side cutbacks at the design pressure ratio. An exception to this was the presence of a region of accelerated flow adjacent to the area near the end of the pressure side where the vane surface has high convex curvature. This feature became more pronounced as cutbacks increased, suggesting that it contributed to the non-linear relationship between cutback amount and flow capacity delta at the design inverse pressure ratio. 
 
-Another significantly changing feature occurred directly downstream of this region, where the flow remained attached along part of the convex surface. The high-momentum mainstream is observed to turn towards the positive $x$-direction more as cutback increased, iminging on the low-momentum outer wake region. This resulted in reduced flow turning overall, which will be discussed subsequently. This downstream flow straightening corresponds to an expansion in the effective flow width downstream of the vane, a change which is likely a primary cause of the observed trend of capacity increasing sharply with smaller cutbacks. In the extreme, the transformation of outer wake area into mainstream area is limited by the momentum of the slow coolant flow, which prevents the mainstream from completely overwhelming the wake. This is likely the reason why both unchoked cases exhibited reduced sensitivity of capacity to cutbacks at larger cutback amounts.
+Another significantly changing feature occurred directly downstream of this region, where the flow remained attached along part of the convex surface. The high-momentum mainstream is observed to turn towards the positive $x$-direction more as cutback increased, impinging on the low-momentum outer wake region. This resulted in reduced flow turning overall, which will be discussed subsequently. This downstream flow straightening corresponds to an expansion in the effective flow width downstream of the vane, a change which is likely a primary cause of the observed trend of capacity increasing sharply with smaller cutbacks. In the extreme, the transformation of outer wake area into mainstream area is limited by the momentum of the slow coolant flow, which prevents the mainstream from completely overwhelming the wake. This is likely the reason why both unchoked cases exhibited reduced sensitivity of capacity to cutbacks at larger cutback amounts.
 
-Figure~\ref{fig:ps_cutbacks_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at selected cutback amounts. The range of inverse pressure ratios includes the design value of $1.79$.
+Figure~\ref{fig:ps_cutbacks_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at selected cutback amounts. The range of inverse pressure ratios includes the design value of $1.79$. Capacity changes are normalised against the case of $0$ cutback at the design pressure ratio.
 
 \begin{figure}[H]
 	\centering
@@ -1766,6 +1778,10 @@ Overall flow turning angle was surveyed along the length of the domain outlet pl
 
 \begin{figure}[H]
 	\centering
+	\begin{subfigure}{.125\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/outlet_minifigure.png}
+	\end{subfigure}
 	\begin{subfigure}{.45\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ps_cutbacks_turning_angle_surveys.png}
@@ -1800,7 +1816,6 @@ Loss delta is plotted as a function of capacity delta in Figure~\ref{fig:ps_capa
     \label{fig:ps_capacities_vs_losses}
 \end{figure}
 
-\newpage
 Figure~\ref{fig:ps_capacities_vs_losses} shows that, as the pressure side is incrementally removed, capacity and loss do not change in direct proportion to each other. Overall capacity sensitivity was greater than overall loss sensitivity by approximately a factor of two, which is similar to the equivalent result in Section~\ref{suction_side_cutbacks}. At higher cutback amounts a relatively small increase in capacity corresponded to a sharp increase in loss by both definitions, except for the case of $100\%$ cutback where loss was observed to decrease as discussed.
 
 
@@ -1875,7 +1890,7 @@ A series of 2D CFD simulations were performed with a single cooling hole at a ra
     \label{fig:SCH_hole_range}
 \end{figure}
 
-Simulations were performed at the design inverse pressure ratio of $1.65$ but not at a fully choked inverse pressure ratio. This desicion was made because the majority of the range of hole locations lie downstream of the nozzle's sonic line. In accordance with the other findings of this study, these locations are expected to have minimal effect on the NGV capacity.
+Simulations were performed at the design inverse pressure ratio of $1.65$ but not at a fully choked inverse pressure ratio. This decision was made because the majority of the range of hole locations lie downstream of the nozzle's sonic line. In accordance with the other findings of this study, these locations are expected to have minimal effect on the NGV capacity.
 
 If a film cooling row is to be modelled using 2-dimensional CFD, several considerations must be made to ensure the simulation is representative of real engine conditions. These considerations fall into 2 categories, namely the correct setting of boundary conditions at the coolant inlet, and the mitigation of 3-dimensional flow phenomena that affect coolant mixing but are not captured by 2-dimensional simulations. %This second set of considerations will be discussed in Section~\ref{quasi_3D_cfd}, which uses a case of 3D CFD to validate the present study's 2D CFD results in the presence of 3D phenomena.
 
@@ -1943,10 +1958,9 @@ p_{0cp} - p_m
 }
 \end{equation}
 
-\newpage
-Typical values for $p_{0cp}$ and $\zeta_c$ may be referenced from the literature. However, the present study sought to use 2D CFD to model a film cooling hole row as a slot, while achieving mass flow rates representative of those expected in a fully 3D vane with discrete hole locations. Such a 2D case will have inlerently lower loss than the 3D case. 
+Typical values for $p_{0cp}$ and $\zeta_c$ may be referenced from the literature. However, the present study sought to use 2D CFD to model a film cooling hole row as a slot, while achieving mass flow rates representative of those expected in a fully 3D vane with discrete hole locations. Such a 2D case will have inherently lower loss than the 3D case. 
 
-The differences in aerodynamic performance between film cooling holes and slots has long been a subject of research, with flow mechanisms downstream of hole rows being more complex than those formed by slots. A discrete hole is likely to have a pair of conter-rotating secondary flow vortices formed as the coolant enters the hole, with an unsteady process of vortex stripping and entrainment into the mainstream as the coolant exits the hole. In contrast, a slot tends to form a steady contiguous film on the external surface, with a separation bubble present under some conditions. To obtain boundary conditions likely to acheive coolant mass flow rates on the desired magnitude, coolant plenum boundary conditions were computed via the following process.
+The differences in aerodynamic performance between film cooling holes and slots has long been a subject of research, with flow mechanisms downstream of hole rows being more complex than those formed by slots. A discrete hole is likely to have a pair of counter-rotating secondary flow vortices formed as the coolant enters the hole, with an unsteady process of vortex stripping and entrainment into the mainstream as the coolant exits the hole. In contrast, a slot tends to form a steady contiguous film on the external surface, with a separation bubble present under some conditions. To obtain boundary conditions likely to achieve coolant mass flow rates on the desired magnitude, coolant plenum boundary conditions were computed via the following process.
 \begin{enumerate}
   \item Converge a baseline CFD solution with no cooling holes. Use this case to report a baseline mainstream mass flow rate $\dot{m}$ and a baseline NGV surface static pressure distribution. Use the surface static pressure distribution to report a value of $p_m$ at each cooling hole location.
   \item Converge a CFD solution with the cooling hole at position $0$ and the cooling hole plenum specified as a mass flow inlet providing the benchmark coolant mass flow rate $\dot{m_c} = 1\%$ of $\dot{m}$. Report values for $p_{0cp}$ and $p_{0c}$ area-averaged across the plenum inlet boundary and the cooling hole exit.
@@ -1983,7 +1997,7 @@ Cell count & $40,000$\\
 
 The computed value for $\zeta_c$ of $0.8$ corresponds to a high degree of total pressure loss within the coolant plenum and hole, which is to be expected both in simulation and in real engine parts. This suggests that the mass flow rate of coolant predicted by the present CFD study is likely to depart significantly from that predicted by isentropic flow alone. The computed value for $p_{0cp}$ of $79.91\%$ of mainstream is used as the coolant plenum total pressure in all subsequent CFD simulations.
 
-Figure~\ref{fig:SCH_hole_range} depicts a range of geometries which allows the introduction of film coolant at various locations both upstream and downstream of the NGV geometric throat (and its sonic line in the case of fully choked flow). As the cooling hole and plenum consist of 2 rectangles, each was assigned a structured quaderilateral mesh that could be matched with a structured boundary layer mesh of the same design as that depicted in Figure~\ref{fig:t900_mesh_leading_edge}. Beyond this, an unstructured mesh was created to the same design as that depicted in Figure~\ref{fig:t900_mesh_whole}. Details of the resulting mesh are shown in Figure~\ref{fig:SCH_mesh}.
+Figure~\ref{fig:SCH_hole_range} depicts a range of geometries which allows the introduction of film coolant at various locations both upstream and downstream of the NGV geometric throat (and its sonic line in the case of fully choked flow). As the cooling hole and plenum consist of 2 rectangles, each was assigned a structured quadrilateral mesh that could be matched with a structured boundary layer mesh of the same design as that depicted in Figure~\ref{fig:t900_mesh_leading_edge}. Beyond this, an unstructured mesh was created to the same design as that depicted in Figure~\ref{fig:t900_mesh_whole}. Details of the resulting mesh are shown in Figure~\ref{fig:SCH_mesh}.
 
 \begin{figure}[H]
       \centering
@@ -1992,7 +2006,6 @@ Figure~\ref{fig:SCH_hole_range} depicts a range of geometries which allows the i
       \label{fig:SCH_mesh}
 \end{figure}
 
-\newpage
 \subsection{Effect on capacity}
 
 Figures~\ref{fig:sch_mach_0-3},~\ref{fig:sch_mach_4-6},~\ref{fig:sch_detail_mach_0-3}, and~\ref{fig:sch_detail_mach_4-6} show contours of Mach number in the region of the nozzle guide vane for the described study. Inverse pressure ratio is $1.65$, the design cruise condition.
@@ -2129,7 +2142,7 @@ In all cases, the suction side boundary layer thickness increased immediately do
 
 In the cases with the hole at $44\%$ and $63\%$ of the range of travel, where the coolant-induced acceleration and shock were strongest, the coolant-induced boundary layer growth appeared be delayed until the point of shock attachment on the NGV suction side. Downstream of this, an uninterrupted boundary layer growth again resulted in a thick boundary layer at the suction side trailing edge. In the cases with the hole at $81\%$ and $100\%$ of the range of travel, boundary layer growth was reminiscent of the case of $26\%$, initiating immediately downstream of the film cooling hole despite the presence of supersonic regions and shocks. All of these observations suggest that shock loss is an important factor in evaluating the performance effects of the cooling hole location. This will be discussed subsequently.
 
-Figures~\ref{fig:sch_detail_mach_0-3} and~\ref{fig:sch_detail_mach_4-6} show that coolant flow separation occured within the plenum and hole passage. This is not considered to significantly affect the accuracy of the conclusions drawn from the present study, as the flow is seen to reattach before exiting the coolant hole. Furthermore, the boundary conditions set at the coolant plenum boundary have been shown to result in the correct coolant mass flow rate, and thus phenomena such in-passage separation are accounted for. Furthermore, as shown in Figures~\ref{fig:sch_detail_mach_0-3} and~\ref{fig:sch_detail_mach_4-6}, within the coolant hole and plenum, the flow structures remained highly similar regardless of location on the NGV suction side.
+Figures~\ref{fig:sch_detail_mach_0-3} and~\ref{fig:sch_detail_mach_4-6} show that coolant flow separation occurred within the plenum and hole passage. This is not considered to significantly affect the accuracy of the conclusions drawn from the present study, as the flow is seen to reattach before exiting the coolant hole. Furthermore, the boundary conditions set at the coolant plenum boundary have been shown to result in the correct coolant mass flow rate, and thus phenomena such in-passage separation are accounted for. Furthermore, as shown in Figures~\ref{fig:sch_detail_mach_0-3} and~\ref{fig:sch_detail_mach_4-6}, within the coolant hole and plenum, the flow structures remained highly similar regardless of location on the NGV suction side.
 
 Figure~\ref{fig:sch_hole_location_vs_capacity} plots the percentage change in the NGV flow capacity as a function of the cooling hole location. 
 
@@ -2158,9 +2171,9 @@ where $\dot{m_c}$ is the coolant mass flow rate which may vary with injection lo
       \label{fig:sch_hole_location_vs_capacity}
 \end{figure}
 
-Figure~\ref{fig:sch_hole_location_vs_capacity} shows a general trend of flow capacity increasing as the film coolant is injected. The maximum range of $\Gamma_{in}$ was $3.82\%$ over the range of hole locations, and the maximum range of $\Gamma_{out}$ was $4.67\%$. This trend is uniformly true for the cases where coolant is injected downstream of the geometric throat. It is hypothesised that this capacity increase is primarily driven by the introduction of the coolant into regions of progressively lower mainstream flow velocity as the hole location moves downstream and away from the throat region. This decrease in mainstream flow velocity is observable in Figures~\ref{fig:sch_mach_0-3} and~\ref{fig:sch_mach_4-6} and is to be expected of unchoked flow downstream of the throat of a nozzle guide vane. Assuming that, in general, film coolant affects NGV capacity via the exchange of momentum between the fast mainstream and the slower coolant, it is concluded that this defecit to mainstream flow momentum is less severe as the coolant is injected into slower regions further downstream.
+Figure~\ref{fig:sch_hole_location_vs_capacity} shows a general trend of flow capacity increasing as the film coolant is injected. The maximum range of $\Gamma_{in}$ was $3.82\%$ over the range of hole locations, and the maximum range of $\Gamma_{out}$ was $4.67\%$. This trend is uniformly true for the cases where coolant is injected downstream of the geometric throat. It is hypothesised that this capacity increase is primarily driven by the introduction of the coolant into regions of progressively lower mainstream flow velocity as the hole location moves downstream and away from the throat region. This decrease in mainstream flow velocity is observable in Figures~\ref{fig:sch_mach_0-3} and~\ref{fig:sch_mach_4-6} and is to be expected of unchoked flow downstream of the throat of a nozzle guide vane. Assuming that, in general, film coolant affects NGV capacity via the exchange of momentum between the fast mainstream and the slower coolant, it is concluded that this deficit to mainstream flow momentum is less severe as the coolant is injected into slower regions further downstream.
 
-This hypothesis is supported by the capacity predictions for the cases where coolant is injected upstream of, or very near, the NGV geometric throat. Compared to the furthest location upstream, the $2$ subsequent downstream locations resulted in a defecit to flow capacity which was most severe in the region local to the throat. Here the mainstream flow velocity was highest and thus the coolant injection would be expected to cause the greatest deficit to mainstream momentum and thus mass flow rate. This hyposthesis may be further tested by considering the isentropic Mach number on the NGV surface, which may be defined as
+This hypothesis is supported by the capacity predictions for the cases where coolant is injected upstream of, or very near, the NGV geometric throat. Compared to the furthest location upstream, the $2$ subsequent downstream locations resulted in a deficit to flow capacity which was most severe in the region local to the throat. Here the mainstream flow velocity was highest and thus the coolant injection would be expected to cause the greatest deficit to mainstream momentum and thus mass flow rate. This hypothesis may be further tested by considering the isentropic Mach number on the NGV surface, which may be defined as
 \begin{equation}
 M_{isent} =
 \sqrt{
@@ -2185,7 +2198,6 @@ Figure~\ref{fig:sch_surface_isentropic_mach_number_vs_capacity} plots the percen
 
 Figure~\ref{fig:sch_surface_isentropic_mach_number_vs_capacity} shows a relationship between surface isentropic Mach number and flow capacity which is in agreement with the prior discussion for cases downstream of the geometric throat, as capacity decreased as the coolant was injected into locations having a higher Mach number. The 3 data points furthest upstream are less clearly interpretable. A trend of capacity decreasing with local Mach number was arguably present, however these data were not in alignment with those downstream of the throat. This suggests that a consideration of the local flow velocity or Mach number does not entirely explain the observed relationship between hole location and capacity.
 
-\newpage
 We may also examine the variation in the capacity of the coolant itself as it is injected at various locations at a constant plenum total pressure. The coolant capacity is defined as
 \begin{equation}\label{coolant_capacity}
 \Gamma_c =
@@ -2213,7 +2225,7 @@ Figure~\ref{fig:sch_hole_location_vs_coolant_capacity} shows that the coolant ca
 
 Figure~\ref{fig:sch_coolant_isentropic_capacity_vs_coolant_capacity} shows a trend of the predicted coolant capacity increasing in moderate correlation with the coolant isentropic capacity for the range of injection locations between $0\%$ and $44\%$ of range. At locations further downstream, the coolant isentropic capacity decreases but the predicted capacity does not also decrease as expected. This is likely to result from the interaction between the coolant and the shock that forms immediately downstream of the injection location at mid-range positions. This shock formation is visible in detail in the Mach number contours in Figures~\ref{fig:sch_detail_mach_0-3} and~\ref{fig:sch_detail_mach_4-6}. 
 
-At locations between $0\%$ and $44\%$, coolant capacity increased as a result of decreasing local static pressure, although this mechanism of increase is assumed to be partly attenuated by the appearance of the shocks. At locations incrementally further downstream, the local static pressure was increasing, with a corresponding decrease in the coolant isentropic capacity. However, mainstream flow velocity was decreasing, with a corresponding decrease in shock formation downstream of the single cooling hole. These opposing efects are hypothesised to cause the trend of approximately constant predicted coolant capacity for hole loctions downstream of $44\%$ of range.
+At locations between $0\%$ and $44\%$, coolant capacity increased as a result of decreasing local static pressure, although this mechanism of increase is assumed to be partly attenuated by the appearance of the shocks. At locations incrementally further downstream, the local static pressure was increasing, with a corresponding decrease in the coolant isentropic capacity. However, mainstream flow velocity was decreasing, with a corresponding decrease in shock formation downstream of the single cooling hole. These opposing effects are hypothesised to cause the trend of approximately constant predicted coolant capacity for hole locations downstream of $44\%$ of range.
 
 \subsection{Effect on performance}
     
@@ -2235,9 +2247,8 @@ This chapter has investigated the effects of injecting film coolant at a constan
 
 Where, historically, film coolant rows have been grouped in a shower-head at the NGV leading edge, novel designs are likely to need the additional row at some location on the suction side. The capacity and aerodynamic penalties associated with this change are best understood by considering the reasons for which film coolant is currently only dispersed from the leading edge shower-head.
 
-Section~\ref{sensitivity_of_capacity_to_cooling_holes_on_the_leading_suction_side} has demonstrated how the injection of coolant into regions of high mainstream flow velocity causes both reduced flow capacity and increased loss. The CFD-derived trends of flow capacity as a function of cooling hole location have illustrated that injection near the NGV throat region causes a minimum flow capacity compared to the rest of the trend. Elsewhere injection into locally slower regions results in capacity predictions that match or even exceed the baseline capacity derived from aplying the same CFD boundary conditions to an uncooled and unfeatured NGV. Loss has also been considered, with the conclusion that the present cases experienced a significant degree of shock loss due to the formation of shocks immediately downstream of the sigle cooling hole. 
+Section~\ref{sensitivity_of_capacity_to_cooling_holes_on_the_leading_suction_side} has demonstrated how the injection of coolant into regions of high mainstream flow velocity causes both reduced flow capacity and increased loss. The CFD-derived trends of flow capacity as a function of cooling hole location have illustrated that injection near the NGV throat region causes a minimum flow capacity compared to the rest of the trend. Elsewhere injection into locally slower regions results in capacity predictions that match or even exceed the baseline capacity derived from applying the same CFD boundary conditions to an uncooled and unfeatured NGV. Loss has also been considered, with the conclusion that the present cases experienced a significant degree of shock loss due to the formation of shocks immediately downstream of the single cooling hole. 
 
-\newpage
 It is concluded that, depending on the ratio of coolant-to-mainstream momentum, film coolant injection is capable of either energising a low-velocity mainstream or of de-energising a high-velocity mainstream. This is particularly interesting when considered alongside the other conclusions of this thesis. All previous chapters have sought to characterise nozzle guide vane flow capacity in 2 simple ways: it is a function of the effective areas throughout the nozzle, and if the flow is choked then it is a function of only the effective throat area. The suction side film cooling problem may be characterised similarly. Injection of film coolant into a high-velocity mainstream is, in the limiting case, equivalent to the placement of a stationary obstacle to the flow, and is therefore characteristic of a reduction in the effective area of the flow at that location along the nozzle. At the other extreme is the case of introducing film coolant into a nozzle with $0$ mainstream velocity. Assuming the film coolant has a momentum component along the direction of the nozzle, this is characteristic of creating an effective area of flow velocity where before there was none. Since the suction side film cooling investigation has been entirely at non-choked pressure ratios, it is to be expected that the film coolant injection location continues to have an effect throughout the suction side and beyond the NGV geometric throat.
 
 This chapter's conclusions are in good agreement with those of the other chapters, in particular where the relationship between flow capacity and effective area is concerned. 
@@ -2247,16 +2258,15 @@ This chapter's conclusions are in good agreement with those of the other chapter
 \chapter{Conclusion}
 
 
-This thesis demonstrates that nozzle guide vane capacity, although a highly complex problem, benefits from a simplified approach whereby the principal mechanisms are identified and modelled separately from one another. In studying these mechanisms, all are argued to result from the nozzle guide vane's effective throat area varying in one way or another.
+This thesis demonstrates that nozzle guide vane capacity, although a highly complex problem, benefits from a simplified approach whereby the principal mechanisms can be identified and modelled separately from one another in a 2-dimensional environment. All the effects seen result from nozzle guide vane geometry changes. Small geometric changes are magnified into larger changes in capacity resulting from the differences between the effective throat area and the geometric throat.
 
-Chapter~\ref{chapter_introduction} has outlined the importance of flow capacity as the dependent variable. Chapter~\ref{chapter_geometric_throat_area} has introduced the concept of effective area, and investigated the effects if it should vary with the shape of the NGV as a result of the first stage of manufacturing, namely casting. Chapter~\ref{chapter_trailing_edge} has introduced the geometry of the NGV trailing edge, and investigated the effects if it should vary due to machining or due to in-service erosion. Finally Chapter~\ref{chapter_leading_edge} has introduced coolant not into the low-velocity wake region but into the high-velocity suction side as a coolant film, and discussed the effects of varying the injection location. In combination these chapters seek to present a clarification of the main challenges to our understanding and prediction of nozzle guide vane flow capacity and loss.
+Chapter~\ref{chapter_introduction} outlined the importance of flow capacity as the scalable pseudo-dimensionless variable describing the mass flow rate through the engine. Chapter~\ref{chapter_geometric_throat_area} linked this to an effective throat area, and investigated its variance in response to small changes in manufacturing tolerance introduced in the first stage of manufacturing, namely casting. Chapter~\ref{chapter_trailing_edge} introduced design-led NGV geometry features in the trailing edge, and investigated how capacity changes in response to these. Here, changes in the pressure side and suction side features are decided primarily by cutback design and wear respectively. Notably, the industrial assumption of a geometric throat attached to the pressure side cutback is seen to be challenged in the early service life of the blade when a thin trailing edge is maintained.  Chapter~\ref{chapter_leading_edge} introduced coolant flows ejected from the suction side surface of the blade.  High operating temperatures may require such features, which are always somewhat undesirable in terms of loss. The injection into the high-velocity suction side flow is discussed, and the sensitivity of capacity and loss to varying the injection location is established. In combination, these chapters seek to present a clarification of the main challenges to our understanding and prediction of nozzle guide vane flow capacity and loss.
 
-This study advocates for ongoing investigation into the reasons for which effective area varies throughout the vane passage. Using contemporary computing hardware unimaginable when performing the simulations which produced the present study's data, it may be possible to perform high-resolution 3D CFD on a statistically significant number of vane geometries with random ``casting'' variations that affect cross-sectional areas throughout the passage. Through the use of principal component analysis, which has been used for this purpose in simpler forms as early as 2008~\cite{duffner_manufacturing_variability}, such large data sets might produce highly accurate heuristics capable of mapping any scanned NGV passage onto a predicted capacity characteristic without the use of CFD or testing. 
+With only 6 blade geometries available, the current work has established that modern CFD techniques can reliably predict significant capacity changes at typical manufacturing tolerances.  Further work and commercial exploitation may be achieved by post-manufacture characterisation of finished cast engine components prior to assembly, to generate annular sets of nozzle guide vanes with similar vane-to-vane capacity, limiting the forcing function on the downstream rotor assembly.  Additionally, the modelling of many such passages will allow the development of surrogate models for a given engine architecture, allowing the accurate mapping of any scanned NGV passage onto a predicted capacity characteristic without further use of CFD or testing.  This has the potential to greatly increase the yield of cast components, improving cost and sustainability in manufacture.
 
-The problem of additional film cooling is less conducive to speculation. Additional film cooling is highly likely to occur as a result of inevitably increasing operating temperatures. It is uncertain which strategy will be employed: manufacturers may choose to inject film coolant into the low-velocity region upstream of the NGV throat, which would be loss-optimal in theory but would require a high coolant mass flow rate to ensure coolant presence along the full NGV chord. Manufacturers may instead choose to inject less coolant at this location and to refresh the coolant film with additional rows downstream. Such design choices are expected to be a topic of interest in the near future. 
+The problem of additional film cooling is less conducive to speculation. Additional film cooling is highly likely to occur as a result of inevitably increasing operating temperatures. It is uncertain which strategy will be employed: manufacturers may choose to inject film coolant into the low-velocity region upstream of the NGV throat, which would be loss-optimal in theory but would require a high coolant mass flow rate to ensure coolant presence along the full NGV chord. Manufacturers may instead choose to inject less coolant at this location and to refresh the coolant film with additional rows downstream. Such design choices are expected to be a topic of interest in the near future.
 
-\newpage
-Finally, in the event that novel material choices, such as CMC, neccessitate a thicker trailing edge, it is likely that the cutback design will be retained for the purpose of preventing blockage. In this case there would be relatively little information about the lifetime of the end-edge with a novel material. This would strongly motivate further study of end-edge in-service changes. The benefits of this would include validation of the present study's findings on end-edge cutbacks, and valuable service life information on the use of novel materials in the most extreme environment within a gas turbine.
+Finally, in the event that novel material choices, such as CMC, require a thicker trailing edge, it is likely that the cutback design will be retained for the purpose of preventing blockage. In this case there would be relatively little information about the lifetime of the end-edge with a novel material. This would strongly motivate further study of end-edge in-service changes. The benefits of this would include validation of the present study's findings on end-edge cutbacks, and valuable service life information on the use of novel materials in the most extreme environment within a gas turbine.
 
 
 
