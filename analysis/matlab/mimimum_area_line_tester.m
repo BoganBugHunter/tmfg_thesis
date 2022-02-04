@@ -1,4 +1,11 @@
-%find the minimum area line
+close all;
+clear variables;
+
+load workspaces/T900_2021.mat;
+
+%load data from the imported workspacew
+x = KSZ03_xvel_yvel_mach(:,2);
+y = KSZ03_xvel_yvel_mach(:,3);
 
 
 possibleDistances = zeros(size(x,1),size(x,1));

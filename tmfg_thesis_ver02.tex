@@ -34,10 +34,10 @@
 \usepackage[T1]{fontenc} % allows for the encoding of unusual or accented characters
 \usepackage[bitstream-charter]{mathdesign} % font package similar to the Elsevier font, with included maths style
 \usepackage{physics} % provides a family of vector notation
+\usepackage[version=4]{mhchem} % for the stoichiometry
 
 %%% citation packages
 \usepackage[nottoc]{tocbibind} % puts the references section into the table of contents
-
 \usepackage{cite} % an alternative to biblatex, it still calls bibtex but unlike bibtex the citation style is defined in the line at the end of the document
 \usepackage{url}
 
@@ -46,6 +46,8 @@
 \usepackage{multirow} % for splitting rows inside tables
 \usepackage{float} % for positioning the nomenclature floating tables
 \usepackage{subcaption} % allows for captions for sub-figures
+\usepackage{longtable} % for the tables in the appendix which must span multiple pages
+\usepackage{multicol} % for having those long tables be in two columns
 
 %%% packages for handling various graphics files - it seems like three of these may be doing the same thing, and should be consolidated at the end if possible
 \usepackage{color} % lets text be different colours
@@ -498,8 +500,6 @@ Chapter~\ref{chapter_trailing_edge} will discuss the other way in which NGV manu
 
 Chapter~\ref{chapter_leading_edge} will analyse the effects of film coolant injection location on both flow capacity and loss. The chapter discusses the possible requirement for an additional suction-side film cooling hole row to be added to NGVs. Given the variability inherent in the process of drilling film cooling holes, justification is given for a 2D CFD study of the effects of hole location on flow capacity and loss, analogous to the variable trailing edge study of Chapter~\ref{chapter_trailing_edge}. A correlation between hole location and flow capacity is analysed, as is the hole location's effect on loss. %The chapter also presents a quasi-3D CFD study to demonstrate that 2D CFD (which amounts to a cooling slot) does not accurately model the discharge and mixing phenomena of a row of circular holes.
 
-Literature is reviewed throughout the thesis whenever relevant to the topic under discussion, rather than a separate chapter.
-
 \section{Summary of findings}
 
 Chapter~\ref{chapter_geometric_throat_area} shows that geometric throat width is a useful predictor of 2-dimensional nozzle guide vane flow capacity. However, the accuracy of the prediction is shown to be dependent on the feasibility of predicting the shape of the sonic line when the NGV is fully choked. If the sonic line is known to not vary significantly in shape within a given production standard of NGV, designers may have more confidence in using the geometric throat area to predict capacity without the use of CFD. In general, capacity predictability is challenged by the reduction of effective throat area by boundary layers whose thickness is difficult to define. Where a sonic line exists, its stability and its approach to the surface may be affected by the presence of the boundary layer. In 3 dimensions, capacity predictability is further challenged by the existence of secondary flows which migrate across the span.
@@ -509,6 +509,315 @@ Chapter~\ref{chapter_trailing_edge} shows how changes to the NGV trailing edge g
 Chapter~\ref{chapter_leading_edge} shows that the introduction of film coolant on the NGV suction side has a significant effect on capacity. Coolant injection into locally slower regions is found to have a minimal penalty on both capacity and loss, and in extreme cases to even increase the capacity. Coolant injection into locally faster regions is found to cause a reduction in the capacity. The coolant injection is argued to be equivalent to a change in the effective area at the point of injection, which is in agreement with the arguments about effective area presented in the earlier chapters.
 
 The overall work thus provides insight into the necessary geometric parameters for an initial 2D aerofoil design, showing which parameters require iterative calculation and which may be changed without significant penalty to capacity or aerodynamics.
+
+
+
+\chapter{Literature and scope}
+\label{chapter_literature_and_scope}
+%this chapter has been added as part of the minor corrections. It should include also any pertinent work performed from the lab, and a review of real engine effects (heat transfer, combustion, unsteadiness, real gas transport properties, …) on capacity.
+
+This chapter reviews the literature used to inform decisions about which flow phenomena require modelling in the present study, and which do not. The scope of the present analyses is thus defined. It is shown in Section~\ref{justification_of_effects_not_modelled_in_this_study} that certain analyses may be omitted without significant penalty to the usefulness of the study's findings, justifying the use of 2-dimensional, steady, adiabatic CFD, with air as the working gas. Section~\ref{precedent_for_analytical_techniques_used_in_this_study} reviews literature precedential to the present study's choice of turbulence model and to its definitions of loss.
+
+\section{Justification of effects not modelled in this study}
+\label{justification_of_effects_not_modelled_in_this_study}
+%stuff that gives a precedent for the simulation that was chosen
+
+\subsection{3D effects}
+%%3D effects
+%--secondary flows etc
+The present study is concerned with variations to the \textit{profile} of NGVs, where a profile is a 2D aerofoil outline obtained by intersecting a 3D NGV shape with a plane perpendicular to the span. The NGV thus has a continuous set of profiles across its span. Through design intent or manufacturing variability, an NGV is likely to experience certain profile changes which are expressed across its whole span. Casting variations, discussed in Chapter~\ref{chapter_geometric_throat_area}, are expressed as smooth departures of the actual NGV surface from the design NGV surface, and are thus likely to affect the majority of the span. Changes to the design of the trailing edge shape, discussed in Chapter~\ref{chapter_trailing_edge}, affect the majority of the span over which the trailing edge extends.
+
+These circumstances motivate the use of 2-dimensional CFD to study effects which are likely to occur throughout the NGV span and which are likely to be primarily coplanar with the NGV profile. This is only viable if these 2D effects are not overpowered by effects that appear in 3D, otherwise the 2D effects have no bearing on real engine performance.
+
+GIVE EXAMPLES OF GOOD 2D CFD STUDIES WHICH HAVE ISOLATED THE KIND OF EFFECTS I'M TALKING ABOUT	
+
+
+\subsection{Unsteady effects}
+%%unsteady effects
+
+CITATION FOR WHY IT CAN BE STEADY, AND THUS WHY RANS IS OK TO DO as opposed to urans
+
+
+
+\subsection{Real gas trasport properties}
+
+The present study simulates the flow of clean air through NGVs with an inlet total temperature of $300$ K. Real NGV flows consist of a mixture of air and combustion products from jet fuel, the presence of which potentially alter the aerodynamics of the NGV compared to clean air. Simulation of purely air-based cases is justified by quantification of the combustion gas mixture constituents and evaluation of the mixture's propeerties. Simulation of cases at $300$ K is justified by consideration of the properties of air at engine-representative total temperatures.
+
+Lee et al~\cite{lee_combustion} experimentally tested the combustion of Jet-A fuel under lean conditions with apparatus for measuring the chemical composition of the combustion products. Air/fuel ratios ranged from $1.67$ to $2.13$ times the stoichiometric air/fuel ratio. Molar fraction of \ce{CO2} was measured to be approximately $6.8\%$ downstream of combustion. This may be compared with exactly stoichiometric combustion which is, in this context, a worst case for the conversion of atmospheric \ce{O2} into combustion products with properties dissimilar to air. Lee et al~\cite{lee_combustion} provided a simplified mechanism for Jet-A combustion as
+\begin{equation}\label{jet_a_combustion}
+\ce{C_nH_m + }\left( n + \frac{m}{4} \right)\ce{O2 -> }n\ce{CO2 + }\frac{m}{2}\ce{H2O}
+\end{equation}
+This may be further approximated as
+\begin{equation}\label{jet_a_combustion_simple}
+\ce{2CH2 + 3O2 -> 2CO2 + 2H2O}
+\end{equation}
+which, under stoichiometric conditions and not accounting for trace gases, would effect changes to the gas composition described in Table~\ref{jet_a_combustion_changes}. Initial reagents are assumed to be $79$ moles of \ce{N2}, $21$ moles of \ce{O2}, and $14$ moles of \ce{CH2}.
+\begin{table}[H]
+\caption{Changes to the gas composition of air during stoichiometric combustion of Jet-A}
+\label{jet_a_combustion_changes}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{Component} & \multicolumn{2}{c}{Before} \vline & \multicolumn{2}{c}{After} \vline\\
+\cline{2-5}
+~ & Moles & \% by mass & Moles & \% by mass\\
+\hline
+\ce{N2} & 79 & 71.82 & 79 & 71.82\\
+\ce{O2} & 21 & 21.82 & 0 & 0\\
+\ce{CH2} & 14 & 6.36 & 0 & 0\\
+\ce{CO2} & 0 & 0 & 14 & 20.00\\
+\ce{H2O} & 0 & 0 & 14 & 8.18\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Matlab was used to compute the properties of the gas mixture described in Table~\ref{jet_a_combustion_changes} for comparison with the properties of air at $300$ K as simulated by the present study. This comparison was made at a temperature of $300$ K. The combustion product was computed to have a value of $\gamma$ which was $2.43\%$ less than air, and a value of $R$ which was $1.65\%$ greater than air. The same Matlab script was used to compute the properties of air at $2000$ K, a typical contemporary combustor outlet temperature. The high-temperature air was computed to have a value of $\gamma$ which was $7.48\%$ less than cold air, and a value of $R$ which was $1.54\%$ less than cold air. These values were used with equation~\ref{capacity_definition} to compare the 1-dimensional capacity trend of air at $300$ K with that of air at $2000$ K and with that of the combustion product. These trends are shown in Figure~\ref{fig:combustion_products_capacities} for a range of inverse pressure ratios of interest to the present study.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/combustion_products_capacities.png}
+		\caption{Computed capacity trends and critical inverse pressure ratios}
+		\label{fig:combustion_products_capacities_trends}
+	\end{subfigure}
+	\hspace{0.05\textwidth}
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/combustion_products_capacities_errors.png}
+		\caption{Errors due to air temperature or presence of combustion product}
+		\label{fig:combustion_products_capacities_errors}
+	\end{subfigure}
+	\caption{1-dimensional capacity trends and relative errors for air at $300$ K, air at $2000$ K, and computed Jet-A stoichiometric combustion product}
+	\label{fig:combustion_products_capacities}
+\end{figure}
+
+Figure~\ref{fig:combustion_products_capacities_trends} illustrates that the 3 dissimilar sets of gas properties resulted in significantly dissimilar predictions of 1D capacity as a function of pressure ratio, exhibiting qualitative differences, overall differences in capacity across the range of pressure ratios, and dissimilar critical pressure ratios. Figure~\ref{fig:combustion_products_capacities_errors}, which shows the relative errors in computed 1D capacity due to the working gas's temperature and due to its chemical composition, illustrates that these errors did not amount to a constant factor across the range of pressure ratios. Error due to gas temperature varied by approximately $0.30\%$ across the range, and error due to chemical composition varied by approximately $0.93\%$.
+
+Although these errors are significant, their mitigation would likely result in greater confusion. Concerning the non-air combustion product, it has been noted that lean burn conditions produce \ce{CO2} concentrations significantly lower than the theoretical stoichiometric worst case considered by the above analysis. Precise air/fuel ratio, and thus combustion product composition, is a function of combustor design and engine opetating conditions, the details of which are not available to the present study. Further, Marius and Grigore~\cite{marius_air_excess} demonstrated that the combustor exit temperature and pressure may vary significantly as a function of excess combustor air under lean burn conditions, proposing a mathematical formulation for this relationship.
+
+NGV inlet conditions, combustor boundary conditions, and combustion product composition are interrelated in a non-trivial manner. Even with the assumption of air as the working gas, the relationship between NGV inlet total temperature and NGV pressure ratio is not readily available. It is concluded that it would be inappropriate to correct for either the properies of air at a constant hot temperature, or for the properties of an unchanging combustion product. Within the scope of the present study, it is instead justified to quantify the aerodynamic phenomena that affect capacity under known conditions. Future work may refer to analysis herein to correct for temperature or product composition if those variables are known as a function of pressure ratio. 
+
+\subsection{Non-uniform and non-adiabatic boundary conditions}
+
+The present study assumes uniform profiles for total temperature and pressure at the NGV inlet boundary. The outlet total temperature and pressure profiles of a contemporary annular combustor were found to possess minimal non-uniformity in the circumferential direction by Singh et al~\cite{singh_annular_combustors}, and any such non-uniformity was found by Ranjith et al~\cite{ranjith_annular_combustors} to have minimal effect on total pressure loss within the combustor. 
+
+Heat transfer between the working gas and the NGV metal is also determined to be a mechanism unsuitable for inclusion in the present study. Extensive 3D CFD investigation of NGV conjugate heat transfer has been performed by Jiang et al~\cite{jiang_heat_transfer}, who simulated an NGV with internal coolant flow, trailing edge slot ejection, and end-walls. 3D heat transfer between then NGV and the end-walls was found to result in highly dissimalar heat fluxes across the NGV internal and external surfaces. This would be impossible to model using the 2D CFD used by the present study, where the net heat fluxes across the NGV section boundaries would necessarily sum to $0$. The authors further noted that ``the Biot number at the NGV internal/external surfaces is only $0.006$ in the present heat transfer case, much less than $1$. This means that the resistance of the heat conduction in the NGV solid regions is much less than that of the heat convection through its surfaces. As a result, the temperature distribution in the NGV body is mainly determined by the complex heat convection among the NGV body, external main flow, and internal cooling flow'', and that ``local variations and bumps of the heat flux profiles are observed, which are determined by the local flow conditions and geometry.'' None of these phenomena are resolvable by the present simulations and it is deemed superflous to model them in unrtealistic 2-dimensional form.
+
+\section{Precedent for analytical techniques used in this study}
+\label{precedent_for_analytical_techniques_used_in_this_study}
+%stuff that informs the techniques that were used
+
+\subsection{Definitions of loss}
+%%definitions of loss (copied in from its previous location)
+
+Loss may refer to any process whereby the recoverable energy of a turbomachinery flow is reduced during transit through a turbine stage, other than by shaft work, with corresponding entropy creation. Minimisation of loss remains a primary objective of turbomachinery design, but there is not a universal consensus on how to quantify it. As subsequent sections of this thesis will evaluate the losses caused by changes to the trailing edge of nozzle guide vanes, the purpose of this section is to review various definitions of loss from the literature and to facilitate the use of appropriate definitions in the present study.
+
+Trinidade et al~\cite{trinidade_loss} characterised sources of loss as shock loss, profile losses, tip leakage, end-wall losses, and cooling losses. Tip leakage results from flow through the clearance space between blade tips and their annular casing. It will not be considered by the present study, since in the present study NGVs are cast along with their end-walls. End-wall losses result from 3-dimensional secondary flows, and will not be considered in the present study which is of 2-dimensional phenomena.
+
+Trinidade et al~\cite{trinidade_loss} characterised shock loss as resulting from entropy creation across the shock wave during supersonic flow. The present study will consider this mechanism during discussion of CFD results at choking pressure ratios.
+
+Profile loss was characterised by entropy creation by viscosity in the boundary layer on the blade surface. Entropy generated near the blade's trailing edge was considered as profile loss due to the high entropy creation in the wake region following flow separation at the trailing edge. The authors extended this definition to include the entropy generated as the flow turns tightly around the trailing edge curvature and forms expansion waves.
+
+The authors also defined the category of cooling losses to refer to the aerodynamic penalties incurred by cooling in general, namely ``thicker blade profiles from coolant holes, interaction of coolant film with the blade boundary layer, mixing losses between coolant and main flow and endwall losses.'' The present study seeks to isolate the mechanisms whereby film cooling causes boundary layer changes and mixing effects, discussing film cooling in Chapter~\ref{chapter_leading_edge}.
+
+The present study seeks to define a coefficient of NGV total pressure loss whose arguments are flow measurements or numerically predicted parameters. It is first useful to consider the motivation for quantifying loss in terms of total pressure. This approach treats the nozzle guide vane problem analogously to the problem of flow in a rough pipe, where frictional forces must be balanced by a negative total pressure gradient in the downstream direction. The greater the sum of frictional forces, the greater the loss of total pressure between the inlet and outlet. Total pressure loss can thus aggregate all aerodynamic drag forces acting on the nozzle guide vane or other component.
+
+In an experimental or computational domain, the total pressure loss between inlet and outlet is $p_{01} - p_{02}$. It is intuitive to normalise this against the upstream total pressure $p_{01}$ but it is more useful to normalise it against $p_{01} - p_2$, where $p_2$ is the outlet static pressure. $p_{02}$ never assumes a value greater than $p_{01}$ nor less than $p_2$, so if a total pressure loss coefficient is quantified as
+\begin{equation}\label{total_pressure_loss_coefficient}
+C_{pt} = \frac{
+p_{01} - p_{02}
+}{
+p_{01} - p_2
+}
+\end{equation}
+then the coefficient will be $0$ in the case of no total pressure loss, and $1$ in the extreme case of $p_{02} = p_2$.
+
+Giel et al~\cite{giel_te_thickness}, whose findings will be discussed in Section~\ref{performance_of_an_alternative_trailing_edge_design}, surveyed the total pressure wake profiles of a blade at mid-span. They defined a total pressure loss coefficient as in equation~\ref{total_pressure_loss_coefficient}, where $p_{01}$ and $p_{02}$ were the inlet and wake total pressures, and $p_2$ was the wake static pressure. 
+
+Gao et al~\cite{gao_te}, whose findings will be discussed in section~\ref{suction_side_cutbacks}, defined a total pressure loss coefficient as
+\begin{equation}
+C_{Gao} = \frac{
+p_{01} - p_{02}
+}{
+p_{02} - p_2
+}
+\end{equation}
+
+This definition is equivalent to normalising the total pressure loss against the downstream dynamic pressure. In the case of simulations where the boundary conditions $p_{01}$ and $p_2$ are set, NGV geometry is the independent variable and $p_{02}$ is the dependent variable. It is thus less convenient for the present study to use Gao et al's~\cite{gao_te} loss coefficient formulation, since it does not scale linearly across a range of $p_{02}$. The definition in equation~\ref{total_pressure_loss_coefficient} will be used for this reason.
+
+Where subsequent sections are to compare the findings of Giel et al~\cite{giel_te_thickness}, Gao et al~\cite{gao_te}, and other studies of loss, it is required to formulate the total pressure loss coefficient consistently. Gao's~\cite{gao_te} definition of $C_{pt}$ may be expanded by Taylor series on the constant $p_{01}$ and as a function of $p_{02}$ as
+\begin{equation}
+f\left(p_{02}\right) = \\
+f\left(p_{01}\right) +
+f'\left(p_{01}\right) \left(p_{02} - p_{01}\right) +
+\frac{1}{2!} f''\left(p_{01}\right) \left(p_{02} - p_{01}\right)^2 +
+...
+\end{equation}
+where $f^n\left(p_{01}\right)$ may be shown by differentiation to be
+\begin{equation}
+f^n\left(p_{01}\right) =
+\frac{
+	\left(-1\right)^n n !
+}{
+	(p_{01} - p_2)^n
+}
+\end{equation}
+This results in the following mappings between the two definitions of total pressure loss coefficient.
+\begin{equation}
+C_{Gao} = 
+\sum_{n=1}^{\infty}
+C_{pt}^n
+\end{equation}
+\begin{equation}
+C_{pt} = 
+\sum_{n=1}^{\infty}
+\left(-1\right)^{n-1}
+C_{Gao}^n
+\end{equation}
+
+Since the total pressure loss coefficient quantifies loss as a summation of all drag forces on the NGV, loss may also be quantified as the total amount of kinetic energy dissipated between inlet and outlet, of the form
+\begin{equation}\label{ke_loss_form}
+\zeta =
+\frac{KE_1 - KE_2}{KE_1}
+=
+1 - \frac{KE_2}{KE_1}
+\end{equation}
+
+Kinetic energy may be formulated using conservation of energy as
+\begin{equation}\tag{\ref{compressible_bernouilli}}
+u = 
+\sqrt[•]{ 
+2 \left( \frac{\gamma}{\gamma - 1} \right) \left[ \frac{p_0}{\rho_0} - \frac{p}{\rho} \right] 
+}
+\end{equation}
+\begin{equation}
+u =
+\sqrt[•]{ 
+	2 \left( \frac{\gamma}{\gamma - 1} \right)
+	R T_0
+	\left[
+		1 - \left(
+			\frac{p_0}{p}
+		\right)
+		^\frac{1-\gamma}{\gamma}
+	\right] 
+}
+\end{equation}
+The flow's kinetic energy at a given station is thus of the form
+\begin{equation}
+KE(p) 
+\sim
+u^2
+\sim
+1 - \left(
+	\frac{p_0}{p}
+\right)
+^\frac{1-\gamma}{\gamma}
+\end{equation}
+allowing equation~\ref{ke_loss_form} to be written as
+\begin{equation}
+\zeta = 
+1 - 
+\frac{
+	1 -
+	\left(
+		\frac{p_{02}}{p_2}
+	\right)
+	^\frac{1-\gamma}{\gamma}
+}{
+	1 -
+	\left(
+		\frac{p_{01}}{p_2}
+	\right)
+	^\frac{1-\gamma}{\gamma}
+}
+\end{equation}
+\begin{equation}\label{ke_loss_definition}
+\zeta = 
+\frac{ 
+	\left(
+		\frac{p_{01}}{p_{02}}
+	\right)
+	^\frac{\gamma-1}{ \gamma } - 1 
+}{
+	\left(
+	\frac{p_{01}}{p_{2}}
+	\right)
+	^\frac{\gamma-1}{ \gamma } - 1 
+}
+\end{equation}
+This definition of kinetic energy loss coefficient was used by Giel et al~\cite{giel_te_thickness}. Like the total pressure loss coefficient, it takes a value of $0$ in the case of no loss where $p_{02} = p_{01}$, and $1$ in the extreme case of $p_{02} = p_2$.
+
+Saha et al~\cite{saha_loss} experimentally investigated the loss effects of shower-head and trailing edge cooling in an annular sector. By defining kinetic energy loss in 3 alternative ways, the authors demonstrated the extent to which computed loss can vary depending on definition. Discrepancies were shown to result from how the coolant kinetic energy is accounted for. Where the ratio of coolant mass flow rate to mainstream mass flow rate was $Y$, the authors defined kinetic energy loss as
+\begin{equation}\label{saha_loss_definition}
+\zeta = 
+1 -
+\frac{ 
+	\left( 1 + Y \right) 
+	\left[
+		1 -
+		\left(
+			\frac{p_2}{p_{02}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+	\right]
+}{
+	\left[
+		1 -
+		\left(
+			\frac{p_2}{p_{01}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+	\right]
+	+Y
+	\left[
+		1 -
+		\left(
+			\frac{p_2}{p_{0c}}
+		\right)
+		^\frac{\gamma-1}{\gamma}
+	\right]
+}
+\end{equation}
+In the case of no coolant flow ($Y=0$) this is equivalent to the definition in equation~\ref{ke_loss_definition}. Equation~\ref{saha_loss_definition} is equivalent to the loss definition defined by Deckers and Denton~\cite{deckers_loss} in the case of no significant temperature difference between coolant and mainstream, as in a significant proportion of experimental studies.
+
+Where coolant flow is present, equation~\ref{saha_loss_definition} requires a local value of $Y$ in order to obtain the loss at any particular point. Assuming that the coolant concentration is a function of the local total pressure loss compared to an uncooled vane, the authors redefined $Y$ as a function of spanwise distance $x$ as
+\begin{equation}
+\frac{Y\left(x\right)}{Y_{max}}
+=
+\frac{
+	p_{02uc} - p_{02}\left(x\right)
+}{
+	\left| p_{02uc} - p_{02} \right|_{max}
+}
+\end{equation}
+where $p_{02uc}$ was the total pressure downstream of the cascade with no cooling, $p_{02}$ was the total pressure downstream of the cascade as a function of spanwise distance (with cooling), and $\left| p_{02uc} - p_{02} \right|_{max}$ denotes the maximum possible difference in downstream total pressure between the uncooled and the cooled cases. Reasoning that this total pressure difference is maximal when $p_{02}=p_{01}$ and $p_{02}=p_{wake}$ (the total pressure in the wake region), Saha et al~\cite{saha_loss} thus defined their function for local coolant/mainstream mass flux ratio as
+\begin{equation}
+\frac{Y\left(x\right)}{Y}
+=
+\frac{
+	p_{02uc} - p_{02}\left(x\right)
+}{
+	p_1 - p_{02wake}
+}
+\end{equation}
+By substituting this definition of $Y$ into equation~\ref{saha_loss_definition}, Saha et al~\cite{saha_loss} arrived at their novel definition of kinetic energy loss intended to solve the problem of unphysical loss in the free-stream where the previous definition erroneously assumed the presence of coolant. Their new definition is able to use the nominal values for shower-head and trailing edge coolant mass flow ratio and adjust the coolant profile according to the aforementioned function of spanwise distance. Using measurements from a downstream traverse in their linear cascade, the novel loss definition was found to produce loss profiles that were in good agreement with equation~\ref{ke_loss_definition} and in disagreement with equation~\ref{saha_loss_definition}.
+
+\subsection{Choice of turbulence model}
+%%choice of turbulence model
+
+REFERENCES THAT ARGUE AS TO sst's EFFECTIVENESS
+
+From Jiang heat transfer:
+The SST k-ω model (the shear-stress transport model) is selected to model turbulent transfer items in the flow. Major improvements are observed in the prediction of separation and adverse pressure gradient flows in comparison with the standard k-ω and k-ε models [9]. This model has been successfully used in the heat transfer simulation for the film cooling of a linear cascade, and the results are in good agreement with the experimental measurements [3].
+
+REFERENCES THAT SHOW sst IS COMMONLY USED SUCCESSFULLY FOR TURBOMACHINERY
+
+
+
+\section{Chapter Conclusions}
 
 
 
@@ -589,7 +898,7 @@ Rolls-Royce plc have provided the present study with a family of NGV geometries 
 
 Variations exist among the geometry of the 6 NGVs, even when cooling features are not accounted for. Although these variations are of the order of $0.5$ mm, they are sufficiently large to significantly affect flow capacity. Zamboni~\cite{zamboni_area} described the process for quantifying these variations in 3D, which will be discussed in Section~\ref{2d_vs_3d_capacity_uncertainty}. The present study defined an approach for deriving 2D geometries from the 3D files and quantifying the variations among them.
 
-The 3D NGV surface shape was provided by Rolls-Royce as a set of co-ordinates which define 21 closed loops on the vane surface. Each loop consists of a pair of streamlines which diverge from a stagnation point on the vane's leading edge and converge at the trailing edge. The 11th loop was thus considered to be the closest approximation to a mid-span slice of the NGV. MATLAB was used to process the 3D curve of the 11th loop, producing a 2D section via the following process. 
+The 3D NGV surface shape was provided by Rolls-Royce as a set of co-ordinates which define 21 closed loops on the vane surface. Each loop consists of a pair of streamlines which diverge from a stagnation point on the vane's leading edge and converge at the trailing edge. The 11th loop was thus considered to be the closest approximation to a mid-span slice of the NGV. Matlab was used to process the 3D curve of the 11th loop, producing a 2D section via the following process. 
 \begin{enumerate}
   \item Project the loop's coordinates onto a cylindrical surface whose radius is equal to the NGV annular radius at mid-span.
   \item Periodically repeat the resulting shape in the circumferential direction to create an annulus of 2D vanes wrapped around the cylinder.
@@ -930,6 +1239,8 @@ The differing capacity trends may be further discussed by inspecting the shape o
 
 In Figure~\ref{fig:T900_mach1_lines}, a trend is visible of the M-skew sonic lines exhibiting smaller deviation from the line of minimum width, compared to the sonic lines of the EP1 NGVs. This suggests that a design choice resulted in a difference in the aerodynamics of the two families of NGV, such that upstream regions of the EP1 flow field reached sonic conditions significantly further upstream of the geometric throat compared to the M-skew flow field. Vane PNS04 presented a significantly different sonic line shape which is taken to correspond to its significantly different capacity trend compared to the other 2 vanes in its family. It is suggested that its relatively flow-orthogonal sonic line is caused by aerodynamic features that also cause its relatively sudden increase in capacity prior to choking. This cannot be confirmed in the absence of a statistically significant number of NGV geometries to compare.
 
+It is further noted that significantly different capacity trends are exhibited by NGVs with similar sonic line shapes. For example vanes KVD04 and PNS04, whose sonic lines are similar in comparison to other vane pairings, exhibit the largest difference in their capacity across the range of pressure ratios. Although this is attributable to differences in geometric and effective throat area as subsequent analysis discusses, these 2 vanes' capacity trends  also show significant qualitative differences. Their capacities are more different at fully choked pressure ratios than at lower pressure ratios. This suggests that the vanes possessed dissimilar passage areas in regions upstream and downstream of the throat, and that these dissimilarities acted to reduce their capacity difference at unchoked pressure ratios. Although most obvious when comparing these 2 vanes, this effect is concluded to be present to an extent among all 6 vanes.
+
 Matlab was used to calculate the minimum throat width of each 2D NGV. The resulting values are given in Table~\ref{T900_throat_widths}.
 
 \begin{table}[H]
@@ -952,7 +1263,7 @@ Production standard & Serial number & Throat width (mm)\\
 \end{center}
 \end{table}
 
-Discussion is warranted of the relationship between flow capacity and throat area. Consideration is to be made of both throat area in its pure geometric form $A$, and its effective from $A_{eff}$ as defined in equation~\ref{effective_throat_area_integral}. Figure~\ref{fig:T900_2d_capacities_vs_throat_widths} plots the 6 NGVs' variations in capacity at design pressure ratio against their variations in geometric throat width. Capacity changes are normalised against the capacity of vane KSZ03 at the design pressure ratio. Throat width changes are normalised against the geometric throat width of vane KSZ03. The averages of the M-skew and EP1 families are plotted and lines of gradient 1 are plotted intersecting the average values, such that any deviations from 1-dimensional compressible flow correspond to deviations from the lines of gradient 1.
+Discussion is warranted of the relationship between flow capacity and throat area. Consideration is to be made of both throat area in its pure geometric form $A$, and its effective form $A_{eff}$ as defined in equation~\ref{effective_throat_area_integral}. Figure~\ref{fig:T900_2d_capacities_vs_throat_widths} plots the 6 NGVs' variations in capacity at design pressure ratio against their variations in geometric throat width. Capacity changes are normalised against the capacity of vane KSZ03 at the design pressure ratio. Throat width changes are normalised against the geometric throat width of vane KSZ03. The averages of the M-skew and EP1 families are plotted and lines of gradient 1 are plotted intersecting the average values, such that any deviations from 1-dimensional compressible flow correspond to deviations from the lines of gradient 1.
 
 \begin{figure}[H]
 	\centering
@@ -972,7 +1283,7 @@ Discussion is warranted of the relationship between flow capacity and throat are
 
 The 6 NGVs are seen to approximately conform to a directly proportional relationship between geometric throat width and flow capacity, suggesting that geometric throat width is a good estimator of flow capacity among NGVs without significant differences in aerodynamic design. The M-skew vanes exhibited notable conformity to this trend. This is in agreement with the observed homogeneity between the M-skew sonic line shapes. It it is suggested that, among the 3 vanes, the 2-dimensional sonic line shapes were scaling linearly with the shape of the geometric throat line, resulting in the observed linear relationship between geometric throat width and flow capacity despite the presence of a 2D flow field. 2D flow features appear to scale proportionately provided the sonic line scales proportionately.
 
-In contrast, no correlation was observed between throat area and flow capacity among the EP1 NGVs. Speculation may be limited to the observation that the qualitatively distinct PNS04 vane exhibited significantly lower flow capacity than the other 2 despite having almost identical geometric throat areas. This highlights the difficulty in developing an a priori understanding of the observed capacity changes, even with knowledge of the NGV geometries as manufactured.
+In contrast, no correlation was observed between throat area and flow capacity among the EP1 NGVs. Speculation may be limited to the observation that the qualitatively distinct PNS04 vane exhibited significantly lower flow capacity than the other 2 despite having almost identical geometric throat areas. This highlights the difficulty in developing an \textit{a priori} understanding of the observed capacity changes, even with knowledge of the NGV geometries as manufactured.
 
 Although NGV throat width is a good predictor of NGV flow capacity if aerodynamics do not vary significantly, it is not useful if the sonic line is subject to unpredictable changes in shape and location. The resulting heuristic fails to account for the fact that the majority of streamlines within the flow reach sonic conditions at a point other than their point of minimum width. This discrepancy may be investigated by quantifying the effective throat width of each case, instead of the geometric throat area. Matlab was used to implement the integral
 \begin{equation}\tag{\ref{effective_throat_area_integral}}
@@ -1113,7 +1424,7 @@ A goal of the present study is to help ascertain how much such design decisions 
 
 The trailing edge is susceptible to finite-precision departures from its design shape because of how it is manufactured. Vane pairs are cast to a finite precision as discussed in Section~\ref{section_1d_vs_2d_capacity_uncertainty}, where significant geometric variation appears even prior to the addition of cooling features. The vanes are then machined to finish off the trailing edge shape to a high tolerance. The finishing creates the aerodynamically best possible trailing edge. 
 
-The trailing edge's principal design feature is the difference between the amount of material left on the suction side of the coolant ejection slot and the amount left on the pressure side. This creates the thinnest possible final trailing edge for the vane with the intent of minimising separated wake area and thus loss. The resulting feature will be referred to as the end-edge in this thesis, and is illustrated in Figure~\ref{fig:te_features_labelled}. The end-edge depends on the slot coolant flow for protection against in-service erosion. The ideal coolant ejection slot width may be determined as the width through which the coolant would be ejected between it and the mainstream flow.
+The trailing edge's principal design feature is the difference between the amount of material left on the suction side of the coolant ejection slot and the amount left on the pressure side. This creates the thinnest possible final trailing edge for the vane with the intent of minimising separated wake area and thus loss. The resulting feature will be referred to as the end-edge in this thesis, and is illustrated in Figure~\ref{fig:te_features_labelled}. The end-edge depends on the slot coolant flow for protection against in-service erosion. The ideal coolant ejection slot width may be determined as the width through which the coolant would be ejected such that there is no difference in velocity between it and the mainstream flow.
 
 \begin{figure}[H]
       \centering
@@ -1126,206 +1437,8 @@ The 3-dimensional design of contemporary nozzle guide vanes assumes they will be
 
 The trailing edge is the part of the vane most susceptible to in-service departures from its build design because it is vulnerable to both cooling and aerodynamic damage. The NGV remains largely intact over its lifetime despite the external gas temperature and high speed external flow. In contrast, the end-edge is subject to significant erosion. If there is a blockage in any of the plena which feed the trailing edge slot, part of its span will receive reduced coolant flow, accelerating the oxidation degradation of the end-edge in that region. Such cooling failures are not uncommon in sandy environments. In such environments, film cooling holes on the pressure side are particularly vulnerable to damage, and this has lead to the adoption of the ``cut-back'' trailing edge, where the trailing edge region is protected by coolant from the trailing edge slot that is shielded from the mainstream flow to prevent blockage. The pay-off is that the end-edge is now cooled by an external film which must remain attached and is subject to entrainment from the mainstream flow.
 
-The nozzle guide vane must provide a repeatable setting for engine core flow capacity, correct flow turning, and minimal loss. This chapter will predict and analyse these metrics for cases where the shape of the trailing edge is subject to variation. Variations will include incremental reduction in the end-edge length associated with in-service erosion, and incremental reduction in the pressure-side cut-back length as a design variable. The first section of this chapter will review the literature on various definitions of loss, which provides a key measure of performance.
+The nozzle guide vane must provide a repeatable setting for engine core flow capacity, correct flow turning, and minimal loss. This chapter will predict and analyse these metrics for cases where the shape of the trailing edge is subject to variation. Variations will include incremental reduction in the end-edge length associated with in-service erosion, and incremental reduction in the pressure-side cut-back length as a design variable. Definitions of loss in this chapter are as reviewed in Section~\ref{precedent_for_analytical_techniques_used_in_this_study}.
 
-
-\section{Definitions of loss for trailing edge performance evaluation}
-\label{definitions_of_loss}
-%--How does it perform in terms of loss?
-%--First review the literature to decide what is "loss".
-
-Loss may refer to any process whereby the recoverable energy of a turbomachinery flow is reduced during transit through a turbine stage, other than by shaft work, with corresponding entropy creation. Minimisation of loss remains a primary objective of turbomachinery design, but there is not a universal consensus on how to quantify it. As subsequent sections of this thesis will evaluate the losses caused by changes to the trailing edge of nozzle guide vanes, the purpose of this section is to review various definitions of loss from the literature and to facilitate the use of appropriate definitions in the present study.
-
-Trinidade et al~\cite{trinidade_loss} characterised sources of loss as shock loss, profile losses, tip leakage, end-wall losses, and cooling losses. Tip leakage results from flow through the clearance space between blade tips and their annular casing. It will not be considered by the present study, since in the present study NGVs are cast along with their end-walls. End-wall losses result from 3-dimensional secondary flows, and will not be considered in the present study which is of 2-dimensional phenomena.
-
-Trinidade et al~\cite{trinidade_loss} characterised shock loss as resulting from entropy creation across the shock wave during supersonic flow. The present study will consider this mechanism during discussion of CFD results at choking pressure ratios.
-
-Profile loss was characterised by entropy creation by viscosity in the boundary layer on the blade surface. Entropy generated near the blade's trailing edge was considered as profile loss due to the high entropy creation in the wake region following flow separation at the trailing edge. The authors extended this definition to include the entropy generated as the flow turns tightly around the trailing edge curvature and forms expansion waves.
-
-The authors also defined the category of cooling losses to refer to the aerodynamic penalties incurred by cooling in general, namely ``thicker blade profiles from coolant holes, interaction of coolant film with the blade boundary layer, mixing losses between coolant and main flow and endwall losses.'' The present study seeks to isolate the mechanisms whereby film cooling causes boundary layer changes and mixing effects, discussing film cooling in Chapter~\ref{chapter_leading_edge}.
-
-The present study seeks to define a coefficient of NGV total pressure loss whose arguments are flow measurements or numerically predicted parameters. It is first useful to consider the motivation for quantifying loss in terms of total pressure. This approach treats the nozzle guide vane problem analogously to the problem of flow in a rough pipe, where frictional forces must be balanced by a negative total pressure gradient in the downstream direction. The greater the sum of frictional forces, the greater the loss of total pressure between the inlet and outlet. Total pressure loss can thus aggregate all aerodynamic drag forces acting on the nozzle guide vane or other component.
-
-In an experimental or computational domain, the total pressure loss between inlet and outlet is $p_{01} - p_{02}$. It is intuitive to normalise this against the upstream total pressure $p_{01}$ but it is more useful to normalise it against $p_{01} - p_2$, where $p_2$ is the outlet static pressure. $p_{02}$ never assumes a value greater than $p_{01}$ nor less than $p_2$, so if a total pressure loss coefficient is quantified as
-\begin{equation}\label{total_pressure_loss_coefficient}
-C_{pt} = \frac{
-p_{01} - p_{02}
-}{
-p_{01} - p_2
-}
-\end{equation}
-then the coefficient will be $0$ in the case of no total pressure loss, and $1$ in the extreme case of $p_{02} = p_2$.
-
-Giel et al~\cite{giel_te_thickness}, whose findings will be discussed in Section~\ref{performance_of_an_alternative_trailing_edge_design}, surveyed the total pressure wake profiles of a blade at mid-span. They defined a total pressure loss coefficient as in equation~\ref{total_pressure_loss_coefficient}, where $p_{01}$ and $p_{02}$ were the inlet and wake total pressures, and $p_2$ was the wake static pressure. 
-
-Gao et al~\cite{gao_te}, whose findings will be discussed in section~\ref{suction_side_cutbacks}, defined a total pressure loss coefficient as
-\begin{equation}
-C_{Gao} = \frac{
-p_{01} - p_{02}
-}{
-p_{02} - p_2
-}
-\end{equation}
-
-This definition is equivalent to normalising the total pressure loss against the downstream dynamic pressure. In the case of simulations where the boundary conditions $p_{01}$ and $p_2$ are set, NGV geometry is the independent variable and $p_{02}$ is the dependent variable. It is thus less convenient for the present study to use Gao et al's~\cite{gao_te} loss coefficient formulation, since it does not scale linearly across a range of $p_{02}$. The definition in equation~\ref{total_pressure_loss_coefficient} will be used for this reason.
-
-Where subsequent sections are to compare the findings of Giel et al~\cite{giel_te_thickness}, Gao et al~\cite{gao_te}, and other studies of loss, it is required to formulate the total pressure loss coefficient consistently. Gao's~\cite{gao_te} definition of $C_{pt}$ may be expanded by Taylor series on the constant $p_{01}$ and as a function of $p_{02}$ as
-\begin{equation}
-f\left(p_{02}\right) = \\
-f\left(p_{01}\right) +
-f'\left(p_{01}\right) \left(p_{02} - p_{01}\right) +
-\frac{1}{2!} f''\left(p_{01}\right) \left(p_{02} - p_{01}\right)^2 +
-...
-\end{equation}
-where $f^n\left(p_{01}\right)$ may be shown by differentiation to be
-\begin{equation}
-f^n\left(p_{01}\right) =
-\frac{
-	\left(-1\right)^n n !
-}{
-	(p_{01} - p_2)^n
-}
-\end{equation}
-This results in the following mappings between the two definitions of total pressure loss coefficient.
-\begin{equation}
-C_{Gao} = 
-\sum_{n=1}^{\infty}
-C_{pt}^n
-\end{equation}
-\begin{equation}
-C_{pt} = 
-\sum_{n=1}^{\infty}
-\left(-1\right)^{n-1}
-C_{Gao}^n
-\end{equation}
-
-Since the total pressure loss coefficient quantifies loss as a summation of all drag forces on the NGV, loss may also be quantified as the total amount of kinetic energy dissipated between inlet and outlet, of the form
-\begin{equation}\label{ke_loss_form}
-\zeta =
-\frac{KE_1 - KE_2}{KE_1}
-=
-1 - \frac{KE_2}{KE_1}
-\end{equation}
-
-Kinetic energy may be formulated using conservation of energy as
-\begin{equation}\tag{\ref{compressible_bernouilli}}
-u = 
-\sqrt[•]{ 
-2 \left( \frac{\gamma}{\gamma - 1} \right) \left[ \frac{p_0}{\rho_0} - \frac{p}{\rho} \right] 
-}
-\end{equation}
-\begin{equation}
-u =
-\sqrt[•]{ 
-	2 \left( \frac{\gamma}{\gamma - 1} \right)
-	R T_0
-	\left[
-		1 - \left(
-			\frac{p_0}{p}
-		\right)
-		^\frac{1-\gamma}{\gamma}
-	\right] 
-}
-\end{equation}
-The flow's kinetic energy at a given station is thus of the form
-\begin{equation}
-KE(p) 
-\sim
-u^2
-\sim
-1 - \left(
-	\frac{p_0}{p}
-\right)
-^\frac{1-\gamma}{\gamma}
-\end{equation}
-allowing equation~\ref{ke_loss_form} to be written as
-\begin{equation}
-\zeta = 
-1 - 
-\frac{
-	1 -
-	\left(
-		\frac{p_{02}}{p_2}
-	\right)
-	^\frac{1-\gamma}{\gamma}
-}{
-	1 -
-	\left(
-		\frac{p_{01}}{p_2}
-	\right)
-	^\frac{1-\gamma}{\gamma}
-}
-\end{equation}
-\begin{equation}\label{ke_loss_definition}
-\zeta = 
-\frac{ 
-	\left(
-		\frac{p_{01}}{p_{02}}
-	\right)
-	^\frac{\gamma-1}{ \gamma } - 1 
-}{
-	\left(
-	\frac{p_{01}}{p_{2}}
-	\right)
-	^\frac{\gamma-1}{ \gamma } - 1 
-}
-\end{equation}
-This definition of kinetic energy loss coefficient was used by Giel et al~\cite{giel_te_thickness}. Like the total pressure loss coefficient, it takes a value of $0$ in the case of no loss where $p_{02} = p_{01}$, and $1$ in the extreme case of $p_{02} = p_2$.
-
-Saha et al~\cite{saha_loss} experimentally investigated the loss effects of shower-head and trailing edge cooling in an annular sector. By defining kinetic energy loss in 3 alternative ways, the authors demonstrated the extent to which computed loss can vary depending on definition. Discrepancies were shown to result from how the coolant kinetic energy is accounted for. Where the ratio of coolant mass flow rate to mainstream mass flow rate was $Y$, the authors defined kinetic energy loss as
-\begin{equation}\label{saha_loss_definition}
-\zeta = 
-1 -
-\frac{ 
-	\left( 1 + Y \right) 
-	\left[
-		1 -
-		\left(
-			\frac{p_2}{p_{02}}
-		\right)
-		^\frac{\gamma-1}{\gamma}
-	\right]
-}{
-	\left[
-		1 -
-		\left(
-			\frac{p_2}{p_{01}}
-		\right)
-		^\frac{\gamma-1}{\gamma}
-	\right]
-	+Y
-	\left[
-		1 -
-		\left(
-			\frac{p_2}{p_{0c}}
-		\right)
-		^\frac{\gamma-1}{\gamma}
-	\right]
-}
-\end{equation}
-In the case of no coolant flow ($Y=0$) this is equivalent to the definition in equation~\ref{ke_loss_definition}. Equation~\ref{saha_loss_definition} is equivalent to the loss definition defined by Deckers and Denton~\cite{deckers_loss} in the case of no significant temperature difference between coolant and mainstream, as in a significant proportion of experimental studies.
-
-Where coolant flow is present, equation~\ref{saha_loss_definition} requires a local value of $Y$ in order to obtain the loss at any particular point. Assuming that the coolant concentration is a function of the local total pressure loss compared to an uncooled vane, the authors redefined $Y$ as a function of spanwise distance $x$ as
-\begin{equation}
-\frac{Y\left(x\right)}{Y_{max}}
-=
-\frac{
-	p_{02uc} - p_{02}\left(x\right)
-}{
-	\left| p_{02uc} - p_{02} \right|_{max}
-}
-\end{equation}
-where $p_{02uc}$ was the total pressure downstream of the cascade with no cooling, $p_{02}$ was the total pressure downstream of the cascade as a function of spanwise distance (with cooling), and $\left| p_{02uc} - p_{02} \right|_{max}$ denotes the maximum possible difference in downstream total pressure between the uncooled and the cooled cases. Reasoning that this total pressure difference is maximal when $p_{02}=p_{01}$ and $p_{02}=p_{wake}$ (the total pressure in the wake region), Saha et al~\cite{saha_loss} thus defined their function for local coolant/mainstream mass flux ratio as
-\begin{equation}
-\frac{Y\left(x\right)}{Y}
-=
-\frac{
-	p_{02uc} - p_{02}\left(x\right)
-}{
-	p_1 - p_{02wake}
-}
-\end{equation}
-By substituting this definition of $Y$ into equation~\ref{saha_loss_definition}, Saha et al~\cite{saha_loss} arrived at their novel definition of kinetic energy loss intended to solve the problem of unphysical loss in the free-stream where the previous definition erroneously assumed the presence of coolant. Their new definition is able to use the nominal values for shower-head and trailing edge coolant mass flow ratio and adjust the coolant profile according to the aforementioned function of spanwise distance. Using measurements from a downstream traverse in their linear cascade, the novel loss definition was found to produce loss profiles that were in good agreement with equation~\ref{ke_loss_definition} and in disagreement with equation~\ref{saha_loss_definition}.
 
 
 \section{Effects of suction-side trailing edge shape uncertainty}
@@ -1473,7 +1586,7 @@ The set of Mach number contours and sonic lines suggest that the greatest sensit
       \label{fig:ss_cutbacks_m1_lines_illustration}
 \end{figure}
 
-Figure~\ref{fig:ss_cutbacks_m1_lines_illustration} shows that upstream movement of the location of the suction-side attached shock occurred between $0$ and $30\%$ removal of the end-edge. This trend did not continue for cutbacks greater than $30\%$. Within this range of cutbacks, the sonic line is attached to the NGV pressure side upstream of the cooling slot, as there is insufficient length over which reattachment can occur downstream. This is a useful result for the engine designer, as it provides a stable end-of-life capacity prediction for the NGV.
+Figure~\ref{fig:ss_cutbacks_m1_lines_illustration} shows that upstream movement of the location of the suction-side attached shock occurred between $0$ and $30\%$ removal of the end-edge. This trend did not continue for cutbacks greater than $30\%$. Within this range of cutbacks, the sonic line is attached to the NGV pressure side upstream of the cooling slot, as there is insufficient length over which reattachment can occur downstream. This is a useful result for the engine designer, as it provides a stable end-of-life capacity prediction for the NGV. The applicability of Section~\ref{section_1d_vs_2d_capacity_uncertainty}'s $A_{eff}$ to this result would require careful consideration. The present formulation of $A_{eff}$ relies on the assumption that any stream tube can pass through the sonic line only once. This would result in mispredictions of effective area in cases such as $20\%$ removal of the end edge, which is shown in Figure~\ref{fig:ss_cutbacks_m1_lines_illustration} to include stream tubes which pass though the sonic line more than once.
 
 Figure~\ref{fig:ss_cutbacks_vs_capacities_pressure_ratios} plots flow capacity change as a function of the amount of the end-edge that has been removed. The trend is plotted for 3 inverse pressure ratios: $1.50$, the design value of $1.79$, and a fully choked value of $3.33$.
 
@@ -1558,7 +1671,7 @@ Overall flow turning angle was surveyed along the length of the domain outlet pl
 
 Figure~\ref{fig:ss_cutbacks_turning_angle_surveys} further illustrates the trend of reducing turning angles present in Figure~\ref{fig:ss_cutbacks_vs_turning_angles}. It is also apparent that the incremental cutbacks caused a shift in the location of maximum turning angle. In the case of no cutback, maximum turning occurred exactly halfway across the domain exit plane, at a location immediately downstream of the NGV end-edge. Subsequent cutbacks caused both a reduction in maximum turning and a shift of the maximum turning location in the opposite direction to which turning occurs. This suggests that the NGV wake continued to extend downstream of the NGV at an angle which decreased with increasing cutbacks, arriving at the domain outlet at an incrementally increasing $y$-coordinate. Assuming that the downstream turning angle distribution is indicative of the NGV wake profile, the wake did not appear to become significantly more diffuse as cutbacks increased.
 
-Figure~\ref{fig:ss_cutbacks_vs_losses} plots loss as a function of end-edge cutback amount at the design pressure ratio of $1.79$, where total pressure loss and kinetic energy loss are defined as in Section~\ref{definitions_of_loss}. Total pressure values were surveyed at the domain outlet plane and averaged to produce the loss values.
+Figure~\ref{fig:ss_cutbacks_vs_losses} plots loss as a function of end-edge cutback amount at the design pressure ratio of $1.79$, where total pressure loss and kinetic energy loss are defined as in Section~\ref{precedent_for_analytical_techniques_used_in_this_study}. Total pressure values were surveyed at the domain outlet plane and averaged to produce the loss values.
 
 \begin{figure}[H]
 	\centering
@@ -1700,27 +1813,27 @@ Overall it was apparent that only the fully choked cases were changing in direct
 	\centering
 	\begin{subfigure}{.42\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_0.png}
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_0_ver02.png}
 		\caption{Baseline}
 		\vspace{0.018\textheight}
 	\end{subfigure}
 	\hspace{0.05\textwidth}
 	\begin{subfigure}{.42\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_25.png}
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_25_ver02.png}
 		\caption{$25\%$ cutback}
 		\vspace{0.018\textheight}
 	\end{subfigure}
 	\begin{subfigure}{.42\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_50.png}
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_50_ver02.png}
 		\caption{$50\%$ cutback}
 		\vspace{0.018\textheight}
 	\end{subfigure}
 	\hspace{0.05\textwidth}
 	\begin{subfigure}{.42\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_75.png}
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_75_ver02.png}
 		\caption{$75\%$ cutback}
 		\vspace{0.018\textheight}
 	\end{subfigure}
@@ -1730,16 +1843,16 @@ Overall it was apparent that only the fully choked cases were changing in direct
 	\end{subfigure}
 	\begin{subfigure}{.42\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_100.png}
+		\includegraphics[width=\linewidth]{figs/ps_cutbacks_design_100_ver02.png}
 		\caption{$100\%$ cutback}
 	\end{subfigure}
 	\caption{Contours of Mach number in the wake region of the Trent 900 pressure-side cutback study at $\frac{p_{01}}{p_2}=1.79$ (design), labelled by percent of the pressure side removed}
 	\label{fig:ps_cutbacks_design}
 \end{figure}
 
-Figure~\ref{fig:ps_cutbacks_design} shows that the trailing edge region aerodynamics remained fundamentally unchanged in the case of incremental pressure-side cutbacks at the design pressure ratio. An exception to this was the presence of a region of accelerated flow adjacent to the area near the end of the pressure side where the vane surface has high convex curvature. This feature became more pronounced as cutbacks increased, suggesting that it contributed to the non-linear relationship between cutback amount and flow capacity delta at the design inverse pressure ratio. 
+Figure~\ref{fig:ps_cutbacks_design} shows that the trailing edge region aerodynamics remained fundamentally unchanged in the case of incremental pressure-side cutbacks at the design pressure ratio. An exception to this was the presence of a region of accelerated flow, labelled A, adjacent to the area near the end of the pressure side where the vane surface has high convex curvature. This feature became more pronounced as cutbacks increased, suggesting that it contributed to the non-linear relationship between cutback amount and flow capacity delta at the design inverse pressure ratio. 
 
-Another significantly changing feature occurred directly downstream of this region, where the flow remained attached along part of the convex surface. The high-momentum mainstream is observed to turn towards the positive $x$-direction more as cutback increased, impinging on the low-momentum outer wake region. This resulted in reduced flow turning overall, which will be discussed subsequently. This downstream flow straightening corresponds to an expansion in the effective flow width downstream of the vane, a change which is likely a primary cause of the observed trend of capacity increasing sharply with smaller cutbacks. In the extreme, the transformation of outer wake area into mainstream area is limited by the momentum of the slow coolant flow, which prevents the mainstream from completely overwhelming the wake. This is likely the reason why both unchoked cases exhibited reduced sensitivity of capacity to cutbacks at larger cutback amounts.
+Another significantly changing feature, labelled B, occurred directly downstream of this region, where the flow remained attached along part of the convex surface. The high-momentum mainstream is observed to turn towards the positive $x$-direction more as cutback increased, impinging on the low-momentum outer wake region. This resulted in reduced flow turning overall, which will be discussed subsequently. This downstream flow straightening corresponds to an expansion in the effective flow width downstream of the vane, a change which is likely a primary cause of the observed trend of capacity increasing sharply with smaller cutbacks. In the extreme, the transformation of outer wake area into mainstream area is limited by the momentum of the slow coolant flow, which prevents the mainstream from completely overwhelming the wake. This is likely the reason why both unchoked cases exhibited reduced sensitivity of capacity to cutbacks at larger cutback amounts.
 
 Figure~\ref{fig:ps_cutbacks_capacities_trends} plots trends of flow capacity change versus inverse pressure ratio at selected cutback amounts. The range of inverse pressure ratios includes the design value of $1.79$. Capacity changes are normalised against the case of $0$ cutback at the design pressure ratio.
 
@@ -1881,7 +1994,11 @@ The introduction of film coolant in this region is shown to affect the NGV flow 
 
 \subsection{Geometry, mesh, and boundary conditions}
 
-A series of 2D CFD simulations were performed with a single cooling hole at a range of locations throughout the nozzle guide vane throat region. The blade profile geometry is the Rolls-Royce Trent XWB 84K nozzle guide vane. A 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. The NGV trailing edge was smoothly rounded as this section of study is not concerned with trailing edge effects. The NGV surface was modified to include a single cooling hole consisting of a slot and plenum with its total pressure inlet boundary condition described above. Matlab was used to parametrically generate 7 geometries by moving the single cooling hole between $0\%$ and $100\%$ of its possible range of physical locations on the NGV suction side in increments of approximately $16\%$, although spacing of simulated hole locations was closer in the throat region of the nozzle. The range of hole locations is illustrated in Figure~\ref{fig:SCH_hole_range}.
+A series of 2D CFD simulations were performed with a single cooling hole at a range of locations throughout the nozzle guide vane throat region. The blade profile geometry is the Rolls-Royce Trent XWB 84K nozzle guide vane. A 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. The NGV trailing edge was smoothly rounded as this section of study is not concerned with trailing edge effects. The NGV surface was modified to include a single cooling hole consisting of a slot and plenum with its total pressure inlet boundary condition described above. 
+
+Matlab was used to parametrically generate 7 geometries by moving the single cooling hole between $0\%$ and $100\%$ of its possible range of physical locations on the NGV suction side in increments of approximately $16\%$, although spacing of simulated hole locations was closer in the throat region of the nozzle. The angle between the cooling hole passage and the NGV surface remained constant throughout. In practice the exit angle of each film coolant row is varied according to location, with injection into higher-velocity flow performed at a smaller angle to the surface. The objective of this is to maintain a more constant coolant film thickness in leading edge regions closer to the NGV's stagnation point, where surface static pressure is greatest. The present study controls for ejection angle with a constant value of $60$ degrees between coolant passage and NGV surface. Increased ejection angles would introduce coolant with a lower component of momentum in the mainstream flow direction. This would be expecrted to result in reduced capacity as momentum would be transferred from the mainstream to accelerate this coolant.
+
+The range of hole locations is illustrated in Figure~\ref{fig:SCH_hole_range}.
 
 \begin{figure}[H]
 	\centering
@@ -1892,7 +2009,7 @@ A series of 2D CFD simulations were performed with a single cooling hole at a ra
 
 Simulations were performed at the design inverse pressure ratio of $1.65$ but not at a fully choked inverse pressure ratio. This decision was made because the majority of the range of hole locations lie downstream of the nozzle's sonic line. In accordance with the other findings of this study, these locations are expected to have minimal effect on the NGV capacity.
 
-If a film cooling row is to be modelled using 2-dimensional CFD, several considerations must be made to ensure the simulation is representative of real engine conditions. These considerations fall into 2 categories, namely the correct setting of boundary conditions at the coolant inlet, and the mitigation of 3-dimensional flow phenomena that affect coolant mixing but are not captured by 2-dimensional simulations. %This second set of considerations will be discussed in Section~\ref{quasi_3D_cfd}, which uses a case of 3D CFD to validate the present study's 2D CFD results in the presence of 3D phenomena.
+If a film cooling row is to be modelled using 2-dimensional CFD, several considerations must be made to ensure the simulation is representative of real engine conditions. These considerations fall into 2 categories, namely the correct setting of boundary conditions at the coolant inlet, and the mitigation of 3-dimensional flow phenomena that affect coolant mixing but are not captured by 2-dimensional simulations.
 
 The coolant inlet boundary exists to model the network of passageways that feeds compressor bleed air to the film cooling holes in a real engine. The present study represents this as a small plenum connected to the coolant hole. The coolant hole is specified as a narrow rectangular passage of engine-representative diameter, with no-slip walls. Total pressure is specified on the coolant plenum walls. An example of a 2D CFD domain for a single cooling row and its plenum is shown in Figure~\ref{fig:film_cooling_hole_boundary_conditions}.
 
@@ -1903,7 +2020,7 @@ The coolant inlet boundary exists to model the network of passageways that feeds
     \label{fig:film_cooling_hole_boundary_conditions}
 \end{figure}
 
-The present study aims to simulate an engine-representative ratio of coolant-to-mainstream mass flow rate. Although it is optional to specify a desired mass flow rate on an inlet boundary in CFD, this is not a realistic simulation of the physics of a nozzle guide vane, where the designer has instead targeted a total pressure within each film coolant plenum. The coolant flow through the plenum and hole is then subject to a degree of total pressure loss. The resulting ideal isentropic mass flow rate from the film cooling hole is related to the total pressure and temperature at the hole exit $p_{0c}$ and $T_{0c}$, the local mainstream static pressure $p_m$, and the hole cross-sectional area $A_h$ by an adapted form of equation~\ref{mass_flow_rate_formula}, as
+The present study aims to simulate an engine-representative ratio of coolant-to-mainstream mass flow rate. A typical value has been obtained from the technical memoranda provided by Rolls-Royce, and has been rounded to a value of $1\%$ of the mainstream mass flow rate due to the sensitive nature of the data. Although it is optional to specify a desired mass flow rate on an inlet boundary in CFD, this is not a realistic simulation of the physics of a nozzle guide vane, where the designer has instead targeted a total pressure within each film coolant plenum. The coolant flow through the plenum and hole is then subject to a degree of total pressure loss. The resulting ideal isentropic mass flow rate from the film cooling hole is related to the total pressure and temperature at the hole exit $p_{0c}$ and $T_{0c}$, the local mainstream static pressure $p_m$, and the hole cross-sectional area $A_h$ by an adapted form of equation~\ref{mass_flow_rate_formula}, as
 \begin{equation}\label{film_coolant_mass_flow_rate}
 \dot{m_c} =
 \frac{p_{0c}}{\sqrt[•]{T_{0c}}} \>
@@ -1963,9 +2080,9 @@ Typical values for $p_{0cp}$ and $\zeta_c$ may be referenced from the literature
 The differences in aerodynamic performance between film cooling holes and slots has long been a subject of research, with flow mechanisms downstream of hole rows being more complex than those formed by slots. A discrete hole is likely to have a pair of counter-rotating secondary flow vortices formed as the coolant enters the hole, with an unsteady process of vortex stripping and entrainment into the mainstream as the coolant exits the hole. In contrast, a slot tends to form a steady contiguous film on the external surface, with a separation bubble present under some conditions. To obtain boundary conditions likely to achieve coolant mass flow rates on the desired magnitude, coolant plenum boundary conditions were computed via the following process.
 \begin{enumerate}
   \item Converge a baseline CFD solution with no cooling holes. Use this case to report a baseline mainstream mass flow rate $\dot{m}$ and a baseline NGV surface static pressure distribution. Use the surface static pressure distribution to report a value of $p_m$ at each cooling hole location.
-  \item Converge a CFD solution with the cooling hole at position $0$ and the cooling hole plenum specified as a mass flow inlet providing the benchmark coolant mass flow rate $\dot{m_c} = 1\%$ of $\dot{m}$. Report values for $p_{0cp}$ and $p_{0c}$ area-averaged across the plenum inlet boundary and the cooling hole exit.
+  \item Converge a CFD solution with the cooling hole at position $0$ and the cooling hole plenum specified as a mass flow inlet providing the benchmark coolant mass flow rate $\dot{m_c} = 1\%$ of $\dot{m}$ (the rounded value obtained from Rolls-Royce). Report values for $p_{0cp}$ and $p_{0c}$ area-averaged across the plenum inlet boundary and the cooling hole exit.
   \item Use  this $p_{0cp}$ as the specified total pressure on the coolant plenum inlet for all cases in the study.
-  \item Use this $p_{0cp}$ and $p_{0c}$ to evaluate $\zeta_c$ for the purpose of further discussion.
+  \item Use this $p_{0cp}$ and $p_{0c}$ to validate $\zeta_c$ for the purpose of further discussion.
 \end{enumerate}
 
 The resulting boundary conditions were used for all simulations and are listed in Table~\ref{SCH_parameters}.
@@ -1986,6 +2103,7 @@ Inlet total temperature (K) & $300$\\
 Outlet static pressure (Pa) & $2.63 \times 10^6$\\
 Outlet static temperature (K) & $300$\\
 Benchmark coolant mass flow rate & $1.00\%$ of mainstream\\
+Coolant ejection angle (degrees) & $60$\\
 Film coolant loss coefficient $\zeta_c$ & $0.8$\\
 Coolant plenum total pressure $p_{0cp}$ & $79.91\%$ of mainstream\\
 Solver type & Density-based\\
@@ -2257,12 +2375,15 @@ This chapter's conclusions are in good agreement with those of the other chapter
 
 \chapter{Conclusion}
 
+\section{Summary of findings}
 
 This thesis demonstrates that nozzle guide vane capacity, although a highly complex problem, benefits from a simplified approach whereby the principal mechanisms can be identified and modelled separately from one another in a 2-dimensional environment. All the effects seen result from nozzle guide vane geometry changes. Small geometric changes are magnified into larger changes in capacity resulting from the differences between the effective throat area and the geometric throat.
 
 Chapter~\ref{chapter_introduction} outlined the importance of flow capacity as the scalable pseudo-dimensionless variable describing the mass flow rate through the engine. Chapter~\ref{chapter_geometric_throat_area} linked this to an effective throat area, and investigated its variance in response to small changes in manufacturing tolerance introduced in the first stage of manufacturing, namely casting. Chapter~\ref{chapter_trailing_edge} introduced design-led NGV geometry features in the trailing edge, and investigated how capacity changes in response to these. Here, changes in the pressure side and suction side features are decided primarily by cutback design and wear respectively. Notably, the industrial assumption of a geometric throat attached to the pressure side cutback is seen to be challenged in the early service life of the blade when a thin trailing edge is maintained.  Chapter~\ref{chapter_leading_edge} introduced coolant flows ejected from the suction side surface of the blade.  High operating temperatures may require such features, which are always somewhat undesirable in terms of loss. The injection into the high-velocity suction side flow is discussed, and the sensitivity of capacity and loss to varying the injection location is established. In combination, these chapters seek to present a clarification of the main challenges to our understanding and prediction of nozzle guide vane flow capacity and loss.
 
-With only 6 blade geometries available, the current work has established that modern CFD techniques can reliably predict significant capacity changes at typical manufacturing tolerances.  Further work and commercial exploitation may be achieved by post-manufacture characterisation of finished cast engine components prior to assembly, to generate annular sets of nozzle guide vanes with similar vane-to-vane capacity, limiting the forcing function on the downstream rotor assembly.  Additionally, the modelling of many such passages will allow the development of surrogate models for a given engine architecture, allowing the accurate mapping of any scanned NGV passage onto a predicted capacity characteristic without further use of CFD or testing.  This has the potential to greatly increase the yield of cast components, improving cost and sustainability in manufacture.
+\section{Suggestions for future work}
+
+With only 6 blade geometries available, the current work has established that modern CFD techniques can reliably predict significant capacity changes at typical manufacturing tolerances.  Further work and commercial exploitation may be achieved by post-manufacture characterisation of finished cast engine components prior to assembly, to generate annular sets of nozzle guide vanes with similar vane-to-vane capacity, limiting the forcing function on the downstream rotor assembly.  Additionally, the modelling of many such passages will allow the development of surrogate models for a given engine architecture, allowing the accurate mapping of any scanned NGV passage onto a predicted capacity characteristic without further use of CFD or testing. This has the potential to greatly increase the yield of cast components, improving cost and sustainability in manufacture.
 
 The problem of additional film cooling is less conducive to speculation. Additional film cooling is highly likely to occur as a result of inevitably increasing operating temperatures. It is uncertain which strategy will be employed: manufacturers may choose to inject film coolant into the low-velocity region upstream of the NGV throat, which would be loss-optimal in theory but would require a high coolant mass flow rate to ensure coolant presence along the full NGV chord. Manufacturers may instead choose to inject less coolant at this location and to refresh the coolant film with additional rows downstream. Such design choices are expected to be a topic of interest in the near future.
 
@@ -2275,5 +2396,2321 @@ Finally, in the event that novel material choices, such as CMC, require a thicke
 \bibliography{tmfg_bibliography_ver01}
 
 
+
+\appendix
+
+
+
+\chapter{Matlab post-processing codes}
+
+\section{Geometric throat width calculator}
+\begin{verbatim}
+close all;
+clear variables;
+load workspaces/T900_RThX_all_ver08;
+
+
+%the spacing in metres between each NGV at mid-span radius
+periodic_spacing = 0.05881; 
+
+%input which vane
+vane_xy = KSZ03_streamline_11_xyz(:,1:2);
+vane_section = vane_xy(20:50,:);
+
+%apply the periodic spacing
+%vane_xyz_2 = vane_xyz;
+%vane_xyz_2(:,2) = vane_xyz(:,2) + periodic_spacing;
+
+
+% OVERSAMPLING THE VANE COORDINATES %
+
+n = size(vane_section);
+q = n(2);
+n = n(1);
+
+range = vane_section(n,1) - vane_section(1,1);
+resolution = 10000;
+    
+interp_vector = vane_section(1,1):range/resolution:vane_section(n,1);
+interp_vector = interp_vector';
+
+p = size(interp_vector);
+p = p(1);
+vane_section_oversampled = zeros(p,q);
+
+for i2 = 1:q
+    vane_section_oversampled(:,i2) = interp1(vane_section(:,1),...
+        vane_section(:,i2), interp_vector, 'pchip');
+end 
+
+
+% CALCULATING THE DISTANCES %
+
+%for PS cutbacks
+vane_section_2 = [-0.01005, 0.001008];
+vane_section_2(:,2) = vane_section_2(:,2) + 0.0588106;
+
+iterations = size(vane_section_oversampled);
+iterations = iterations(1);
+distances = zeros(iterations, 1);
+
+%turn on this bit for PS cutbacks
+for m = 1:iterations
+    local_vector = vane_section_oversampled(m,:) - vane_section_2;
+    distances(m) = norm(local_vector,2);
+end
+
+throat_width = min(distances(:,1));
+throat_width = min(throat_width)
+distances = distances(:,1);
+[row] = find(distances <= throat_width);
+
+%for smooth vanes
+%throat_line = [vane_sectionz(row,:); vane_sectionz_2(column,:)];
+
+%for PS cutbacks
+throat_line = [vane_section_oversampled(row,1:2); vane_section_2(1,1:2)];
+
+%calculate the throat width differently to confirm the value
+throat_width_alt = sqrt((throat_line(1,1) - throat_line(2,1))^2 +...
+    (throat_line(1,2) - throat_line(2,2))^2);
+
+
+% PLOTS %
+
+figure(1)
+plot(vane_xy(:,1), vane_xy(:,2), 'b')
+hold on
+plot(vane_xy(:,1), vane_xy(:,2) + 0.0588106, 'b')
+plot(throat_line(:,1), throat_line(:,2), 'r')
+plot(vane_section_2(:,1), vane_section_2(:,2), 'ko')
+axis equal
+
+figure(2)
+plot(PS_cutback_throat_widths(:,1),...
+    100*PS_cutback_throat_widths(:,2)/PS_cutback_throat_widths(1,2)-100,...
+    'ko-')
+xlabel('Cutback amount')
+ylabel('Change in throat width, %')
+title('2D throat width vs. PS cutbacks')
+
+figure(3)
+plot(100*PS_cutback_throat_widths(:,2)/PS_cutback_throat_widths(1,2)-100,...
+    100*cutback_capacities_design(:,3)/cutback_capacities_design(1,2),...
+    'ko-')
+hold on
+plot(100*PS_cutback_throat_widths(:,2)/PS_cutback_throat_widths(1,2)-100,...
+    100*cutback_capacities_design(:,2)/cutback_capacities_design(1,2),...
+    'k^-')
+plot(100*PS_cutback_throat_widths(:,2)/PS_cutback_throat_widths(1,2)-100,...
+    100*cutback_capacities_design(:,1)/cutback_capacities_design(1,2),...
+    'kh-')
+xlabel('Change in throat width, %')
+ylabel('\Delta Capacity, %')
+title('2D Capacities vs. 2D throat widths')
+legend('PR = 3.33', 'PR = 1.79 (design)', 'PR = 1.5')
+ylim([95 104])
+
+figure(4)
+plot(0:1:4,...
+    100*cutback_capacities_design(:,3)/cutback_capacities_design(1,2),...
+    'ko-')
+hold on
+plot(0:1:4,...
+    100*cutback_capacities_design(:,2)/cutback_capacities_design(1,2),...
+    'k^-')
+plot(0:1:4,...
+    100*cutback_capacities_design(:,1)/cutback_capacities_design(1,2),...
+    'kh-')
+xlabel('Cutback amount')
+ylabel('\Delta Capacity, %')
+title('2D Capacities vs. PS Cutback Amount')
+legend('PR = 3.33', 'PR = 1.79 (design)', 'PR = 1.5')
+ylim([95 104])
+\end{verbatim}
+
+\section{Effective throat width calculator}
+\begin{verbatim}
+close all;
+clear variables;
+load workspaces/T900_2021.mat;
+
+
+%the spacing in metres between each NGV at mid-span radius
+periodic_spacing = 0.05881; 
+
+%load data from the imported workspace
+x = KSZ03_xvel_yvel_mach(:,2);
+y = KSZ03_xvel_yvel_mach(:,3);
+xvel = KSZ03_xvel_yvel_mach(:,4);
+yvel = KSZ03_xvel_yvel_mach(:,5);
+M = KSZ03_xvel_yvel_mach(:,6);
+
+%make it 2 vanes instead of 1
+x_repeated = x;
+y_repeated = y;
+for n = 1:length(y)
+   y_repeated(n) = y(n) + periodic_spacing;
+end
+x = cat(1,x,x_repeated);
+y = cat(1,y,y_repeated);
+M = cat(1,M,M);
+xvel = cat(1,xvel,xvel);
+yvel = cat(1,yvel,yvel);
+
+%create a uniform quadrilateral mesh onto which the existing data will be
+%interpolated
+[x_grid,y_grid] = meshgrid(-0.03:0.0001:-0.009,0.050:0.0001:0.070);
+mach_grid = griddata(x, y, M, x_grid, y_grid);
+xvel_grid = griddata(x, y, xvel, x_grid, y_grid);
+yvel_grid = griddata(x, y, yvel, x_grid, y_grid);
+mach_grid_size = size(mach_grid);
+height = mach_grid_size(1);
+width = mach_grid_size(2);
+
+%replace NaN values with 0
+for i = 1:height
+    for j = 1:width
+        if isnan(mach_grid(i,j))
+           mach_grid(i,j) = 0; 
+        end
+    end
+end
+
+%find the M=1 line
+M1_positions_and_velocities = zeros(1,4);
+for j = 1:width
+    %go along a vertical strip until M > 1
+    for i = 2:height
+        if (mach_grid(i-1,j) > 1 && mach_grid(i,j) < 1) ||...
+                (mach_grid(i-1,j) < 1 && mach_grid(i,j) > 1)
+            M1_position_and_velocity = [x_grid(i,j),y_grid(i,j),...
+                xvel_grid(i,j),yvel_grid(i,j)];
+            M1_positions_and_velocities =...
+                cat(1,M1_positions_and_velocities,...
+                M1_position_and_velocity);
+        end
+    end
+end
+M1_positions_and_velocities = M1_positions_and_velocities(2:end,:);
+
+%add two columns to M1_positions which is are x and y coordinates tilted at
+%an angle approximately orthogonal to the sonic line so they can be sorted 
+%along this direction
+theta = 2*pi*-30/360;
+R = [cos(theta) -sin(theta) ; sin(theta) cos(theta)];
+M1_positions_and_velocities = cat(2,M1_positions_and_velocities,...
+    zeros(size(M1_positions_and_velocities,1),2));
+for i = 1:size(M1_positions_and_velocities,1)
+    outputVector = R*[M1_positions_and_velocities(i,1),...
+       M1_positions_and_velocities(i,2)]';
+    M1_positions_and_velocities(i,5) = outputVector(1);
+    M1_positions_and_velocities(i,6) = outputVector(2);
+end
+M1_positions_and_velocities = sortrows(M1_positions_and_velocities,5);
+
+%trim the ends so spurious bits aren't included
+M1_positions_and_velocities = M1_positions_and_velocities(1:end,:);
+
+%integrate along the M1 line
+theta = 2*pi*90/360;
+R = [cos(theta) -sin(theta) ; sin(theta) cos(theta)];
+integral = 0;
+for i = 2:size(M1_positions_and_velocities,1)
+    localVector = [M1_positions_and_velocities(i,1),...
+        M1_positions_and_velocities(i,2)]-...
+        [M1_positions_and_velocities(i-1,1),...
+        M1_positions_and_velocities(i-1,2)];
+    localUnitVector = localVector/norm(localVector);
+    localOrthogonalUnitVector = R*localUnitVector';
+    \%find the velocity vector local to this point on the line
+    localVelocity = [M1_positions_and_velocities(i,3),...
+        M1_positions_and_velocities(i,4)];
+    localVelocityUnitVector = localVelocity/norm(localVelocity);
+    integrand = dot(localOrthogonalUnitVector,...
+        localVelocityUnitVector)*norm(localVector);
+    if isnan(integrand)
+    else
+    integral = integral + integrand;
+    end
+end
+
+%plot the sonic line shape over the mesh nodes
+figure(1)
+plot(x,y,'k.')
+hold on
+plot(M1_positions_and_velocities(:,1),...
+    M1_positions_and_velocities(:,2),'r-')
+axis equal
+xlim([-0.03 -0.009])
+ylim([0.050 0.070])
+\end{verbatim}
+
+\section{Film cooling plenum loss calculator}
+\begin{verbatim}
+close all;
+clear variables;
+load workspaces/sch_data.mat;
+
+
+%find the plenum total pressure from a given mass flow rate fraction
+
+%physical properties
+R = 287.058; %[Joules/(kg.K)]
+cp = 1121; %[Joules/(kg.K)]
+cv = 834; %[Joules/(kg.K)]
+gamma = cp/cv;
+
+fluent_operating_pressure = 4285900;
+p_m_benchmark = -1e6 + fluent_operating_pressure;
+
+%coolant/mainstream mass flow ratio
+coolant_ratio = 0.01;
+
+%2D hole width
+A_h = 7.4993e-4;
+
+%inlet total pressure
+p_0m = 4325590;
+
+%total temperatures
+T_0m = 300;
+T_0c = 300;
+
+%correction between 2D and Q3D
+q3d_strip_width = 0.0029;
+ratio_of_slot_to_hole = (4/pi)*q3d_strip_width/A_h;
+
+
+%use the benchmark coolant MFR to work out the plenum total pressure,
+%iteratively
+
+%benchmark values
+m_m_benchmark = 121;
+m_c_benchmark = m_m_benchmark*coolant_ratio;
+zeta_c = 0.8;
+
+%array to store and plot the convergence for both possible methods
+number_of_iterations = 10;
+array = zeros(number_of_iterations,1);
+
+%initial guess
+p_0c_benchmark = p_m_benchmark;
+
+for i = 1:number_of_iterations
+  p_0c_benchmark = p_m_benchmark*( 1 - ( R*(gamma-1)*T_0c*m_c_benchmark^2*...
+      p_0c_benchmark^((2-2*gamma)/gamma) )/( 2*gamma*...
+      A_h^2*p_m_benchmark^(2/gamma) ) )^(gamma/(1-gamma));
+  array(i,1) = p_0c_benchmark;
+end
+
+ratio_of_coolant_to_main_tp = p_0c_benchmark/p_0m;
+
+resulting_coolant_mass_flow_rate = (p_0c_benchmark/sqrt(T_0c))*A_h*...
+    sqrt(gamma/R)*(p_m_benchmark/p_0c_benchmark)^(1/gamma)*...
+    sqrt( (2/(gamma-1))*( 1 - (p_m_benchmark/p_0c_benchmark)^...
+    ((gamma-1)/gamma) ) );
+resulting_coolant_ratio = resulting_coolant_mass_flow_rate/m_m_benchmark;
+
+%find the correct plenum total pressure
+p_0cp = ( p_0c_benchmark - zeta_c*p_m_benchmark )/( 1 - zeta_c );
+ratio_of_plenum_to_main_tp = p_0cp/p_0m;
+p_0cp_gauge = p_0cp - fluent_operating_pressure;
+
+
+%plot the CFD data
+
+%mass_flow_rates columns:
+%1) hole position (not normalised)
+%2) inlet MFR
+%3) outlet MFR
+%4) plenum MFR
+%5) local surface static pressure (gauge in Fluent)
+
+%outlet_total_pressures_averages columns:
+%1) hole position (not normalised)
+%2) area-averaged outlet total pressure (gauge in Fluent)
+
+%normalise the hole positions
+hole_positions = (50/27)*(mass_flow_rates(:,1) - 26);
+
+%work out the theoretical hole exit total pressures and thus capacities
+m_c = mass_flow_rates(:,4);
+p_m = mass_flow_rates(:,5) + fluent_operating_pressure;
+p_0c = zeta_c.*p_m(:) + (1-zeta_c)*p_0cp;
+G_c = ( sqrt(T_0c)/p_0cp ).*m_c;
+
+%work out the capacities
+m_in = mass_flow_rates(:,2);
+G_in = ( sqrt(T_0m)/p_0m ).*m_in;
+G_out = ( sqrt(T_0m)/p_0m ).*( m_in + m_c );
+G_baseline = ( sqrt(T_0m)/p_0m )*baseline;
+
+%define a surface pressure coefficient
+C_p = (p_m-min(p_m))/(max(p_m)-min(p_m));
+%C_p = p_m;
+%C_p = p_0cp./p_m;
+
+%define the critical pressure ratio
+r_crit = ((gamma+1)/2)^(gamma/(1-gamma));
+
+%define a coolant isentropic capacity
+G_c_isent = (sqrt(T_0c)/p_0cp).*(p_0c/sqrt(T_0c))*A_h.*sqrt(gamma/R).*...
+    (p_m./p_0c).^(1/gamma).*sqrt( (2/(gamma-1)).*( 1 - (p_m./p_0c).^...
+    ((gamma-1)/gamma) ) );
+
+%define a surface isentropic Mach number
+M_surf = sqrt( (2/(gamma-1))*( (p_0m./p_m).^((gamma-1)/gamma) -1 ) );
+p_2 = 2625200; %outlet static pressure
+
+%define a loss for each hole position
+total_pressures = outlet_total_pressure_averages(:,2);
+total_pressures_absolute = total_pressures + fluent_operating_pressure;
+loss = (p_0m - total_pressures_absolute)/(p_0m - p_2);
+
+
+% Default figure settings
+figure_width = 4;     % Width in inches
+figure_height = 4;    % Height in inches
+axes_line_width = 0.75;    % AxesLineWidth
+font_size = 14;      % Fontsize
+line_width = 1.5;      % LineWidth
+marker_size = 8;       % MarkerSize
+
+geometric_throat_location = 38;
+geometric_throat_normalised = (50/27)*(geometric_throat_location - 26);
+
+figure(1)
+plot(hole_positions,100*(G_in/G_baseline - 1), 'r-o')
+hold on
+plot(hole_positions,100*(G_out/G_baseline - 1), 'b-o')
+xlabel('Distance along suction side, % of range')
+ylabel('\Delta capacity, % of baseline')
+throat_line = xline(geometric_throat_normalised,'-k',{'Geometric throat'},...
+    'FontName','Charter','FontSize',font_size);
+throat_line.LabelVerticalAlignment = 'top';
+throat_line.LabelHorizontalAlignment = 'left';
+baseline_line = yline(100*(G_baseline/G_baseline - 1),'-k',{'Baseline'},...
+    'FontName','Charter','FontSize',font_size);
+baseline_line.LabelVerticalAlignment = 'bottom';
+baseline_line.LabelHorizontalAlignment = 'right';
+legend('\Gamma_{in}', '\Gamma_{out}', 'Location', 'southeast')
+%set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]);
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width);
+set(gca,'FontName','Charter','FontSize',font_size)
+%preserve the size of the image when it's saved
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/sch_hole_location_vs_capacity','-dpng','-r300');
+
+figure(2)
+plot(hole_positions,100*(G_c/G_c(1,1) - 1), 'k-o')
+xlabel('Distance along suction side, % of range')
+ylabel('\Delta  coolant capacity, %')
+throat_line = xline(geometric_throat_normalised,'-k',{'Geometric throat'},...
+    'FontName','Charter','FontSize',font_size);
+throat_line.LabelVerticalAlignment = 'bottom';
+%set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]);
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width);
+set(gca,'FontName','Charter','FontSize',font_size)
+%preserve the size of the image when it's saved
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/sch_hole_location_vs_coolant_capacity','-dpng','-r300');
+
+figure(3)
+plot(  M_surf, 100*(G_in/G_baseline - 1), 'r-o')
+hold on
+plot(  M_surf, 100*(G_out/G_baseline - 1), 'b-o')
+xlabel('Surface isentropic Mach number')
+ylabel('\Delta capacity, % of baseline')
+baseline_line = yline(100*(G_baseline/G_baseline - 1),'-k',{'Baseline'},...
+    'FontName','Charter','FontSize',font_size);
+baseline_line.LabelVerticalAlignment = 'top';
+baseline_line.LabelHorizontalAlignment = 'left';
+legend('\Gamma_{in}', '\Gamma_{out}', 'Location', 'northwest')
+%set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]);
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width);
+set(gca,'FontName','Charter','FontSize',font_size)
+%preserve the size of the image when it's saved
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/sch_surface_isentropic_mach_number_vs_capacity','-dpng',...
+    '-r300');
+
+figure(4)
+plot(  100*(G_c_isent/G_c_isent(1,1) - 1),  100*(G_c/G_c(1,1) - 1), 'k-o')
+xlabel('\Delta coolant isentropic capacity, %')
+ylabel('\Delta  coolant capacity, %')
+%set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]);
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width);
+set(gca,'FontName','Charter','FontSize',font_size)
+%preserve the size of the image when it's saved
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/sch_coolant_isentropic_capacity_vs_coolant_capacity',...
+    '-dpng','-r300');
+
+figure(5)
+plot(hole_positions,100*loss, 'k-o')
+xlabel('Distance along suction side, % of range')
+ylabel('Overall loss at domain outlet, %')
+throat_line = xline(geometric_throat_normalised,'-k',{'Geometric throat'},...
+    'FontName','Charter','FontSize',font_size);
+throat_line.LabelVerticalAlignment = 'bottom';
+%set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]);
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width);
+set(gca,'FontName','Charter','FontSize',font_size)
+%preserve the size of the image when it's saved
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/sch_hole_location_vs_loss','-dpng','-r300');
+\end{verbatim}
+
+
+
+\chapter{NGV mid-span profile coordinates}
+
+The coordinates given here correspond to the 2-dimensional mid-span profile generated by the NGV coordinate processing scheme described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}.
+
+%define an environment which will allow longtable to exist inside multicol during the following sections
+\newsavebox\ltmcbox
+
+\section{Trent 900}
+
+\subsection{Vane PNS04 (M EP1 standard)}
+
+\setbox\ltmcbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{longtable}{|c|c|c|}
+\hline
+Point & x & y\\
+\hline
+1   & -0.0384113 & 0.05177516 \\
+2   & -0.0384573 & 0.05197567 \\
+3   & -0.0384945 & 0.05217805 \\
+4   & -0.0385228 & 0.05238188 \\
+5   & -0.0385421 & 0.05258678 \\
+6   & -0.0384894 & 0.05366169 \\
+7   & -0.0383709 & 0.05451211 \\
+8   & -0.0382084 & 0.05535448 \\
+9   & -0.0380128 & 0.0561902  \\
+10  & -0.0377951 & 0.05701373 \\
+11  & -0.0375587 & 0.05782143 \\
+12  & -0.0372928 & 0.05861392 \\
+13  & -0.0369846 & 0.05939235 \\
+14  & -0.0366212 & 0.06015783 \\
+15  & -0.0361902 & 0.06091103 \\
+16  & -0.0356872 & 0.06164067 \\
+17  & -0.035116  & 0.06232271 \\
+18  & -0.0344808 & 0.06293249 \\
+19  & -0.0337854 & 0.06344539 \\
+20  & -0.0330341 & 0.06383818 \\
+21  & -0.0322392 & 0.06410176 \\
+22  & -0.0314181 & 0.06423504 \\
+23  & -0.0305879 & 0.064237   \\
+24  & -0.0297658 & 0.06410666 \\
+25  & -0.0289674 & 0.0638462  \\
+26  & -0.0282007 & 0.06347288 \\
+27  & -0.0274718 & 0.06300822 \\
+28  & -0.0267865 & 0.06247375 \\
+29  & -0.0261505 & 0.06189097 \\
+30  & -0.0255661 & 0.06127622 \\
+31  & -0.025027  & 0.06063382 \\
+32  & -0.0245259 & 0.05996645 \\
+33  & -0.0240553 & 0.0592768  \\
+34  & -0.0236078 & 0.05856756 \\
+35  & -0.0231789 & 0.05784148 \\
+36  & -0.022767  & 0.05710149 \\
+37  & -0.022371  & 0.05635047 \\
+38  & -0.0219896 & 0.05559132 \\
+39  & -0.0216217 & 0.05482676 \\
+40  & -0.0212668 & 0.05405759 \\
+41  & -0.0209252 & 0.05328333 \\
+42  & -0.0205972 & 0.05250346 \\
+43  & -0.020283  & 0.05171751 \\
+44  & -0.0199827 & 0.05092511 \\
+45  & -0.0196957 & 0.05012667 \\
+46  & -0.019421  & 0.04932284 \\
+47  & -0.0191579 & 0.04851426 \\
+48  & -0.0189055 & 0.04770159 \\
+49  & -0.0186627 & 0.04688544 \\
+50  & -0.0184284 & 0.04606628 \\
+51  & -0.0182015 & 0.04524461 \\
+52  & -0.0179806 & 0.04442087 \\
+53  & -0.0177646 & 0.04359556 \\
+54  & -0.0175527 & 0.04276894 \\
+55  & -0.0173446 & 0.04194109 \\
+56  & -0.0171401 & 0.041112   \\
+57  & -0.0169388 & 0.04028174 \\
+58  & -0.0167406 & 0.03945032 \\
+59  & -0.0165452 & 0.03861786 \\
+60  & -0.0163521 & 0.03778446 \\
+61  & -0.0161611 & 0.0369503  \\
+62  & -0.0159716 & 0.03611551 \\
+63  & -0.0157834 & 0.03528021 \\
+64  & -0.0155962 & 0.03444446 \\
+65  & -0.0154098 & 0.03360827 \\
+66  & -0.0152241 & 0.03277169 \\
+67  & -0.0150387 & 0.03193471 \\
+68  & -0.0148536 & 0.03109736 \\
+69  & -0.0146689 & 0.03025966 \\
+70  & -0.0144845 & 0.02942161 \\
+71  & -0.0143005 & 0.02858323 \\
+72  & -0.0141171 & 0.02774449 \\
+73  & -0.0139343 & 0.02690541 \\
+74  & -0.0137523 & 0.02606589 \\
+75  & -0.0135712 & 0.02522589 \\
+76  & -0.0133911 & 0.02438534 \\
+77  & -0.0132122 & 0.02354418 \\
+78  & -0.0130345 & 0.02270242 \\
+79  & -0.0128579 & 0.02186016 \\
+80  & -0.0126824 & 0.02101746 \\
+81  & -0.0125079 & 0.02017443 \\
+82  & -0.0123344 & 0.01933113 \\
+83  & -0.0121613 & 0.01848764 \\
+84  & -0.011988  & 0.01764394 \\
+85  & -0.0118139 & 0.01680008 \\
+86  & -0.0116385 & 0.01595608 \\
+87  & -0.0114611 & 0.01511202 \\
+88  & -0.0112818 & 0.01426809 \\
+89  & -0.0111004 & 0.01342454 \\
+90  & -0.010917  & 0.01258164 \\
+91  & -0.0107315 & 0.01173962 \\
+92  & -0.0105446 & 0.01089838 \\
+93  & -0.0103575 & 0.01005727 \\
+94  & -0.0101718 & 0.00921553 \\
+95  & -0.0099891 & 0.00837243 \\
+96  & -0.0098108 & 0.00752727 \\
+97  & -0.0096382 & 0.00667992 \\
+98  & -0.0094722 & 0.00583082 \\
+99  & -0.0093137 & 0.00498042 \\
+100 & -0.0091636 & 0.00412916 \\
+101 & -0.0090223 & 0.00327748 \\
+102 & -0.008886  & 0.00242549 \\
+103 & -0.0087494 & 0.00157303 \\
+104 & -0.0086374 & 0.00071367 \\
+105 & -0.0085425 & -0.0001705 \\
+106 & -0.008544  & -0.0002054 \\
+107 & -0.0085485 & -0.0002401 \\
+108 & -0.0085561 & -0.0002742 \\
+109 & -0.0085666 & -0.0003076 \\
+110 & -0.00858   & -0.0003399 \\
+111 & -0.0085961 & -0.000371  \\
+112 & -0.0086148 & -0.0004005 \\
+113 & -0.0086361 & -0.0004282 \\
+114 & -0.0086597 & -0.0004541 \\
+115 & -0.0086855 & -0.0004777 \\
+116 & -0.0087132 & -0.000499  \\
+117 & -0.0087426 & -0.0005179 \\
+118 & -0.0087736 & -0.0005341 \\
+119 & -0.0088059 & -0.0005475 \\
+120 & -0.0088392 & -0.0005581 \\
+121 & -0.0088734 & -0.0005658 \\
+122 & -0.008908  & -0.0005704 \\
+123 & -0.008943  & -0.000572  \\
+124 & -0.0089779 & -0.0005706 \\
+125 & -0.0090126 & -0.0005661 \\
+126 & -0.0090467 & -0.0005586 \\
+127 & -0.0090801 & -0.0005482 \\
+128 & -0.0091125 & -0.0005349 \\
+129 & -0.0091435 & -0.0005188 \\
+130 & -0.0091731 & -0.0005001 \\
+131 & -0.0092009 & -0.0004789 \\
+132 & -0.0092268 & -0.0004554 \\
+133 & -0.0092505 & -0.0004297 \\
+134 & -0.0092719 & -0.000402  \\
+135 & -0.0092908 & -0.0003726 \\
+136 & -0.0095434 & 0.00018639 \\
+137 & -0.0097897 & 0.00072377 \\
+138 & -0.0100425 & 0.00126644 \\
+139 & -0.0102985 & 0.00181031 \\
+140 & -0.0105545 & 0.00235181 \\
+141 & -0.0108093 & 0.00289071 \\
+142 & -0.0110627 & 0.0034282  \\
+143 & -0.0113142 & 0.00396546 \\
+144 & -0.0115634 & 0.0045036  \\
+145 & -0.0118102 & 0.00504298 \\
+146 & -0.0120547 & 0.00558351 \\
+147 & -0.0122969 & 0.00612505 \\
+148 & -0.0125368 & 0.0066675  \\
+149 & -0.0127745 & 0.00721073 \\
+150 & -0.0130099 & 0.00775462 \\
+151 & -0.0132432 & 0.00829906 \\
+152 & -0.0134744 & 0.00884392 \\
+153 & -0.0137036 & 0.00938911 \\
+154 & -0.0139311 & 0.00993455 \\
+155 & -0.0141572 & 0.01048017 \\
+156 & -0.0143824 & 0.0110259  \\
+157 & -0.0146068 & 0.01157166 \\
+158 & -0.014831  & 0.01211738 \\
+159 & -0.0150551 & 0.01266298 \\
+160 & -0.0152794 & 0.0132084  \\
+161 & -0.0155044 & 0.01375357 \\
+162 & -0.0157301 & 0.01429843 \\
+163 & -0.0159564 & 0.01484295 \\
+164 & -0.0161834 & 0.01538707 \\
+165 & -0.0164111 & 0.01593073 \\
+166 & -0.0166396 & 0.01647394 \\
+167 & -0.0168688 & 0.01701659 \\
+168 & -0.0170988 & 0.01755868 \\
+169 & -0.0173297 & 0.01810013 \\
+170 & -0.0175619 & 0.01864068 \\
+171 & -0.0177965 & 0.01917996 \\
+172 & -0.0180343 & 0.01971759 \\
+173 & -0.0182762 & 0.02025321 \\
+174 & -0.0185225 & 0.02078674 \\
+175 & -0.0187728 & 0.02131841 \\
+176 & -0.0190267 & 0.02184848 \\
+177 & -0.019284  & 0.02237718 \\
+178 & -0.0195442 & 0.02290471 \\
+179 & -0.0198074 & 0.02343112 \\
+180 & -0.0200732 & 0.02395647 \\
+181 & -0.0203415 & 0.02448083 \\
+182 & -0.0206122 & 0.02500425 \\
+183 & -0.0208851 & 0.02552679 \\
+184 & -0.02116   & 0.02604851 \\
+185 & -0.0214368 & 0.0265695  \\
+186 & -0.0217153 & 0.02708976 \\
+187 & -0.0219957 & 0.02760923 \\
+188 & -0.0222781 & 0.02812782 \\
+189 & -0.0225627 & 0.02864547 \\
+190 & -0.0228497 & 0.02916207 \\
+191 & -0.0231392 & 0.02967753 \\
+192 & -0.0234314 & 0.03019177 \\
+193 & -0.0237265 & 0.03070471 \\
+194 & -0.0240246 & 0.03121623 \\
+195 & -0.0243257 & 0.03172637 \\
+196 & -0.0246296 & 0.03223516 \\
+197 & -0.0249363 & 0.03274265 \\
+198 & -0.0252454 & 0.03324888 \\
+199 & -0.0255571 & 0.03375392 \\
+200 & -0.025871  & 0.03425779 \\
+201 & -0.0261871 & 0.03476056 \\
+202 & -0.0265051 & 0.03526225 \\
+203 & -0.0268253 & 0.0357628  \\
+204 & -0.0271478 & 0.03626188 \\
+205 & -0.0274731 & 0.03675915 \\
+206 & -0.0278015 & 0.03725429 \\
+207 & -0.0281333 & 0.03774697 \\
+208 & -0.0284689 & 0.0382369  \\
+209 & -0.0288084 & 0.03872385 \\
+210 & -0.0291522 & 0.0392075  \\
+211 & -0.0295003 & 0.03968767 \\
+212 & -0.0298523 & 0.04016448 \\
+213 & -0.0302078 & 0.04063809 \\
+214 & -0.0305659 & 0.04110869 \\
+215 & -0.0309266 & 0.04157647 \\
+216 & -0.0312889 & 0.0420416  \\
+217 & -0.0316526 & 0.04250427 \\
+218 & -0.0320169 & 0.04296468 \\
+219 & -0.0323815 & 0.04342299 \\
+220 & -0.032746  & 0.04387949 \\
+221 & -0.0331108 & 0.04433453 \\
+222 & -0.0334755 & 0.04478842 \\
+223 & -0.0338404 & 0.04524151 \\
+224 & -0.0342056 & 0.04569412 \\
+225 & -0.0345712 & 0.04614659 \\
+226 & -0.0349374 & 0.04659925 \\
+227 & -0.0353042 & 0.04705245 \\
+228 & -0.0356713 & 0.04750649 \\
+229 & -0.036037  & 0.04796176 \\
+230 & -0.0363997 & 0.04841856 \\
+231 & -0.0367574 & 0.04887726 \\
+232 & -0.0371075 & 0.04933986 \\
+233 & -0.0374442 & 0.04981245 \\
+234 & -0.0377613 & 0.05030169 \\
+235 & -0.0381413 & 0.05099947 \\
+236 & -0.0382215 & 0.05118867 \\
+237 & -0.0382933 & 0.05138127 \\
+238 & -0.0383566 & 0.0515769  \\
+239 & -0.0384113 & 0.05177516 \\
+\hline
+\end{longtable}
+\unskip
+\unpenalty
+\unpenalty}
+
+\begin{multicols}{2}
+\unvbox\ltmcbox
+\end{multicols}
+
+\subsection{Vane PNN06 (M EP1 standard)}
+
+\setbox\ltmcbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{longtable}{|c|c|c|}
+\hline
+Point & x & y\\
+\hline
+1   & -0.0383765 & 0.05178918 \\
+2   & -0.0384276 & 0.05198641 \\
+3   & -0.0384696 & 0.05218582 \\
+4   & -0.0385024 & 0.05238699 \\
+5   & -0.0385259 & 0.05258947 \\
+6   & -0.0384822 & 0.05365377 \\
+7   & -0.0383693 & 0.05449352 \\
+8   & -0.0382112 & 0.05533087 \\
+9   & -0.0380177 & 0.05616577 \\
+10  & -0.0377983 & 0.05699796 \\
+11  & -0.0375565 & 0.05782546 \\
+12  & -0.0372834 & 0.05864269 \\
+13  & -0.0369689 & 0.05944367 \\
+14  & -0.0366028 & 0.0602224  \\
+15  & -0.0361751 & 0.06097273 \\
+16  & -0.0356805 & 0.06168356 \\
+17  & -0.0351187 & 0.06233864 \\
+18  & -0.0344895 & 0.06292143 \\
+19  & -0.0337924 & 0.06341542 \\
+20  & -0.0330277 & 0.06380462 \\
+21  & -0.0322104 & 0.06407835 \\
+22  & -0.0313639 & 0.06422892 \\
+23  & -0.0305112 & 0.06424933 \\
+24  & -0.0296747 & 0.06413369 \\
+25  & -0.0288737 & 0.06388044 \\
+26  & -0.0281138 & 0.0635075  \\
+27  & -0.0273965 & 0.06303841 \\
+28  & -0.026723  & 0.06249679 \\
+29  & -0.0260946 & 0.06190615 \\
+30  & -0.0255108 & 0.06128426 \\
+31  & -0.0249671 & 0.06063564 \\
+32  & -0.0244585 & 0.0599629  \\
+33  & -0.0239802 & 0.05926869 \\
+34  & -0.0235271 & 0.05855567 \\
+35  & -0.0230957 & 0.05782644 \\
+36  & -0.022684  & 0.05708358 \\
+37  & -0.0222902 & 0.05632968 \\
+38  & -0.0219124 & 0.05556728 \\
+39  & -0.0215488 & 0.05479882 \\
+40  & -0.0211987 & 0.05402522 \\
+41  & -0.0208623 & 0.05324636 \\
+42  & -0.0205394 & 0.05246211 \\
+43  & -0.0202302 & 0.05167238 \\
+44  & -0.0199345 & 0.05087708 \\
+45  & -0.0196516 & 0.05007664 \\
+46  & -0.0193803 & 0.0492716  \\
+47  & -0.0191196 & 0.04846253 \\
+48  & -0.0188683 & 0.04764995 \\
+49  & -0.0186255 & 0.04683436 \\
+50  & -0.0183905 & 0.04601615 \\
+51  & -0.0181623 & 0.04519566 \\
+52  & -0.0179404 & 0.04437326 \\
+53  & -0.0177239 & 0.04354925 \\
+54  & -0.0175121 & 0.04272392 \\
+55  & -0.0173044 & 0.04189735 \\
+56  & -0.0171003 & 0.04106963 \\
+57  & -0.0168992 & 0.04024087 \\
+58  & -0.0167005 & 0.03941114 \\
+59  & -0.0165039 & 0.03858055 \\
+60  & -0.0163091 & 0.03774922 \\
+61  & -0.0161159 & 0.03691725 \\
+62  & -0.0159242 & 0.03608473 \\
+63  & -0.0157336 & 0.0352518  \\
+64  & -0.0155442 & 0.0344184  \\
+65  & -0.015356  & 0.03358449 \\
+66  & -0.0151691 & 0.03275    \\
+67  & -0.0149833 & 0.03191486 \\
+68  & -0.0147989 & 0.03107905 \\
+69  & -0.0146157 & 0.03024258 \\
+70  & -0.0144338 & 0.02940547 \\
+71  & -0.0142532 & 0.02856778 \\
+72  & -0.0140737 & 0.02772951 \\
+73  & -0.0138955 & 0.02689072 \\
+74  & -0.0137184 & 0.02605137 \\
+75  & -0.0135423 & 0.02521148 \\
+76  & -0.013367  & 0.024371   \\
+77  & -0.0131926 & 0.02352996 \\
+78  & -0.013019  & 0.02268834 \\
+79  & -0.0128463 & 0.0218462  \\
+80  & -0.0126747 & 0.02100355 \\
+81  & -0.0125042 & 0.0201604  \\
+82  & -0.0123349 & 0.0193168  \\
+83  & -0.012166  & 0.01847287 \\
+84  & -0.0119966 & 0.01762875 \\
+85  & -0.0118257 & 0.01678461 \\
+86  & -0.0116524 & 0.01594058 \\
+87  & -0.0114759 & 0.01509681 \\
+88  & -0.0112966 & 0.01425329 \\
+89  & -0.0111154 & 0.01341004 \\
+90  & -0.0109328 & 0.01256705 \\
+91  & -0.0107495 & 0.01172433 \\
+92  & -0.0105663 & 0.01088175 \\
+93  & -0.0103839 & 0.01003898 \\
+94  & -0.0102032 & 0.00919565 \\
+95  & -0.0100249 & 0.00835142 \\
+96  & -0.0098498 & 0.00750594 \\
+97  & -0.0096787 & 0.00665904 \\
+98  & -0.0095124 & 0.00581075 \\
+99  & -0.0093515 & 0.00496112 \\
+100 & -0.0091967 & 0.00411016 \\
+101 & -0.0090493 & 0.00325814 \\
+102 & -0.0089131 & 0.00240712 \\
+103 & -0.0087935 & 0.00155976 \\
+104 & -0.0086795 & 0.00070455 \\
+105 & -0.0085469 & -0.0002052 \\
+106 & -0.0085483 & -0.0002377 \\
+107 & -0.0085526 & -0.00027   \\
+108 & -0.0085596 & -0.0003018 \\
+109 & -0.0085695 & -0.0003328 \\
+110 & -0.008582  & -0.0003629 \\
+111 & -0.0085971 & -0.0003918 \\
+112 & -0.0086146 & -0.0004192 \\
+113 & -0.0086345 & -0.000445  \\
+114 & -0.0086566 & -0.000469  \\
+115 & -0.0086807 & -0.0004909 \\
+116 & -0.0087066 & -0.0005106 \\
+117 & -0.0087341 & -0.000528  \\
+118 & -0.008763  & -0.0005429 \\
+119 & -0.0087932 & -0.0005553 \\
+120 & -0.0088243 & -0.0005649 \\
+121 & -0.0088561 & -0.0005718 \\
+122 & -0.0088884 & -0.0005758 \\
+123 & -0.008921  & -0.0005771 \\
+124 & -0.0089535 & -0.0005754 \\
+125 & -0.0089858 & -0.000571  \\
+126 & -0.0090175 & -0.0005637 \\
+127 & -0.0090485 & -0.0005537 \\
+128 & -0.0090785 & -0.000541  \\
+129 & -0.0091072 & -0.0005257 \\
+130 & -0.0091345 & -0.000508  \\
+131 & -0.0091602 & -0.0004879 \\
+132 & -0.009184  & -0.0004657 \\
+133 & -0.0092058 & -0.0004415 \\
+134 & -0.0092254 & -0.0004154 \\
+135 & -0.0092426 & -0.0003878 \\
+136 & -0.0094986 & 0.00020787 \\
+137 & -0.0097368 & 0.00075662 \\
+138 & -0.0099743 & 0.00129424 \\
+139 & -0.0102135 & 0.0018275  \\
+140 & -0.0104566 & 0.00236242 \\
+141 & -0.010703  & 0.00289988 \\
+142 & -0.0109516 & 0.00343871 \\
+143 & -0.0112009 & 0.00397773 \\
+144 & -0.0114498 & 0.00451584 \\
+145 & -0.0116972 & 0.00505305 \\
+146 & -0.0119424 & 0.00559011 \\
+147 & -0.0121847 & 0.00612776 \\
+148 & -0.0124234 & 0.00666673 \\
+149 & -0.0126585 & 0.00720727 \\
+150 & -0.0128903 & 0.00774916 \\
+151 & -0.0131193 & 0.00829214 \\
+152 & -0.013346  & 0.00883597 \\
+153 & -0.0135709 & 0.0093804  \\
+154 & -0.0137945 & 0.00992519 \\
+155 & -0.0140173 & 0.01047009 \\
+156 & -0.0142397 & 0.01101487 \\
+157 & -0.0144623 & 0.01155927 \\
+158 & -0.0146856 & 0.01210307 \\
+159 & -0.0149102 & 0.012646   \\
+160 & -0.0151364 & 0.01318785 \\
+161 & -0.0153647 & 0.01372841 \\
+162 & -0.015595  & 0.01426779 \\
+163 & -0.0158271 & 0.01480614 \\
+164 & -0.0160608 & 0.01534361 \\
+165 & -0.0162959 & 0.01588034 \\
+166 & -0.0165322 & 0.01641651 \\
+167 & -0.0167696 & 0.01695225 \\
+168 & -0.0170077 & 0.01748773 \\
+169 & -0.0172464 & 0.01802308 \\
+170 & -0.0174858 & 0.0185583  \\
+171 & -0.0177262 & 0.0190933  \\
+172 & -0.0179676 & 0.01962797 \\
+173 & -0.0182105 & 0.02016222 \\
+174 & -0.0184549 & 0.02069596 \\
+175 & -0.0187011 & 0.02122908 \\
+176 & -0.0189494 & 0.02176148 \\
+177 & -0.0192    & 0.02229308 \\
+178 & -0.019453  & 0.0228238  \\
+179 & -0.0197085 & 0.02335368 \\
+180 & -0.0199666 & 0.0238827  \\
+181 & -0.0202274 & 0.02441089 \\
+182 & -0.0204911 & 0.02493825 \\
+183 & -0.0207576 & 0.02546473 \\
+184 & -0.0210271 & 0.02599034 \\
+185 & -0.0212998 & 0.02651505 \\
+186 & -0.0215758 & 0.02703879 \\
+187 & -0.021855  & 0.02756151 \\
+188 & -0.0221375 & 0.02808309 \\
+189 & -0.0224231 & 0.02860342 \\
+190 & -0.0227119 & 0.02912241 \\
+191 & -0.0230039 & 0.02963997 \\
+192 & -0.0232989 & 0.03015597 \\
+193 & -0.0235971 & 0.03067034 \\
+194 & -0.0238983 & 0.03118298 \\
+195 & -0.0242024 & 0.03169397 \\
+196 & -0.0245091 & 0.03220354 \\
+197 & -0.0248183 & 0.03271192 \\
+198 & -0.0251295 & 0.03321933 \\
+199 & -0.0254428 & 0.03372595 \\
+200 & -0.0257577 & 0.03423205 \\
+201 & -0.026074  & 0.0347378  \\
+202 & -0.0263917 & 0.03524344 \\
+203 & -0.0267105 & 0.03574887 \\
+204 & -0.0270312 & 0.03625356 \\
+205 & -0.0273542 & 0.0367569  \\
+206 & -0.0276801 & 0.0372583  \\
+207 & -0.0280093 & 0.03775721 \\
+208 & -0.0283425 & 0.03825303 \\
+209 & -0.02868   & 0.03874521 \\
+210 & -0.0290224 & 0.03923316 \\
+211 & -0.0293701 & 0.03971648 \\
+212 & -0.0297224 & 0.04019539 \\
+213 & -0.0300789 & 0.04067026 \\
+214 & -0.0304387 & 0.04114147 \\
+215 & -0.0308016 & 0.0416094  \\
+216 & -0.0311667 & 0.04207441 \\
+217 & -0.0315334 & 0.04253687 \\
+218 & -0.0319012 & 0.04299717 \\
+219 & -0.0322695 & 0.04345566 \\
+220 & -0.0326379 & 0.04391268 \\
+221 & -0.0330064 & 0.04436848 \\
+222 & -0.033375  & 0.04482331 \\
+223 & -0.0337434 & 0.04527746 \\
+224 & -0.0341118 & 0.04573118 \\
+225 & -0.03448   & 0.04618476 \\
+226 & -0.0348483 & 0.04663843 \\
+227 & -0.0352166 & 0.04709249 \\
+228 & -0.0355843 & 0.04754725 \\
+229 & -0.0359504 & 0.04800314 \\
+230 & -0.0363133 & 0.04846057 \\
+231 & -0.0366715 & 0.04892    \\
+232 & -0.0370229 & 0.04938325 \\
+233 & -0.0373627 & 0.04985559 \\
+234 & -0.0376863 & 0.05034282 \\
+235 & -0.0380836 & 0.05103051 \\
+236 & -0.0381698 & 0.05121482 \\
+237 & -0.0382475 & 0.05140297 \\
+238 & -0.0383164 & 0.05159456 \\
+239 & -0.0383765 & 0.05178918 \\
+\hline
+\end{longtable}
+\unskip
+\unpenalty
+\unpenalty}
+
+\begin{multicols}{2}
+\unvbox\ltmcbox
+\end{multicols}
+
+\subsection{Vane PNS03 (M EP1 standard)}
+
+\setbox\ltmcbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{longtable}{|c|c|c|}
+\hline
+Point & x & y\\
+\hline
+1   & -0.0384113 & 0.05177516 \\
+2   & -0.0384573 & 0.05197567 \\
+3   & -0.0384945 & 0.05217805 \\
+4   & -0.0385228 & 0.05238188 \\
+5   & -0.0385421 & 0.05258678 \\
+6   & -0.0384894 & 0.05366169 \\
+7   & -0.0383709 & 0.05451211 \\
+8   & -0.0382084 & 0.05535448 \\
+9   & -0.0380128 & 0.0561902  \\
+10  & -0.0377951 & 0.05701373 \\
+11  & -0.0375587 & 0.05782143 \\
+12  & -0.0372928 & 0.05861392 \\
+13  & -0.0369846 & 0.05939235 \\
+14  & -0.0366212 & 0.06015783 \\
+15  & -0.0361902 & 0.06091103 \\
+16  & -0.0356872 & 0.06164067 \\
+17  & -0.035116  & 0.06232271 \\
+18  & -0.0344808 & 0.06293249 \\
+19  & -0.0337854 & 0.06344539 \\
+20  & -0.0330341 & 0.06383818 \\
+21  & -0.0322392 & 0.06410176 \\
+22  & -0.0314181 & 0.06423504 \\
+23  & -0.0305879 & 0.064237   \\
+24  & -0.0297658 & 0.06410666 \\
+25  & -0.0289674 & 0.0638462  \\
+26  & -0.0282007 & 0.06347288 \\
+27  & -0.0274718 & 0.06300822 \\
+28  & -0.0267865 & 0.06247375 \\
+29  & -0.0261505 & 0.06189097 \\
+30  & -0.0255661 & 0.06127622 \\
+31  & -0.025027  & 0.06063382 \\
+32  & -0.0245259 & 0.05996645 \\
+33  & -0.0240553 & 0.0592768  \\
+34  & -0.0236078 & 0.05856756 \\
+35  & -0.0231789 & 0.05784148 \\
+36  & -0.022767  & 0.05710149 \\
+37  & -0.022371  & 0.05635047 \\
+38  & -0.0219896 & 0.05559132 \\
+39  & -0.0216217 & 0.05482676 \\
+40  & -0.0212668 & 0.05405759 \\
+41  & -0.0209252 & 0.05328333 \\
+42  & -0.0205972 & 0.05250346 \\
+43  & -0.020283  & 0.05171751 \\
+44  & -0.0199827 & 0.05092511 \\
+45  & -0.0196957 & 0.05012667 \\
+46  & -0.019421  & 0.04932284 \\
+47  & -0.0191579 & 0.04851426 \\
+48  & -0.0189055 & 0.04770159 \\
+49  & -0.0186627 & 0.04688544 \\
+50  & -0.0184284 & 0.04606628 \\
+51  & -0.0182015 & 0.04524461 \\
+52  & -0.0179806 & 0.04442087 \\
+53  & -0.0177646 & 0.04359556 \\
+54  & -0.0175527 & 0.04276894 \\
+55  & -0.0173446 & 0.04194109 \\
+56  & -0.0171401 & 0.041112   \\
+57  & -0.0169388 & 0.04028174 \\
+58  & -0.0167406 & 0.03945032 \\
+59  & -0.0165452 & 0.03861786 \\
+60  & -0.0163521 & 0.03778446 \\
+61  & -0.0161611 & 0.0369503  \\
+62  & -0.0159716 & 0.03611551 \\
+63  & -0.0157834 & 0.03528021 \\
+64  & -0.0155962 & 0.03444446 \\
+65  & -0.0154098 & 0.03360827 \\
+66  & -0.0152241 & 0.03277169 \\
+67  & -0.0150387 & 0.03193471 \\
+68  & -0.0148536 & 0.03109736 \\
+69  & -0.0146689 & 0.03025966 \\
+70  & -0.0144845 & 0.02942161 \\
+71  & -0.0143005 & 0.02858323 \\
+72  & -0.0141171 & 0.02774449 \\
+73  & -0.0139343 & 0.02690541 \\
+74  & -0.0137523 & 0.02606589 \\
+75  & -0.0135712 & 0.02522589 \\
+76  & -0.0133911 & 0.02438534 \\
+77  & -0.0132122 & 0.02354418 \\
+78  & -0.0130345 & 0.02270242 \\
+79  & -0.0128579 & 0.02186016 \\
+80  & -0.0126824 & 0.02101746 \\
+81  & -0.0125079 & 0.02017443 \\
+82  & -0.0123344 & 0.01933113 \\
+83  & -0.0121613 & 0.01848764 \\
+84  & -0.011988  & 0.01764394 \\
+85  & -0.0118139 & 0.01680008 \\
+86  & -0.0116385 & 0.01595608 \\
+87  & -0.0114611 & 0.01511202 \\
+88  & -0.0112818 & 0.01426809 \\
+89  & -0.0111004 & 0.01342454 \\
+90  & -0.010917  & 0.01258164 \\
+91  & -0.0107315 & 0.01173962 \\
+92  & -0.0105446 & 0.01089838 \\
+93  & -0.0103575 & 0.01005727 \\
+94  & -0.0101718 & 0.00921553 \\
+95  & -0.0099891 & 0.00837243 \\
+96  & -0.0098108 & 0.00752727 \\
+97  & -0.0096382 & 0.00667992 \\
+98  & -0.0094722 & 0.00583082 \\
+99  & -0.0093137 & 0.00498042 \\
+100 & -0.0091636 & 0.00412916 \\
+101 & -0.0090223 & 0.00327748 \\
+102 & -0.008886  & 0.00242549 \\
+103 & -0.0087494 & 0.00157303 \\
+104 & -0.0086374 & 0.00071367 \\
+105 & -0.0085425 & -0.0001705 \\
+106 & -0.008544  & -0.0002054 \\
+107 & -0.0085485 & -0.0002401 \\
+108 & -0.0085561 & -0.0002742 \\
+109 & -0.0085666 & -0.0003076 \\
+110 & -0.00858   & -0.0003399 \\
+111 & -0.0085961 & -0.000371  \\
+112 & -0.0086148 & -0.0004005 \\
+113 & -0.0086361 & -0.0004282 \\
+114 & -0.0086597 & -0.0004541 \\
+115 & -0.0086855 & -0.0004777 \\
+116 & -0.0087132 & -0.000499  \\
+117 & -0.0087426 & -0.0005179 \\
+118 & -0.0087736 & -0.0005341 \\
+119 & -0.0088059 & -0.0005475 \\
+120 & -0.0088392 & -0.0005581 \\
+121 & -0.0088734 & -0.0005658 \\
+122 & -0.008908  & -0.0005704 \\
+123 & -0.008943  & -0.000572  \\
+124 & -0.0089779 & -0.0005706 \\
+125 & -0.0090126 & -0.0005661 \\
+126 & -0.0090467 & -0.0005586 \\
+127 & -0.0090801 & -0.0005482 \\
+128 & -0.0091125 & -0.0005349 \\
+129 & -0.0091435 & -0.0005188 \\
+130 & -0.0091731 & -0.0005001 \\
+131 & -0.0092009 & -0.0004789 \\
+132 & -0.0092268 & -0.0004554 \\
+133 & -0.0092505 & -0.0004297 \\
+134 & -0.0092719 & -0.000402  \\
+135 & -0.0092908 & -0.0003726 \\
+136 & -0.0095434 & 0.00018639 \\
+137 & -0.0097897 & 0.00072377 \\
+138 & -0.0100425 & 0.00126644 \\
+139 & -0.0102985 & 0.00181031 \\
+140 & -0.0105545 & 0.00235181 \\
+141 & -0.0108093 & 0.00289071 \\
+142 & -0.0110627 & 0.0034282  \\
+143 & -0.0113142 & 0.00396546 \\
+144 & -0.0115634 & 0.0045036  \\
+145 & -0.0118102 & 0.00504298 \\
+146 & -0.0120547 & 0.00558351 \\
+147 & -0.0122969 & 0.00612505 \\
+148 & -0.0125368 & 0.0066675  \\
+149 & -0.0127745 & 0.00721073 \\
+150 & -0.0130099 & 0.00775462 \\
+151 & -0.0132432 & 0.00829906 \\
+152 & -0.0134744 & 0.00884392 \\
+153 & -0.0137036 & 0.00938911 \\
+154 & -0.0139311 & 0.00993455 \\
+155 & -0.0141572 & 0.01048017 \\
+156 & -0.0143824 & 0.0110259  \\
+157 & -0.0146068 & 0.01157166 \\
+158 & -0.014831  & 0.01211738 \\
+159 & -0.0150551 & 0.01266298 \\
+160 & -0.0152794 & 0.0132084  \\
+161 & -0.0155044 & 0.01375357 \\
+162 & -0.0157301 & 0.01429843 \\
+163 & -0.0159564 & 0.01484295 \\
+164 & -0.0161834 & 0.01538707 \\
+165 & -0.0164111 & 0.01593073 \\
+166 & -0.0166396 & 0.01647394 \\
+167 & -0.0168688 & 0.01701659 \\
+168 & -0.0170988 & 0.01755868 \\
+169 & -0.0173297 & 0.01810013 \\
+170 & -0.0175619 & 0.01864068 \\
+171 & -0.0177965 & 0.01917996 \\
+172 & -0.0180343 & 0.01971759 \\
+173 & -0.0182762 & 0.02025321 \\
+174 & -0.0185225 & 0.02078674 \\
+175 & -0.0187728 & 0.02131841 \\
+176 & -0.0190267 & 0.02184848 \\
+177 & -0.019284  & 0.02237718 \\
+178 & -0.0195442 & 0.02290471 \\
+179 & -0.0198074 & 0.02343112 \\
+180 & -0.0200732 & 0.02395647 \\
+181 & -0.0203415 & 0.02448083 \\
+182 & -0.0206122 & 0.02500425 \\
+183 & -0.0208851 & 0.02552679 \\
+184 & -0.02116   & 0.02604851 \\
+185 & -0.0214368 & 0.0265695  \\
+186 & -0.0217153 & 0.02708976 \\
+187 & -0.0219957 & 0.02760923 \\
+188 & -0.0222781 & 0.02812782 \\
+189 & -0.0225627 & 0.02864547 \\
+190 & -0.0228497 & 0.02916207 \\
+191 & -0.0231392 & 0.02967753 \\
+192 & -0.0234314 & 0.03019177 \\
+193 & -0.0237265 & 0.03070471 \\
+194 & -0.0240246 & 0.03121623 \\
+195 & -0.0243257 & 0.03172637 \\
+196 & -0.0246296 & 0.03223516 \\
+197 & -0.0249363 & 0.03274265 \\
+198 & -0.0252454 & 0.03324888 \\
+199 & -0.0255571 & 0.03375392 \\
+200 & -0.025871  & 0.03425779 \\
+201 & -0.0261871 & 0.03476056 \\
+202 & -0.0265051 & 0.03526225 \\
+203 & -0.0268253 & 0.0357628  \\
+204 & -0.0271478 & 0.03626188 \\
+205 & -0.0274731 & 0.03675915 \\
+206 & -0.0278015 & 0.03725429 \\
+207 & -0.0281333 & 0.03774697 \\
+208 & -0.0284689 & 0.0382369  \\
+209 & -0.0288084 & 0.03872385 \\
+210 & -0.0291522 & 0.0392075  \\
+211 & -0.0295003 & 0.03968767 \\
+212 & -0.0298523 & 0.04016448 \\
+213 & -0.0302078 & 0.04063809 \\
+214 & -0.0305659 & 0.04110869 \\
+215 & -0.0309266 & 0.04157647 \\
+216 & -0.0312889 & 0.0420416  \\
+217 & -0.0316526 & 0.04250427 \\
+218 & -0.0320169 & 0.04296468 \\
+219 & -0.0323815 & 0.04342299 \\
+220 & -0.032746  & 0.04387949 \\
+221 & -0.0331108 & 0.04433453 \\
+222 & -0.0334755 & 0.04478842 \\
+223 & -0.0338404 & 0.04524151 \\
+224 & -0.0342056 & 0.04569412 \\
+225 & -0.0345712 & 0.04614659 \\
+226 & -0.0349374 & 0.04659925 \\
+227 & -0.0353042 & 0.04705245 \\
+228 & -0.0356713 & 0.04750649 \\
+229 & -0.036037  & 0.04796176 \\
+230 & -0.0363997 & 0.04841856 \\
+231 & -0.0367574 & 0.04887726 \\
+232 & -0.0371075 & 0.04933986 \\
+233 & -0.0374442 & 0.04981245 \\
+234 & -0.0377613 & 0.05030169 \\
+235 & -0.0381413 & 0.05099947 \\
+236 & -0.0382215 & 0.05118867 \\
+237 & -0.0382933 & 0.05138127 \\
+238 & -0.0383566 & 0.0515769  \\
+239 & -0.0384113 & 0.05177516 \\
+\hline
+\end{longtable}
+\unskip
+\unpenalty
+\unpenalty}
+
+\begin{multicols}{2}
+\unvbox\ltmcbox
+\end{multicols}
+
+\subsection{Vane KTA01 (M-skew standard)}
+
+\setbox\ltmcbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{longtable}{|c|c|c|}
+\hline
+Point & x & y\\
+\hline
+1   & -0.0382162 & 0.05182894 \\
+2   & -0.038268  & 0.05207091 \\
+3   & -0.0383079 & 0.05231519 \\
+4   & -0.038336  & 0.05256112 \\
+5   & -0.0383308 & 0.0536641  \\
+6   & -0.0382208 & 0.05449107 \\
+7   & -0.0380384 & 0.05531149 \\
+8   & -0.0378243 & 0.05612872 \\
+9   & -0.0375915 & 0.05694268 \\
+10  & -0.0373448 & 0.05775217 \\
+11  & -0.0370739 & 0.05855386 \\
+12  & -0.0367665 & 0.05934416 \\
+13  & -0.0364104 & 0.0601195  \\
+14  & -0.0359936 & 0.06087592 \\
+15  & -0.03551   & 0.06160072 \\
+16  & -0.0349597 & 0.06227173 \\
+17  & -0.0343431 & 0.06286637 \\
+18  & -0.0336599 & 0.06336205 \\
+19  & -0.0329113 & 0.06373753 \\
+20  & -0.0321111 & 0.0639846  \\
+21  & -0.031281  & 0.06410243 \\
+22  & -0.0304424 & 0.06409062 \\
+23  & -0.0296159 & 0.06394962 \\
+24  & -0.0288197 & 0.06368345 \\
+25  & -0.0280608 & 0.06330843 \\
+26  & -0.0273432 & 0.06284441 \\
+27  & -0.0266705 & 0.06231123 \\
+28  & -0.0260465 & 0.06172872 \\
+29  & -0.0254716 & 0.06111229 \\
+30  & -0.0249392 & 0.06046734 \\
+31  & -0.0244419 & 0.05979782 \\
+32  & -0.023972  & 0.0591077  \\
+33  & -0.0235221 & 0.05840094 \\
+34  & -0.0230882 & 0.05768037 \\
+35  & -0.0226704 & 0.05694763 \\
+36  & -0.0222694 & 0.0562042  \\
+37  & -0.0218855 & 0.05545162 \\
+38  & -0.0215191 & 0.05469134 \\
+39  & -0.0211696 & 0.05392416 \\
+40  & -0.0208358 & 0.05315047 \\
+41  & -0.0205163 & 0.05237058 \\
+42  & -0.02021   & 0.05158488 \\
+43  & -0.0199157 & 0.05079376 \\
+44  & -0.0196325 & 0.04999767 \\
+45  & -0.0193599 & 0.04919713 \\
+46  & -0.0190973 & 0.04839265 \\
+47  & -0.0188441 & 0.04758475 \\
+48  & -0.0185997 & 0.04677386 \\
+49  & -0.0183631 & 0.04596027 \\
+50  & -0.0181338 & 0.04514429 \\
+51  & -0.0179107 & 0.04432615 \\
+52  & -0.0176932 & 0.04350614 \\
+53  & -0.0174805 & 0.04268448 \\
+54  & -0.017272  & 0.04186134 \\
+55  & -0.0170672 & 0.04103689 \\
+56  & -0.0168656 & 0.0402113  \\
+57  & -0.0166664 & 0.03938476 \\
+58  & -0.0164694 & 0.03855735 \\
+59  & -0.0162742 & 0.03772919 \\
+60  & -0.0160806 & 0.03690035 \\
+61  & -0.0158882 & 0.03607094 \\
+62  & -0.0156969 & 0.03524103 \\
+63  & -0.0155065 & 0.03441063 \\
+64  & -0.015317  & 0.03357973 \\
+65  & -0.0151283 & 0.03274832 \\
+66  & -0.0149405 & 0.03191637 \\
+67  & -0.0147535 & 0.03108389 \\
+68  & -0.0145674 & 0.03025086 \\
+69  & -0.0143823 & 0.0294173  \\
+70  & -0.0141984 & 0.02858317 \\
+71  & -0.0140157 & 0.02774849 \\
+72  & -0.0138343 & 0.02691327 \\
+73  & -0.0136543 & 0.02607749 \\
+74  & -0.0134755 & 0.02524114 \\
+75  & -0.013298  & 0.02440422 \\
+76  & -0.0131216 & 0.02356672 \\
+77  & -0.0129464 & 0.02272868 \\
+78  & -0.0127721 & 0.0218902  \\
+79  & -0.0125985 & 0.02105135 \\
+80  & -0.0124254 & 0.02021221 \\
+81  & -0.0122526 & 0.01937285 \\
+82  & -0.0120797 & 0.01853334 \\
+83  & -0.0119065 & 0.01769375 \\
+84  & -0.0117325 & 0.01685411 \\
+85  & -0.0115572 & 0.0160145  \\
+86  & -0.0113806 & 0.01517496 \\
+87  & -0.0112031 & 0.01433539 \\
+88  & -0.0110256 & 0.01349573 \\
+89  & -0.0108487 & 0.01265587 \\
+90  & -0.0106731 & 0.01181575 \\
+91  & -0.0104995 & 0.01097525 \\
+92  & -0.0103284 & 0.01013427 \\
+93  & -0.0101601 & 0.00929268 \\
+94  & -0.0099951 & 0.00845037 \\
+95  & -0.0098338 & 0.00760721 \\
+96  & -0.0096766 & 0.00676311 \\
+97  & -0.0095235 & 0.005918   \\
+98  & -0.0093748 & 0.00507179 \\
+99  & -0.0092305 & 0.0042244  \\
+100 & -0.0090906 & 0.00337569 \\
+101 & -0.0089533 & 0.00252483 \\
+102 & -0.0088157 & 0.00167063 \\
+103 & -0.0086749 & 0.00081178 \\
+104 & -0.0085334 & -5.25E-05  \\
+105 & -0.0085356 & -0.0001014 \\
+106 & -0.008542  & -0.0001499 \\
+107 & -0.0085527 & -0.0001976 \\
+108 & -0.0085676 & -0.0002442 \\
+109 & -0.0085866 & -0.0002893 \\
+110 & -0.0086095 & -0.0003326 \\
+111 & -0.008636  & -0.0003736 \\
+112 & -0.0086661 & -0.0004122 \\
+113 & -0.0086995 & -0.000448  \\
+114 & -0.008736  & -0.0004806 \\
+115 & -0.0087751 & -0.0005099 \\
+116 & -0.0088167 & -0.0005357 \\
+117 & -0.0088604 & -0.0005577 \\
+118 & -0.0089059 & -0.0005757 \\
+119 & -0.0089528 & -0.0005896 \\
+120 & -0.0090007 & -0.0005994 \\
+121 & -0.0090493 & -0.0006049 \\
+122 & -0.0090982 & -0.000606  \\
+123 & -0.009147  & -0.0006029 \\
+124 & -0.0091954 & -0.0005954 \\
+125 & -0.0092429 & -0.0005837 \\
+126 & -0.0092892 & -0.0005678 \\
+127 & -0.0093339 & -0.000548  \\
+128 & -0.0093766 & -0.0005242 \\
+129 & -0.0094171 & -0.0004968 \\
+130 & -0.0094551 & -0.0004659 \\
+131 & -0.0094901 & -0.0004318 \\
+132 & -0.009522  & -0.0003947 \\
+133 & -0.0095505 & -0.0003549 \\
+134 & -0.0095754 & -0.0003128 \\
+135 & -0.0098105 & 0.00024869 \\
+136 & -0.010042  & 0.00078499 \\
+137 & -0.0102829 & 0.00133374 \\
+138 & -0.0105247 & 0.00188807 \\
+139 & -0.0107599 & 0.00244185 \\
+140 & -0.0109879 & 0.0029938  \\
+141 & -0.0112109 & 0.00354461 \\
+142 & -0.011431  & 0.00409496 \\
+143 & -0.0116504 & 0.00464553 \\
+144 & -0.0118699 & 0.0051965  \\
+145 & -0.0120893 & 0.00574775 \\
+146 & -0.0123086 & 0.00629918 \\
+147 & -0.0125279 & 0.00685065 \\
+148 & -0.0127469 & 0.00740206 \\
+149 & -0.0129658 & 0.00795328 \\
+150 & -0.0131844 & 0.0085042  \\
+151 & -0.0134027 & 0.0090547  \\
+152 & -0.0136207 & 0.0096047  \\
+153 & -0.0138386 & 0.01015417 \\
+154 & -0.0140566 & 0.01070309 \\
+155 & -0.0142749 & 0.01125143 \\
+156 & -0.0144938 & 0.01179917 \\
+157 & -0.0147134 & 0.01234629 \\
+158 & -0.0149339 & 0.01289276 \\
+159 & -0.0151556 & 0.01343856 \\
+160 & -0.0153786 & 0.01398366 \\
+161 & -0.015603  & 0.014528   \\
+162 & -0.0158291 & 0.01507151 \\
+163 & -0.0160569 & 0.01561413 \\
+164 & -0.0162865 & 0.01615579 \\
+165 & -0.0165182 & 0.01669643 \\
+166 & -0.016752  & 0.01723599 \\
+167 & -0.016988  & 0.01777439 \\
+168 & -0.0172264 & 0.01831158 \\
+169 & -0.0174671 & 0.01884758 \\
+170 & -0.01771   & 0.01938248 \\
+171 & -0.0179549 & 0.01991638 \\
+172 & -0.0182015 & 0.02044934 \\
+173 & -0.0184498 & 0.02098148 \\
+174 & -0.0186996 & 0.02151288 \\
+175 & -0.0189507 & 0.02204361 \\
+176 & -0.0192028 & 0.02257379 \\
+177 & -0.0194562 & 0.02310335 \\
+178 & -0.0197113 & 0.02363213 \\
+179 & -0.0199685 & 0.02415989 \\
+180 & -0.0202283 & 0.02468645 \\
+181 & -0.0204912 & 0.02521158 \\
+182 & -0.0207577 & 0.02573507 \\
+183 & -0.0210283 & 0.02625672 \\
+184 & -0.0213035 & 0.0267763  \\
+185 & -0.0215835 & 0.02729367 \\
+186 & -0.0218681 & 0.02780893 \\
+187 & -0.0221569 & 0.02832225 \\
+188 & -0.0224494 & 0.02883376 \\
+189 & -0.0227451 & 0.02934363 \\
+190 & -0.0230436 & 0.02985203 \\
+191 & -0.0233445 & 0.03035911 \\
+192 & -0.0236473 & 0.03086503 \\
+193 & -0.0239515 & 0.03136994 \\
+194 & -0.024257  & 0.03187397 \\
+195 & -0.0245639 & 0.03237723 \\
+196 & -0.0248719 & 0.03287984 \\
+197 & -0.0251813 & 0.03338194 \\
+198 & -0.0254919 & 0.03388361 \\
+199 & -0.0258037 & 0.03438498 \\
+200 & -0.0261168 & 0.03488617 \\
+201 & -0.0264311 & 0.03538726 \\
+202 & -0.0267469 & 0.03588813 \\
+203 & -0.0270647 & 0.03638819 \\
+204 & -0.027385  & 0.03688685 \\
+205 & -0.0277083 & 0.0373835  \\
+206 & -0.0280351 & 0.03787755 \\
+207 & -0.0283661 & 0.03836845 \\
+208 & -0.0287016 & 0.03885562 \\
+209 & -0.0290421 & 0.03933853 \\
+210 & -0.029388  & 0.03981675 \\
+211 & -0.0297386 & 0.04029049 \\
+212 & -0.0300934 & 0.04076013 \\
+213 & -0.0304515 & 0.04122601 \\
+214 & -0.0308125 & 0.04168851 \\
+215 & -0.0311755 & 0.04214797 \\
+216 & -0.0315401 & 0.04260474 \\
+217 & -0.0319054 & 0.04305917 \\
+218 & -0.0322711 & 0.04351159 \\
+219 & -0.0326366 & 0.0439625  \\
+220 & -0.0330021 & 0.0444124  \\
+221 & -0.033367  & 0.04486183 \\
+222 & -0.0337317 & 0.0453113  \\
+223 & -0.0340958 & 0.04576136 \\
+224 & -0.0344596 & 0.04621254 \\
+225 & -0.0348229 & 0.04666535 \\
+226 & -0.0351857 & 0.04712032 \\
+227 & -0.0355478 & 0.04757751 \\
+228 & -0.0359083 & 0.04803632 \\
+229 & -0.0362665 & 0.04849588 \\
+230 & -0.0366217 & 0.04895495 \\
+231 & -0.0369712 & 0.0494152  \\
+232 & -0.0373061 & 0.04988548 \\
+233 & -0.0376168 & 0.05037569 \\
+234 & -0.0379914 & 0.05112246 \\
+235 & -0.0380778 & 0.05135413 \\
+236 & -0.0381528 & 0.05158982 \\
+237 & -0.0382162 & 0.05182894 \\
+\hline
+\end{longtable}
+\unskip
+\unpenalty
+\unpenalty}
+
+\begin{multicols}{2}
+\unvbox\ltmcbox
+\end{multicols}
+
+\subsection{Vane KSZ03 (M-skew standard)}
+
+\setbox\ltmcbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{longtable}{|c|c|c|}
+\hline
+Point & x & y\\
+\hline
+1   & -0.0381768 & 0.05259344 \\
+2   & -0.0381043 & 0.05365238 \\
+3   & -0.0379962 & 0.0545012  \\
+4   & -0.0378516 & 0.05534338 \\
+5   & -0.0376753 & 0.05618013 \\
+6   & -0.0374725 & 0.05700642 \\
+7   & -0.0372435 & 0.05781867 \\
+8   & -0.0369794 & 0.05861665 \\
+9   & -0.0366698 & 0.0594005  \\
+10  & -0.0363045 & 0.06017036 \\
+11  & -0.0358737 & 0.06092592 \\
+12  & -0.0353734 & 0.06165552 \\
+13  & -0.0348067 & 0.06233536 \\
+14  & -0.0341767 & 0.06294108 \\
+15  & -0.033486  & 0.06344832 \\
+16  & -0.032738  & 0.06383389 \\
+17  & -0.0319449 & 0.06408624 \\
+18  & -0.0311242 & 0.06420045 \\
+19  & -0.0302942 & 0.06417581 \\
+20  & -0.0294736 & 0.064018   \\
+21  & -0.0286792 & 0.06373532 \\
+22  & -0.0279188 & 0.06334581 \\
+23  & -0.0271973 & 0.06287027 \\
+24  & -0.0265195 & 0.06232951 \\
+25  & -0.0258901 & 0.06174436 \\
+26  & -0.0253106 & 0.06113031 \\
+27  & -0.024775  & 0.06049086 \\
+28  & -0.0242763 & 0.05982782 \\
+29  & -0.0238073 & 0.05914298 \\
+30  & -0.0233611 & 0.05843816 \\
+31  & -0.0229334 & 0.05771575 \\
+32  & -0.0225229 & 0.05697883 \\
+33  & -0.0221289 & 0.05623054 \\
+34  & -0.0217501 & 0.05547399 \\
+35  & -0.0213859 & 0.05471214 \\
+36  & -0.0210355 & 0.05394582 \\
+37  & -0.0206989 & 0.05317452 \\
+38  & -0.0203757 & 0.05239775 \\
+39  & -0.0200657 & 0.05161497 \\
+40  & -0.0197687 & 0.05082581 \\
+41  & -0.019484  & 0.05003065 \\
+42  & -0.019211  & 0.04923022 \\
+43  & -0.018949  & 0.04842514 \\
+44  & -0.0186972 & 0.04761612 \\
+45  & -0.0184548 & 0.04680374 \\
+46  & -0.0182209 & 0.0459884  \\
+47  & -0.0179944 & 0.04517046 \\
+48  & -0.0177744 & 0.04435028 \\
+49  & -0.0175599 & 0.04352821 \\
+50  & -0.01735   & 0.0427045  \\
+51  & -0.0171443 & 0.0418793  \\
+52  & -0.0169425 & 0.04105271 \\
+53  & -0.0167441 & 0.04022484 \\
+54  & -0.0165487 & 0.03939579 \\
+55  & -0.0163559 & 0.03856573 \\
+56  & -0.0161653 & 0.03773474 \\
+57  & -0.0159764 & 0.03690301 \\
+58  & -0.0157889 & 0.03607066 \\
+59  & -0.0156025 & 0.0352378  \\
+60  & -0.0154169 & 0.03440448 \\
+61  & -0.0152322 & 0.03357065 \\
+62  & -0.0150485 & 0.03273629 \\
+63  & -0.0148657 & 0.03190138 \\
+64  & -0.0146839 & 0.03106593 \\
+65  & -0.0145029 & 0.03022995 \\
+66  & -0.0143226 & 0.02939352 \\
+67  & -0.014143  & 0.02855667 \\
+68  & -0.013964  & 0.02771946 \\
+69  & -0.0137856 & 0.02688192 \\
+70  & -0.0136078 & 0.02604398 \\
+71  & -0.0134307 & 0.0252056  \\
+72  & -0.0132544 & 0.02436674 \\
+73  & -0.0130789 & 0.02352737 \\
+74  & -0.0129045 & 0.02268744 \\
+75  & -0.0127315 & 0.02184696 \\
+76  & -0.0125603 & 0.02100591 \\
+77  & -0.0123911 & 0.02016429 \\
+78  & -0.0122243 & 0.0193221  \\
+79  & -0.0120593 & 0.0184794  \\
+80  & -0.0118954 & 0.01763631 \\
+81  & -0.0117317 & 0.01679292 \\
+82  & -0.0115675 & 0.01594933 \\
+83  & -0.0114021 & 0.01510566 \\
+84  & -0.0112359 & 0.01426197 \\
+85  & -0.0110691 & 0.01341834 \\
+86  & -0.010902  & 0.01257485 \\
+87  & -0.0107352 & 0.01173159 \\
+88  & -0.0105686 & 0.01088853 \\
+89  & -0.010402  & 0.01004545 \\
+90  & -0.0102348 & 0.00920211 \\
+91  & -0.0100667 & 0.00835826 \\
+92  & -0.0098974 & 0.0075137  \\
+93  & -0.0097276 & 0.0066685  \\
+94  & -0.0095591 & 0.00582306 \\
+95  & -0.0093939 & 0.00497777 \\
+96  & -0.0092337 & 0.00413303 \\
+97  & -0.0090799 & 0.00328922 \\
+98  & -0.0089282 & 0.00244652 \\
+99  & -0.0087722 & 0.00160513 \\
+100 & -0.0086404 & 0.00076941 \\
+101 & -0.0085203 & -0.0001524 \\
+102 & -0.0085224 & -0.0001984 \\
+103 & -0.0085285 & -0.0002441 \\
+104 & -0.0085387 & -2.89E-04  \\
+105 & -0.0085528 & -0.0003329 \\
+106 & -0.0085707 & -0.0003753 \\
+107 & -0.0085924 & -0.000416  \\
+108 & -0.0086176 & -0.0004545 \\
+109 & -0.0086461 & -0.0004907 \\
+110 & -0.0086777 & -0.0005242 \\
+111 & -0.0087122 & -0.0005548 \\
+112 & -0.0087492 & -0.0005822 \\
+113 & -0.0087885 & -0.0006062 \\
+114 & -0.0088298 & -0.0006265 \\
+115 & -0.0088728 & -0.0006432 \\
+116 & -0.0089171 & -0.0006559 \\
+117 & -0.0089623 & -0.0006647 \\
+118 & -0.0090081 & -0.0006694 \\
+119 & -0.0090542 & -0.00067   \\
+120 & -0.0091001 & -0.0006666 \\
+121 & -0.0091455 & -0.000659  \\
+122 & -0.0091901 & -0.0006475 \\
+123 & -0.0092335 & -0.000632  \\
+124 & -0.0092753 & -0.0006127 \\
+125 & -0.0093153 & -0.0005898 \\
+126 & -0.0093531 & -0.0005634 \\
+127 & -0.0093883 & -0.0005338 \\
+128 & -0.0094208 & -0.0005012 \\
+129 & -0.0094503 & -0.0004657 \\
+130 & -0.0094765 & -0.0004279 \\
+131 & -0.0094993 & -0.0003878 \\
+132 & -0.0097441 & 0.00024068 \\
+133 & -0.0099672 & 0.00079909 \\
+134 & -0.0101883 & 0.00134086 \\
+135 & -0.0104078 & 0.0018776  \\
+136 & -0.0106265 & 0.00241955 \\
+137 & -0.0108449 & 0.00296783 \\
+138 & -0.0110638 & 0.00351983 \\
+139 & -0.011284  & 0.00407295 \\
+140 & -0.011506  & 0.00462471 \\
+141 & -0.01173   & 0.00517433 \\
+142 & -0.0119557 & 0.00572211 \\
+143 & -0.0121829 & 0.00626836 \\
+144 & -0.0124111 & 0.0068134  \\
+145 & -0.0126402 & 0.00735755 \\
+146 & -0.0128699 & 0.00790111 \\
+147 & -0.0130999 & 0.00844443 \\
+148 & -0.0133299 & 0.00898779 \\
+149 & -0.0135596 & 0.00953138 \\
+150 & -0.0137892 & 0.01007513 \\
+151 & -0.0140187 & 0.01061897 \\
+152 & -0.014248  & 0.01116281 \\
+153 & -0.0144771 & 0.01170657 \\
+154 & -0.0147061 & 0.01225017 \\
+155 & -0.0149351 & 0.01279354 \\
+156 & -0.0151639 & 0.01333659 \\
+157 & -0.0153926 & 0.01387927 \\
+158 & -0.0156214 & 0.01442153 \\
+159 & -0.0158504 & 0.0149634  \\
+160 & -0.0160796 & 0.01550483 \\
+161 & -0.0163093 & 0.01604585 \\
+162 & -0.0165395 & 0.01658643 \\
+163 & -0.0167704 & 0.01712657 \\
+164 & -0.017002  & 0.01766628 \\
+165 & -0.0172346 & 0.0182055  \\
+166 & -0.0174683 & 0.01874416 \\
+167 & -0.0177036 & 0.01928206 \\
+168 & -0.0179407 & 0.019819   \\
+169 & -0.0181801 & 0.02035482 \\
+170 & -0.0184219 & 0.02088931 \\
+171 & -0.0186667 & 0.02142231 \\
+172 & -0.0189147 & 0.02195363 \\
+173 & -0.0191662 & 0.02248307 \\
+174 & -0.0194214 & 0.0230106  \\
+175 & -0.0196801 & 0.02353638 \\
+176 & -0.019942  & 0.02406057 \\
+177 & -0.0202069 & 0.02458334 \\
+178 & -0.0204745 & 0.02510489 \\
+179 & -0.0207446 & 0.02562538 \\
+180 & -0.021017  & 0.02614498 \\
+181 & -0.0212913 & 0.02666387 \\
+182 & -0.0215675 & 0.02718217 \\
+183 & -0.0218457 & 0.02769981 \\
+184 & -0.0221259 & 0.02821663 \\
+185 & -0.0224085 & 0.02873251 \\
+186 & -0.0226936 & 0.02924729 \\
+187 & -0.0229814 & 0.02976086 \\
+188 & -0.023272  & 0.03027308 \\
+189 & -0.0235656 & 0.03078382 \\
+190 & -0.0238624 & 0.03129298 \\
+191 & -0.0241623 & 0.03180059 \\
+192 & -0.0244651 & 0.03230682 \\
+193 & -0.0247706 & 0.03281183 \\
+194 & -0.0250786 & 0.03331578 \\
+195 & -0.025389  & 0.03381884 \\
+196 & -0.0257015 & 0.03432115 \\
+197 & -0.0260159 & 0.03482289 \\
+198 & -0.0263321 & 0.0353242  \\
+199 & -0.0266501 & 0.03582505 \\
+200 & -0.0269703 & 0.036325   \\
+201 & -0.027293  & 0.03682366 \\
+202 & -0.0276186 & 0.03732058 \\
+203 & -0.0279474 & 0.03781537 \\
+204 & -0.0282799 & 0.03830756 \\
+205 & -0.0286163 & 0.03879674 \\
+206 & -0.0289571 & 0.03928248 \\
+207 & -0.0293025 & 0.0397645  \\
+208 & -0.029652  & 0.04024285 \\
+209 & -0.0300053 & 0.04071777 \\
+210 & -0.0303619 & 0.04118946 \\
+211 & -0.0307213 & 0.04165815 \\
+212 & -0.0310829 & 0.04212403 \\
+213 & -0.0314466 & 0.04258734 \\
+214 & -0.0318114 & 0.04304825 \\
+215 & -0.0321774 & 0.043507   \\
+216 & -0.0325437 & 0.04396388 \\
+217 & -0.0329108 & 0.04441917 \\
+218 & -0.0332778 & 0.04487324 \\
+219 & -0.0336452 & 0.04532637 \\
+220 & -0.0340125 & 0.0457789  \\
+221 & -0.03438   & 0.04623111 \\
+222 & -0.0347473 & 0.04668336 \\
+223 & -0.0351147 & 0.04713595 \\
+224 & -0.0354809 & 0.04758954 \\
+225 & -0.0358437 & 0.04804533 \\
+226 & -0.0362003 & 0.04850455 \\
+227 & -0.0365484 & 0.04896841 \\
+228 & -0.0368852 & 0.04943895 \\
+229 & -0.0372081 & 0.04992014 \\
+230 & -0.0375145 & 0.05041622 \\
+231 & -0.0378721 & 0.05108781 \\
+232 & -0.0379353 & 0.05124738 \\
+233 & -0.0379915 & 0.05140964 \\
+234 & -0.0380403 & 0.0515743  \\
+235 & -0.0380818 & 0.051741   \\
+236 & -0.0381159 & 0.05190942 \\
+237 & -0.0381425 & 0.05207922 \\
+238 & -0.0381615 & 0.05225005 \\
+239 & -0.038173  & 0.05242157 \\
+240 & -0.0381768 & 0.05259344 \\
+\hline
+\end{longtable}
+\unskip
+\unpenalty
+\unpenalty}
+
+\begin{multicols}{2}
+\unvbox\ltmcbox
+\end{multicols}
+
+\subsection{Vane KVD04 (M-skew standard)}
+
+\setbox\ltmcbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{longtable}{|c|c|c|}
+\hline
+Point & x & y\\
+\hline
+1   & -0.0381493 & 0.05184285 \\
+2   & -0.0382009 & 0.05208029 \\
+3   & -0.0382407 & 0.05232004 \\
+4   & -0.0382686 & 0.05256151 \\
+5   & -0.0382586 & 0.05366364 \\
+6   & -0.038139  & 0.05449767 \\
+7   & -0.0379504 & 0.05532557 \\
+8   & -0.0377383 & 0.05615108 \\
+9   & -0.0375117 & 0.0569709  \\
+10  & -0.0372722 & 0.05778215 \\
+11  & -0.0370078 & 0.05858323 \\
+12  & -0.0367052 & 0.05937258 \\
+13  & -0.0363508 & 0.06014872 \\
+14  & -0.0359316 & 0.06090975 \\
+15  & -0.0354418 & 0.06164345 \\
+16  & -0.0348842 & 0.06232668 \\
+17  & -0.0342617 & 0.06293574 \\
+18  & -0.033577  & 0.06344695 \\
+19  & -0.0328331 & 0.06383801 \\
+20  & -0.0320425 & 0.0641     \\
+21  & -0.0312229 & 0.06423169 \\
+22  & -0.0303922 & 0.06423185 \\
+23  & -0.0295682 & 0.06409933 \\
+24  & -0.0287669 & 0.06383637 \\
+25  & -0.0279967 & 0.06346131 \\
+26  & -0.027264  & 0.062997   \\
+27  & -0.0265753 & 0.06246516 \\
+28  & -0.0259374 & 0.06188661 \\
+29  & -0.0253531 & 0.06127694 \\
+30  & -0.0248148 & 0.06064007 \\
+31  & -0.0243139 & 0.05997821 \\
+32  & -0.0238418 & 0.05929362 \\
+33  & -0.0233898 & 0.05858855 \\
+34  & -0.0229536 & 0.0578655  \\
+35  & -0.0225339 & 0.05712744 \\
+36  & -0.0221318 & 0.0563772  \\
+37  & -0.0217483 & 0.05561775 \\
+38  & -0.0213844 & 0.05485184 \\
+39  & -0.0210391 & 0.05408043 \\
+40  & -0.0207104 & 0.05330329 \\
+41  & -0.0203961 & 0.0525202  \\
+42  & -0.0200942 & 0.05173093 \\
+43  & -0.0198028 & 0.05093542 \\
+44  & -0.0195213 & 0.05013429 \\
+45  & -0.0192494 & 0.04932846 \\
+46  & -0.0189867 & 0.04851883 \\
+47  & -0.0187332 & 0.04770629 \\
+48  & -0.0184883 & 0.04689154 \\
+49  & -0.0182513 & 0.0460746  \\
+50  & -0.0180215 & 0.04525544 \\
+51  & -0.0177981 & 0.044434   \\
+52  & -0.0175803 & 0.04361025 \\
+53  & -0.0173674 & 0.04278433 \\
+54  & -0.0171587 & 0.04195658 \\
+55  & -0.0169535 & 0.04112741 \\
+56  & -0.0167511 & 0.04029717 \\
+57  & -0.0165509 & 0.03946625 \\
+58  & -0.0163525 & 0.03863476 \\
+59  & -0.0161557 & 0.03780266 \\
+60  & -0.0159604 & 0.03696992 \\
+61  & -0.0157664 & 0.03613649 \\
+62  & -0.0155735 & 0.03530235 \\
+63  & -0.0153817 & 0.03446751 \\
+64  & -0.0151908 & 0.03363203 \\
+65  & -0.0150009 & 0.032796   \\
+66  & -0.0148117 & 0.03195947 \\
+67  & -0.0146232 & 0.03112248 \\
+68  & -0.0144355 & 0.03028504 \\
+69  & -0.0142486 & 0.02944712 \\
+70  & -0.0140624 & 0.02860874 \\
+71  & -0.013877  & 0.02776987 \\
+72  & -0.0136924 & 0.0269305  \\
+73  & -0.0135088 & 0.0260906  \\
+74  & -0.0133263 & 0.02525015 \\
+75  & -0.0131451 & 0.02440914 \\
+76  & -0.0129652 & 0.02356752 \\
+77  & -0.0127869 & 0.0227253  \\
+78  & -0.0126101 & 0.02188251 \\
+79  & -0.0124351 & 0.02103913 \\
+80  & -0.0122619 & 0.0201952  \\
+81  & -0.0120906 & 0.01935075 \\
+82  & -0.0119207 & 0.01850581 \\
+83  & -0.0117519 & 0.01766053 \\
+84  & -0.0115836 & 0.01681496 \\
+85  & -0.0114153 & 0.0159692  \\
+86  & -0.0112467 & 0.01512333 \\
+87  & -0.0110784 & 0.01427726 \\
+88  & -0.010911  & 0.01343092 \\
+89  & -0.0107452 & 0.01258422 \\
+90  & -0.0105817 & 0.01173708 \\
+91  & -0.0104211 & 0.01088939 \\
+92  & -0.0102639 & 0.01004105 \\
+93  & -0.0101107 & 0.00919194 \\
+94  & -0.0099619 & 0.00834196 \\
+95  & -0.009818  & 0.00749098 \\
+96  & -0.0096788 & 0.00663908 \\
+97  & -0.0095433 & 0.00578647 \\
+98  & -0.0094108 & 0.00493335 \\
+99  & -0.0092804 & 0.00407996 \\
+100 & -0.0091511 & 0.00322651 \\
+101 & -0.0090214 & 0.00237324 \\
+102 & -0.0088895 & 0.00152041 \\
+103 & -0.0087536 & 0.00066852 \\
+104 & -0.0086102 & -2.20E-04  \\
+105 & -0.0086122 & -0.0002658 \\
+106 & -0.0086184 & -0.0003117 \\
+107 & -0.0086286 & -0.0003568 \\
+108 & -0.0086428 & -0.0004008 \\
+109 & -0.0086608 & -0.0004434 \\
+110 & -0.0086826 & -0.0004843 \\
+111 & -0.0087079 & -0.000523  \\
+112 & -0.0087365 & -0.0005593 \\
+113 & -0.0087683 & -0.000593  \\
+114 & -0.0088029 & -0.0006237 \\
+115 & -0.0088401 & -0.0006511 \\
+116 & -0.0088796 & -0.0006752 \\
+117 & -0.0089211 & -0.0006957 \\
+118 & -0.0089643 & -0.0007123 \\
+119 & -0.0090087 & -0.0007251 \\
+120 & -0.0090542 & -0.0007339 \\
+121 & -0.0091002 & -0.0007386 \\
+122 & -0.0091464 & -0.0007392 \\
+123 & -0.0091926 & -0.0007356 \\
+124 & -0.0092382 & -0.000728  \\
+125 & -0.009283  & -0.0007163 \\
+126 & -0.0093265 & -0.0007008 \\
+127 & -0.0093685 & -0.0006814 \\
+128 & -0.0094086 & -0.0006583 \\
+129 & -0.0094465 & -0.0006318 \\
+130 & -0.0094819 & -0.000602  \\
+131 & -0.0095145 & -0.0005691 \\
+132 & -0.0095441 & -0.0005335 \\
+133 & -0.0095703 & -0.0004955 \\
+134 & -0.0095931 & -0.0004552 \\
+135 & -0.0098263 & 0.00013894 \\
+136 & -0.0100486 & 0.00069023 \\
+137 & -0.010275  & 0.00124142 \\
+138 & -0.0105013 & 0.0017931  \\
+139 & -0.010724  & 0.00234579 \\
+140 & -0.010943  & 0.00289935 \\
+141 & -0.0111597 & 0.00345336 \\
+142 & -0.0113756 & 0.00400742 \\
+143 & -0.0115922 & 0.00456113 \\
+144 & -0.0118097 & 0.00511438 \\
+145 & -0.0120282 & 0.00566717 \\
+146 & -0.0122473 & 0.00621956 \\
+147 & -0.0124671 & 0.00677157 \\
+148 & -0.0126873 & 0.00732323 \\
+149 & -0.0129078 & 0.00787458 \\
+150 & -0.0131285 & 0.00842565 \\
+151 & -0.0133491 & 0.00897647 \\
+152 & -0.0135696 & 0.00952706 \\
+153 & -0.0137901 & 0.0100774  \\
+154 & -0.0140106 & 0.01062748 \\
+155 & -0.0142312 & 0.01117727 \\
+156 & -0.0144518 & 0.01172676 \\
+157 & -0.0146726 & 0.01227593 \\
+158 & -0.0148937 & 0.01282477 \\
+159 & -0.015115  & 0.01337326 \\
+160 & -0.0153367 & 0.01392136 \\
+161 & -0.0155589 & 0.01446903 \\
+162 & -0.0157817 & 0.01501616 \\
+163 & -0.0160055 & 0.0155627  \\
+164 & -0.0162304 & 0.01610856 \\
+165 & -0.0164565 & 0.01665367 \\
+166 & -0.016684  & 0.01719794 \\
+167 & -0.0169133 & 0.01774132 \\
+168 & -0.0171443 & 0.01828369 \\
+169 & -0.0173774 & 0.01882499 \\
+170 & -0.0176127 & 0.01936509 \\
+171 & -0.0178505 & 0.01990388 \\
+172 & -0.0180911 & 0.02044124 \\
+173 & -0.0183345 & 0.02097708 \\
+174 & -0.0185812 & 0.02151126 \\
+175 & -0.0188312 & 0.0220437  \\
+176 & -0.0190848 & 0.02257425 \\
+177 & -0.0193421 & 0.0231029  \\
+178 & -0.019603  & 0.02362971 \\
+179 & -0.0198673 & 0.02415481 \\
+180 & -0.020135  & 0.02467825 \\
+181 & -0.0204057 & 0.02520015 \\
+182 & -0.0206795 & 0.02572057 \\
+183 & -0.0209562 & 0.02623964 \\
+184 & -0.0212357 & 0.02675741 \\
+185 & -0.0215177 & 0.02727399 \\
+186 & -0.0218023 & 0.02778939 \\
+187 & -0.0220895 & 0.02830361 \\
+188 & -0.0223791 & 0.02881668 \\
+189 & -0.0226712 & 0.02932858 \\
+190 & -0.0229657 & 0.02983933 \\
+191 & -0.0232626 & 0.0303489  \\
+192 & -0.023562  & 0.03085726 \\
+193 & -0.0238637 & 0.03136442 \\
+194 & -0.0241677 & 0.03187038 \\
+195 & -0.0244739 & 0.03237524 \\
+196 & -0.0247823 & 0.03287902 \\
+197 & -0.0250928 & 0.03338179 \\
+198 & -0.0254054 & 0.03388362 \\
+199 & -0.0257199 & 0.03438453 \\
+200 & -0.0260363 & 0.03488462 \\
+201 & -0.0263545 & 0.03538394 \\
+202 & -0.0266746 & 0.03588237 \\
+203 & -0.0269969 & 0.03637963 \\
+204 & -0.0273217 & 0.0368754  \\
+205 & -0.0276493 & 0.03736934 \\
+206 & -0.0279799 & 0.03786111 \\
+207 & -0.0283139 & 0.0383504  \\
+208 & -0.0286515 & 0.03883688 \\
+209 & -0.0289931 & 0.03932022 \\
+210 & -0.0293387 & 0.03980018 \\
+211 & -0.0296881 & 0.0402768  \\
+212 & -0.0300408 & 0.04075022 \\
+213 & -0.0303962 & 0.04122057 \\
+214 & -0.0307541 & 0.04168798 \\
+215 & -0.0311137 & 0.04215259 \\
+216 & -0.0314749 & 0.0426145  \\
+217 & -0.0318369 & 0.04307388 \\
+218 & -0.0321995 & 0.04353085 \\
+219 & -0.0325622 & 0.04398577 \\
+220 & -0.0329255 & 0.0444391  \\
+221 & -0.0332887 & 0.04489133 \\
+222 & -0.0336525 & 0.04534293 \\
+223 & -0.0340164 & 0.04579437 \\
+224 & -0.0343808 & 0.04624612 \\
+225 & -0.0347457 & 0.04669866 \\
+226 & -0.0351112 & 0.04715246 \\
+227 & -0.0354769 & 0.0476078  \\
+228 & -0.0358413 & 0.04806459 \\
+229 & -0.036203  & 0.04852278 \\
+230 & -0.0365603 & 0.04898229 \\
+231 & -0.03691   & 0.04944513 \\
+232 & -0.0372437 & 0.04991849 \\
+233 & -0.0375523 & 0.05041029 \\
+234 & -0.0379247 & 0.05115043 \\
+235 & -0.038011  & 0.05137734 \\
+236 & -0.0380859 & 0.05160834 \\
+237 & -0.0381493 & 0.05184285 \\
+\hline
+\end{longtable}
+\unskip
+\unpenalty
+\unpenalty}
+
+\begin{multicols}{2}
+\unvbox\ltmcbox
+\end{multicols}
+
+\section{Trent XWB 84K}
+
+\subsection{Vane with undisclosed serial number}
+
+\setbox\ltmcbox\vbox{\hsize=\dimexpr0.5\textwidth-0.5\columnsep
+\makeatletter\col@number\@ne\makeatother
+\begin{longtable}{|c|c|c|}
+\hline
+Point & x & y\\
+\hline
+1   & -0.0317541 & 0.04918229 \\
+2   & -0.031812  & 0.04945261 \\
+3   & -0.0318572 & 0.04972522 \\
+4   & -0.0318896 & 0.04999953 \\
+5   & -0.0319086 & 0.05109252 \\
+6   & -0.0318444 & 0.05192324 \\
+7   & -0.0317409 & 0.05275106 \\
+8   & -0.031615  & 0.05357445 \\
+9   & -0.0314773 & 0.05439445 \\
+10  & -0.031332  & 0.05521118 \\
+11  & -0.0311707 & 0.05602272 \\
+12  & -0.0309834 & 0.05682686 \\
+13  & -0.0307601 & 0.0576215  \\
+14  & -0.0304907 & 0.05840422 \\
+15  & -0.0301654 & 0.05916561 \\
+16  & -0.0297743 & 0.05988928 \\
+17  & -0.0293076 & 0.0605582  \\
+18  & -0.0287554 & 0.06115541 \\
+19  & -0.0281101 & 0.06166447 \\
+20  & -0.0273837 & 0.06207445 \\
+21  & -0.0265996 & 0.06237763 \\
+22  & -0.0257817 & 0.06256571 \\
+23  & -0.0249538 & 0.06263062 \\
+24  & -0.0241366 & 0.06256838 \\
+25  & -0.0233389 & 0.06239031 \\
+26  & -0.0225655 & 0.06211281 \\
+27  & -0.0218211 & 0.06175282 \\
+28  & -0.0211108 & 0.06132696 \\
+29  & -0.0204382 & 0.06084788 \\
+30  & -0.0198029 & 0.06032177 \\
+31  & -0.0192041 & 0.0597541  \\
+32  & -0.0186407 & 0.05915086 \\
+33  & -0.0181116 & 0.0585181  \\
+34  & -0.0176153 & 0.05786037 \\
+35  & -0.0171485 & 0.05718049 \\
+36  & -0.0167088 & 0.05648211 \\
+37  & -0.0162932 & 0.05576845 \\
+38  & -0.0158993 & 0.05504318 \\
+39  & -0.0155253 & 0.05430826 \\
+40  & -0.0151703 & 0.05356461 \\
+41  & -0.0148331 & 0.05281292 \\
+42  & -0.0145124 & 0.05205359 \\
+43  & -0.0142074 & 0.05128771 \\
+44  & -0.0139169 & 0.05051568 \\
+45  & -0.0136398 & 0.04973838 \\
+46  & -0.0133752 & 0.04895685 \\
+47  & -0.013122  & 0.04817164 \\
+48  & -0.0128792 & 0.04738358 \\
+49  & -0.0126458 & 0.04659302 \\
+50  & -0.0124206 & 0.04580003 \\
+51  & -0.0122025 & 0.04500497 \\
+52  & -0.0119907 & 0.04420815 \\
+53  & -0.0117841 & 0.04340967 \\
+54  & -0.011582  & 0.04260979 \\
+55  & -0.011384  & 0.04180891 \\
+56  & -0.0111894 & 0.04100718 \\
+57  & -0.0109975 & 0.04020478 \\
+58  & -0.010808  & 0.03940185 \\
+59  & -0.0106212 & 0.03859849 \\
+60  & -0.0104366 & 0.03779452 \\
+61  & -0.0102544 & 0.03698992 \\
+62  & -0.0100744 & 0.03618465 \\
+63  & -0.0098967 & 0.03537892 \\
+64  & -0.0097209 & 0.03457267 \\
+65  & -0.0095467 & 0.03376595 \\
+66  & -0.0093741 & 0.03295886 \\
+67  & -0.009203  & 0.03215155 \\
+68  & -0.0090333 & 0.03134393 \\
+69  & -0.0088649 & 0.03053596 \\
+70  & -0.0086978 & 0.02972764 \\
+71  & -0.0085321 & 0.028919   \\
+72  & -0.0083678 & 0.02811003 \\
+73  & -0.0082049 & 0.02730069 \\
+74  & -0.0080433 & 0.02649103 \\
+75  & -0.0078831 & 0.02568107 \\
+76  & -0.0077245 & 0.02487086 \\
+77  & -0.0075672 & 0.02406033 \\
+78  & -0.0074111 & 0.02324951 \\
+79  & -0.0072563 & 0.02243838 \\
+80  & -0.0071028 & 0.02162696 \\
+81  & -0.0069505 & 0.02081525 \\
+82  & -0.0067991 & 0.02000325 \\
+83  & -0.0066487 & 0.01919102 \\
+84  & -0.0064992 & 0.01837859 \\
+85  & -0.0063507 & 0.01756614 \\
+86  & -0.006203  & 0.01675363 \\
+87  & -0.0060557 & 0.01594099 \\
+88  & -0.0059086 & 0.0151282  \\
+89  & -0.0057616 & 0.01431523 \\
+90  & -0.0056146 & 0.01350211 \\
+91  & -0.0054674 & 0.01268877 \\
+92  & -0.0053202 & 0.01187529 \\
+93  & -0.0051732 & 0.01106177 \\
+94  & -0.0050268 & 0.01024829 \\
+95  & -0.0048816 & 0.00943499 \\
+96  & -0.004737  & 0.00862171 \\
+97  & -0.0045926 & 0.00780821 \\
+98  & -0.0044475 & 0.00699423 \\
+99  & -0.0043013 & 0.0061795  \\
+100 & -0.0041545 & 0.00536372 \\
+101 & -0.0040139 & 0.00454597 \\
+102 & -0.0038896 & 0.00372521 \\
+103 & -0.0037693 & 0.00290481 \\
+104 & -0.0036036 & 2.07E-03   \\
+105 & -0.0035996 & 0.00204569 \\
+106 & -0.0035967 & 0.00202183 \\
+107 & -0.003595  & 0.00199785 \\
+108 & -0.0035944 & 0.00197382 \\
+109 & -0.0035964 & 0.00192937 \\
+110 & -0.0036023 & 0.00188528 \\
+111 & -0.0036122 & 0.00184193 \\
+112 & -0.0036258 & 0.00179968 \\
+113 & -0.0036432 & 0.00175888 \\
+114 & -0.0036641 & 0.00171987 \\
+115 & -0.0036884 & 0.00168297 \\
+116 & -0.0037159 & 0.0016485  \\
+117 & -0.0037463 & 0.00161673 \\
+118 & -0.0037795 & 0.00158794 \\
+119 & -0.0038151 & 0.00156236 \\
+120 & -0.0038528 & 0.0015402  \\
+121 & -0.0038923 & 0.00152166 \\
+122 & -0.0039333 & 0.00150687 \\
+123 & -0.0039755 & 0.00149598 \\
+124 & -0.0040184 & 0.00148906 \\
+125 & -0.0040618 & 0.00148618 \\
+126 & -0.0041053 & 0.00148735 \\
+127 & -0.0041484 & 0.00149258 \\
+128 & -0.004191  & 0.00150181 \\
+129 & -0.0042325 & 0.00151496 \\
+130 & -0.0042727 & 0.00153193 \\
+131 & -0.0043112 & 0.00155258 \\
+132 & -0.0043478 & 0.00157674 \\
+133 & -0.0043821 & 0.00160419 \\
+134 & -0.0044138 & 0.00163472 \\
+135 & -0.0044427 & 0.00166807 \\
+136 & -0.0044684 & 0.00170397 \\
+137 & -0.0044909 & 0.0017421  \\
+138 & -0.0045098 & 0.00178217 \\
+139 & -0.0046952 & 0.00233941 \\
+140 & -0.0048738 & 0.00285007 \\
+141 & -0.0050583 & 0.00335872 \\
+142 & -0.005246  & 0.00386675 \\
+143 & -0.0054338 & 0.00437492 \\
+144 & -0.0056213 & 0.0048832  \\
+145 & -0.0058093 & 0.00539125 \\
+146 & -0.0059985 & 0.00589875 \\
+147 & -0.0061893 & 0.00640534 \\
+148 & -0.0063817 & 0.00691094 \\
+149 & -0.0065762 & 0.00741568 \\
+150 & -0.0067724 & 0.00791963 \\
+151 & -0.0069701 & 0.00842286 \\
+152 & -0.0071693 & 0.00892546 \\
+153 & -0.0073702 & 0.00942754 \\
+154 & -0.0075723 & 0.00992918 \\
+155 & -0.0077757 & 0.01043043 \\
+156 & -0.0079803 & 0.01093135 \\
+157 & -0.0081862 & 0.0114319  \\
+158 & -0.0083933 & 0.01193199 \\
+159 & -0.0086017 & 0.01243156 \\
+160 & -0.0088114 & 0.01293058 \\
+161 & -0.0090224 & 0.01342896 \\
+162 & -0.0092347 & 0.01392664 \\
+163 & -0.0094485 & 0.01442358 \\
+164 & -0.0096637 & 0.01491976 \\
+165 & -0.0098802 & 0.01541516 \\
+166 & -0.0100981 & 0.01590985 \\
+167 & -0.0103174 & 0.01640395 \\
+168 & -0.010538  & 0.01689744 \\
+169 & -0.0107597 & 0.01739037 \\
+170 & -0.0109828 & 0.01788286 \\
+171 & -0.0112071 & 0.01837491 \\
+172 & -0.0114325 & 0.01886654 \\
+173 & -0.0116591 & 0.01935778 \\
+174 & -0.011887  & 0.01984851 \\
+175 & -0.0121163 & 0.02033862 \\
+176 & -0.0123471 & 0.02082804 \\
+177 & -0.0125795 & 0.02131673 \\
+178 & -0.0128135 & 0.02180452 \\
+179 & -0.0130493 & 0.02229135 \\
+180 & -0.013287  & 0.02277721 \\
+181 & -0.0135267 & 0.02326194 \\
+182 & -0.0137683 & 0.02374557 \\
+183 & -0.014012  & 0.02422821 \\
+184 & -0.0142578 & 0.02470972 \\
+185 & -0.0145057 & 0.02519014 \\
+186 & -0.0147559 & 0.0256696  \\
+187 & -0.0150082 & 0.02614792 \\
+188 & -0.0152627 & 0.02662512 \\
+189 & -0.0155195 & 0.02710119 \\
+190 & -0.0157788 & 0.02757598 \\
+191 & -0.0160407 & 0.02804935 \\
+192 & -0.0163053 & 0.02852109 \\
+193 & -0.0165728 & 0.02899108 \\
+194 & -0.0168434 & 0.0294591  \\
+195 & -0.0171173 & 0.0299251  \\
+196 & -0.0173948 & 0.03038901 \\
+197 & -0.0176759 & 0.03085064 \\
+198 & -0.017961  & 0.03130992 \\
+199 & -0.01825   & 0.03176687 \\
+200 & -0.0185431 & 0.03222136 \\
+201 & -0.0188401 & 0.03267316 \\
+202 & -0.0191413 & 0.03312267 \\
+203 & -0.0194465 & 0.03356926 \\
+204 & -0.0197558 & 0.03401302 \\
+205 & -0.0200693 & 0.03445377 \\
+206 & -0.0203867 & 0.03489149 \\
+207 & -0.0207079 & 0.03532646 \\
+208 & -0.0210328 & 0.03575859 \\
+209 & -0.0213609 & 0.0361885  \\
+210 & -0.0216922 & 0.0366158  \\
+211 & -0.0220263 & 0.03704123 \\
+212 & -0.022363  & 0.03746444 \\
+213 & -0.022702  & 0.03788583 \\
+214 & -0.0230433 & 0.0383053  \\
+215 & -0.0233869 & 0.03872278 \\
+216 & -0.0237328 & 0.03913807 \\
+217 & -0.0240814 & 0.039551   \\
+218 & -0.0244326 & 0.03996144 \\
+219 & -0.0247866 & 0.04036929 \\
+220 & -0.0251434 & 0.04077452 \\
+221 & -0.0255033 & 0.0411768  \\
+222 & -0.0258663 & 0.04157614 \\
+223 & -0.0262322 & 0.04197259 \\
+224 & -0.0266009 & 0.04236663 \\
+225 & -0.0269717 & 0.04275873 \\
+226 & -0.0273444 & 0.04314939 \\
+227 & -0.0277186 & 0.04353901 \\
+228 & -0.0280939 & 0.04392807 \\
+229 & -0.0284701 & 0.04431689 \\
+230 & -0.0288467 & 0.04470595 \\
+231 & -0.0292218 & 0.0450967  \\
+232 & -0.0295903 & 0.04549256 \\
+233 & -0.0299472 & 0.04589711 \\
+234 & -0.0302872 & 0.04631388 \\
+235 & -0.0306059 & 0.04674582 \\
+236 & -0.0308998 & 0.04719439 \\
+237 & -0.0311655 & 0.04765934 \\
+238 & -0.0315054 & 0.04839112 \\
+239 & -0.0316006 & 0.04865094 \\
+240 & -0.0316836 & 0.04891486 \\
+241 & -0.0317541 & 0.04918229 \\
+\hline
+\end{longtable}
+\unskip
+\unpenalty
+\unpenalty}
+
+\begin{multicols}{2}
+\unvbox\ltmcbox
+\end{multicols}
 
 \end{document}

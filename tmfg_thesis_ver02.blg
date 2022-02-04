@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: tmfg_thesis_ver02.aux
+The style file: ieeetr.bst
+Database file #1: tmfg_bibliography_ver01.bib
+You've used 19 entries,
+            1876 wiz_defined-function locations,
+            583 strings with 7033 characters,
+and the built_in function-call counts, 3689 in all, are:
+= -- 338
+> -- 177
+< -- 3
++ -- 67
+- -- 48
+* -- 274
+:= -- 594
+add.period$ -- 21
+call.type$ -- 19
+change.case$ -- 18
+chr.to.int$ -- 0
+cite$ -- 19
+duplicate$ -- 190
+empty$ -- 362
+format.name$ -- 48
+if$ -- 864
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 16
+newline$ -- 62
+num.names$ -- 19
+pop$ -- 55
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 73
+stack$ -- 0
+substring$ -- 120
+swap$ -- 48
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 31
+width$ -- 21
+write$ -- 179

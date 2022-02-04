@@ -1,0 +1,58 @@
+\contentsline {chapter}{List of Figures}{6}
+\contentsline {chapter}{List of Tables}{9}
+\contentsline {chapter}{\numberline {1}Introduction}{13}
+\contentsline {section}{\numberline {1.1}Motivation}{13}
+\contentsline {section}{\numberline {1.2}Flow capacity: background, definition, and derivation}{16}
+\contentsline {section}{\numberline {1.3}Research structure}{17}
+\contentsline {section}{\numberline {1.4}Summary of findings}{18}
+\contentsline {chapter}{\numberline {2}Literature and scope}{20}
+\contentsline {section}{\numberline {2.1}Justification of effects not modelled in this study}{20}
+\contentsline {subsection}{\numberline {2.1.1}3D effects}{20}
+\contentsline {subsection}{\numberline {2.1.2}Unsteady effects}{20}
+\contentsline {subsection}{\numberline {2.1.3}Real gas trasport properties}{21}
+\contentsline {subsection}{\numberline {2.1.4}Non-uniform and non-adiabatic boundary conditions}{23}
+\contentsline {section}{\numberline {2.2}Precedent for analytical techniques used in this study}{23}
+\contentsline {subsection}{\numberline {2.2.1}Definitions of loss}{23}
+\contentsline {subsection}{\numberline {2.2.2}Choice of turbulence model}{26}
+\contentsline {section}{\numberline {2.3}Chapter Conclusions}{26}
+\contentsline {chapter}{\numberline {3}Geometric throat area}{27}
+\contentsline {section}{\numberline {3.1}Nozzle guide vane capacity uncertainty in 2 dimensions}{29}
+\contentsline {subsection}{\numberline {3.1.1}Geometry, mesh, and boundary conditions}{29}
+\contentsline {subsection}{\numberline {3.1.2}Effect on 2D capacity}{36}
+\contentsline {section}{\numberline {3.2}Comparison of 2D capacity predictions with 3D data}{43}
+\contentsline {subsection}{\numberline {3.2.1}Effect on 2D capacity versus 3D capacity}{43}
+\contentsline {section}{\numberline {3.3}Chapter conclusions}{46}
+\contentsline {chapter}{\numberline {4}Trailing edge shape}{47}
+\contentsline {section}{\numberline {4.1}Effects of suction-side trailing edge shape uncertainty}{49}
+\contentsline {subsection}{\numberline {4.1.1}Geometry, mesh, and boundary conditions}{49}
+\contentsline {subsection}{\numberline {4.1.2}Effect on capacity}{51}
+\contentsline {subsection}{\numberline {4.1.3}Effect on performance}{57}
+\contentsline {section}{\numberline {4.2}Effects of pressure-side trailing edge sizing}{60}
+\contentsline {subsection}{\numberline {4.2.1}Geometry, mesh, and boundary conditions}{61}
+\contentsline {subsection}{\numberline {4.2.2}Effect on capacity}{62}
+\contentsline {subsection}{\numberline {4.2.3}Effect on performance}{68}
+\contentsline {section}{\numberline {4.3}Chapter conclusions}{71}
+\contentsline {chapter}{\numberline {5}Film cooling location}{72}
+\contentsline {section}{\numberline {5.1}Sensitivity of capacity to cooling holes on the suction side}{72}
+\contentsline {subsection}{\numberline {5.1.1}Geometry, mesh, and boundary conditions}{73}
+\contentsline {subsection}{\numberline {5.1.2}Effect on capacity}{77}
+\contentsline {subsection}{\numberline {5.1.3}Effect on performance}{84}
+\contentsline {section}{\numberline {5.2}Chapter conclusions}{85}
+\contentsline {chapter}{\numberline {6}Conclusion}{87}
+\contentsline {section}{\numberline {6.1}Summary of findings}{87}
+\contentsline {section}{\numberline {6.2}Suggestions for future work}{87}
+\contentsline {chapter}{Bibliography}{89}
+\contentsline {chapter}{\numberline {A}Matlab post-processing codes}{91}
+\contentsline {section}{\numberline {A.1}Geometric throat width calculator}{91}
+\contentsline {section}{\numberline {A.2}Effective throat width calculator}{93}
+\contentsline {section}{\numberline {A.3}Film cooling plenum loss calculator}{96}
+\contentsline {chapter}{\numberline {B}NGV mid-span profile coordinates}{102}
+\contentsline {section}{\numberline {B.1}Trent 900}{102}
+\contentsline {subsection}{\numberline {B.1.1}Vane PNS04 (M EP1 standard)}{102}
+\contentsline {subsection}{\numberline {B.1.2}Vane PNN06 (M EP1 standard)}{104}
+\contentsline {subsection}{\numberline {B.1.3}Vane PNS03 (M EP1 standard)}{107}
+\contentsline {subsection}{\numberline {B.1.4}Vane KTA01 (M-skew standard)}{109}
+\contentsline {subsection}{\numberline {B.1.5}Vane KSZ03 (M-skew standard)}{112}
+\contentsline {subsection}{\numberline {B.1.6}Vane KVD04 (M-skew standard)}{114}
+\contentsline {section}{\numberline {B.2}Trent XWB 84K}{117}
+\contentsline {subsection}{\numberline {B.2.1}Vane with undisclosed serial number}{117}
