@@ -34,7 +34,7 @@
 \usepackage[T1]{fontenc} % allows for the encoding of unusual or accented characters
 \usepackage[bitstream-charter]{mathdesign} % font package similar to the Elsevier font, with included maths style
 \usepackage{physics} % provides a family of vector notation
-\usepackage[version=4]{mhchem} % for the stoichiometry
+\usepackage{mhchem} % for the stoichiometry
 
 %%% citation packages
 \usepackage[nottoc]{tocbibind} % puts the references section into the table of contents
@@ -514,32 +514,29 @@ The overall work thus provides insight into the necessary geometric parameters f
 
 \chapter{Literature and scope}
 \label{chapter_literature_and_scope}
-%this chapter has been added as part of the minor corrections. It should include also any pertinent work performed from the lab, and a review of real engine effects (heat transfer, combustion, unsteadiness, real gas transport properties, …) on capacity.
 
-This chapter reviews the literature used to inform decisions about which flow phenomena require modelling in the present study, and which do not. The scope of the present analyses is thus defined. It is shown in Section~\ref{justification_of_effects_not_modelled_in_this_study} that certain analyses may be omitted without significant penalty to the usefulness of the study's findings, justifying the use of 2-dimensional, steady, adiabatic CFD, with air as the working gas. Section~\ref{precedent_for_analytical_techniques_used_in_this_study} reviews literature precedential to the present study's choice of turbulence model and to its definitions of loss.
+This chapter reviews the literature used to inform decisions about which flow phenomena require modelling in the present study, and which do not. The scope of the present analyses is thus defined. Much of the work reviewed in this chapter originates from the capacity research group at the Osney Thermofluids Laboratory, University of Oxford, where the present study's initial data acquisition was performed in partnership with Rolls-Royce plc as part of Innovate UK's SILOET II programme.
 
 \section{Justification of effects not modelled in this study}
 \label{justification_of_effects_not_modelled_in_this_study}
-%stuff that gives a precedent for the simulation that was chosen
+
+It is shown in this section that certain analyses may be omitted without significant penalty to the usefulness of the study's findings, justifying the use of 2-dimensional, steady, adiabatic CFD, with air as the working gas and without heat transfer into the NGV metal being modelled.
 
 \subsection{3D effects}
-%%3D effects
-%--secondary flows etc
+
 The present study is concerned with variations to the \textit{profile} of NGVs, where a profile is a 2D aerofoil outline obtained by intersecting a 3D NGV shape with a plane perpendicular to the span. The NGV thus has a continuous set of profiles across its span. Through design intent or manufacturing variability, an NGV is likely to experience certain profile changes which are expressed across its whole span. Casting variations, discussed in Chapter~\ref{chapter_geometric_throat_area}, are expressed as smooth departures of the actual NGV surface from the design NGV surface, and are thus likely to affect the majority of the span. Changes to the design of the trailing edge shape, discussed in Chapter~\ref{chapter_trailing_edge}, affect the majority of the span over which the trailing edge extends.
 
-These circumstances motivate the use of 2-dimensional CFD to study effects which are likely to occur throughout the NGV span and which are likely to be primarily coplanar with the NGV profile. This is only viable if these 2D effects are not overpowered by effects that appear in 3D, otherwise the 2D effects have no bearing on real engine performance.
+These circumstances motivate the use of 2-dimensional CFD to study effects which are likely to occur throughout the NGV span and which are likely to be primarily coplanar with the NGV profile. This is only viable if these 2D effects are not overpowered by effects that appear in 3D, otherwise the 2D effects have no bearing on real engine performance. 2D CFD was found by Hambidge and Povey~\cite{hambidge_film_cooling} to be successful in isolating the 2D mechanisms resulting from interation between coolant features and mainstream flow. The authors validated this by comparing the isentropic surface Mach number distribution of their CFD with that of a 3D case. Their use of 2D CFD also allowed comparison with their novel 2D analytical film cooling model as a primary topic of interest. The present study is similarly concerned with coolant-mainstream interaction and with the use of 2D analytical models, motivating the use of 2D CFD.
 
-GIVE EXAMPLES OF GOOD 2D CFD STUDIES WHICH HAVE ISOLATED THE KIND OF EFFECTS I'M TALKING ABOUT	
-
+NGV aerodynamics are nonetheless influenced by the presence of 3-dimensional effects which may be examined through experimental and 3D CFD techniques. The present study's investigation of progressive removal of NGV trailing edge material (Section~\ref{suction_side_cutbacks}) has been validated experimentally by Burdett et al~\cite{burdett_capacity}, who also used each experimental geometry to validate a corresponding case in 3D steady Reynolds-averaged Navier-Stokes (RANS) CFD. The authors refined a technique for progressive trailing edge machining described by the present study during its initial data acquisition~\cite{gammage_trailing_edge_machining}, resulting in experimental and 3D CFD results on the effects of trailing edge changes. The authors' results exhibit similarity to those discussed in Section~\ref{suction_side_cutbacks}, suggesting that 2D CFD is valid in the case of trailing edge changes which are expressed across the majority of the span. Comment was also made on the nature of the flow field in the NGV passage, with the pressure field described as ``strongly 2D'' with the exception of radial pressure gradients as a 3D effect. The present study acknowledges radial pressure gradients to be a confounding factor in predicting the capacity characteristic and choke point of NGVs in 3D, which is discussed in Section~\ref{2d_vs_3d_capacity_uncertainty}.
 
 \subsection{Unsteady effects}
-%%unsteady effects
 
-CITATION FOR WHY IT CAN BE STEADY, AND THUS WHY RANS IS OK TO DO as opposed to urans
+The present study uses steady RANS CFD in all cases, including for study of the trailing edge region. Here the presence of unsteady vortex shedding presents an unreported source of loss as described by Melzer and Pullan~\cite{melzer_vortex_shedding}. The authors experimentally tested a linear cascade of NGVs with a variety of trailing edge shapes, all of which were solid trailing edges without a slot or coolant ejection. Kinetic energy loss, the definition of which is discussed in Section~\ref{precedent_for_analytical_techniques_used_in_this_study}, was found to vary significantly with cascade exit Mach number as a result of transonic vortex shedding. Shedding was found to be partially supressed by square trailing edges, and to be significantly influenced by boundary layer conditions at the trailing edge, and by interactions with shock waves from adgacent NGVs. 
 
+Due to the number of factors which the authors find to strongly influence transonic vortex shedding and associated loss, it is deemed impractical to quantify this effect in the present study where traling edges include a cooling slot and coolant ejection. Recent trailing edge work, such as Burdett et al~\cite{burdett_capacity} and Gau et al~\cite{gau_te}, have used steady RANS CFD to investigate several of the same trailing edge effects as the present study. Steady RANS CFD has also been used by work focussed on film cooling such as He at al~\cite{he_film_cooling}.
 
-
-\subsection{Real gas trasport properties}
+\subsection{Real gas transport properties}
 
 The present study simulates the flow of clean air through NGVs with an inlet total temperature of $300$ K. Real NGV flows consist of a mixture of air and combustion products from jet fuel, the presence of which potentially alter the aerodynamics of the NGV compared to clean air. Simulation of purely air-based cases is justified by quantification of the combustion gas mixture constituents and evaluation of the mixture's propeerties. Simulation of cases at $300$ K is justified by consideration of the properties of air at engine-representative total temperatures.
 
@@ -603,14 +600,20 @@ NGV inlet conditions, combustor boundary conditions, and combustion product comp
 
 The present study assumes uniform profiles for total temperature and pressure at the NGV inlet boundary. The outlet total temperature and pressure profiles of a contemporary annular combustor were found to possess minimal non-uniformity in the circumferential direction by Singh et al~\cite{singh_annular_combustors}, and any such non-uniformity was found by Ranjith et al~\cite{ranjith_annular_combustors} to have minimal effect on total pressure loss within the combustor. 
 
-Heat transfer between the working gas and the NGV metal is also determined to be a mechanism unsuitable for inclusion in the present study. Extensive 3D CFD investigation of NGV conjugate heat transfer has been performed by Jiang et al~\cite{jiang_heat_transfer}, who simulated an NGV with internal coolant flow, trailing edge slot ejection, and end-walls. 3D heat transfer between then NGV and the end-walls was found to result in highly dissimalar heat fluxes across the NGV internal and external surfaces. This would be impossible to model using the 2D CFD used by the present study, where the net heat fluxes across the NGV section boundaries would necessarily sum to $0$. The authors further noted that ``the Biot number at the NGV internal/external surfaces is only $0.006$ in the present heat transfer case, much less than $1$. This means that the resistance of the heat conduction in the NGV solid regions is much less than that of the heat convection through its surfaces. As a result, the temperature distribution in the NGV body is mainly determined by the complex heat convection among the NGV body, external main flow, and internal cooling flow'', and that ``local variations and bumps of the heat flux profiles are observed, which are determined by the local flow conditions and geometry.'' None of these phenomena are resolvable by the present simulations and it is deemed superflous to model them in unrtealistic 2-dimensional form.
+Heat transfer between the working gas and the NGV metal is also determined to be a mechanism unsuitable for inclusion in the present study. Extensive 3D CFD investigation of NGV conjugate heat transfer has been performed by Jiang et al~\cite{jiang_heat_transfer}, who simulated an NGV with internal coolant flow, trailing edge slot ejection, and end-walls. 3D heat transfer between then NGV and the end-walls was found to result in highly dissimalar heat fluxes across the NGV internal and external surfaces. This would be impossible to model using the 2D CFD used by the present study, where the net heat fluxes across the NGV section boundaries would necessarily sum to $0$. The authors further noted that ``the Biot number at the NGV internal/external surfaces is only $0.006$ in the present heat transfer case, much less than $1$. This means that the resistance of the heat conduction in the NGV solid regions is much less than that of the heat convection through its surfaces. As a result, the temperature distribution in the NGV body is mainly determined by the complex heat convection among the NGV body, external main flow, and internal cooling flow'', and that ``local variations and bumps of the heat flux profiles are observed, which are determined by the local flow conditions and geometry.'' None of these phenomena is resolvable by the present simulations and it is deemed superflous to model them in unrealistic 2-dimensional form.
 
 \section{Precedent for analytical techniques used in this study}
 \label{precedent_for_analytical_techniques_used_in_this_study}
-%stuff that informs the techniques that were used
+
+This section reviews literature precedential to the present study's choice of turbulence model and inlet turbulence intensity, and to its definitions of loss.
+
+\subsection{Choice of turbulence model and intensity}
+
+Menter's shear stress transport turbulence model (k-$\omega$ SST)~\cite{menter_turbulence_models} is popular in turbomachinery CFD due to its ability to resolve boundary layers down to the viscous sublayer while also resolving the free stream without oversensitivity to the inlet turbulence intensity. Jiang et al~\cite{jiang_heat_transfer}, in investigating NGV conjugate heat transfer, reviewed the suitability of the k-$\omega$ SST model. Use of the model provided the authors with major improvements in the prediction of separation and adverse pressure gradients compared to the standard k-$\omega$ and k-$\epsilon$ turbulence models. k-$\omega$ SST turbulence models have been used in other trailing edge work relevant to the present study, such as Gao et al~\cite{gao_te}. 
+
+The present study uses an inlet turbulence intensity of $5\%$ following Gao et al's~\cite{gao_te} use of this setting in examining similar NGV trailing edge effects. This figure is considered a suitable benchmark for comparison with this and other work, as precise information on combustor outlet turbulence intensity is unavailable to the present study. Because Giel et al~\cite{giel_te_thickness} found experimentally that the relationship between trailing edge thickness and loss was altered at a low turbulence intensity of $0.5\%$, the present study performed a turbulence intensity independence test for the trailing edge work discussed in Chapter~\ref{chapter_trailing_edge}.
 
 \subsection{Definitions of loss}
-%%definitions of loss (copied in from its previous location)
 
 Loss may refer to any process whereby the recoverable energy of a turbomachinery flow is reduced during transit through a turbine stage, other than by shaft work, with corresponding entropy creation. Minimisation of loss remains a primary objective of turbomachinery design, but there is not a universal consensus on how to quantify it. As subsequent sections of this thesis will evaluate the losses caused by changes to the trailing edge of nozzle guide vanes, the purpose of this section is to review various definitions of loss from the literature and to facilitate the use of appropriate definitions in the present study.
 
@@ -805,20 +808,11 @@ where $p_{02uc}$ was the total pressure downstream of the cascade with no coolin
 \end{equation}
 By substituting this definition of $Y$ into equation~\ref{saha_loss_definition}, Saha et al~\cite{saha_loss} arrived at their novel definition of kinetic energy loss intended to solve the problem of unphysical loss in the free-stream where the previous definition erroneously assumed the presence of coolant. Their new definition is able to use the nominal values for shower-head and trailing edge coolant mass flow ratio and adjust the coolant profile according to the aforementioned function of spanwise distance. Using measurements from a downstream traverse in their linear cascade, the novel loss definition was found to produce loss profiles that were in good agreement with equation~\ref{ke_loss_definition} and in disagreement with equation~\ref{saha_loss_definition}.
 
-\subsection{Choice of turbulence model}
-%%choice of turbulence model
-
-REFERENCES THAT ARGUE AS TO sst's EFFECTIVENESS
-
-From Jiang heat transfer:
-The SST k-ω model (the shear-stress transport model) is selected to model turbulent transfer items in the flow. Major improvements are observed in the prediction of separation and adverse pressure gradient flows in comparison with the standard k-ω and k-ε models [9]. This model has been successfully used in the heat transfer simulation for the film cooling of a linear cascade, and the results are in good agreement with the experimental measurements [3].
-
-REFERENCES THAT SHOW sst IS COMMONLY USED SUCCESSFULLY FOR TURBOMACHINERY
-
-
-
 \section{Chapter Conclusions}
 
+Based on a review of the literature, the scope of the present study is defined to exclude investigation of 3D effects, unsteady effects, transport properties of high-temperature and non-air working gases, and boundary conditions which impose non-uniform inlet temperature profiles or heat transfer into the NGV metal. Where any of these effects are concluded to significantly affect the present study, this chapter presents reasons for which it is not practical to account for them, or ways in which they may be mitigated.
+
+This chapter also presents a review of definitions of loss, leading to a choice of definition suitable for the present study and to a mathematical relationship between two ostensibly conflicting definitions.
 
 
 \chapter{Geometric throat area}
@@ -941,6 +935,8 @@ Inlet total temperature (K) & $300$\\
 Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
 Outlet static temperature (K) & $300$\\
 Solver type & Density-based\\
+Turbulence model & k-$\omega$ SST\\
+Inlet turbulence intensity & $5.00\%$\\
 Cell count & $35,000$\\
 \hline
 \end{tabular}
@@ -1467,8 +1463,10 @@ Inlet total pressure (Pa) & $4.33 \times 10^6$\\
 Inlet total temperature (K) & $300$\\
 Outlet static pressure (design) (Pa) & $2.42 \times 10^6$\\
 Outlet static temperature (K) & $300$\\
-Coolant mass flow rate & $3.00\%$ of mainstream \\
+Coolant mass flow rate & $3.00\%$ of mainstream\\
 Solver type & Density-based\\
+Turbulence model & k-$\omega$ SST\\
+Inlet turbulence intensity & $5.00\%$\\
 Cell count & $35,000$\\
 \hline
 \end{tabular}
@@ -1495,7 +1493,7 @@ The resulting quadrilateral geometry allowed for the creation of a structured me
       \label{fig:T900_ss_cutbacks_mesh}
 \end{figure}
 
-The described mesh, geometry alteration strategy, and boundary conditions were used to perform 11 CFD simulations which incrementally spanned the range of cutbacks between an unaltered trailing edge and a fully removed end-edge. Solutions were initialised using the solver's built-in FMG initialisation and Journal scripts as described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments of pressure ratio, and typical overall solution times were approximately 10 hours. The k-$\omega$ SST turbulence model was used.
+The described mesh, geometry alteration strategy, and boundary conditions were used to perform 11 CFD simulations which incrementally spanned the range of cutbacks between an unaltered trailing edge and a fully removed end-edge. Solutions were initialised using the solver's built-in FMG initialisation and Journal scripts as described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments of pressure ratio, and typical overall solution times were approximately 10 hours. The k-$\omega$ SST turbulence model was used. Insensitivity to the precise inlet turbulence intensity was confirmed by running a case with baseline geometry at both $5\%$ and $10\%$ inlet turbulence intensity.
 
 \subsection{Effect on capacity}
 
@@ -1731,7 +1729,7 @@ This geometry did not allow for the approach of Section~\ref{suction_side_cutbac
     \label{fig:t900_ps_cutbacks_meshes}
 \end{figure}
 
-In Figure~\ref{fig:t900_ps_cutbacks_meshes}, deformation of the bottom edge of the aforementioned mesh block is prominently visible due to the continuation of the laminar sublayer resolution around the circumference of the vane, which requires it to bridge the gap across the trailing edge slot. The described mesh, geometry alteration strategy, and boundary conditions were used to perform 5 CFD simulations which incrementally spanned the range of cutbacks between the described baseline and a fully cut back pressure side. Solutions were initialised using the solver's built-in FMG initialisation and Journal scripts as described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments of pressure ratio, and typical overall solution times were approximately 10 hours. The k-$\omega$ SST turbulence model was used.
+In Figure~\ref{fig:t900_ps_cutbacks_meshes}, deformation of the bottom edge of the aforementioned mesh block is prominently visible due to the continuation of the laminar sublayer resolution around the circumference of the vane, which requires it to bridge the gap across the trailing edge slot. The described mesh, geometry alteration strategy, and boundary conditions were used to perform 5 CFD simulations which incrementally spanned the range of cutbacks between the described baseline and a fully cut back pressure side. Solutions were initialised using the solver's built-in FMG initialisation and Journal scripts as described in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments of pressure ratio, and typical overall solution times were approximately 10 hours. The k-$\omega$ SST turbulence model was used. Insensitivity to the precise inlet turbulence intensity was confirmed by running a case with baseline geometry at both $5\%$ and $10\%$ inlet turbulence intensity.
 
 \subsection{Effect on capacity}
 
@@ -1994,7 +1992,7 @@ The introduction of film coolant in this region is shown to affect the NGV flow 
 
 \subsection{Geometry, mesh, and boundary conditions}
 
-A series of 2D CFD simulations were performed with a single cooling hole at a range of locations throughout the nozzle guide vane throat region. The blade profile geometry is the Rolls-Royce Trent XWB 84K nozzle guide vane. A 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. The NGV trailing edge was smoothly rounded as this section of study is not concerned with trailing edge effects. The NGV surface was modified to include a single cooling hole consisting of a slot and plenum with its total pressure inlet boundary condition described above. 
+A series of 2D CFD simulations were performed with a single cooling hole at a range of locations throughout the nozzle guide vane throat region. The blade profile geometry is the Rolls-Royce Trent XWB 84K nozzle guide vane. A 2D vane section was produced using the process illustrated in Figure~\ref{fig:2d_geometry_creation}. The overall computational domain was produced as in Figure~\ref{fig:computational_domain_and_boundaries}. The NGV trailing edge was smoothly rounded as this section of study is not concerned with trailing edge effects. The NGV surface was modified to include a single cooling hole consisting of a slot and plenum with its total pressure inlet boundary condition described above. The k-$\omega$ SST turbulence model was used.
 
 Matlab was used to parametrically generate 7 geometries by moving the single cooling hole between $0\%$ and $100\%$ of its possible range of physical locations on the NGV suction side in increments of approximately $16\%$, although spacing of simulated hole locations was closer in the throat region of the nozzle. The angle between the cooling hole passage and the NGV surface remained constant throughout. In practice the exit angle of each film coolant row is varied according to location, with injection into higher-velocity flow performed at a smaller angle to the surface. The objective of this is to maintain a more constant coolant film thickness in leading edge regions closer to the NGV's stagnation point, where surface static pressure is greatest. The present study controls for ejection angle with a constant value of $60$ degrees between coolant passage and NGV surface. Increased ejection angles would introduce coolant with a lower component of momentum in the mainstream flow direction. This would be expecrted to result in reduced capacity as momentum would be transferred from the mainstream to accelerate this coolant.
 
@@ -2107,6 +2105,8 @@ Coolant ejection angle (degrees) & $60$\\
 Film coolant loss coefficient $\zeta_c$ & $0.8$\\
 Coolant plenum total pressure $p_{0cp}$ & $79.91\%$ of mainstream\\
 Solver type & Density-based\\
+Turbulence model & k-$\omega$ SST\\
+Inlet turbulence intensity & $5.00\%$\\
 Cell count & $40,000$\\
 \hline
 \end{tabular}

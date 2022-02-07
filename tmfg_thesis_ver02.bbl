@@ -4,6 +4,33 @@
 A.~Guiffre' and M.~Pini, ``Design guidelines for axial turbines operating with
   non-ideal compressible flows,'' {\em Proceedings of ASME Turbo Expo}, 2020.
 
+\bibitem{hambidge_film_cooling}
+C.~Hambidge and T.~Povey, ``Numerical and analytical study of the effect of
+  film cooling on hp ngv capacity,'' {\em Proceedings of ASME Turbo Expo},
+  2012.
+
+\bibitem{burdett_capacity}
+D.~Burdett, F.~Goenaga, and T.~Povey, ``Understanding capacity sensitivity of
+  cooled transonic nozzle guide vanes: A parametric experimental and
+  computational study of the impact of trailing edge geometry,'' {\em ASME
+  Journal of Turbomachinery}, vol.~143, no.~5, 2021.
+
+\bibitem{gammage_trailing_edge_machining}
+T.~F. Gammage and T.~Povey, ``Work point 8.5.2 review,'' tech. rep., University
+  of Oxford and Rolls-Royce plc, Southwell Building, University Of Oxford,
+  Department of Engineering Science, Osney Mead, Oxford, OX2 0ES, October 2015.
+
+\bibitem{melzer_vortex_shedding}
+A.~P. Melzer and G.~Pullan, ``The role of vortex shedding in the trailing edge
+  loss of transonic turbine blades,'' {\em ASME Journal of Turbomachinery},
+  vol.~141, no.~4, 2019.
+
+\bibitem{he_film_cooling}
+W.~He, Q.~Deng, W.~Zhou, T.~Gau, and Z.~Feng, ``Film cooling and aerodynamic
+  performances of a turbine nozzle guide vane t with trenched cooling holes,''
+  {\em Elsevier Journal of Applied Thermal Engineering}, vol.~150,
+  pp.~150--163, 2019.
+
 \bibitem{lee_combustion}
 C.-M. Lee, K.~Kundu, and W.~Acosta, ``Jet-a reaction mechanism study for
   combustion application,'' Tech. Rep. 04441, NASA and US Army Aviation Systems
@@ -31,10 +58,15 @@ L.~Jiang, X.~Wu, and Z.~Zhang, ``Conjugate heat transfer of an internally
   air-cooled nozzle guide vane and shrouds,'' {\em Advances in Mechanical
   Engineering}, vol.~6, 2014.
 
-\bibitem{trinidade_loss}
-D.~B. da~Trinidade, P.~Bugala, and D.~Simone, ``Review of loss models for high
-  pressure turbines,'' {\em Journal of KONES Powertrain and Transport},
-  vol.~25, no.~2, pp.~37--44, 2018.
+\bibitem{menter_turbulence_models}
+F.~R. Menter, ``Two-equation eddy-viscosity turbulence models for engineering
+  applications,'' {\em AIAA Journal}, vol.~32, no.~8, pp.~1598--1605, 1994.
+
+\bibitem{gao_te}
+J.~Gau, M.~Wei, W.~Fu, Q.~Zheng, and G.~Yue, ``Experimental and numerical
+  investigations of trailing edge injection in a transonic turbine cascade,''
+  {\em Elsevier Journal of Aerospace Science and Technology}, vol.~92,
+  pp.~258--268, 2019.
 
 \bibitem{giel_te_thickness}
 P.~W. Giel, V.~Shyam, P.~Juangphanich, and J.~P. Clark, ``Effects of trailing
@@ -42,11 +74,10 @@ P.~W. Giel, V.~Shyam, P.~Juangphanich, and J.~P. Clark, ``Effects of trailing
   of simulated cmc turbine blades,'' {\em Proceedings of ASME Turbo Expo},
   2020.
 
-\bibitem{gao_te}
-J.~Gau, M.~Wei, W.~Fu, Q.~Zheng, and G.~Yue, ``Experimental and numerical
-  investigations of trailing edge injection in a transonic turbine cascade,''
-  {\em Elsevier Journal of Aerospace Science and Technology}, vol.~92,
-  pp.~258--268, 2019.
+\bibitem{trinidade_loss}
+D.~B. da~Trinidade, P.~Bugala, and D.~Simone, ``Review of loss models for high
+  pressure turbines,'' {\em Journal of KONES Powertrain and Transport},
+  vol.~25, no.~2, pp.~37--44, 2018.
 
 \bibitem{saha_loss}
 R.~Saha, J.~Fridh, and T.~H. Fransson, ``Shower head and trailing edge cooling
