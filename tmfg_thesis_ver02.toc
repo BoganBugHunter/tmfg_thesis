@@ -19,40 +19,41 @@
 \contentsline {section}{\numberline {3.1}Nozzle guide vane capacity uncertainty in 2 dimensions}{31}
 \contentsline {subsection}{\numberline {3.1.1}Geometry, mesh, and boundary conditions}{31}
 \contentsline {subsection}{\numberline {3.1.2}Effect on 2D capacity}{38}
-\contentsline {section}{\numberline {3.2}Comparison of 2D capacity predictions with 3D data}{45}
-\contentsline {subsection}{\numberline {3.2.1}Effect on 2D capacity versus 3D capacity}{45}
-\contentsline {section}{\numberline {3.3}Chapter conclusions}{48}
-\contentsline {chapter}{\numberline {4}Trailing edge shape}{49}
-\contentsline {section}{\numberline {4.1}Effects of suction-side trailing edge shape uncertainty}{51}
-\contentsline {subsection}{\numberline {4.1.1}Geometry, mesh, and boundary conditions}{51}
-\contentsline {subsection}{\numberline {4.1.2}Effect on capacity}{53}
-\contentsline {subsection}{\numberline {4.1.3}Effect on performance}{59}
-\contentsline {section}{\numberline {4.2}Effects of pressure-side trailing edge sizing}{62}
-\contentsline {subsection}{\numberline {4.2.1}Geometry, mesh, and boundary conditions}{63}
-\contentsline {subsection}{\numberline {4.2.2}Effect on capacity}{64}
-\contentsline {subsection}{\numberline {4.2.3}Effect on performance}{70}
-\contentsline {section}{\numberline {4.3}Chapter conclusions}{73}
-\contentsline {chapter}{\numberline {5}Film cooling location}{74}
-\contentsline {section}{\numberline {5.1}Sensitivity of capacity to cooling holes on the suction side}{74}
-\contentsline {subsection}{\numberline {5.1.1}Geometry, mesh, and boundary conditions}{75}
-\contentsline {subsection}{\numberline {5.1.2}Effect on capacity}{79}
-\contentsline {subsection}{\numberline {5.1.3}Effect on performance}{86}
-\contentsline {section}{\numberline {5.2}Chapter conclusions}{87}
-\contentsline {chapter}{\numberline {6}Conclusion}{89}
-\contentsline {section}{\numberline {6.1}Summary of findings}{89}
-\contentsline {section}{\numberline {6.2}Suggestions for future work}{89}
-\contentsline {chapter}{Bibliography}{91}
-\contentsline {chapter}{\numberline {A}Matlab post-processing codes}{93}
-\contentsline {section}{\numberline {A.1}Geometric throat width calculator}{93}
-\contentsline {section}{\numberline {A.2}Effective throat width calculator}{95}
-\contentsline {section}{\numberline {A.3}Film cooling plenum loss calculator}{98}
-\contentsline {chapter}{\numberline {B}NGV mid-span profile coordinates}{104}
-\contentsline {section}{\numberline {B.1}Trent 900}{104}
-\contentsline {subsection}{\numberline {B.1.1}Vane PNS04 (M EP1 standard)}{104}
-\contentsline {subsection}{\numberline {B.1.2}Vane PNN06 (M EP1 standard)}{106}
-\contentsline {subsection}{\numberline {B.1.3}Vane PNS03 (M EP1 standard)}{109}
-\contentsline {subsection}{\numberline {B.1.4}Vane KTA01 (M-skew standard)}{111}
-\contentsline {subsection}{\numberline {B.1.5}Vane KSZ03 (M-skew standard)}{114}
-\contentsline {subsection}{\numberline {B.1.6}Vane KVD04 (M-skew standard)}{116}
-\contentsline {section}{\numberline {B.2}Trent XWB 84K}{119}
-\contentsline {subsection}{\numberline {B.2.1}Vane with undisclosed serial number}{119}
+\contentsline {section}{\numberline {3.2}Comparison of 2D capacity predictions with 3D data}{46}
+\contentsline {subsection}{\numberline {3.2.1}Effect on 2D capacity versus 3D capacity}{46}
+\contentsline {section}{\numberline {3.3}Chapter conclusions}{49}
+\contentsline {chapter}{\numberline {4}Trailing edge shape}{50}
+\contentsline {section}{\numberline {4.1}Effects of suction-side trailing edge shape uncertainty}{52}
+\contentsline {subsection}{\numberline {4.1.1}Geometry, mesh, and boundary conditions}{52}
+\contentsline {subsection}{\numberline {4.1.2}Effect on capacity}{54}
+\contentsline {subsection}{\numberline {4.1.3}Effect on performance}{60}
+\contentsline {section}{\numberline {4.2}Effects of pressure-side trailing edge sizing}{63}
+\contentsline {subsection}{\numberline {4.2.1}Geometry, mesh, and boundary conditions}{64}
+\contentsline {subsection}{\numberline {4.2.2}Effect on capacity}{65}
+\contentsline {subsection}{\numberline {4.2.3}Effect on performance}{71}
+\contentsline {section}{\numberline {4.3}Chapter conclusions}{74}
+\contentsline {chapter}{\numberline {5}Film cooling location}{75}
+\contentsline {section}{\numberline {5.1}Sensitivity of capacity to cooling holes on the suction side}{75}
+\contentsline {subsection}{\numberline {5.1.1}Geometry, mesh, and boundary conditions}{76}
+\contentsline {subsection}{\numberline {5.1.2}Effect on capacity}{80}
+\contentsline {subsection}{\numberline {5.1.3}Effect on performance}{87}
+\contentsline {section}{\numberline {5.2}Chapter conclusions}{88}
+\contentsline {chapter}{\numberline {6}Conclusion}{90}
+\contentsline {section}{\numberline {6.1}Summary of findings}{90}
+\contentsline {section}{\numberline {6.2}Suggestions for future work}{90}
+\contentsline {chapter}{Bibliography}{92}
+\contentsline {chapter}{\numberline {A}Matlab post-processing codes}{94}
+\contentsline {section}{\numberline {A.1}Combustion product properties calculator}{94}
+\contentsline {section}{\numberline {A.2}Geometric throat width calculator}{98}
+\contentsline {section}{\numberline {A.3}Effective throat width calculator}{100}
+\contentsline {section}{\numberline {A.4}Film cooling plenum loss calculator}{103}
+\contentsline {chapter}{\numberline {B}NGV mid-span profile coordinates}{109}
+\contentsline {section}{\numberline {B.1}Trent 900}{109}
+\contentsline {subsection}{\numberline {B.1.1}Vane PNS04 (M EP1 standard)}{109}
+\contentsline {subsection}{\numberline {B.1.2}Vane PNN06 (M EP1 standard)}{111}
+\contentsline {subsection}{\numberline {B.1.3}Vane PNS03 (M EP1 standard)}{114}
+\contentsline {subsection}{\numberline {B.1.4}Vane KTA01 (M-skew standard)}{116}
+\contentsline {subsection}{\numberline {B.1.5}Vane KSZ03 (M-skew standard)}{119}
+\contentsline {subsection}{\numberline {B.1.6}Vane KVD04 (M-skew standard)}{121}
+\contentsline {section}{\numberline {B.2}Trent XWB 84K}{124}
+\contentsline {subsection}{\numberline {B.2.1}Vane with undisclosed serial number}{124}

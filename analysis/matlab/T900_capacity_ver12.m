@@ -1523,6 +1523,7 @@ xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('\Delta capacity, %')
 design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',font_size);
 design_line.LabelVerticalAlignment = 'bottom';
+yline(0);
 %legend('PNS04','PNN06', 'PNS03', 'KTA01', 'KSZ03', 'KVD04', 'Location', 'Best', 'FontName','Charter','FontSize',font_size)
 
 %Here we set up the axes
@@ -1563,6 +1564,7 @@ xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('\Delta capacity, %')
 design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',font_size);
 design_line.LabelVerticalAlignment = 'bottom';
+yline(0);
 %legend('PNS04','PNN06', 'PNS03', 'KTA01', 'KSZ03', 'KVD04', 'Location', 'Best')
 
 %Here we set up the axes
@@ -1756,6 +1758,7 @@ xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('\Delta capacity, %')
 design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',font_size);
 design_line.LabelVerticalAlignment = 'bottom';
+yline(0);
 legend('0%', '20%', '40%', '60%', '80%', '100%', 'Location', 'southeast')
 
 %Here we set up the axes
@@ -1945,6 +1948,7 @@ xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('\Delta capacity, %')
 design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',font_size);
 design_line.LabelVerticalAlignment = 'bottom';
+yline(0);
 legend('0%', '25%', '50%', '75%', '100%', 'Location', 'southeast')
 
 %Here we set up the axes
@@ -2124,6 +2128,83 @@ bottom = (papersize(2)- figure_height)/2;
 myfiguresize = [left, bottom, figure_width, figure_height];
 set(gcf,'PaperPosition', myfiguresize);
 print('../../figs/ps_cutbacks_turning_angle_surveys','-dpng','-r300');
+
+
+
+
+
+
+%%%%%1D vs 2D trends during minor corrections
+
+
+%physical constants for air at stp
+cp_air = 1010; %[Joules/(kg.K)]
+cv_air = 718; %[Joules/(kg.K)]
+R_air = cp_air-cv_air; %[Joules/(kg.K)]
+g_air = cp_air/cv_air; 
+
+
+%the range of pressure ratios
+r = 0.001:0.001:1;
+
+%the capacity trends
+
+Gamma_air = sqrt( 2*g_air/(R_air*(g_air-1))*r.^(2/g_air).*(1-r.^((g_air-1)...
+    /g_air)) );
+r_crit_air = ((g_air+1)/2)^(g_air/(1-g_air));
+Gamma_crit_air = sqrt(g_air/R_air)*((g_air+1)/2)^((1+g_air)/(2*(1-g_air)));
+for i = 1:length(r)
+    if r(i) < r_crit_air
+        Gamma_air(i) = Gamma_crit_air;
+    end
+end
+
+%work out the inverse pressure ratios and plot the capacities the other way
+%round
+r_inv = 1./r;
+
+
+
+
+
+
+
+figure(21)
+%plot of normalised NGV capacity against NGV pressure ratio
+%plot(T900_capacities_2D(18:28,1), 100*(T900_capacities_2D(18:28,2)./T900_capacities_2D(28,2) - 1), 'b.') %normalised against the capacity of KSZ03 at IPR=1.79
+plot(T900_capacities_2D_oversampled(:,1), 100*(T900_capacities_2D_oversampled(:,2)./T900_capacities_2D(28,2) - 1), 'b-')
+hold on
+plot(r_inv,100*(Gamma_air/Gamma_crit_air-1),'r')
+xlim([1.5 2.5])
+xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
+ylabel('\Delta capacity, %')
+design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',font_size);
+design_line.LabelVerticalAlignment = 'bottom';
+design_line.LabelHorizontalAlignment = 'left';
+choked_line_2d = xline(2.1005,'-b',{'2D choked'},'FontName','Charter','FontSize',font_size);
+choked_line_2d.LabelVerticalAlignment = 'bottom';
+choked_line_2d.LabelHorizontalAlignment = 'right';
+choked_line_1d = xline(1/r_crit_air,'-r',{'1D choked'},'FontName','Charter','FontSize',font_size);
+choked_line_1d.LabelVerticalAlignment = 'bottom';
+choked_line_1d.LabelHorizontalAlignment = 'right';
+yline(0);
+legend('KSZ03 2D','1D', 'Location', 'Best', 'FontName','Charter','FontSize',font_size)
+
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gca,'FontName','Charter','FontSize',font_size)
+
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/t900_1d_vs_2d_capacity_trends','-dpng','-r300');
 
 
 

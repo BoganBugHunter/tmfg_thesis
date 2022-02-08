@@ -4,45 +4,45 @@ The top-level auxiliary file: tmfg_thesis_ver02.aux
 The style file: ieeetr.bst
 Database file #1: tmfg_bibliography_ver01.bib
 Warning--I didn't find a database entry for "gau_te"
-You've used 25 entries,
+You've used 26 entries,
             1876 wiz_defined-function locations,
-            617 strings with 8196 characters,
-and the built_in function-call counts, 5028 in all, are:
-= -- 471
-> -- 233
+            623 strings with 8475 characters,
+and the built_in function-call counts, 5195 in all, are:
+= -- 484
+> -- 244
 < -- 3
-+ -- 88
-- -- 63
-* -- 374
-:= -- 797
-add.period$ -- 27
-call.type$ -- 25
-change.case$ -- 25
++ -- 92
+- -- 66
+* -- 388
+:= -- 826
+add.period$ -- 28
+call.type$ -- 26
+change.case$ -- 26
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 259
-empty$ -- 488
-format.name$ -- 63
-if$ -- 1183
+cite$ -- 26
+duplicate$ -- 268
+empty$ -- 505
+format.name$ -- 66
+if$ -- 1221
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 21
-newline$ -- 80
-num.names$ -- 25
-pop$ -- 67
+int.to.str$ -- 26
+missing$ -- 22
+newline$ -- 83
+num.names$ -- 26
+pop$ -- 70
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 111
+skip$ -- 112
 stack$ -- 0
 substring$ -- 192
-swap$ -- 71
+swap$ -- 72
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 43
-width$ -- 27
-write$ -- 238
+while$ -- 44
+width$ -- 28
+write$ -- 247
 (There was 1 warning)

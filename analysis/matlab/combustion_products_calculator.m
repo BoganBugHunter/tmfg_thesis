@@ -158,8 +158,8 @@ xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('\Delta capacity, %')
 %Here we set up the axes
 pos = get(gcf, 'Position');
-set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
-set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]);
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width);
 set(gca,'FontName','Charter','FontSize',font_size)
 % Here we preserve the size of the image when we save it.
 set(gcf,'InvertHardcopy','on');
@@ -178,17 +178,19 @@ plot(r_inv,Factor_air_hot,'r')
 xlim([1.5,2])
 xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
 ylabel('Error in capacity, %')
-design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',font_size);
+design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',...
+    font_size);
 design_line.LabelVerticalAlignment = 'top';
 design_line.LabelHorizontalAlignment = 'right';
-choked_line = xline(1/r_crit_air,'-k',{'Critical'},'FontName','Charter','FontSize',font_size);
+choked_line = xline(1/r_crit_air,'-k',{'Critical'},'FontName','Charter',...
+    'FontSize',font_size);
 choked_line.LabelVerticalAlignment = 'top';
 choked_line.LabelHorizontalAlignment = 'right';
 legend('Air, 2000 K', 'Product', 'Location', 'Southwest')
 %Here we set up the axes
 pos = get(gcf, 'Position');
-set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]); %<- Set size
-set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width); %<- Set properties
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]);
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width);
 set(gca,'FontName','Charter','FontSize',font_size)
 % Here we preserve the size of the image when we save it.
 set(gcf,'InvertHardcopy','on');

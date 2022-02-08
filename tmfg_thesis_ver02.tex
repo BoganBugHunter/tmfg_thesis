@@ -215,6 +215,7 @@ CFD & Computational fluid dynamics \\
 IC & Internal combustion \\
 FMG & Full multi-grid initialisation (Fluent) \\
 k-$\omega$ SST & Menter's shear stress transport turbulence model \\
+GOM & Gesellschaft f\"ur Optische Messtechnik \\
 2D & 2-dimensional \\
 3D & 3-dimensional \\
 XWB & Extra-wide body (Airbus A350 XWB with Trent XWB) \\
@@ -1174,7 +1175,9 @@ Within the structured boundary mesh, element size was grown so that the outermos
 	\label{fig:t900_mesh_details}
 \end{figure}
 
-The described mesh and boundary condition specifications were used to perform a series of CFD simulations of each of the 6 2D NGVs in Ansys Fluent 2020 R2. Solutions were initialised using the solver's built-in FMG initialisation. This procedure automatically constructs a coarser version of the supplied mesh, on which an initial solution is converged before refinement to the final resolution. More detailed explanation of the scheme is provided by Ansys~\cite{ansys_fmg_initialisation}. A script in the Fluent Journal language was used to produce solutions at incrementally increasing inverse pressure ratios of between $1.5$ and a fully choked inverse pressure ratio of $3.33$. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments of pressure ratio, and typical overall solution times were approximately 10 hours. The k-$\omega$ SST turbulence model was used. For these simulations and all others described in this thesis, convergence was determined by the outlet mass flow rate fluctuating by a factor of $10^{-6}$ or less. Mesh independence was verified by incrementally refining the mesh in Fluent and again confirming the outlet mass flow rate did not fluctuate significantly.
+The described mesh and boundary condition specifications were used to perform a series of CFD simulations of each of the 6 2D NGVs in Ansys Fluent 2020 R2. Solutions were initialised using the solver's built-in FMG initialisation. This procedure automatically constructs a coarser version of the supplied mesh, on which an initial solution is converged before refinement to the final resolution. More detailed explanation of the scheme is provided by Ansys~\cite{ansys_fmg_initialisation}. A script in the Fluent Journal language was used to produce solutions at incrementally increasing inverse pressure ratios of between $1.5$ and a fully choked inverse pressure ratio of $3.33$. NGV mass flow rate was saved at each pressure ratio. Full solution data were saved for the final fully choked pressure ratio to enable analysis of the shocks, expansions and sonic line at choked conditions. There were 32 increments of pressure ratio, and typical overall solution times were approximately 10 hours. The k-$\omega$ SST turbulence model was used. 
+
+For these simulations and all others described in this thesis, convergence was determined by the outlet mass flow rate fluctuating by a factor of $10^{-6}$ or less. Mesh independence was verified by incrementally refining the mesh in Fluent and again confirming the outlet mass flow rate fluctuated by a factor of $10^{-3}$ or less. Sonic line shape was not observably changed by different levels of mesh refinement. This is to be expected since sonic conditions are determined in post-processing by interpolation between adjacent subsonic and supersonic mesh nodes. Velocity gradients across the NGV sonic line are not extreme, and so the sonic location would not be expected to shift significantly if mesh node density changes in the region. This would not be the case for any region of sudden acceleration to supersonic flow through a steep velocity gradient.
 
 \subsection{Effect on 2D capacity}
 
@@ -1204,7 +1207,7 @@ Figure~\ref{fig:t900_mach_whole} shows contours of Mach number for one of the 6 
 
 Figures~\ref{fig:t900_mach_whole} and ~\ref{fig:t900_mach_throat} illustrate the presence of developed supersonic flow phenomena downstream of the throat. Expansion fans are observed as the flow expands through the region labelled A around the NGV trailing edge (which is not shaped this way in reality). Shockwaves are subsequently induced as the effective passage narrows due to the presence of the trailing edge wake. The pressure side shockwave reflects off the suction side of the adjacent NGV at the point labelled B, in a similar fashion to supersonic nozzle shock diamonds. These phenomena are in agreement with commonly seen flow features of NGVs in the supersonic regime. Figure~\ref{fig:t900_mach_throat} also illustrates the growth of a boundary layer on the downstream suction side of the NGV, labelled C. This boundary layer's interaction with the sonic line will be subsequently discussed in the context of its effect on flow capacity.
 
-Figure~\ref{fig:t900_2d_capacity_trends} plots percentage changes in the flow capacity of the 6 NGVs (defined by equation~\ref{capacity_definition} and quantified by the upstream boundary conditions in Table~\ref{T900_parameters}) against inverse pressure ratio $\frac{p_{01}}{p2}$. Capacity changes are normalised against the capacity of vane KSZ03 at the design pressure ratio.
+Figure~\ref{fig:t900_2d_capacity_trends} plots percentage changes in the flow capacity of the 6 NGVs (defined by equation~\ref{capacity_definition} and quantified by the upstream boundary conditions in Table~\ref{T900_parameters}) against inverse pressure ratio $\frac{p_{01}}{p2}$. Capacity changes are normalised against the capacity of vane KSZ03 at the design pressure ratio. An inverse pressure ratio of $1.79$ represents the design cruise condition of the engine, and $2.5$ is taken to be representative of the max take-off thrust condition, as it is the highest pressure ratio examined by the manufacturer in their internal literature.
 
 \begin{figure}[H]
 	\centering
@@ -1224,7 +1227,18 @@ Figure~\ref{fig:t900_2d_capacity_trends} plots percentage changes in the flow ca
 
 Differences are seen to exist between the capacity trends of the 6 NGVs. Across the range of pressure ratios, all 6 NGVs exhibited a range of approximately 4\% capacity difference. Although the NGVs were all fully choked at the greatest inverse pressure ratio, separate NGVs became choked at significantly different pressure ratios, suggesting that the formation of transonic flow features occurred in different locations between the 6 NGVs. The capacity trends are seen to be broadly divided between the M-skew family (K-- serial numbers) and the EP1 family (P-- serial numbers). The 3 M-skew NGVs had comparatively lower flow capacities than the EP1 NGVs at all pressure ratios. The capacities of the EP1 NGVs had comparatively small variation from one another across pressure ratios, but their homogeneity was broken by vane PNS04, which had the lowest flow capacity of the family at low inverse pressure ratio, but switched to have the highest flow capacity at high inverse pressure ratio.
 
-The differing capacity trends may be further discussed by inspecting the shape of the sonic lines formed in the throat regions of the 6 NGVs at a fully choked pressure ratio. These sonic lines are depicted in Figure~\ref{fig:T900_mach1_lines} along with the lines of minimum length between the adjacent NGVs of each standard. 
+All 6 2D capacity trends are dissimilar to the trend of a 1D nozzle. This is illustrated in Figure~\ref{fig:t900_1d_vs_2d_capacity_trends}, which plots the 2D capacity trend of vane KSZ03 alongside the capacity trend of a 1D nozzle. To permit comparison of the trends' qualitative differences and dissimilar choke points, the capacity of each is normalised against its respective choked capacity.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.45\textwidth]{figs/t900_1d_vs_2d_capacity_trends.png}
+	\caption{Capacity of 2D vane KSZ03 and a 1D nozzle as a function of pressure ratio, normalised against choked capacities}
+    \label{fig:t900_1d_vs_2d_capacity_trends}
+\end{figure}
+
+Figure~\ref{fig:t900_1d_vs_2d_capacity_trends} illustrates the main feature typical of computed 2D capacity trends compared to 1D, namely the delayed choke point. This is is explained by the pressure gradient which must exist across any 2D nozzle if flow turning is present. The cross-flow pressure gradient imposes a higher pressure on stream tubes near the NGV pressure side and a lower pressure on stream tubes near the NGV suction side. Consequently stream tubes near the suction side become choked at inverse pressure ratios lower than the 1D critical value, causing the flattening of the 2D capacity trend near this point. Subsequent delayed choking of pressure side stream tubes causes a steepening of the 2D trend and eventual complete choking at a pressure ratio significantly greater than the 1D critical value.
+
+The differences between the 2D capacity trends may be further discussed by inspecting the shape of the sonic lines formed in the throat regions of the 6 NGVs at a fully choked pressure ratio. These sonic lines are depicted in Figure~\ref{fig:T900_mach1_lines} along with the lines of minimum length between the adjacent NGVs of each standard. 
 
 \begin{figure}[H]
       \centering
@@ -1337,7 +1351,9 @@ Figure~\ref{fig:t900_3d_capacity_trends} plots percentage changes in the flow ca
 	\label{fig:t900_3d_capacity_trends}
 \end{figure}
 
-The predominant feature of Figure~\ref{fig:t900_3d_capacity_trends} is the continued rise in capacity with pressure ratio, in contrast to the 2D simulations where capacity plateaued between inverse pressure ratios of $2.0$ and $2.2$ for all $6$ NGVs. This suggests that none of the NGVs reached a fully choked condition over the entire range of pressure ratios. While regions of the NGV span must be choked at these higher inverse pressure ratios, a 3D NGV passage will exhibit secondary flow structures leading to progressive choking. A sufficiently high inverse pressure ratio will result in a flattening of the capacity trend as choking cannot progress further, but this limiting condition is not reached by the range of pressure ratios in the data provided by Rolls-Royce. This alone is sufficient to preclude the present $A_{eff}$ approach in these 3D cases, since it has been shown to be limited even by the presence of thin boundary layers in the 2D cases. In this case, a sonic surface may not exist as a flow-limiting condition, as there are unchoked alternative flow paths across the NGV span.
+The predominant feature of Figure~\ref{fig:t900_3d_capacity_trends} is the continued rise in capacity with pressure ratio, in contrast to the 2D simulations where capacity plateaued between inverse pressure ratios of $2.0$ and $2.2$ for all $6$ NGVs. This suggests that none of the NGVs reached a fully choked condition over the entire range of pressure ratios. While regions of the NGV span must be choked at these higher inverse pressure ratios, a 3D NGV passage will be subject to a radial pressure gradient which will delay choking in a similar way to how a flow-turning pressure gradient delays choking in 2D, as described by Burdett et al~\cite{burdett_capacity} and discussed in Section~\ref{section_1d_vs_2d_capacity_uncertainty}. 3D NGVs also exhibit secondary flow structures leading to areas where velocity is significantly non-aligned with the intended direction of flow through the passage, as described by studies such as Mahmood et al~\cite{mahmood_secondary_flows}. 
+
+A sufficiently high inverse pressure ratio will result in a flattening of the capacity trend as choking cannot progress further, but this limiting condition is not reached by the range of pressure ratios in the data provided by Rolls-Royce. This alone is sufficient to preclude the present $A_{eff}$ approach in these 3D cases, since it has been shown to be limited even by the presence of thin boundary layers in the 2D cases. In this case, a sonic surface may not exist as a flow-limiting condition, as there are unchoked alternative flow paths across the NGV span.
 
 Zamboni~\cite{zamboni_area} defined the Rolls-Royce process for calculating 3D throat area as follows: ``Along each vane span section, the throat line is defined as that line which connects the trailing edge of one vane with the point of minimum distance on the suction surface of the nearby vane in the tangential direction. For a vane with a trailing edge slot, the trailing edge point is defined as the start of the cut back... The throat surface interpolates all the throat lines spanwise.'' It is notable that the engine maker has defined the geometric throat by assuming the trailing edge point to be the start of the cutback. Results in Chapter~\ref{chapter_trailing_edge} show this assumption to be inaccurate, as the 2D sonic line is observed to attach variously at this point or at the very end of the trailing edge, depending on precise cutback size.
 
@@ -2402,6 +2418,213 @@ Finally, in the event that novel material choices, such as CMC, require a thicke
 
 
 \chapter{Matlab post-processing codes}
+
+\section{Combustion product properties calculator}
+\begin{verbatim}
+close all;
+clear variables;
+
+
+%physical constants for air at stp
+cp_air = 1010; %[Joules/(kg.K)]
+cv_air = 718; %[Joules/(kg.K)]
+R_air = cp_air-cv_air; %[Joules/(kg.K)]
+g_air = cp_air/cv_air; 
+
+%physical constants for nitrogen
+cp_n2 = 1040; %[Joules/(kg.K)]
+cv_n2 = 743; %[Joules/(kg.K)]
+R_n2 = cp_n2-cv_n2; %[Joules/(kg.K)]
+g_n2 = cp_n2/cv_n2;
+m_n2 = 28; %[g/mol]
+
+%physical constants for oxygen
+cp_o2 = 919; %[Joules/(kg.K)]
+cv_o2 = 659; %[Joules/(kg.K)]
+R_o2 = cp_o2-cv_o2; %[Joules/(kg.K)]
+g_o2 = cp_o2/cv_o2;
+m_o2 = 32; %[g/mol]
+
+%physical constants for C02
+cp_co2 = 844; %[Joules/(kg.K)]
+cv_co2 = 655; %[Joules/(kg.K)]
+R_co2 = cp_co2-cv_co2; %[Joules/(kg.K)]
+g_co2 = cp_co2/cv_co2;
+m_co2 = 44; %[g/mol]
+
+%physical constants for steam at as close to STP while still superheated
+cp_h2o = 2175; %[Joules/(kg.K)]
+cv_h2o = 1616; %[Joules/(kg.K)]
+R_h2o = cp_h2o-cv_h2o; %[Joules/(kg.K)]
+g_h2o = cp_h2o/cv_h2o;
+m_h2o = 18; %[g/mol]
+
+%properties of air as calculated from its stated constituents
+cp_air_calc = (76.70*cp_n2 + 23.30*cp_o2)/100; %[Joules/(kg.K)]
+cv_air_calc = (76.70*cv_n2 + 23.30*cv_o2)/100; %[Joules/(kg.K)]
+R_air_calc = cp_air_calc-cv_air_calc; %[Joules/(kg.K)]
+g_air_calc = cp_air_calc/cv_air_calc;
+
+%properties of combustion product as calculated from its stated
+%constituents
+cp_air_prod = (71.82*cp_n2 + 20.00*cp_co2 + 8.18*cp_h2o)/100; %[Joules/(kg.K)]
+cv_air_prod = (71.82*cv_n2 + 20.00*cv_co2 + 8.18*cv_h2o)/100; %[Joules/(kg.K)]
+R_air_prod = cp_air_prod-cv_air_prod; %[Joules/(kg.K)]
+g_air_prod = cp_air_prod/cv_air_prod;
+
+%properties of hot air (2000K)
+cp_air_hot = 1241; %[Joules/(kg.K)]
+cv_air_hot = 953.5; %[Joules/(kg.K)]
+R_air_hot = cp_air_hot-cv_air_hot; %[Joules/(kg.K)]
+g_air_hot = cp_air_hot/cv_air_hot;
+
+%how far off are we with the calculated air?
+percentage_change_in_cp_for_calc = 100*(cp_air_calc/cp_air - 1);
+percentage_change_in_cv_for_calc = 100*(cv_air_calc/cv_air - 1);
+percentage_change_in_R_for_calc = 100*(R_air_calc/R_air - 1);
+percentage_change_in_g_for_calc = 100*(g_air_calc/g_air - 1);
+
+%how far off are we with the combustion products?
+percentage_change_in_cp_for_prod = 100*(cp_air_prod/cp_air - 1);
+percentage_change_in_cv_for_prod = 100*(cv_air_prod/cv_air - 1);
+percentage_change_in_R_for_prod = 100*(R_air_prod/R_air - 1);
+percentage_change_in_g_for_prod = 100*(g_air_prod/g_air - 1);
+
+%how far off are we with the hot air?
+percentage_change_in_cp_for_hot = 100*(cp_air_hot/cp_air - 1);
+percentage_change_in_cv_for_hot = 100*(cv_air_hot/cv_air - 1);
+percentage_change_in_R_for_hot = 100*(R_air_hot/R_air - 1);
+percentage_change_in_g_for_hot = 100*(g_air_hot/g_air - 1);
+
+
+%work out the 1D capacity trends for STP air, combustion products, and hot
+%air
+
+%the range of pressure ratios
+r = 0.001:0.001:1;
+
+%the capacity trends
+
+Gamma_air = sqrt( 2*g_air/(R_air*(g_air-1))*r.^(2/g_air).*(1-r.^((g_air-1)...
+    /g_air)) );
+r_crit_air = ((g_air+1)/2)^(g_air/(1-g_air));
+Gamma_crit_air = sqrt(g_air/R_air)*((g_air+1)/2)^((1+g_air)/(2*(1-g_air)));
+for i = 1:length(r)
+    if r(i) < r_crit_air
+        Gamma_air(i) = Gamma_crit_air;
+    end
+end
+
+Gamma_air_calc = sqrt( 2*g_air_calc/(R_air_calc*(g_air_calc-1))*r.^(2/...
+    g_air_calc).*(1-r.^((g_air_calc-1)/g_air_calc)) );
+r_crit_air_calc = ((g_air_calc+1)/2)^(g_air_calc/(1-g_air_calc));
+Gamma_crit_air_calc = sqrt(g_air_calc/R_air_calc)*((g_air_calc+1)/2)^...
+    ((1+g_air_calc)/(2*(1-g_air_calc)));
+for i = 1:length(r)
+    if r(i) < r_crit_air_calc
+        Gamma_air_calc(i) = Gamma_crit_air_calc;
+    end
+end
+
+Gamma_air_prod = sqrt( 2*g_air_prod/(R_air_prod*(g_air_prod-1))*r.^(2/...
+    g_air_prod).*(1-r.^((g_air_prod-1)/g_air_prod)) );
+r_crit_air_prod = ((g_air_prod+1)/2)^(g_air_prod/(1-g_air_prod));
+Gamma_crit_air_prod = sqrt(g_air_prod/R_air_prod)*((g_air_prod+1)/2)^...
+    ((1+g_air_prod)/(2*(1-g_air_prod)));
+for i = 1:length(r)
+    if r(i) < r_crit_air_prod
+        Gamma_air_prod(i) = Gamma_crit_air_prod;
+    end
+end
+
+Gamma_air_hot = sqrt( 2*g_air_hot/(R_air_hot*(g_air_hot-1))*r.^...
+    (2/g_air_hot).*(1-r.^((g_air_hot-1)/g_air_hot)) );
+r_crit_air_hot = ((g_air_hot+1)/2)^(g_air_hot/(1-g_air_hot));
+Gamma_crit_air_hot = sqrt(g_air_hot/R_air_hot)*((g_air_hot+1)/2)^...
+    ((1+g_air_hot)/(2*(1-g_air_hot)));
+for i = 1:length(r)
+    if r(i) < r_crit_air_hot
+        Gamma_air_hot(i) = Gamma_crit_air_hot;
+    end
+end
+
+%normalise each trend against the cold air trend
+Factor_air_calc = 100*(Gamma_air_calc./Gamma_air-1);
+Factor_air_prod = 100*(Gamma_air_prod./Gamma_air-1);
+Factor_air_hot = 100*(Gamma_air_hot./Gamma_air-1);
+
+%work out the inverse pressure ratios and plot the capacities the other way
+%round
+r_inv = 1./r;
+
+
+% Default figure settings
+figure_width = 4;     % Width in inches
+figure_height = 4;    % Height in inches
+axes_line_width = 0.75;    % AxesLineWidth
+font_size = 14;      % Fontsize
+line_width = 1.5;      % LineWidth
+marker_size = 8;       % MarkerSize
+
+figure(1)
+plot(r_inv,100*(Gamma_air/Gamma_crit_air-1),'k')
+
+hold on
+plot(r_inv,100*(Gamma_air_hot/Gamma_crit_air-1),'r')
+plot(r_inv,100*(Gamma_air_prod/Gamma_crit_air-1),'b')
+xline(1/r_crit_air,'k')
+xline(1/r_crit_air_hot,'r')
+xline(1/r_crit_air_prod,'b')
+xlim([1.5,2])
+legend('Air, 300 K', 'Air, 2000 K', 'Product', 'Location', 'Southeast')
+xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
+ylabel('\Delta capacity, %')
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]);
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width);
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/combustion_products_capacities','-dpng','-r300');
+
+figure(2)
+plot(r_inv,Factor_air_prod,'b')
+hold on
+plot(r_inv,Factor_air_hot,'r')
+xlim([1.5,2])
+xlabel('NGV pressure ratio, $\frac{p_{01}}{p_2}$','Interpreter','latex')
+ylabel('Error in capacity, %')
+design_line = xline(1.79,'-k',{'Design'},'FontName','Charter','FontSize',...
+    font_size);
+design_line.LabelVerticalAlignment = 'top';
+design_line.LabelHorizontalAlignment = 'right';
+choked_line = xline(1/r_crit_air,'-k',{'Critical'},'FontName','Charter',...
+    'FontSize',font_size);
+choked_line.LabelVerticalAlignment = 'top';
+choked_line.LabelHorizontalAlignment = 'right';
+legend('Air, 2000 K', 'Product', 'Location', 'Southwest')
+%Here we set up the axes
+pos = get(gcf, 'Position');
+set(gcf, 'Position', [pos(1) pos(2) figure_width*100, figure_height*100]);
+set(gca, 'FontSize', font_size, 'LineWidth', axes_line_width);
+set(gca,'FontName','Charter','FontSize',font_size)
+% Here we preserve the size of the image when we save it.
+set(gcf,'InvertHardcopy','on');
+set(gcf,'PaperUnits', 'inches');
+papersize = get(gcf, 'PaperSize');
+left = (papersize(1)- figure_width)/2;
+bottom = (papersize(2)- figure_height)/2;
+myfiguresize = [left, bottom, figure_width, figure_height];
+set(gcf,'PaperPosition', myfiguresize);
+print('../../figs/combustion_products_capacities_errors','-dpng','-r300');
+\end{verbatim}
 
 \section{Geometric throat width calculator}
 \begin{verbatim}
