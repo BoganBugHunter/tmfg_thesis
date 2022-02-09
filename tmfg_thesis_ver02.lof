@@ -44,18 +44,18 @@
 \contentsline {figure}{\numberline {4.24}{\ignorespaces Loss as a function of pressure-side cutback amount for a Trent 900 NGV at $\frac {p_{01}}{p_2}=1.79$\relax }}{73}
 \contentsline {figure}{\numberline {4.25}{\ignorespaces Loss delta as a function of capacity delta over the full range of cutbacks for the Trent 900 pressure-side cutback study at $PR=1.79$\relax }}{73}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Range of locations for a single suction-side film cooling hole on a Trent XWB NGV\relax }}{76}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Range of locations for a single suction-side film cooling hole on a Trent XWB NGV\relax }}{77}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Computational domain and boundaries for simulating a film cooling hole and plenum on the suction side of a Trent XWB NGV\relax }}{77}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Detail of mesh for XWB single cooling hole study\relax }}{79}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Mach contours for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$, labelled by position of single suction-side film cooling hole - part 1 of 2\relax }}{80}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Mach contours for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$, labelled by position of single suction-side film cooling hole - part 2 of 2\relax }}{81}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Mach contours near single cooling hole for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$, labelled by position of single suction-side film cooling hole - part 1 of 2\relax }}{82}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Mach contours near single cooling hole for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$, labelled by position of single suction-side film cooling hole - part 2 of 2\relax }}{83}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position on the Trent XWB suction side surface at $\frac {p_{01}}{p_2}=1.65$\relax }}{84}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Total capacity percentage delta as a function of surface isentropic Mach number for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$\relax }}{85}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Coolant capacity percentage delta as a function of single cooling hole position for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$\relax }}{86}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Coolant capacity percentage delta as a function of coolant isentropic capacity percentage delta for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$\relax }}{87}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Loss as a function of single cooling hole position for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$\relax }}{88}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Detail of mesh for XWB single cooling hole study\relax }}{80}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Mach contours for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$, labelled by position of single suction-side film cooling hole - part 1 of 2\relax }}{81}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Mach contours for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$, labelled by position of single suction-side film cooling hole - part 2 of 2\relax }}{82}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Mach contours near single cooling hole for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$, labelled by position of single suction-side film cooling hole - part 1 of 2\relax }}{83}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Mach contours near single cooling hole for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$, labelled by position of single suction-side film cooling hole - part 2 of 2\relax }}{84}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Total capacity percentage delta as a function of single cooling hole position on the Trent XWB suction side surface at $\frac {p_{01}}{p_2}=1.65$\relax }}{85}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Total capacity percentage delta as a function of surface isentropic Mach number for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$\relax }}{86}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Coolant capacity percentage delta as a function of single cooling hole position for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$\relax }}{87}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Coolant capacity percentage delta as a function of coolant isentropic capacity percentage delta for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$\relax }}{88}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Loss as a function of single cooling hole position for Trent XWB film cooling study at $\frac {p_{01}}{p_2}=1.65$\relax }}{89}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

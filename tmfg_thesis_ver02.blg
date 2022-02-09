@@ -3,10 +3,9 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tmfg_thesis_ver02.aux
 The style file: ieeetr.bst
 Database file #1: tmfg_bibliography_ver01.bib
-Warning--I didn't find a database entry for "gau_te"
 You've used 26 entries,
             1876 wiz_defined-function locations,
-            623 strings with 8475 characters,
+            622 strings with 8469 characters,
 and the built_in function-call counts, 5195 in all, are:
 = -- 484
 > -- 244
@@ -45,4 +44,3 @@ warning$ -- 0
 while$ -- 44
 width$ -- 28
 write$ -- 247
-(There was 1 warning)

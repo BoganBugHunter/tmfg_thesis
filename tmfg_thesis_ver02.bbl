@@ -25,6 +25,12 @@ A.~P. Melzer and G.~Pullan, ``The role of vortex shedding in the trailing edge
   loss of transonic turbine blades,'' {\em ASME Journal of Turbomachinery},
   vol.~141, no.~4, 2019.
 
+\bibitem{gao_te}
+J.~Gau, M.~Wei, W.~Fu, Q.~Zheng, and G.~Yue, ``Experimental and numerical
+  investigations of trailing edge injection in a transonic turbine cascade,''
+  {\em Elsevier Journal of Aerospace Science and Technology}, vol.~92,
+  pp.~258--268, 2019.
+
 \bibitem{he_film_cooling}
 W.~He, Q.~Deng, W.~Zhou, T.~Gau, and Z.~Feng, ``Film cooling and aerodynamic
   performances of a turbine nozzle guide vane t with trenched cooling holes,''
@@ -61,12 +67,6 @@ L.~Jiang, X.~Wu, and Z.~Zhang, ``Conjugate heat transfer of an internally
 \bibitem{menter_turbulence_models}
 F.~R. Menter, ``Two-equation eddy-viscosity turbulence models for engineering
   applications,'' {\em AIAA Journal}, vol.~32, no.~8, pp.~1598--1605, 1994.
-
-\bibitem{gao_te}
-J.~Gau, M.~Wei, W.~Fu, Q.~Zheng, and G.~Yue, ``Experimental and numerical
-  investigations of trailing edge injection in a transonic turbine cascade,''
-  {\em Elsevier Journal of Aerospace Science and Technology}, vol.~92,
-  pp.~258--268, 2019.
 
 \bibitem{giel_te_thickness}
 P.~W. Giel, V.~Shyam, P.~Juangphanich, and J.~P. Clark, ``Effects of trailing
